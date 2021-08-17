@@ -1,20 +1,17 @@
 <?php
- 
+
 session_start();
 
-require '../vendor/autoload.php'; // caminho relacionado a SDK
- 
+/* Require todas as classes necessárias */
+require '../vendor/autoload.php';
+
+/* Abre a classe gerencianet */
 use Gerencianet\Exception\GerencianetException;
 use Gerencianet\Gerencianet;
- 
-$clientId = 'Client_Id_f59589b32e4af8c830014d5f7a4caec26741770d';
-$clientSecret = 'Client_Secret_ba04464d354e740abc603c2e7005b4b097b9234c'; 
- 
-$options = [
-  'client_id' => $clientId,
-  'client_secret' => $clientSecret,
-  'sandbox' => true // altere conforme o ambiente (true = Homologação e false = producao)
-];
+
+/* Adiciona o json que contém o client_id e client_secret */
+$file = file_get_contents('config.json');
+$options = json_decode($file, true);
  
 // $charge_id refere-se ao ID da transação gerada anteriormente
 $params = [
