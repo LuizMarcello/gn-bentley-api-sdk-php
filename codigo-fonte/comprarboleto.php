@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title>Bentley Juruena</title>
+    <title>Boletos</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -37,28 +37,21 @@
     </header>
 
     <main>
-        <div>
-            <img src="img/cabecalhositebentley.jpg" height="90%" width="90%" style="padding: 110px 110px 70px 110px;">
-        </div>
-
-        <a href="comprarboleto.php">Comprar com boleto</a>
-        <br>
-        <a href="comprarcartao.php">Comprar com cartão de crédito</a>
-
-        <!-- FOOTER -->
-        <footer class="main-footer">
-            <div style="padding: 20px 20px 20px 20px;">
-                <div class="float-right d-none d-sm-block">
-                    <b>Satellite Broadband Networks</b> 1.0-rc
-                </div>
-                <strong>Copyright &copy; <a href="https://adminlte.io"> Bentley Brasil
-                        - Projeto
-                        Juruena</a>.</strong> Todos os direitos reservados
-            </div>
-        </footer>
+        <h2>Gerador de boletos</h2>
+        <form action="transacao.php" method="post">
+            <input type="text" name="nome" placeholder="Nome completo">
+            <input type="mail" name="email" placeholder="E-mail">
+            <input type="number" name="fone" placeholder="Telefone">
+            <input type="number" name="cpf" placeholder="CPF válido">
+            <input type="text" name="produto" placeholder="Nome do produto">
+            <input type="number" name="valor" placeholder="Valor">
+            <p>Data de vencimento</p>
+            <input type="date" name="vencimento">
+            <button type="submit" class="btn" name="gerarBoleto">Gerar Boleto</button>
+        </form>
     </main>
 
-   <!--  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
         integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
