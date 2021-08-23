@@ -8,8 +8,7 @@
 
     <title>Bentley Juruena</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -17,9 +16,7 @@
     <header>
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
             <div class="container-fluid">
-
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
-                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -27,9 +24,11 @@
                         <span class="brand-text font-weight-light">
                             <img height="80" src="https://sistema.bentleybrasil.com.br/img/logo-empresa-br.png">
                         </span>
-                        <a class="nav-link" aria-current="page" href="">Home</a>
 
-                        <a class="nav-link" href="">Detalhes dos Produtos</a>
+                        <div style="margin: 0 0 0 30px;">
+                            <a class="nav-link" aria-current="page" href="">Home</a>
+                            <a class="nav-link" href="">Detalhes dos Produtos</a>
+                        </div>
                     </ul>
                 </div>
             </div>
@@ -38,13 +37,20 @@
 
     <main>
         <div>
-            <img src="img/cabecalhositebentley.jpg" height="90%" width="90%" style="padding: 110px 110px 70px 110px;">
+            <!--  <img src="img/cabecalhositebentley.jpg" height="90%" width="90%" style="padding: 110px 110px 70px 110px;"> -->
+            <img src="img/cabecalhositebentley.jpg" height="100%" width="100%" style="margin: 30px 5px 5px 5px;">
         </div>
 
-        <a href="comprarboleto.php">Comprar com boleto</a>
-        <br>
-        <a href="comprarcartao.php">Comprar com cartão de crédito</a>
-
+        <div style="margin-top: 30px;">
+            <span class="float-left">
+                <a href="comprarboleto.php">Comprar com boleto</a>
+            </span>
+            <br>
+            <br>
+            <span class="float-right">
+                <a href="comprarcartao.php">Comprar com cartão de crédito</a>
+            </span>
+        </div>
         <!-- FOOTER -->
         <footer class="main-footer">
             <div style="padding: 20px 20px 20px 20px;">
@@ -58,7 +64,7 @@
         </footer>
     </main>
 
-   <!--  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+    <!--  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
         integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"

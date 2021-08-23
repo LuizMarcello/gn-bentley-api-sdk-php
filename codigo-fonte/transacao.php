@@ -38,9 +38,9 @@ if (isset($boleto['gerarBoleto'])) {
     'name' => $boleto['produto'], // nome do item, produto ou serviço
     'amount' => 1, // quantidade
     'value' => intval($boleto['valor']) // valor (1000 = R$ 10,00)
-                                        // (Obs: É possível a criação de itens com valores negativos. Porém, 
-                                        // o valor total da fatura deve ser superior ao valor mínimo para 
-                                        // geração de transações.)
+    // (Obs: É possível a criação de itens com valores negativos. Porém, 
+    // o valor total da fatura deve ser superior ao valor mínimo para 
+    // geração de transações.)
   ];
 
   $items =  [
@@ -55,7 +55,10 @@ if (isset($boleto['gerarBoleto'])) {
     $api = new Gerencianet($options);
     $charge = $api->createCharge([], $body);
 
-    print_r($charge);
+    //print_r($charge);
+    header("Location: gerar-boleto.php?id=" . $charge['data']['charge_id'] . "&nome="
+      . $boleto['nome'] . "&cpf=" . $boleto['cpf'] . "&fone=" . $boleto['fone']
+      . "&vencimento=" . $boleto['vencimento']);
   } catch (GerencianetException $e) {
     print_r($e->code);
     print_r($e->error);
