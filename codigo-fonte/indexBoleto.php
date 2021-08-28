@@ -1,3 +1,13 @@
+<?php 
+    session_start();
+    if(!isset($_SESSION['id_usuario']))
+    {
+        header("location: logar.php");
+        exit;
+    }
+?>
+
+
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -44,12 +54,13 @@ and open the template in the editor.
                     <li class=""><a href="https://dev.gerencianet.com.br/docs">Documentação</a></li>
                     <li class=""><a href="https://dev.gerencianet.com.br/docs/fale-conosco">Contatos</a></li>
                     <li class=""><a href="index.php">Home</a></li>
+                    <li class=""><a href="sair.php">Logoff Bentley</a></li>
 
                 </ul>
 
 
                 <ul class="nav navbar-nav pull-right">
-                    <li><a target="blank" href="https://gerencianet.com.br/#login">Entrar</a>
+                    <li><a target="blank" href="https://gerencianet.com.br/#login">Entrar na gerencianet</a>
                     </li>
                     <li><a target="blank" href="https://gerencianet.com.br/#abrirconta">Abra sua conta</a>
                     </li>
@@ -120,10 +131,6 @@ and open the template in the editor.
                     <button id="btn_emitir_boleto" type="button" class="btn btn-success">Emitir boleto <img
                             src="../img/ok-mark.png"></button>
                 </div>
-
-
-
-
 
         </div>
         </form>
