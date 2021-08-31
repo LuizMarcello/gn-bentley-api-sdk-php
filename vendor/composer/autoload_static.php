@@ -18,11 +18,19 @@ class ComposerStaticInit00e9157ecf50ca756b9f47f8f07bfcea
             'Psr\\Http\\Message\\' => 17,
             'Psr\\Http\\Client\\' => 16,
         ),
+        'M' => 
+        array (
+            'Mpdf\\QrCode\\' => 12,
+        ),
         'G' => 
         array (
             'GuzzleHttp\\Psr7\\' => 16,
             'GuzzleHttp\\Promise\\' => 19,
             'GuzzleHttp\\' => 11,
+        ),
+        'A' => 
+        array (
+            'App\\' => 4,
         ),
     );
 
@@ -36,6 +44,10 @@ class ComposerStaticInit00e9157ecf50ca756b9f47f8f07bfcea
         array (
             0 => __DIR__ . '/..' . '/psr/http-client/src',
         ),
+        'Mpdf\\QrCode\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/mpdf/qrcode/src',
+        ),
         'GuzzleHttp\\Psr7\\' => 
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/psr7/src',
@@ -47,6 +59,10 @@ class ComposerStaticInit00e9157ecf50ca756b9f47f8f07bfcea
         'GuzzleHttp\\' => 
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/guzzle/src',
+        ),
+        'App\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/codigo-fonte/app',
         ),
     );
 
