@@ -61,20 +61,18 @@ and open the template in the editor.
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
 
-                    <li class=""><a href="https://dev.gerencianet.com.br/docs">Documentação</a></li>
-                    <li class=""><a href="https://dev.gerencianet.com.br/docs/fale-conosco">Contatos</a></li>
-                    <li class=""><a href="index.php">Home</a></li>
-
+                    <!-- <li class=""><a href="https://dev.gerencianet.com.br/docs">Documentação</a></li> -->
+                    <!-- <li class=""><a href="https://dev.gerencianet.com.br/docs/fale-conosco">Contatos</a></li> -->
+                    <li class=""><a href="index.php">Voltar a Bentley Brasil</a></li>
+                     <!-- <li class=""><a href="sair.php">Logoff Bentley</a></li> -->
                 </ul>
-
 
                 <ul class="nav navbar-nav pull-right">
-                    <li><a target="blank" href="https://gerencianet.com.br/#login">Entrar</a>
+                    <!-- <li><a target="blank" href="https://gerencianet.com.br/#login">Entrar</a> -->
                     </li>
-                    <li><a target="blank" href="https://gerencianet.com.br/#abrirconta">Abra sua conta</a>
+                    <!--  <li><a target="blank" href="https://gerencianet.com.br/#abrirconta">Abra sua conta</a> -->
                     </li>
                 </ul>
-
 
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
@@ -217,9 +215,9 @@ and open the template in the editor.
                 </div>
                 <div class="col-lg-12">
                     <button id="ver_parcelas" type="button" class="btn btn-default"> Definir número de parcelas <img
-                            src="../img/next.png"></button>
+                            src="./img/next.png"></button>
                     <button id="btn_pg_cartao" type="button" class="btn btn-success hide"> Confirmar pagamento <img
-                            src="../img/ok-mark.png"></button>
+                            src="./img/ok-mark.png"></button>
                 </div>
 
 
@@ -228,7 +226,8 @@ and open the template in the editor.
 
         </div>
         </form>
-        <div class="col-lg-4">
+
+        <!-- <div class="col-lg-4">
             <div class="col-lg-12">
                 <div class="col-lg-2"></div>
                 <div class="col-lg-8">
@@ -239,7 +238,7 @@ and open the template in the editor.
 
                     </div>
                     <a href="../dw-boleto.zip" class="btn btn-block btn-default">Baixar este exemplo <br> <img
-                            src="../img/cloud-computing.png"></a>
+                            src="./img/cloud-computing.png"></a>
                 </div>
                 <div class="col-lg-2"></div>
             </div>
@@ -267,7 +266,7 @@ and open the template in the editor.
                 <div class="col-lg-2"></div>
             </div>
 
-        </div>
+        </div> -->
 
         <!--div responsável por exibir o resultado da emissão do boleto-->
         <div id="boleto" class="col-lg-8 hide">
@@ -309,7 +308,7 @@ and open the template in the editor.
                     <h4 class="modal-title" id="myModalLabel">Um momento.</h4>
                 </div>
                 <div class="modal-body">
-                    Estamos processando a requisição <img src="../img/ajax-loader.gif">.
+                    Estamos processando a requisição <img src="./img/ajax-loader.gif">.
                 </div>
                 <div class="modal-footer">
 
@@ -324,18 +323,25 @@ and open the template in the editor.
 
         <div class="container-fluid text-center">
 
-            <img src="https://gerencianet.com.br/wp-content/themes/Gerencianet/images/marca-gerencianet.svg"
+            <!-- <img src="https://gerencianet.com.br/wp-content/themes/Gerencianet/images/marca-gerencianet.svg"
                 onerror="this.onerror=null; this.src='images/marca-gerencianet.png'"
                 alt="Gerencianet - Conceito em Pagamentos" width="218" height="27">
             <div class="content-footer">
                 © 2007-2016 Gerencianet. Todos os direitos reservados.<br />
                 Gerencianet Pagamentos do Brasil Ltda. • CNPJ: 09.089.356/0001-18<br />
                 Avenida Juscelino Kubitschek, 909 - Ouro Preto, Minas Gerais<br />
-            </div>
+            </div> -->
+            <div>
+                <div class="float-right d-none d-sm-block">
+                    <b>Satellite Broadband Networks</b> 1.0-rc
+                </div>
+                <strong>Copyright &copy; <a href="https://adminlte.io"> Bentley Brasil
+                        - Projeto
+                        Juruena</a>.</strong> Todos os direitos reservados
 
 
-        </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
     </div>
 </body>
 

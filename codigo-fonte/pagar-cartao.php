@@ -1,6 +1,8 @@
 <?php
 
-require __DIR__ . '/../api/vendor/autoload.php';
+session_start();
+
+require '../vendor/autoload.php';
 
 use Gerencianet\Exception\GerencianetException;
 use Gerencianet\Gerencianet;
