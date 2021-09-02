@@ -83,7 +83,7 @@ $u = new Usuario;
     $confsenha = addslashes($_POST['confsenha']);
     //Verificando se está preenchido, se tem algum campo em branco
     if (!empty($nome) && !empty($telefone) && !empty($email) && !empty($senha) && !empty($confsenha)) {
-      $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
+      $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
       if ($u->msgErro == "") //Vazia está tudo OK.
       {
         if ($senha == $confsenha) {
