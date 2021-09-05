@@ -159,10 +159,14 @@ class Api
     //Executa o CURL
     $response = curl_exec($curl);
     curl_close($curl);
+ 
+    //O "true" força para que a resposta seja um array.
+    //Retorna o array da resposta
+    return json_decode($response, true);
 
-    echo "<pre>";
+    /* echo "<pre>";
     print_r($response);
     echo "</pre>";
-    exit;
+    exit; */
   }
 }

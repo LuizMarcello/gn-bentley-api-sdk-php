@@ -78,7 +78,7 @@ use Mpdf\QrCode\Output;
       'Client_Id_adf60ba7ea206de2b1fd2054a7e00a93c66daf96',
       'Client_Secret_0cf0babdc5a54e32050a422d2067dc5c93e574bc',
       __DIR__ . '/certificates/certificadobentleygerencianet.pem'
-      
+
     );
 
     //Corpo da requisição
@@ -101,17 +101,32 @@ use Mpdf\QrCode\Output;
     //Variável para guardar a reposta do PSP gerencianet:
     //txid: No QrCode dinámico, no mínimo 26 caracteres e
     //no máximo 35 caracteres, letras e números.
-    $response = $obApiPix->createCob('bentleybrasil12345678912345', $request);
+    $response = $obApiPix->createCob('bentlerail12345689luizmacellol', $request);
 
-    /* echo "<pre>";
-    print_r($response);
-    echo "</pre>";
-    exit; */
+    if (!isset($response['location'])) {
+      echo 'Problemas ao gerar pix dinâmico';
+      echo "<pre>";
+      print_r($response);
+      echo "</pre>";
+      exit;
+    }
+
+    //Instancia principal do PAYLOAD PIX
+    $obPayload = (new Payload)
+      ->setMerchantName('Marcelo da Silva')
+      ->setMerchantCity('Londrina')
+      ->setAmount($response['valor']['original'])
+      ->setTxid($response['txid'])
+      ->setUrl($response['location'])
+      ->setUniquePayment(true);
+
+    //Código de pagamento PIX
+    $payloadQrCode = $obPayload->getPayload();
 
     ?>
 
     <!-- FOOTER -->
-    <!-- <footer class="main-footer">
+    <footer class="main-footer">
       <div>
         <div class="float-right d-none d-sm-block">
           <b>Satellite Broadband Networks</b> 1.0-rc
@@ -120,7 +135,7 @@ use Mpdf\QrCode\Output;
             - Projeto
             Juruena</a>.</strong> Todos os direitos reservados
       </div>
-    </footer> -->
+    </footer>
   </main>
 
 </body>

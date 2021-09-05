@@ -57,10 +57,10 @@ session_start();
 
 
         <div>
-            <img src="img/palavracomprar.jpg" width="150px" height="130px">
-            <button type="button" class="btn btn-outline-primary btn-sm"><img src="img/boleto-logo.svg" width="120px" height="80px"></button>
-            <button type="button" class="btn btn-outline-primary btn-sm"><img src="img/credit-cards.png" width="120px" height="80px"></button>
-            <button type="button" class="btn btn-outline-primary btn-sm"><img src="img/logo-pix.png" width="120px" height="80px"></button>
+            <img src="img/palavracomprar.jpg" width="140px" height="120px">
+            <button type="button" class="btn btn--outline-primary btn-sm"><img src="img/boleto-logo.svg" width="130px" height="90px"></button>
+            <button type="button" class="btn btn--outline-primary btn-sm"><img src="img/credit-cards.png" width="110px" height="70px"></button>
+            <button type="button" class="btn btn--outline-primary btn-sm"><img src="img/logo-pix.png" width="140px" height="100px"></button>
         </div>
 
         <!-- <div style="margin-top: 130px;">
