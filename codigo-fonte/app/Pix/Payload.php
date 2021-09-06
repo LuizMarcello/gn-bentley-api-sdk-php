@@ -177,7 +177,7 @@ class Payload
     $gui = $this->getValue(self::ID_MERCHANT_ACCOUNT_INFORMATION_GUI, 'br.gov.bcb.pix');
 
     //Chave Pix
-    $key = strlen($this->key) ? $this->getValue(
+    $key = strlen($this->pixKey) ? $this->getValue(
       self::ID_MERCHANT_ACCOUNT_INFORMATION_KEY,
       $this->pixKey
     ) : '';
@@ -191,8 +191,8 @@ class Payload
     //URL do QR code dinâmico
     $url = strlen($this->url) ? $this->getValue(
       self::ID_MERCHANT_ACCOUNT_INFORMATION_URL,
-      $this->url
-    ) : '';
+      preg_replace('/^https?\:\/\//', '', $this->url)
+    ) : ''; //Fazendo o "https" sumir da url gerada.
 
     //Retornando o valor completo da conta
     return $this->getValue(self::ID_MERCHANT_ACCOUNT_INFORMATION, $gui . $key . $description . $url);

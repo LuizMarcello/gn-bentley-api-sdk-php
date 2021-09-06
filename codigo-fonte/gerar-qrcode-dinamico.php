@@ -89,19 +89,19 @@ use Mpdf\QrCode\Output;
       ],
       'devedor' => [
         'cpf' => '07178216921',
-        'nome' => 'José Marcello'
+        'nome' => 'José Marcello Gpoulart'
       ],
       'valor' => [
-        'original' => '10.00'
+        'original' => '12345.78'
       ],
       'chave' => 'financeiro@bentleybrasil.com.br',
-      'solicitacaoPagador' => 'Pagamento do pedido 123'
+      'solicitacaoPagador' => 'Pagamento do pedido 123456'
     ];
 
     //Variável para guardar a reposta do PSP gerencianet:
     //txid: No QrCode dinámico, no mínimo 26 caracteres e
     //no máximo 35 caracteres, letras e números.
-    $response = $obApiPix->createCob('bentlerail12345689luizmacellol', $request);
+    $response = $obApiPix->createCob('brenterjji3477888lllzmmaycellol', $request);
 
     if (!isset($response['location'])) {
       echo 'Problemas ao gerar pix dinâmico';
@@ -113,7 +113,8 @@ use Mpdf\QrCode\Output;
 
     //Instancia principal do PAYLOAD PIX
     $obPayload = (new Payload)
-      ->setMerchantName('Marcelo da Silva')
+      /* ->setMerchantName('Marcelo da Silva') */
+      ->setMerchantName($response['devedor']['nome'])
       ->setMerchantCity('Londrina')
       ->setAmount($response['valor']['original'])
       ->setTxid($response['txid'])
@@ -122,6 +123,12 @@ use Mpdf\QrCode\Output;
 
     //Código de pagamento PIX
     $payloadQrCode = $obPayload->getPayload();
+
+    echo "<pre>";
+    print_r($payloadQrCode);
+    echo "</pre>";
+    exit;
+
 
     ?>
 
