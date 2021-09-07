@@ -57,6 +57,20 @@ class Api
     return $this->send('PUT', '/v2/cob/' . $txid, $request);
   }
 
+
+  /**
+   * 
+   * Método responsável por consultar uma cobrança imediata.
+   * @param string $txid
+   * 
+   * @return array
+   */
+  public function consultCob($txid)
+  {
+    return $this->send('GET', '/v2/cob/' . $txid);
+  }
+
+
   /**
    * Método responsável por obter o token de acesso às APIs Pix
    *
@@ -133,7 +147,7 @@ class Api
       'Authorization: Bearer ' . $this->getAccessToken()
     ];
 
-     /* echo "<pre>";
+    /* echo "<pre>";
     print_r($headers);
     echo "</pre>";
     exit; */
@@ -152,14 +166,14 @@ class Api
     switch ($method) {
       case 'POST':
       case 'PUT':
-        curl_setopt($curl, CURLOPT_POSTFIELDS,json_encode($request));
+        curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($request));
         break;
     }
 
     //Executa o CURL
     $response = curl_exec($curl);
     curl_close($curl);
- 
+
     //O "true" força para que a resposta seja um array.
     //Retorna o array da resposta
     return json_decode($response, true);

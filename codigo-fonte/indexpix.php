@@ -8,10 +8,30 @@ if (!isset($_SESSION['id_usuario'])) {
   exit;
 }
 
-use \App\Pix\Api;
-use \App\Pix\Payload;
+use App\Pix\Payload;
 use Mpdf\QrCode\QrCode;
 use Mpdf\QrCode\Output;
+
+//Instancia principal do PAYLOAD PIX
+$obPayload = (new Payload)->setPixKey('48274402987')
+  ->setDescription('Pagamento do pedido 123456')
+  ->setMerchantName('Marcelo da Silva')
+  ->setMerchantCity('Londrina')
+  ->setAmount(100.00)
+  ->setTxid('IMCL1234');
+
+//Código de pagamento PIX
+$payloadQrCode = $obPayload->getPayload();
+
+//Instância do QR CODE
+$obQrCode = new QrCode($payloadQrCode);
+
+//Imagem do QRCODE
+$image = (new Output\Png)->output($obQrCode, 400);
+
+//Imprimindo apenas a imagem do QRCODE:
+/* header('Content-Type: image/png');
+echo $image; */
 
 ?>
 
@@ -44,8 +64,8 @@ use Mpdf\QrCode\Output;
           </button>
           <a class="navbar-brand" href="/codigos-documentacao/">
             <img src="https://gerencianet.com.br/wp-content/themes/Gerencianet/images/marca-gerencianet.svg"
-             onerror="this.onerror=null; this.src='img/marca-gerencianet.png'" alt="Gerencianet - Conceito em Pagamentos"
-              width="218" height="31">
+             onerror="this.onerror=null; this.src='img/marca-gerencianet.png'" alt="Gerencianet - Conceito em Pagamentos" 
+             width="218" height="31">
           </a>
         </div>
 
@@ -72,98 +92,10 @@ use Mpdf\QrCode\Output;
   </header>
 
   <main>
-    <h3>QR CODE DINÂMICO DO PIX</h3>
-
-    <?php
-    //Instância da API PIX
-    $obApiPix = new Api(
-      'https://api-pix-h.gerencianet.com.br',
-      'Client_Id_adf60ba7ea206de2b1fd2054a7e00a93c66daf96',
-      'Client_Secret_0cf0babdc5a54e32050a422d2067dc5c93e574bc',
-      __DIR__ . '/certificates/certificadobentleygerencianet.pem'
-
-    );
-
-    //Corpo da requisição
-    //Requisição (request) que será enviada ao PSP gerencianet:
-    $request = [
-      'calendario' => [
-        'expiracao' => 3600
-      ],
-      'devedor' => [
-        'cpf' => '07178216921',
-        'nome' => 'José Marcello Gpoulart'
-      ],
-      'valor' => [
-        'original' => '12345.78'
-      ],
-      'chave' => 'financeiro@bentleybrasil.com.br',
-      'solicitacaoPagador' => 'Pagamento do pedido 123456'
-    ];
-
-    //Variável para guardar a reposta do PSP gerencianet:
-    //txid: No QrCode dinámico, no mínimo 26 caracteres e
-    //no máximo 35 caracteres, letras e números.
-    $response = $obApiPix->createCob('brenterjji34787888ll456maycellol', $request);
-
-    if (!isset($response['location'])) {
-      echo 'Problemas ao gerar pix dinâmico';
-      echo "<pre>";
-      print_r($response);
-      echo "</pre>";
-      exit;
-    }
-
-    //Instancia principal do PAYLOAD PIX
-    $obPayload = (new Payload)
-      /* ->setMerchantName('Marcelo da Silva') */
-      ->setMerchantName($response['devedor']['nome'])
-      ->setMerchantCity('Londrina')
-      ->setAmount($response['valor']['original'])
-      ->setTxid($response['txid'])
-      ->setUrl($response['location'])
-      ->setUniquePayment(true);
-
-    //Código de pagamento PIX
-    $payloadQrCode = $obPayload->getPayload();
-
-   /*  echo "<pre>";
-    print_r($payloadQrCode);
-    echo "</pre>";
-    exit; */
-
-    //Instância do QR CODE
-    $obQrCode = new QrCode($payloadQrCode);
-  
-    //Imagem do QRCODE
-    $image = (new Output\Png)->output($obQrCode, 400);
-
-    ?>
-
-    <h1>QR CODE DINÂMICO DO PIX</h1>
-
-    <br>
-
-    <!-- Convertendo para "base64" e imprimir dentro do html -->
-    <img src="data:image/png;base64, <?= base64_encode($image) ?>">
-
-    <br><br>
-
-    Código pix: <br>
-
-    <strong><?= $payloadQrCode ?></strong>
-
-    <!-- echo "<pre>";
-    print_r($payloadQrCode);
-    echo "</pre>";
-    exit; -->
-
     <!-- FOOTER -->
     <footer class="main-footer">
-      <div>
-        <div class="float-right d-none d-sm-block">
-          <b>Satellite Broadband Networks</b> 1.0-rc
-        </div>
+      <div class="float-center d-none d-sm-block" style="bottom: 0; position:absolute; margin-left:5%; margin-bottom: 1%">
+        <b>Satellite Broadband Networks</b> 1.0-rc
         <strong>Copyright &copy; <a href="https://adminlte.io"> Bentley Brasil
             - Projeto
             Juruena</a>.</strong> Todos os direitos reservados

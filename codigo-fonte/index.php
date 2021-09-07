@@ -1,5 +1,7 @@
 <?php
+require_once 'classes/usuarios.php';
 session_start();
+$u = new Usuario;
 ?>
 
 <!DOCTYPE html>
@@ -41,10 +43,22 @@ session_start();
                             <?php if (!isset($_SESSION['id_usuario'])) { ?>
                                 <a class="nav-link" href="logar.php">Entrar</a>
                             <?php } ?>
+                            <?php if (isset($_SESSION['id_usuario'])) {
+                                $user = $_SESSION['id_usuario'];
+                                $logado = "SELECT nome ";
+                                $logado .= "FROM usuarios ";
+                                $logado .= "WHERE id_usuario = {$user} ";
+                                $logado_login = mysqli_query($pdo,$logado); ?>
+                                <div class="">
+                                    <a class="nav-link">Luiz Marcello</a>
+                                </div>
+                            <?php } ?>
                         </div>
                     </ul>
                 </div>
             </div>
+
+
         </nav>
     </header>
 
@@ -55,31 +69,12 @@ session_start();
         </div>
         <br>
 
-
         <div>
             <img src="img/palavracomprar.jpg" width="140px" height="120px">
-            <button type="button" class="btn btn--outline-primary btn-sm"><img src="img/boleto-logo.svg" width="130px" height="90px"></button>
-            <button type="button" class="btn btn--outline-primary btn-sm"><img src="img/credit-cards.png" width="110px" height="70px"></button>
-            <button type="button" class="btn btn--outline-primary btn-sm"><img src="img/logo-pix.png" width="140px" height="100px"></button>
+            <a href=""><button type="button" class="btn btn--outline-primary btn-sm"><img src="img/boleto-logo.svg" width="130px" height="90px"></button></a>
+            <a href=""><button type="button" class="btn btn--outline-primary btn-sm"><img src="img/credit-cards.png" width="110px" height="70px"></button></a>
+            <a href="indexpix.php"><button type="button" class="btn btn--outline-primary btn-sm"><img src="img/logo-pix.png" width="140px" height="100px"></button></a>
         </div>
-
-        <!-- <div style="margin-top: 130px;">
-            <p>Comprar</p>
-        </div> -->
-
-        <!-- <div style="display: block">
-            <span class="float-left">
-                <button type="button" class="btn btn-primary"><a href="indexboleto.php">Boleto</a></button>
-            </span>
-
-            <span class="float-right">
-                <button type="button" class="btn btn-prymary"><a href="indexcartao.php">Cartão de crédito</a></button>
-            </span>
-
-            <span class="float-right">
-                <button type="button" class="btn btn-primary"><a href="indexpix.php">Pix</a></button>
-            </span>
-        </div> -->
 
         <!-- FOOTER -->
         <footer class="main-footer">
@@ -91,15 +86,7 @@ session_start();
             </div>
         </footer>
     </main>
-    <!--  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
-        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
-        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-    </script> -->
+
 </body>
 
 </html>

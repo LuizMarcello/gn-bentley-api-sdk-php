@@ -80,83 +80,27 @@ use Mpdf\QrCode\Output;
       'https://api-pix-h.gerencianet.com.br',
       'Client_Id_adf60ba7ea206de2b1fd2054a7e00a93c66daf96',
       'Client_Secret_0cf0babdc5a54e32050a422d2067dc5c93e574bc',
-      __DIR__ . '/certificates/certificadobentleygerencianet.pem'
-
-    );
-
-    //Corpo da requisição
-    //Requisição (request) que será enviada ao PSP gerencianet:
-    $request = [
-      'calendario' => [
-        'expiracao' => 3600
-      ],
-      'devedor' => [
-        'cpf' => '07178216921',
-        'nome' => 'José Marcello Gpoulart'
-      ],
-      'valor' => [
-        'original' => '12345.78'
-      ],
-      'chave' => 'financeiro@bentleybrasil.com.br',
-      'solicitacaoPagador' => 'Pagamento do pedido 123456'
-    ];
+      __DIR__ . '/certificates/certificadobentleygerencianet.pem');
 
     //Variável para guardar a reposta do PSP gerencianet:
     //txid: No QrCode dinámico, no mínimo 26 caracteres e
     //no máximo 35 caracteres, letras e números.
-    $response = $obApiPix->createCob('brenterjji34787888ll456maycellol', $request);
+    $response = $obApiPix->consultCob('brenterjji34787888ll456maycellol');
 
     if (!isset($response['location'])) {
-      echo 'Problemas ao gerar pix dinâmico';
+      echo 'Problemas ao consultar pix dinâmico';
       echo "<pre>";
       print_r($response);
       echo "</pre>";
       exit;
     }
 
-    //Instancia principal do PAYLOAD PIX
-    $obPayload = (new Payload)
-      /* ->setMerchantName('Marcelo da Silva') */
-      ->setMerchantName($response['devedor']['nome'])
-      ->setMerchantCity('Londrina')
-      ->setAmount($response['valor']['original'])
-      ->setTxid($response['txid'])
-      ->setUrl($response['location'])
-      ->setUniquePayment(true);
-
-    //Código de pagamento PIX
-    $payloadQrCode = $obPayload->getPayload();
-
-   /*  echo "<pre>";
-    print_r($payloadQrCode);
+    echo "<pre>";
+    print_r($response);
     echo "</pre>";
-    exit; */
-
-    //Instância do QR CODE
-    $obQrCode = new QrCode($payloadQrCode);
-  
-    //Imagem do QRCODE
-    $image = (new Output\Png)->output($obQrCode, 400);
-
+    exit;
+    
     ?>
-
-    <h1>QR CODE DINÂMICO DO PIX</h1>
-
-    <br>
-
-    <!-- Convertendo para "base64" e imprimir dentro do html -->
-    <img src="data:image/png;base64, <?= base64_encode($image) ?>">
-
-    <br><br>
-
-    Código pix: <br>
-
-    <strong><?= $payloadQrCode ?></strong>
-
-    <!-- echo "<pre>";
-    print_r($payloadQrCode);
-    echo "</pre>";
-    exit; -->
 
     <!-- FOOTER -->
     <footer class="main-footer">
