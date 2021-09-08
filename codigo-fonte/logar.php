@@ -1,5 +1,6 @@
 <?php
 require_once 'classes/usuarios.php';
+if (!isset($_SESSION)) session_start();
 $u = new Usuario;
 ?>
 

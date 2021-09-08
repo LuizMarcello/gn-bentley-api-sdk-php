@@ -1,5 +1,5 @@
 <?php
-
+global $pdo;
 class Usuario
 {
   /* Utilizando o PDO para conectar */

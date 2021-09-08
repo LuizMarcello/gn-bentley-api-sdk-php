@@ -1,7 +1,10 @@
 <?php
 require_once 'classes/usuarios.php';
-session_start();
+
+if (!isset($_SESSION)) session_start();
 $u = new Usuario;
+
+
 ?>
 
 <!DOCTYPE html>
@@ -43,23 +46,29 @@ $u = new Usuario;
                             <?php if (!isset($_SESSION['id_usuario'])) { ?>
                                 <a class="nav-link" href="logar.php">Entrar</a>
                             <?php } ?>
-                            <?php if (isset($_SESSION['id_usuario'])) {
+                            <?php
+                            if (isset($_SESSION['id_usuario'])) {
+                                $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
                                 $user = $_SESSION['id_usuario'];
-                                $logado = "SELECT nome ";
-                                $logado .= "FROM usuarios ";
-                                $logado .= "WHERE id_usuario = {$user} ";
-                                $logado_login = mysqli_query($pdo,$logado); ?>
-                                <div class="">
-                                    <a class="nav-link">Luiz Marcello</a>
-                                </div>
+                                $sql = "SELECT * FROM usuarios WHERE id_usuario = $user";
+                                global $pdo;
+                                $sql = $pdo->prepare($sql);
+                                $sql->bindValue("id_usuario", $_SESSION['id_usuario']);
+                                $sql->execute();
+
+                                if ($sql->rowCount() > 0) {
+                                    $dado = $sql->fetch(); ?>
+                                   
+                                    <a class="nav-link"><?php echo $dado['nome']; ?> </a>
+                                    <a class="nav-link"><?php echo $dado['email']; ?> </a>
+                                <?php } ?>
                             <?php } ?>
                         </div>
                     </ul>
                 </div>
             </div>
-
-
         </nav>
+
     </header>
 
     <main>
