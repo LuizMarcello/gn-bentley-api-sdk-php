@@ -54,8 +54,11 @@ and open the template in the editor.
                 <ul class="nav navbar-nav">
                     <!--   <li class=""><a href="https://dev.gerencianet.com.br/docs">Documentação</a></li> -->
                     <!--  <li class=""><a href="https://dev.gerencianet.com.br/docs/fale-conosco">Contatos</a></li> -->
-                    <li class=""><a href="index.php">Voltar a Bentley Brasil</a></li>
+                    <li class=""><a href="index.php">Retornar a Bentley Brasil</a></li>
                     <!-- <li class=""><a href="sair.php">Logoff Bentley</a></li> -->
+                </ul>
+                <ul class="nav navbar-nav">
+                    <li class=""><a href="indexcomprar.php">Retornar as opções de pagamento</a></li>
                 </ul>
 
                 <ul class="nav navbar-nav pull-right">

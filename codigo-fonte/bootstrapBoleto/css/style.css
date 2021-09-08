@@ -1,83 +1,139 @@
-body{
-  font-family: calibri;
-}
-.bt{
-    height:  120px
-}
-
-.btn.btn-destaque {
-    border:none;
-    border-color:transparent;
-    background-color: #f26522;
-    *background-color: #f26522;
-    background-image: -moz-linear-gradient(top, #FFF, #E6E7E8);
-    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#FFF), to(#E6E7E8));
-    background-image: -webkit-linear-gradient(top, #FFF, #E6E7E8);
-    background-image: -o-linear-gradient(top, #FFF, #E6E7E8);
-    background-image: linear-gradient(to bottom, #FFF, #E6E7E8);
-}
-
-.btn-warning{
-   background-color:#f26522;
-}
-.nav.navbar-nav.pull-right li:nth-child(2) a {
-    text-align: center;
-    display: block;
-    color: #fff;
-    padding: 7px 11px;
-    border-radius: 3px;
-    border: 2px solid #00b4c5;
-    line-height: 1em;
-    margin: 15px 15px 0;
-    background: #00b4c5;
-}
-.container-fluid{
-    font-size: 18px;
-    display: block;
-    padding: 10px 15px;
-}
-.theme-line .navbar-nav a {
-    color: #00b4c5;
-}
-.theme-line .navbar-nav a {
-    color: #bbb;
-}
-
-
-
-   @media (max-width: 767px) { 
-    .navbar-brand {
-        padding: 0;        
+    body {
+        font-family: calibri;
+        display: flexbox;
     }
-
-    .navbar-brand img {
-        margin-top: 5px;
-        margin-left: 5px;
+    
+    .bt {
+        height: 120px
     }
-}
-
-
-.content-footer{
-    font-size: 10px;
-}
-
-.dis_10{
-    margin-top: 20px;
-}
-
-
-#rodape{
-    margin-top: 40%;
-}
-
-.atributo{
-    color: #009615;
-    font-size: 15px;
-}
-
-em{color: #009615}
-
-
-.dev{
-    font-size: 16px;
-}
+    
+    .btn.btn-destaque {
+        border: none;
+        border-color: transparent;
+        background-color: #f26522;
+        *background-color: #f26522;
+        background-image: -moz-linear-gradient(top, #FFF, #E6E7E8);
+        /* background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#FFF), to(#E6E7E8)); */
+        background-image: -webkit-linear-gradient(top, #FFF, #E6E7E8);
+        background-image: -o-linear-gradient(top, #FFF, #E6E7E8);
+        background-image: linear-gradient(to bottom, #FFF, #E6E7E8);
+    }
+    
+    .btn-warning {
+        background-color: #f26522;
+    }
+    
+    .nav.navbar-nav.pull-right li:nth-child(2) a {
+        text-align: center;
+        display: block;
+        color: #fff;
+        padding: 7px 11px;
+        border-radius: 3px;
+        border: 2px solid #00b4c5;
+        line-height: 1em;
+        margin: 15px 15px 0;
+        background: #00b4c5;
+    }
+    
+    .div-chat-imagem {
+        position: relative;
+        height: 10%;
+        width: 10%;
+    }
+    
+    .div-chat-i {
+        color: #000000;
+        /*  background-color: #C6E2FF; */
+        /*  padding: 25px; */
+        /*  border-radius: 10px; */
+        /*  border: 1px solid #ddd; */
+        /* estilo de posicionamento e largura*/
+        min-width: 5%;
+        max-width: 5%;
+        font-size: 20px;
+        position: absolute;
+        bottom: 130px;
+        right: 10px;
+        left: 220px;
+        top: 340px;
+        text-align: justify;
+    }
+    
+    .div-chat-m {
+        color: #000000;
+        /*  background-color: #C6E2FF; */
+        /* padding: 12px 12px 12px 12px; */
+        /* border-radius: 10px; */
+        /*  border: 1px solid #ddd; */
+        position: absolute;
+        /* estilo de posicionamento e largura*/
+        /* min-width: 15%; */
+        /*  max-width: 15%; */
+        font-size: 20px;
+        bottom: 100px;
+        right: 130px;
+        left: 220px;
+        top: 150px;
+        text-align: justify;
+    }
+    
+    .div-chat-z {
+        color: #000000;
+        /* estilo de posicionamento e largura*/
+        min-width: 15%;
+        max-width: 25%;
+        position: absolute;
+        bottom: 60px;
+        right: 13px;
+        left: 1100px;
+        top: 120px;
+    }
+    
+    .container-fluid {
+        font-size: 18px;
+        display: block;
+        padding: 10px 15px;
+    }
+    
+    .theme-line .navbar-nav a {
+        color: #00b4c5;
+    }
+    
+    .theme-line .navbar-nav a {
+        color: #bbb;
+    }
+    
+    @media (max-width: 767px) {
+        .navbar-brand {
+            padding: 0;
+        }
+        .navbar-brand img {
+            margin-top: 5px;
+            margin-left: 5px;
+        }
+    }
+    
+    .content-footer {
+        font-size: 10px;
+    }
+    
+    .dis_10 {
+        margin-top: 20px;
+    }
+    
+    #rodape {
+        margin-top: 40%;
+    }
+    
+    .atributo {
+        color: #009615;
+        font-size: 15px;
+    }
+    
+    em {
+        color: #009615
+    }
+    
+    .dev {
+        font-size: 16px;
+    }

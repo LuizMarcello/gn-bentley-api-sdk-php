@@ -8,13 +8,13 @@ and open the template in the editor.
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="./bootstrapBoleto/css/bootstrap.css">
-    <link rel="stylesheet" href="./bootstrapBoleto/css/style.css">
-    <script type="text/javascript" src="./bootstrapBoleto/js/jquery-2.2.4.min.js"></script>
-    <script type="text/javascript" src="./bootstrapBoleto/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="./bootstrapCartao/css/bootstrap.css">
+    <link rel="stylesheet" href="./bootstrapCartao/css/style.css">
+    <script type="text/javascript" src="./bootstrapCartao/js/jquery-2.2.4.min.js"></script>
+    <script type="text/javascript" src="./bootstrapCartao/js/bootstrap.js"></script>
 
-    <script type="text/javascript" src="./bootstrapBoleto/js/jquery.mask.js"></script>
-    <script type="text/javascript" src="./bootstrapBoleto/js/scripts.js"></script>
+    <script type="text/javascript" src="./bootstrapCartao/js/jquery.mask.js"></script>
+    <script type="text/javascript" src="./bootstrapCartao/js/scripts.js"></script>
     <script type='text/javascript'>
         var s = document.createElement('script');
         s.type = 'text/javascript';
@@ -34,7 +34,7 @@ and open the template in the editor.
             }
         };
     </script>
-    <title></title>
+    <title>Cartão de crédito</title>
 </head>
 
 <body>
@@ -61,16 +61,15 @@ and open the template in the editor.
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
 
-                    <!-- <li class=""><a href="https://dev.gerencianet.com.br/docs">Documentação</a></li> -->
-                    <!-- <li class=""><a href="https://dev.gerencianet.com.br/docs/fale-conosco">Contatos</a></li> -->
+                  
                     <li class=""><a href="index.php">Voltar a Bentley Brasil</a></li>
                      <!-- <li class=""><a href="sair.php">Logoff Bentley</a></li> -->
                 </ul>
 
                 <ul class="nav navbar-nav pull-right">
-                    <!-- <li><a target="blank" href="https://gerencianet.com.br/#login">Entrar</a> -->
+                  
                     </li>
-                    <!--  <li><a target="blank" href="https://gerencianet.com.br/#abrirconta">Abra sua conta</a> -->
+                    <
                     </li>
                 </ul>
 
