@@ -46,6 +46,8 @@ $u = new Usuario;
                             <?php if (!isset($_SESSION['id_usuario'])) { ?>
                                 <a class="nav-link" href="logar.php">Entrar</a>
                             <?php } ?>
+                        </div>
+                        <div style="margin: 36px 0 0 50px;">
                             <?php
                             if (isset($_SESSION['id_usuario'])) {
                                 $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
@@ -58,13 +60,14 @@ $u = new Usuario;
 
                                 if ($sql->rowCount() > 0) {
                                     $dado = $sql->fetch(); ?>
-                                   
                                     <a class="nav-link"><?php echo $dado['nome']; ?> </a>
-                                    <a class="nav-link"><?php echo $dado['email']; ?> </a>
-                                <?php } ?>
-                            <?php } ?>
+                        </div>
+                        <div style="margin: 36px 0 0 50px;">
+                            <a class="nav-link"><?php echo $dado['email']; ?> </a>
                         </div>
                     </ul>
+                <?php } ?>
+            <?php } ?>
                 </div>
             </div>
         </nav>
