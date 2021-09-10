@@ -1,6 +1,9 @@
 <?php
 
+
+require_once 'classes/usuarios.php';
 require '../vendor/autoload.php';
+$u = new Usuario;
 
 if (!isset($_SESSION)) session_start();
 
@@ -78,8 +81,30 @@ echo $image; */
             <li class=""><a href="indexcomprar.php">Retornar as opções de pagamento</a></li>
           </ul>
           <ul class="nav navbar-nav pull-right">
-            </li>
-            </li>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+              <div style="margin: 36px 0 0 50px;">
+                <?php
+                if (isset($_SESSION['id_usuario'])) {
+                 /*  $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd"); */
+                  $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
+                  $user = $_SESSION['id_usuario'];
+                  $sql = "SELECT * FROM usuarios WHERE id_usuario = $user";
+                  global $pdo;
+                  $sql = $pdo->prepare($sql);
+                  $sql->bindValue("id_usuario", $_SESSION['id_usuario']);
+                  $sql->execute();
+
+                  if ($sql->rowCount() > 0) {
+                    $dado = $sql->fetch();
+                ?>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1;">
+                  <p><?php echo $dado['nome']; ?> </p>
+                </div>
+                <?php } ?>
+                <?php } ?>
+              </div>
+            </div>
+
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
@@ -87,15 +112,54 @@ echo $image; */
   </header>
 
   <main>
-    <!-- FOOTER -->
-    <footer class="main-footer">
-      <div class="float-center d-none d-sm-block"
-        style="bottom: 0; position:absolute; margin-left:30%; margin-bottom: 1%">
-        <b>Satellite Broadband Networks</b> 1.0-rc
+
+    <form action="gerar-qrcode-dinamico.php" method="POST" accept-charset="UTF-8">
+      <div class="form-check" style="margin-left: 100px; margin-top:50px">
+        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
+        <label class="form-check-label" for="flexRadioDefault1">
+          CPF
+        </label>
       </div>
-      <strong>Copyright &copy; <a href="https://adminlte.io"> Bentley Brasil
-          - Projeto
-          Juruena</a>.</strong> Todos os direitos reservados
+      <div class="form-check" style="margin-left: 100px; margin-top:25px">
+        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+        <label class="form-check-label" for="flexRadioDefault2">
+          CNPJ
+        </label>
+      </div>
+
+      <div class="form-group" style="margin-left: 100px; margin-top: 1%;">
+        <label for="documento" class="control-label"></label>
+        <!-- <input class="documento form-control" name="documento" type="text" id="documento" value=""> -->
+        <input class="documento form-control" name="documento" type="text" id="documento" value="Informe o CPF" required>
+      </div>
+
+      <div style="margin-left: 700px;">
+      <img src="img/internetRadio.jpg" width="300px" height="210px"> 
+    </div>
+
+      <br><br>
+
+      <div class="form-group" style="margin-left: 100px; margin-top:15px" ;>
+        <label for="nome_razaosocial" class="control-label">
+         
+        </label>
+        <input class="form-control" rows="3" name="nome_razaosocial" type="text" id="nome_razaosocial" required
+          value="Nome/Razão Social">
+       
+      </div>
+    </form>
+
+    
+
+    <!-- FOOTER -->
+    <footer class="main-footer" style="text-align: center; margin: 12%;">
+      <div>
+        <div class="float-rightd-none d-sm-block">
+          <b>Satellite Broadband Networks</b> 1.0-rc
+        </div>
+        <strong>Copyright &copy; <a href="https://adminlte.io"> Bentley Brasil
+            - Projeto
+            Juruena</a>.</strong> Todos os direitos reservados
       </div>
     </footer>
   </main>

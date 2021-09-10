@@ -36,7 +36,7 @@ use Mpdf\QrCode\Output;
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-           data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -44,8 +44,8 @@ use Mpdf\QrCode\Output;
           </button>
           <a class="navbar-brand" href="/codigos-documentacao/">
             <img src="https://gerencianet.com.br/wp-content/themes/Gerencianet/images/marca-gerencianet.svg"
-             onerror="this.onerror=null; this.src='img/marca-gerencianet.png'" alt="Gerencianet - Conceito em Pagamentos"
-              width="218" height="31">
+              onerror="this.onerror=null; this.src='img/marca-gerencianet.png'"
+              alt="Gerencianet - Conceito em Pagamentos" width="218" height="31">
           </a>
         </div>
 
@@ -72,7 +72,7 @@ use Mpdf\QrCode\Output;
   </header>
 
   <main>
-    <h3>QR CODE DINÂMICO DO PIX</h3>
+
 
     <?php
     //Instância da API PIX
@@ -92,19 +92,19 @@ use Mpdf\QrCode\Output;
       ],
       'devedor' => [
         'cpf' => '07178216921',
-        'nome' => 'José Marcello Gpoulart'
+        'nome' => 'Valeria Miranda de Oliveira'
       ],
       'valor' => [
-        'original' => '12345.78'
+        'original' => '1900.00'
       ],
       'chave' => 'financeiro@bentleybrasil.com.br',
-      'solicitacaoPagador' => 'Pagamento do pedido 123456'
+      'solicitacaoPagador' => 'Adesao de equipamentos - projeto Juruena'
     ];
 
     //Variável para guardar a reposta do PSP gerencianet:
     //txid: No QrCode dinámico, no mínimo 26 caracteres e
     //no máximo 35 caracteres, letras e números.
-    $response = $obApiPix->createCob('brenterjji34787888ll56maycellol', $request);
+    $response = $obApiPix->createCob('renjbifkq334tfghyujkiuwidlmaycellol', $request);
 
     if (!isset($response['location'])) {
       echo 'Problemas ao gerar pix dinâmico';
@@ -127,39 +127,48 @@ use Mpdf\QrCode\Output;
     //Código de pagamento PIX
     $payloadQrCode = $obPayload->getPayload();
 
-   /*  echo "<pre>";
-    print_r($payloadQrCode);
-    echo "</pre>";
-    exit; */
-
     //Instância do QR CODE
     $obQrCode = new QrCode($payloadQrCode);
   
     //Imagem do QRCODE
-    $image = (new Output\Png)->output($obQrCode, 400);
+    ?> <p style="margin-left: 3%;"><?php $image = (new Output\Png)->output($obQrCode, 220); ?></p>
 
-    ?>
-
-    <h1>QR CODE DINÂMICO DO PIX</h1>
-
-    <br>
+    <div style="margin-left: 3%;">
+      <h5>QR CODE DINÂMICO DO PIX</h5>
+      <p>
+        <h5><strong>Escaneie este código para pagar</strong></h5>
+      </p>
+      <p>
+        <h6>1. Acesse seu Internet Banking ou app de pagamentos.</h6>
+      </p>
+      <p>
+        <h6>2. Escolha pagar via Pix</h6>
+      </p>
+      <p>
+        <h6>3. Escaneie o seguinte código:</h6>
+      </p>
+    </div>
 
     <!-- Convertendo para "base64" e imprimir dentro do html -->
     <img src="data:image/png;base64, <?= base64_encode($image) ?>">
 
+    <br>
+
+    <!-- Código pix: <br> -->
+    <div style="margin-left: 3%;">
+      <div>Pague e será creditado na hora, ou copie este código QR para fazer o pagamento</div>
+      <br>
+      <div>Escolha pagar via Pix pelo seu Internet Banking ou app de pagamentos.</div>
+      <div> Depois, cole o seguinte código:</div>
+      <strong><?= $payloadQrCode ?></strong>
+      <button type="button" class="btn btn-primary">Copiar código</button>
+    </div>
+
+    
+
     <br><br>
-
-    Código pix: <br>
-
-    <strong><?= $payloadQrCode ?></strong>
-
-    <!-- echo "<pre>";
-    print_r($payloadQrCode);
-    echo "</pre>";
-    exit; -->
-
     <!-- FOOTER -->
-    <footer class="main-footer">
+    <footer class="main-footer" style="text-align: center;">
       <div>
         <div class="float-right d-none d-sm-block">
           <b>Satellite Broadband Networks</b> 1.0-rc
