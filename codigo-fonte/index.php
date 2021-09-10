@@ -16,10 +16,12 @@ $u = new Usuario;
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Bentley Juruena</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" media="all">
-
+    <link rel="stylesheet" href="bootstrapBoleto/css/style.css">
     <link rel="stylesheet" href="css/style.css">
+
+
 </head>
 
 <body>
@@ -27,7 +29,7 @@ $u = new Usuario;
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
             <div class="container-fluid">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
-                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -43,17 +45,17 @@ $u = new Usuario;
                         </div>
                         <div style="margin: 36px 0 0 50px;">
                             <?php if (isset($_SESSION['id_usuario'])) { ?>
-                            <a class="nav-link" href="sair.php">Sair</a>
+                                <a class="nav-link" href="sair.php">Sair</a>
                             <?php } ?>
                             <?php if (!isset($_SESSION['id_usuario'])) { ?>
-                            <a class="nav-link" href="logar.php">Entrar</a>
+                                <a class="nav-link" href="logar.php">Entrar</a>
                             <?php } ?>
                         </div>
                         <div style="margin: 36px 0 0 50px;">
                             <?php
                             if (isset($_SESSION['id_usuario'])) {
                                 $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
-                               /*  $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234"); */
+                                /*  $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234"); */
                                 $user = $_SESSION['id_usuario'];
                                 $sql = "SELECT * FROM usuarios WHERE id_usuario = $user";
                                 global $pdo;
@@ -63,14 +65,14 @@ $u = new Usuario;
 
                                 if ($sql->rowCount() > 0) {
                                     $dado = $sql->fetch(); ?>
-                            <a class="nav-link"><?php echo $dado['nome']; ?> </a>
+                                    <a class="nav-link"><?php echo $dado['nome']; ?> </a>
                         </div>
                         <div style="margin: 36px 0 0 50px;">
                             <a class="nav-link"><?php echo $dado['email']; ?> </a>
                         </div>
                     </ul>
-                    <?php } ?>
-                    <?php } ?>
+                <?php } ?>
+            <?php } ?>
                 </div>
             </div>
         </nav>
@@ -85,13 +87,12 @@ $u = new Usuario;
         <br>
 
         <div>
-           <a href="indexcomprar.php"><img src="img/palavracomprar.jpg" width="140px" height="120px"></a> 
+            <a href="indexcomprar.php"><img src="img/palavracomprar.jpg" width="140px" height="120px"></a>
         </div>
 
         <!-- FOOTER -->
         <footer class="main-footer">
-            <div class="float-center d-none d-sm-block"
-                style="bottom: 0; position:absolute; margin-left:5%; margin-bottom: 1%">
+            <div class="float-center d-none d-sm-block" style="bottom: 0; position:absolute; margin-left:5%; margin-bottom: 1%">
                 <b>Satellite Broadband Networks</b> 1.0-rc
                 <strong>Copyright &copy; <a href="https://adminlte.io"> Bentley Brasil
                         - Projeto
