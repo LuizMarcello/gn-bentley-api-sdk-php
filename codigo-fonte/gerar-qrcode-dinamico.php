@@ -35,17 +35,14 @@ use Mpdf\QrCode\Output;
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-            data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="/codigos-documentacao/">
-            <img src="https://gerencianet.com.br/wp-content/themes/Gerencianet/images/marca-gerencianet.svg"
-              onerror="this.onerror=null; this.src='img/marca-gerencianet.png'"
-              alt="Gerencianet - Conceito em Pagamentos" width="218" height="31">
+            <img src="https://gerencianet.com.br/wp-content/themes/Gerencianet/images/marca-gerencianet.svg" onerror="this.onerror=null; this.src='img/marca-gerencianet.png'" alt="Gerencianet - Conceito em Pagamentos" width="218" height="31">
           </a>
         </div>
 
@@ -104,7 +101,7 @@ use Mpdf\QrCode\Output;
     //Variável para guardar a reposta do PSP gerencianet:
     //txid: No QrCode dinámico, no mínimo 26 caracteres e
     //no máximo 35 caracteres, letras e números.
-    $response = $obApiPix->createCob('renjbifkq334tfghyujkiuwidlmaycellol', $request);
+    $response = $obApiPix->createCob('renjifkq334tgigyrtwimacellol', $request);
 
     if (!isset($response['location'])) {
       echo 'Problemas ao gerar pix dinâmico';
@@ -116,9 +113,8 @@ use Mpdf\QrCode\Output;
 
     //Instancia principal do PAYLOAD PIX
     $obPayload = (new Payload)
-      /* ->setMerchantName('Marcelo da Silva') */
       ->setMerchantName($response['devedor']['nome'])
-      ->setMerchantCity('Londrina')
+     /*  ->setMerchantCity('Londrina') */
       ->setAmount($response['valor']['original'])
       ->setTxid($response['txid'])
       ->setUrl($response['location'])
@@ -129,23 +125,23 @@ use Mpdf\QrCode\Output;
 
     //Instância do QR CODE
     $obQrCode = new QrCode($payloadQrCode);
-  
+
     //Imagem do QRCODE
     ?> <p style="margin-left: 3%;"><?php $image = (new Output\Png)->output($obQrCode, 220); ?></p>
 
     <div style="margin-left: 3%;">
       <h5>QR CODE DINÂMICO DO PIX</h5>
       <p>
-        <h5><strong>Escaneie este código para pagar</strong></h5>
+      <h5><strong>Escaneie este código para pagar</strong></h5>
       </p>
       <p>
-        <h6>1. Acesse seu Internet Banking ou app de pagamentos.</h6>
+      <h6>1. Acesse seu Internet Banking ou app de pagamentos.</h6>
       </p>
       <p>
-        <h6>2. Escolha pagar via Pix</h6>
+      <h6>2. Escolha pagar via Pix</h6>
       </p>
       <p>
-        <h6>3. Escaneie o seguinte código:</h6>
+      <h6>3. Escaneie o seguinte código:</h6>
       </p>
     </div>
 
@@ -161,10 +157,10 @@ use Mpdf\QrCode\Output;
       <div>Escolha pagar via Pix pelo seu Internet Banking ou app de pagamentos.</div>
       <div> Depois, cole o seguinte código:</div>
       <strong><?= $payloadQrCode ?></strong>
-      <button type="button" class="btn btn-primary">Copiar código</button>
+      <!--  <button type="button" class="btn btn-primary">Copiar código</button> -->
     </div>
 
-    
+
 
     <br><br>
     <!-- FOOTER -->
