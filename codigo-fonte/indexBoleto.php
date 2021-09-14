@@ -27,16 +27,9 @@ and open the template in the editor.
     <!--  <link rel="stylesheet" href="bootstrapBoleto/css/bootstrap.css"> -->
     <!--  <link rel="stylesheet" href="bootstrapBoleto/css/style.css"> -->
     <!-- <link rel="stylesheet" href="css/estilo.css"> -->
-
-
-
     <link rel="stylesheet" href="bootstrapBoleto/css/bootstrap.css">
     <link rel="stylesheet" href="bootstrapBoleto/css/style.css">
-
     <link rel="stylesheet" href="css/estilos.css">
-
-
-
     <script type="text/javascript" src="bootstrapBoleto/js/jquery-2.2.4.min.js"></script>
     <script type="text/javascript" src="bootstrapBoleto/js/bootstrap.js"></script>
     <script type="text/javascript" src="bootstrapBoleto/js/jquery.mask.js"></script>
@@ -98,12 +91,13 @@ and open the template in the editor.
     <div>
         <h3>Bentley Brasil - Gerador de Boletos</h3>
         <form action="emitir_boleto.php" method="POST">
-            <input type="text" name="nome" placeholder="Nome completo" value="Valeria Miranda">
-            <input type="mail" name="email" placeholder="E-mail">
-            <input type="number" name="fone" placeholder="Telefone">
+            <input type="text" name="nome" placeholder="Nome completo" value="<?php echo $dado['nome']; ?>">
+            <input type="mail" name="email" placeholder="E-mail" value="<?php echo $dado['email']; ?>">
+            <input type="number" name="fone" placeholder="Telefone" value="<?php echo $dado['telefone']; ?>">
             <input type="number" name="cpf" placeholder="CPF válido">
-            <input type="text" name="produto" placeholder="Titulo do produto">
+            <input type="text" name="produto" placeholder="Titulo do produto" value="Adesão de equipamentos - Projeto Juruena">
             <input type="number" name="valor" placeholder="Valor" value="190000">
+            <!-- <input type="string" name="valor" placeholder="Valor" value="1.900,00"> -->
             <h5>
                 <p>Data do vencimento</p>
             </h5>

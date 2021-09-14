@@ -99,10 +99,26 @@ use Mpdf\QrCode\Output;
       'solicitacaoPagador' => 'Adesao de equipamentos - projeto Juruena'
     ];
 
+    //Gerando um txid randômico
+    function getToken($length){
+      $token = "";
+      $codeAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+      $codeAlphabet.= "abcdefghijklmnopqrstuvwxyz";
+      $codeAlphabet.= "0123456789";
+      $max = strlen($codeAlphabet);
+  
+      for ($i=0; $i < $length; $i++) {
+          $token .= $codeAlphabet[random_int(0, $max-1)];
+      }
+  
+      return $token;
+  }
+
     //Variável para guardar a reposta do PSP gerencianet:
     //txid: No QrCode dinámico, no mínimo 26 caracteres e
     //no máximo 35 caracteres, letras e números.
-    $response = $obApiPix->createCob('renjifkq334tigrtwimacellol', $request);
+   /*  $response = $obApiPix->createCob('renjifkq334tigrtwimacellol', $request); */
+    $response = $obApiPix->createCob(getToken(35), $request);
 
     if (!isset($response['location'])) {
       echo 'Problemas ao gerar pix dinâmico';
