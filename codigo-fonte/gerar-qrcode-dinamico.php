@@ -42,7 +42,8 @@ use Mpdf\QrCode\Output;
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="/codigos-documentacao/">
-            <img src="https://gerencianet.com.br/wp-content/themes/Gerencianet/images/marca-gerencianet.svg" onerror="this.onerror=null; this.src='img/marca-gerencianet.png'" alt="Gerencianet - Conceito em Pagamentos" width="218" height="31">
+            <img src="https://gerencianet.com.br/wp-content/themes/Gerencianet/images/marca-gerencianet.svg" onerror="this.onerror=null; this.src='img/marca-gerencianet.png'"
+             alt="Gerencianet - Conceito em Pagamentos" width="218" height="31">
           </a>
         </div>
 
@@ -101,7 +102,7 @@ use Mpdf\QrCode\Output;
     //Variável para guardar a reposta do PSP gerencianet:
     //txid: No QrCode dinámico, no mínimo 26 caracteres e
     //no máximo 35 caracteres, letras e números.
-    $response = $obApiPix->createCob('renjifkq334tgigyrtwimacellol', $request);
+    $response = $obApiPix->createCob('renjifkq334tigrtwimacellol', $request);
 
     if (!isset($response['location'])) {
       echo 'Problemas ao gerar pix dinâmico';

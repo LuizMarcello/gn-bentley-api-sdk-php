@@ -90,7 +90,7 @@ echo $image; */
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li class=""><a href="index.php">Retornar a Bentley Brasil</a></li>
+            <li class=""><a href="index.php">Retornar a Home</a></li>
           </ul>
           <ul class="nav navbar-nav">
             <li class=""><a href="indexcomprar.php">Retornar as opções de pagamento</a></li>
@@ -100,8 +100,8 @@ echo $image; */
               <div style="margin: 36px 0 0 50px;">
                 <?php
                 if (isset($_SESSION['id_usuario'])) {
-                  $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
-                  /* $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234"); */
+                  /* $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd"); */
+                  $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
                   $user = $_SESSION['id_usuario'];
                   $sql = "SELECT * FROM usuarios WHERE id_usuario = $user";
                   global $pdo;

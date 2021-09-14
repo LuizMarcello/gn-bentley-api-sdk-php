@@ -38,94 +38,83 @@ $image = (new Output\Png)->output($obQrCode, 400);
 
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="bootstrapBoleto/css/bootstrap.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Bentley Juruena</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" media="all">
   <link rel="stylesheet" href="bootstrapBoleto/css/style.css">
-  <script type="text/javascript" src="bootstrapBoleto/js/jquery-2.2.4.min.js"></script>
-  <script type="text/javascript" src="bootstrapBoleto/js/bootstrap.js"></script>
-  <script type="text/javascript" src="bootstrapBoleto/js/jquery.mask.js"></script>
-  <script type="text/javascript" src="bootstrapBoleto/js/scripts.js"></script>
-  <title>Comprar</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
   <header>
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
       <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-            data-target="#bs-example-navbar-collapse-1" aria-expanded="true">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="/codigos-documentacao/">
-            <img src="https://gerencianet.com.br/wp-content/themes/Gerencianet/images/marca-gerencianet.svg"
-              onerror="this.onerror=null; this.src='img/marca-gerencianet.png'"
-              alt="Gerencianet - Conceito em Pagamentos" width="218" height="31">
-          </a>
-        </div>
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav">
-            <li class=""><a href="index.php">Retornar a Bentley Brasil</a></li>
-          </ul>
-
-          <ul class="nav navbar-nav pull-right">
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-              <div style="margin: 36px 0 0 50px;">
-                <?php
-                if (isset($_SESSION['id_usuario'])) {
-                  $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
-                  /* $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234"); */
-                  $user = $_SESSION['id_usuario'];
-                  $sql = "SELECT * FROM usuarios WHERE id_usuario = $user";
-                  global $pdo;
-                  $sql = $pdo->prepare($sql);
-                  $sql->bindValue("id_usuario", $_SESSION['id_usuario']);
-                  $sql->execute();
-
-                  if ($sql->rowCount() > 0) {
-                    $dado = $sql->fetch();
-                ?>
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1;">
-                  <p><?php echo $dado['nome']; ?> </p>
-                </div>
-                <?php } ?>
-                <?php } ?>
-              </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+          aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav me-auto mb-2 mb-md-0">
+            <span class="brand-text font-weight-light">
+              <img height="70" src="https://sistema.bentleybrasil.com.br/img/logo-empresa-br.png">
+            </span>
+            <div style="margin: 36px 0 0 50px;">
+              <a class="nav-link" aria-current="page" href="index.php">Home</a>
             </div>
-          </ul>
+            <div style="margin: 36px 0 0 50px;">
+              <?php
+                            if (isset($_SESSION['id_usuario'])) {
+                                /* $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd"); */
+                                $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
+                                $user = $_SESSION['id_usuario'];
+                                $sql = "SELECT * FROM usuarios WHERE id_usuario = $user";
+                                global $pdo;
+                                $sql = $pdo->prepare($sql);
+                                $sql->bindValue("id_usuario", $_SESSION['id_usuario']);
+                                $sql->execute();
 
+                                if ($sql->rowCount() > 0) {
+                                    $dado = $sql->fetch(); ?>
+              <a class="nav-link"><?php echo $dado['nome']; ?> </a>
+            </div>
+            <!-- <div style="margin: 36px 0 0 50px;">
+                            <a class="nav-link"><?php echo $dado['email']; ?> </a>
+                        </div> -->
+          </ul>
+          <?php } ?>
+          <?php } ?>
         </div>
       </div>
     </nav>
+
   </header>
 
+
   <main>
-    <div style="position:relative; margin-top: 3%; margin-left:20%; margin-bottom: 1%">
-      <img src="img/imagesbentley.jpg" width="470px" height="250px">
+    <div class="cabecalhobentley">
+      <!-- <img src="img/imagesbentley.jpg" width="470px" height="250px"> -->
+      <img height="100%" width="90%" src="img/cabecalhositebentley.jpg">
     </div>
 
-    <div class="btn-outline-primary"
-      style="font-family:Arial, Helvetica, sans-serif; font-size: large; font-weight: bold; margin-left: 17%; margin-top: 3%;">
-      <div style="display: flex">
-        <img src="img/next.png" width="35x" height="25px">
-        <p style="margin-left: 1%;"> Projeto Jeruena - Internet Ilimitada </p><br><br>
-      </div>
-      <div style="display: flex">
-        <img src="img/next.png" width="35px" height="25px">
-        <p style="margin-left: 1%;"> Internet via rádio com a velocidade de fibra ótica</p>
-      </div>
-      <div style="display: flex;">
-        <img src="img/next.png" width="35px" height="25px" style="margin-top: 1.5%;">
-        <p style="margin-left: 1%; margin-top: 1%; font-size: 22px;">Adesão de equipamentos - Valor R$ 1.900,00</p>
-      </div>
+    <div class="juruena1">
+      <img src="img/next.png" width="35x" height="25px">
+      <p style="margin-left: 1%;"> Projeto Jeruena - Internet Ilimitada </p><br><br>
+    </div>
+    <div class="juruena2">
+      <img src="img/next.png" width="35px" height="25px">
+      <p style="margin-left: 1%;"> Internet via rádio com a velocidade de fibra ótica</p>
+    </div>
+    <div class="juruena3">
+
+      <img src="img/next.png" width="35px" height="25px" style="margin-top: 1.5%;">
+      <p style="margin-left: 1%; margin-top: 1%; font-size: 22px;">Adesão de equipamentos - Valor R$ 1.900,00</p>
     </div>
 
     <div class="div-chat-z">
-       <!-- <div class="btn btn-outline-primary"> -->
+      <!--  <div class="btn btn-outline-primary"> -->
       <p
         style="font-family:Arial, Helvetica, sans-serif; font-size: large; font-weight: bold; margin-left: 1%; margin-top: 3%;">
         Como você prefere pagar?</p><br>
@@ -148,7 +137,7 @@ $image = (new Output\Png)->output($obQrCode, 400);
     <!-- FOOTER -->
     <footer class="main-footer">
       <div class="float-center d-none d-sm-block"
-        style="bottom: 0; position:absolute; margin-left:25%; margin-bottom: 1%">
+        style="bottom: 0; position:absolute; margin-left:5%; margin-bottom: 1%">
         <b>Satellite Broadband Networks</b> 1.0-rc
         <strong>Copyright &copy; <a href="https://adminlte.io"> Bentley Brasil
             - Projeto

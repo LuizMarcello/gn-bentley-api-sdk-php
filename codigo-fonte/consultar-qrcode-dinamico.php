@@ -85,7 +85,7 @@ use Mpdf\QrCode\Output;
     //Variável para guardar a reposta do PSP gerencianet:
     //txid: No QrCode dinámico, no mínimo 26 caracteres e
     //no máximo 35 caracteres, letras e números.
-    $response = $obApiPix->consultCob('renjifkq334tgigyrtwimacellol');
+    $response = $obApiPix->consultCob('renjkq3345tgightwimacellol');
 
     if (!isset($response['location'])) {
       echo 'Problemas ao consultar pix dinâmico';
