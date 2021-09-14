@@ -1,4 +1,4 @@
 <?php
 
-  define('CONF_ID','Client_Id_f59589b32e4af8c830014d5f7a4caec26741770d');
-  define('CONF_SECRETO','Client_Secret_ba04464d354e740abc603c2e7005b4b097b9234c');
+  define('CONF_ID','Client_Id_adf60ba7ea206de2b1fd2054a7e00a93c66daf96');
+  define('CONF_SECRETO','Client_Secret_0cf0babdc5a54e32050a422d2067dc5c93e574bc');
