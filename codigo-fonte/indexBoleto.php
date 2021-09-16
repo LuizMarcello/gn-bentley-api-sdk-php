@@ -108,9 +108,6 @@ and open the template in the editor.
         </form>
     </div>
 
-
-
-
     <!-- FOOTER -->
     <footer class="main-footer">
         <div class="float-center d-none d-sm-block"

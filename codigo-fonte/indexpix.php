@@ -76,14 +76,16 @@ echo $image; */
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+           data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="/codigos-documentacao/">
-            <img src="https://gerencianet.com.br/wp-content/themes/Gerencianet/images/marca-gerencianet.svg" onerror="this.onerror=null; this.src='img/marca-gerencianet.png'" alt="Gerencianet - Conceito 
+            <img src="https://gerencianet.com.br/wp-content/themes/Gerencianet/images/marca-gerencianet.svg"
+             onerror="this.onerror=null; this.src='img/marca-gerencianet.png'" alt="Gerencianet - Conceito 
              em Pagamentos" width="218" height="31">
           </a>
         </div>
@@ -147,9 +149,10 @@ echo $image; */
           <input class="documento form-control" name="cpf" type="text" id="cpf"
            placeholder="Informe o cpf" value="cpf" required>
         </div>
+       
         <div id="pai1" class="form-group cnpj col-sm-3">
           <label for="cnpj" class="control-label">Cnpj</label>
-          <input class="documento form-control" name="cnpj" type="text" id="cnpj"
+          <input class="documento form-control" name="cnpj" type="text" id="cnpj" 
            placeholder="Informe o cnpj" value="cnpj" required>
         </div>
 
@@ -161,7 +164,7 @@ echo $image; */
           id="nome" placeholder="Nome" value="<?php echo $dado['nome']; ?>" required>
         </div>
         <div id="pai2" class="form-group cnpj col-sm-3">
-          <label for="razaosocial" class="control-label">Razão Social></label>
+          <label for="razaosocial" class="control-label">Razão Social</label>
           <input class="documento form-control" rows="3" name="nome" type="text"
           id="razaosocial" placeholder="Razão Social" value="<?php echo $dado['nome']; ?>" required>
         </div>

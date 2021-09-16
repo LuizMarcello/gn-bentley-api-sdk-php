@@ -107,13 +107,13 @@ if (isset($_SESSION['id_usuario'])) {
       __DIR__ . '/certificates/certificadobentleygerencianet.pem'
     );
 
-    //Filtro recebendo o POST do formulário em indexBoleto.php, e evitando ataques.
-    $cpf = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRIPPED);
-
-    $cpfcomprador = $cpf['cpf'];
-
+    //Filtro recebendo o POST do formulário em indexpix.php, e evitando ataques.
+    $dados = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRIPPED);
+    
+    $cpfcomprador = $dados['cpf'];
+  
     $cpflimpo = limpaCPF_CNPJ($cpfcomprador);
-
+  
     //Função para limpar "." "," "-" "/" de cnpj e cpf.
     function limpaCPF_CNPJ($valor){
       $valor = trim($valor);
@@ -123,11 +123,7 @@ if (isset($_SESSION['id_usuario'])) {
       $valor = str_replace("/", "", $valor);
       return $valor;
      }
-
-     
-
-    /* $cpfcompradorinteiro = intval($cpfcomprador); */
-    
+               
     $nomecomprador = $dado['nome'];
 
     //Corpo da requisição
@@ -225,7 +221,7 @@ if (isset($_SESSION['id_usuario'])) {
       <div>Escolha pagar via Pix pelo seu Internet Banking ou app de pagamentos.</div>
       <div> Depois, cole o seguinte código:</div>
       <strong><?= $payloadQrCode ?></strong>
-      <!--  <button type="button" class="btn btn-primary">Copiar código</button> -->
+      <button type="button" class="btn btn-primary">Copiar código</button>
     </div>
 
     <br><br>
