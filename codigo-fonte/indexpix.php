@@ -100,8 +100,8 @@ echo $image; */
               <div style="margin: 36px 0 0 50px;">
                 <?php
                 if (isset($_SESSION['id_usuario'])) {
-                  $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
-                  /*  $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234"); */
+                 /*  $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd"); */
+                   $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
                   $user = $_SESSION['id_usuario'];
                   $sql = "SELECT * FROM usuarios WHERE id_usuario = $user";
                   global $pdo;
@@ -128,7 +128,7 @@ echo $image; */
 
   <main>
 
-    <form action="gerar-qrcode-dinamico.php" method="post">
+    <form action="gerar-qrcode-dinamico.php" method="POST">
       <div id="acima" class="form-group">
         <label for="cpfoucnpj" class="control-label"></label>
         <input class="form-control" type="text" disabled>
@@ -144,22 +144,26 @@ echo $image; */
       <div id="pai">
         <div id="pai1" class="form-group cpf col-sm-3">
           <label for="cpf" class="control-label">Cpf</label>
-          <input class="documento form-control" name="cpf" type="text" id="cpf" placeholder="Informe o cpf" value="" required>
+          <input class="documento form-control" name="cpf" type="text" id="cpf"
+           placeholder="Informe o cpf" value="cpf" required>
         </div>
         <div id="pai1" class="form-group cnpj col-sm-3">
           <label for="cnpj" class="control-label">Cnpj</label>
-          <input class="documento form-control" name="cnpj" type="text" id="cnpj" placeholder="Informe o cnpj" value="" required>
+          <input class="documento form-control" name="cnpj" type="text" id="cnpj"
+           placeholder="Informe o cnpj" value="cnpj" required>
         </div>
 
         <br><br>
 
         <div id="pai2" class="form-group cpf col-sm-3">
           <label for="nome" class="control-label">Nome</label>
-          <input class="documento form-control" rows="3" name="nome" type="text" id="nome" placeholder="Nome" value="<?php echo $dado['nome']; ?>" required>
+          <input class="documento form-control" rows="3" name="nome" type="text" 
+          id="nome" placeholder="Nome" value="<?php echo $dado['nome']; ?>" required>
         </div>
         <div id="pai2" class="form-group cnpj col-sm-3">
           <label for="razaosocial" class="control-label">Razão Social></label>
-          <input class="documento form-control" rows="3" name="nome" type="text" id="razaosocial" placeholder="Razão Social" value="<?php echo $dado['nome']; ?>" required>
+          <input class="documento form-control" rows="3" name="nome" type="text"
+          id="razaosocial" placeholder="Razão Social" value="<?php echo $dado['nome']; ?>" required>
         </div>
         <div id="resetar" class="form-group cnpj cpf">
           <input class="btn btn-warning" type="reset" value="Limpar dados">
