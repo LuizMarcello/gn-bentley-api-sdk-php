@@ -79,8 +79,8 @@ $u = new Usuario;
 
     //Verificando se está preenchido, se tem algum campo em branco
     if (!empty($email) && !empty($senha)) {
-     /*  $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd"); */
-      $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
+      $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
+      /* $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234"); */
       if ($u->msgErro == "") //Se continuar vazia, está tudo OK.
       {
         if ($u->logar($email, $senha)) {

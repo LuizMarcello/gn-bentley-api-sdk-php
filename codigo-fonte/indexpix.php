@@ -76,16 +76,14 @@ echo $image; */
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-           data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="/codigos-documentacao/">
-            <img src="https://gerencianet.com.br/wp-content/themes/Gerencianet/images/marca-gerencianet.svg"
-             onerror="this.onerror=null; this.src='img/marca-gerencianet.png'" alt="Gerencianet - Conceito 
+            <img src="https://gerencianet.com.br/wp-content/themes/Gerencianet/images/marca-gerencianet.svg" onerror="this.onerror=null; this.src='img/marca-gerencianet.png'" alt="Gerencianet - Conceito 
              em Pagamentos" width="218" height="31">
           </a>
         </div>
@@ -102,8 +100,8 @@ echo $image; */
               <div style="margin: 36px 0 0 50px;">
                 <?php
                 if (isset($_SESSION['id_usuario'])) {
-                  /* $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd"); */
-                  $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
+                  $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
+                  /*  $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234"); */
                   $user = $_SESSION['id_usuario'];
                   $sql = "SELECT * FROM usuarios WHERE id_usuario = $user";
                   global $pdo;
@@ -130,7 +128,7 @@ echo $image; */
 
   <main>
 
-    <form action="gerar-qrcode-dinamico.php" method="POST" accept-charset="UTF-8">
+    <form action="gerar-qrcode-dinamico.php" method="post">
       <div id="acima" class="form-group">
         <label for="cpfoucnpj" class="control-label"></label>
         <input class="form-control" type="text" disabled>
@@ -142,7 +140,6 @@ echo $image; */
           </select>
         </div>
       </div>
-
 
       <div id="pai">
         <div id="pai1" class="form-group cpf col-sm-3">
@@ -162,20 +159,16 @@ echo $image; */
         </div>
         <div id="pai2" class="form-group cnpj col-sm-3">
           <label for="razaosocial" class="control-label">Razão Social></label>
-          <input class="documento form-control" rows="3" name="razaosocial" type="text" id="razaosocial" placeholder="Razão Social" value="<?php echo $dado['nome']; ?>" required>
+          <input class="documento form-control" rows="3" name="nome" type="text" id="razaosocial" placeholder="Razão Social" value="<?php echo $dado['nome']; ?>" required>
         </div>
-
         <div id="resetar" class="form-group cnpj cpf">
           <input class="btn btn-warning" type="reset" value="Limpar dados">
         </div>
         <div id="enviar" class="form-group cnpj cpf">
           <input class="btn btn-primary" type="submit" value="Gerar QrCode">
         </div>
-        
       </div>
     </form>
-
-
 
     <!-- FOOTER -->
     <footer class="main-footer" style="text-align: center; margin-top: 25%;">

@@ -1,8 +1,12 @@
 <?php
 
-require '../vendor/autoload.php';
+require_once 'classes/usuarios.php';
+require_once '../vendor/autoload.php';
 
-session_start();
+$u = new Usuario;
+
+if (!isset($_SESSION)) session_start();
+
 if (!isset($_SESSION['id_usuario'])) {
   header("location: logar.php");
   exit;
@@ -12,6 +16,21 @@ use \App\Pix\Api;
 use \App\Pix\Payload;
 use Mpdf\QrCode\QrCode;
 use Mpdf\QrCode\Output;
+
+if (isset($_SESSION['id_usuario'])) {
+  $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
+  /*  $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234"); */
+  $user = $_SESSION['id_usuario'];
+  $sql = "SELECT * FROM usuarios WHERE id_usuario = $user";
+  global $pdo;
+  $sql = $pdo->prepare($sql);
+  $sql->bindValue("id_usuario", $_SESSION['id_usuario']);
+  $sql->execute();
+
+  if ($sql->rowCount() > 0) {
+    $dado = $sql->fetch();
+  }
+}
 
 ?>
 
@@ -42,8 +61,7 @@ use Mpdf\QrCode\Output;
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="/codigos-documentacao/">
-            <img src="https://gerencianet.com.br/wp-content/themes/Gerencianet/images/marca-gerencianet.svg" onerror="this.onerror=null; this.src='img/marca-gerencianet.png'"
-             alt="Gerencianet - Conceito em Pagamentos" width="218" height="31">
+            <img src="https://gerencianet.com.br/wp-content/themes/Gerencianet/images/marca-gerencianet.svg" onerror="this.onerror=null; this.src='img/marca-gerencianet.png'" alt="Gerencianet - Conceito em Pagamentos" width="218" height="31">
           </a>
         </div>
 
@@ -55,6 +73,9 @@ use Mpdf\QrCode\Output;
             <!--  <li class=""><a href="https://dev.gerencianet.com.br/docs/fale-conosco">Contatos</a></li> -->
             <li class=""><a href="index.php">Voltar a Bentley Brasil</a></li>
             <!-- <li class=""><a href="sair.php">Logoff Bentley</a></li> -->
+          </ul>
+          <ul class="nav navbar-nav">
+            <li class=""><a href="indexcomprar.php">Retornar as opções de pagamento</a></li>
           </ul>
 
           <ul class="nav navbar-nav pull-right">
@@ -71,16 +92,21 @@ use Mpdf\QrCode\Output;
 
   <main>
 
-
     <?php
+
     //Instância da API PIX
     $obApiPix = new Api(
       'https://api-pix-h.gerencianet.com.br',
       'Client_Id_adf60ba7ea206de2b1fd2054a7e00a93c66daf96',
       'Client_Secret_0cf0babdc5a54e32050a422d2067dc5c93e574bc',
       __DIR__ . '/certificates/certificadobentleygerencianet.pem'
-
     );
+
+    $cpf = $_POST['cpf'];
+    $cpfcomprador = "";
+    $cpfcomprador = $cpf;
+
+    $nomecomprador = $dado['nome'];
 
     //Corpo da requisição
     //Requisição (request) que será enviada ao PSP gerencianet:
@@ -89,8 +115,8 @@ use Mpdf\QrCode\Output;
         'expiracao' => 3600
       ],
       'devedor' => [
-        'cpf' => '07178216921',
-        'nome' => 'Valeria Miranda de Oliveira'
+        'cpf' => $cpfcomprador,
+        'nome' => $nomecomprador
       ],
       'valor' => [
         'original' => '1900.00'
@@ -100,24 +126,25 @@ use Mpdf\QrCode\Output;
     ];
 
     //Gerando um txid randômico
-    function getToken($length){
+    function getToken($length)
+    {
       $token = "";
       $codeAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-      $codeAlphabet.= "abcdefghijklmnopqrstuvwxyz";
-      $codeAlphabet.= "0123456789";
+      $codeAlphabet .= "abcdefghijklmnopqrstuvwxyz";
+      $codeAlphabet .= "0123456789";
       $max = strlen($codeAlphabet);
-  
-      for ($i=0; $i < $length; $i++) {
-          $token .= $codeAlphabet[random_int(0, $max-1)];
+
+      for ($i = 0; $i < $length; $i++) {
+        $token .= $codeAlphabet[random_int(0, $max - 1)];
       }
-  
+
       return $token;
-  }
+    }
 
     //Variável para guardar a reposta do PSP gerencianet:
     //txid: No QrCode dinámico, no mínimo 26 caracteres e
     //no máximo 35 caracteres, letras e números.
-   /*  $response = $obApiPix->createCob('renjifkq334tigrtwimacellol', $request); */
+    /*  $response = $obApiPix->createCob('renjifkq334tigrtwimacellol', $request); */
     $response = $obApiPix->createCob(getToken(35), $request);
 
     if (!isset($response['location'])) {
@@ -131,20 +158,22 @@ use Mpdf\QrCode\Output;
     //Instancia principal do PAYLOAD PIX
     $obPayload = (new Payload)
       ->setMerchantName($response['devedor']['nome'])
-     /*  ->setMerchantCity('Londrina') */
+      /*  ->setMerchantCity('Londrina') */
       ->setAmount($response['valor']['original'])
       ->setTxid($response['txid'])
       ->setUrl($response['location'])
-      ->setUniquePayment(true);
+      ->setUniquePayment(true)
+      ->setDescription($response['solicitacaoPagador']);
 
     //Código de pagamento PIX
     $payloadQrCode = $obPayload->getPayload();
 
     //Instância do QR CODE
     $obQrCode = new QrCode($payloadQrCode);
+    ?>
 
-    //Imagem do QRCODE
-    ?> <p style="margin-left: 3%;"><?php $image = (new Output\Png)->output($obQrCode, 220); ?></p>
+    <!-- Imagem do QRCODE -->
+    <p style="margin-left: 3%;"><?php $image = (new Output\Png)->output($obQrCode, 220); ?></p>
 
     <div style="margin-left: 3%;">
       <h5>QR CODE DINÂMICO DO PIX</h5>
@@ -176,8 +205,6 @@ use Mpdf\QrCode\Output;
       <strong><?= $payloadQrCode ?></strong>
       <!--  <button type="button" class="btn btn-primary">Copiar código</button> -->
     </div>
-
-
 
     <br><br>
     <!-- FOOTER -->
