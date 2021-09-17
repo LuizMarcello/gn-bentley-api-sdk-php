@@ -20,8 +20,8 @@ use Mpdf\QrCode\QrCode;
 use Mpdf\QrCode\Output;
 
 if (isset($_SESSION['id_usuario'])) {
- /*  $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd"); */
-   $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
+  $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
+  /* $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234"); */
   $user = $_SESSION['id_usuario'];
   $sql = "SELECT * FROM usuarios WHERE id_usuario = $user";
   global $pdo;
@@ -56,17 +56,14 @@ if (isset($_SESSION['id_usuario'])) {
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-            data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="/codigos-documentacao/">
-            <img src="https://gerencianet.com.br/wp-content/themes/Gerencianet/images/marca-gerencianet.svg"
-              onerror="this.onerror=null; this.src='img/marca-gerencianet.png'"
-              alt="Gerencianet - Conceito em Pagamentos" width="218" height="31">
+            <img src="https://gerencianet.com.br/wp-content/themes/Gerencianet/images/marca-gerencianet.svg" onerror="this.onerror=null; this.src='img/marca-gerencianet.png'" alt="Gerencianet - Conceito em Pagamentos" width="218" height="31">
           </a>
         </div>
 
@@ -109,21 +106,22 @@ if (isset($_SESSION['id_usuario'])) {
 
     //Filtro recebendo o POST do formulário em indexpix.php, e evitando ataques.
     $dados = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRIPPED);
-    
+
     $cpfcomprador = $dados['cpf'];
-  
+
     $cpflimpo = limpaCPF_CNPJ($cpfcomprador);
-  
+
     //Função para limpar "." "," "-" "/" de cnpj e cpf.
-    function limpaCPF_CNPJ($valor){
+    function limpaCPF_CNPJ($valor)
+    {
       $valor = trim($valor);
       $valor = str_replace(".", "", $valor);
       $valor = str_replace(",", "", $valor);
       $valor = str_replace("-", "", $valor);
       $valor = str_replace("/", "", $valor);
       return $valor;
-     }
-               
+    }
+
     $nomecomprador = $dado['nome'];
 
     //Corpo da requisição
@@ -196,16 +194,16 @@ if (isset($_SESSION['id_usuario'])) {
     <div style="margin-left: 3%;">
       <h5>QR CODE DINÂMICO DO PIX</h5>
       <p>
-        <h5><strong>Escaneie este código para pagar</strong></h5>
+      <h5><strong>Escaneie este código para pagar</strong></h5>
       </p>
       <p>
-        <h6>1. Acesse seu Internet Banking ou app de pagamentos.</h6>
+      <h6>1. Acesse seu Internet Banking ou app de pagamentos.</h6>
       </p>
       <p>
-        <h6>2. Escolha pagar via Pix</h6>
+      <h6>2. Escolha pagar via Pix</h6>
       </p>
       <p>
-        <h6>3. Escaneie o seguinte código:</h6>
+      <h6>3. Escaneie o seguinte código:</h6>
       </p>
     </div>
 

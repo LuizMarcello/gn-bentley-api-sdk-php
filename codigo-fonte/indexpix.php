@@ -67,7 +67,6 @@ echo $image; */
       });
     });
   </script>
-
 </head>
 
 <body>
@@ -84,8 +83,7 @@ echo $image; */
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="/codigos-documentacao/">
-            <img src="https://gerencianet.com.br/wp-content/themes/Gerencianet/images/marca-gerencianet.svg"
-             onerror="this.onerror=null; this.src='img/marca-gerencianet.png'" alt="Gerencianet - Conceito 
+            <img src="https://gerencianet.com.br/wp-content/themes/Gerencianet/images/marca-gerencianet.svg" onerror="this.onerror=null; this.src='img/marca-gerencianet.png'" alt="Gerencianet - Conceito 
              em Pagamentos" width="218" height="31">
           </a>
         </div>
@@ -102,8 +100,8 @@ echo $image; */
               <div style="margin: 36px 0 0 50px;">
                 <?php
                 if (isset($_SESSION['id_usuario'])) {
-                 /*  $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd"); */
-                   $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
+                  $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
+                  /*   $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234"); */
                   $user = $_SESSION['id_usuario'];
                   $sql = "SELECT * FROM usuarios WHERE id_usuario = $user";
                   global $pdo;
@@ -129,7 +127,6 @@ echo $image; */
   </header>
 
   <main>
-
     <form action="gerar-qrcode-dinamico.php" method="POST">
       <div id="acima" class="form-group">
         <label for="cpfoucnpj" class="control-label"></label>
@@ -146,27 +143,28 @@ echo $image; */
       <div id="pai">
         <div id="pai1" class="form-group cpf col-sm-3">
           <label for="cpf" class="control-label">Cpf</label>
-          <input class="documento form-control" name="cpf" type="text" id="cpf"
-           placeholder="Informe o cpf" value="cpf" required>
+          <input class="documento form-control" name="cpf" type="text" id="cpf" 
+          placeholder="Informe o cpf" value="cpf" required>
         </div>
-       
+
         <div id="pai1" class="form-group cnpj col-sm-3">
           <label for="cnpj" class="control-label">Cnpj</label>
-          <input class="documento form-control" name="cnpj" type="text" id="cnpj" 
-           placeholder="Informe o cnpj" value="cnpj" required>
+          <input class="documento form-control" name="cnpj" type="text" id="cnpj"
+           placeholder="Informe o cnpj" value="" required>
         </div>
 
         <br><br>
 
         <div id="pai2" class="form-group cpf col-sm-3">
-          <label for="nome" class="control-label">Nome</label>
-          <input class="documento form-control" rows="3" name="nome" type="text" 
-          id="nome" placeholder="Nome" value="<?php echo $dado['nome']; ?>" required>
+          <label for="nome" class="control-label">Nome pessoa física</label>
+          <input class="documento form-control" rows="3" name="nome" type="text"
+           id="nome" placeholder="Nome" value="<?php echo $dado['nome']; ?>" required>
         </div>
         <div id="pai2" class="form-group cnpj col-sm-3">
           <label for="razaosocial" class="control-label">Razão Social</label>
           <input class="documento form-control" rows="3" name="nome" type="text"
-          id="razaosocial" placeholder="Razão Social" value="<?php echo $dado['nome']; ?>" required>
+           id="razaosocial" placeholder="Razão Social" value="<?php echo $dado['nome']; ?>"
+            required>
         </div>
         <div id="resetar" class="form-group cnpj cpf">
           <input class="btn btn-warning" type="reset" value="Limpar dados">
