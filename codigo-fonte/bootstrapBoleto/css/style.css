@@ -1,6 +1,6 @@
 body {
-    /* font-family: calibri; */
-    /*    display: flex; */
+    font-family: calibri;
+       /* display: flex; */
 }
 
 .flex-box {
@@ -8,6 +8,14 @@ body {
     align-items: center;
     justify-content: center;
 }
+
+/* div input {
+    width: 90%;
+    margin: 5px 10px 10px 40px;
+    padding: 5px 5px 8px 2px;
+    border: 1px solid #eee;
+    border-radius: 10px;
+} */
 
 .bt {
     height: 120px
@@ -146,7 +154,7 @@ em {
 }
 
 #acima {
-    margin: 2% 5% 3% 3%;
+    margin: 0 0 0 40px;
 }
 
 #pai1 {
@@ -168,3 +176,8 @@ em {
 .navbar {
     background-color: #1C1C1C;
 }
+
+label{
+    font-size: 20px;
+}
+

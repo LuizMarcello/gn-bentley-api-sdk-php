@@ -21,9 +21,11 @@ if(isset($boleto['gerarBoleto'])){
     unset($boleto['gerarBoleto']);
 
     echo $boleto['nome'] ."<hr>";
+   
     echo $boleto['email'] ."<hr>";
     echo $boleto['fone'] ."<hr>";
     echo $boleto['cpf'] ."<hr>";
+   
     echo $boleto['produto'] ."<hr>";
     echo $boleto['valor'] ."<hr>";
     echo $boleto['vencimento'] ."<hr>";

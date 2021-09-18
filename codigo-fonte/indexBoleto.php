@@ -109,7 +109,7 @@ and open the template in the editor.
 
 
 
-        <h3>Bentley Brasil - Gerador de Boletos</h3>
+        <h5>Bentley Brasil - Gerador de Boletos</h5>
 
         <form action="emitir_boleto.php" method="POST">
             <div id="acima" class="form-group">
@@ -125,37 +125,26 @@ and open the template in the editor.
             </div>
 
             <div id="pai">
-                <div id="pai1-1" class="form-group fisica col-sm-3">
-                    <label for="nome" class="control-label">Nome</label>
-                    <input type="text" name="nome" id="nome" value="<?php echo $dado['nome']; ?>"><br>
-                    <label for="email" class="control-label">Email</label>
-                    <input type="mail" name="email" id="email" value="<?php echo $dado['email']; ?>"><br>
-                    <label for="telefone" class="control-label">telefone</label>
-                    <input type="number" name="telefone" id="telefone" value="<?php echo $dado['telefone']; ?>"><br>
-                    <label for="cpf" class="control-label">CPF válido</label>
-                    <input type="number" name="cpf" id="cpf"><br>
-                    <label for="produto" class="control-label">Produto</label>
-                    <input type="text" name="produto" id="produto" value="Adesão de equipamentos - Projeto Juruena"><br>
-                    <label for="valor" class="control-label">Valor</label>
-                    <input type="number" name="valor" id="valor" value="190000"><br>
-                    <label for="vcto" class="control-label">Vencimento</label>
-                    <input type="date" name="vencimento" id="vcto">
-                    <!-- <div class="botao"> -->
-                        <button type="submit" class="btn" name=gerarBoleto>Gerar Boleto</button>
-                   <!--  </div> -->
-                </div>
-
-                <div id="pai1-2" class="form-group juridica col-sm-3">
-                    <input type="text" name="razaosocial" placeholder="Razão social" value="<?php echo $dado['nome']; ?>">
+                <div id="pai1-2" class="form-group fisica col-sm-3">
+                    <input type="text" name="nome" placeholder="Razão " value="<?php echo $dado['nome']; ?>">
                     <input type="mail" name="email" placeholder="E-mail" value="<?php echo $dado['email']; ?>">
                     <input type="number" name="fone" placeholder="Telefone" value="<?php echo $dado['telefone']; ?>">
                     <input type="number" name="cpf" placeholder="Cnpj válido">
-                    <input type="text" name="produto" placeholder="Titulo do produto" value="Adesão de equipamentos - Projeto Juruena">
+                    <input type="text" name="produto" placeholder="Produto" value="Adesão de equipamentos - Projeto Juruena">
                     <input type="number" name="valor" placeholder="Valor" value="190000">
                     <input type="date" name="vencimento">
-                   <!--  <div class="botao"> -->
-                        <button type="submit" class="btn" name=gerarBoleto>Gerar Boleto</button>
-                    <!-- </div> -->
+                    <button type="submit" class="btn" name=gerarBoleto>Gerar Boleto</button>
+                </div>
+
+                <div id="pai1-2" class="form-group juridica col-sm-3">
+                    <input type="text" name="nome" placeholder="Razão " value="<?php echo $dado['nome']; ?>">
+                    <input type="mail" name="email" placeholder="E-mail" value="<?php echo $dado['email']; ?>">
+                    <input type="number" name="fone" placeholder="Telefone" value="<?php echo $dado['telefone']; ?>">
+                    <input type="number" name="cpf" placeholder="Cnpj válido">
+                    <input type="text" name="produto" placeholder="Produto" value="Adesão de equipamentos - Projeto Juruena">
+                    <input type="number" name="valor" placeholder="Valor" value="190000">
+                    <input type="date" name="vencimento">
+                    <button type="submit" class="btn" name=gerarBoleto>Gerar Boleto</button>
                 </div>
             </div>
         </form>
