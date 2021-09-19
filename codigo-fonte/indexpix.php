@@ -45,6 +45,7 @@ echo $image; */
   <meta charset="UTF-8">
   <link rel="stylesheet" href="bootstrapBoleto/css/bootstrap.css">
   <link rel="stylesheet" href="bootstrapBoleto/css/style.css">
+  <link rel="stylesheet" href="css/estilos.css">
   <script type="text/javascript" src="bootstrapBoleto/js/jquery-2.2.4.min.js"></script>
   <script type="text/javascript" src="bootstrapBoleto/js/bootstrap.js"></script>
   <script type="text/javascript" src="bootstrapBoleto/js/jquery.mask.js"></script>
@@ -75,8 +76,7 @@ echo $image; */
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-           data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -127,6 +127,9 @@ echo $image; */
   </header>
 
   <main>
+
+    <h5>Bentley Brasil - Gerador de QrCode Pix</h5>
+
     <form action="gerar-qrcode-dinamico.php" method="POST">
       <div id="acima" class="form-group">
         <label for="cpfoucnpj" class="control-label"></label>
@@ -143,28 +146,23 @@ echo $image; */
       <div id="pai">
         <div id="pai1" class="form-group cpf col-sm-3">
           <label for="cpf" class="control-label">Cpf</label>
-          <input class="documento form-control" name="cpf" type="text" id="cpf" 
-          placeholder="Informe o cpf" value="cpf" required>
+          <input class="documento form-control" name="cpf" type="text" id="cpf" placeholder="Informe o cpf" value="cpf" required>
         </div>
 
         <div id="pai1" class="form-group cnpj col-sm-3">
           <label for="cnpj" class="control-label">Cnpj</label>
-          <input class="documento form-control" name="cnpj" type="text" id="cnpj"
-           placeholder="Informe o cnpj" value="" required>
+          <input class="documento form-control" name="cnpj" type="text" id="cnpj" placeholder="Informe o cnpj" value="cnpj" required>
         </div>
 
         <br><br>
 
         <div id="pai2" class="form-group cpf col-sm-3">
           <label for="nome" class="control-label">Nome pessoa física</label>
-          <input class="documento form-control" rows="3" name="nome" type="text"
-           id="nome" placeholder="Nome" value="<?php echo $dado['nome']; ?>" required>
+          <input class="documento form-control" rows="3" name="nome" type="text" id="nome" placeholder="Nome" value="<?php echo $dado['nome']; ?>" required>
         </div>
         <div id="pai2" class="form-group cnpj col-sm-3">
           <label for="razaosocial" class="control-label">Razão Social</label>
-          <input class="documento form-control" rows="3" name="nome" type="text"
-           id="razaosocial" placeholder="Razão Social" value="<?php echo $dado['nome']; ?>"
-            required>
+          <input class="documento form-control" rows="3" name="nome" type="text" id="razaosocial" placeholder="Razão Social" value="<?php echo $dado['nome']; ?>" required>
         </div>
         <div id="resetar" class="form-group cnpj cpf">
           <input class="btn btn-warning" type="reset" value="Limpar dados">

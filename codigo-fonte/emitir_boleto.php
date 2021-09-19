@@ -72,7 +72,3 @@ if(isset($boleto['gerarBoleto'])){
         print_r($e->getMessage());
     }
 }
-
-
-
-?>
