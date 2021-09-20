@@ -61,7 +61,8 @@ and open the template in the editor.
             <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" 
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -116,29 +117,31 @@ and open the template in the editor.
                 <div class="col-sm-3">
                     <select name="fisicaoujuridica" class="form-control" id="fisicaoujuridica">
                         <option value="">Pessoa física ou jurídica</option>
-                        <option value="fisica">Física</option>
-                        <option value="juridica">Jurídica</option>
+                        <option value="fisica">Pessoa Física</option>
+                        <option value="juridica">Pessoa Jurídica</option>
                     </select>
                 </div>
             </div>
 
-            <div id="pai1-2" class="form-group col-sm-3">
-                <input type="text" name="nome" placeholder="Nome" value="<?php echo $dado['nome']; ?>">
+            <div id="pai1-2" class="form-group col-sm-4">
+                <input type="text" name="nome" placeholder="Nome completo" style="padding-left: 10px; "value="<?php echo $dado['nome']; ?>">
                 <input type="mail" name="email" placeholder="E-mail" value="<?php echo $dado['email']; ?>">
-                <input type="number" name="fone" placeholder="Telefone" value="<?php echo $dado['telefone']; ?>">
-                <input type="text" name="produto" placeholder="Produto" value="Adesão de equipamentos - Projeto Juruena">
+                <input type="number" name="fone" placeholder="Telefone" style="padding-left: 10px; "value="<?php echo $dado['telefone']; ?>">
+                <input type="text" name="produto" placeholder="Produto" style="padding-left: 10px; "value="Adesão de equipamentos - Projeto Juruena">
+                <input type="number" name="valor" placeholder="Valor do produto" style="padding-left: 10px; "value="190000">
+                <p>Data do vencimento</p>
                 <input type="date" name="vencimento">
             </div>
 
             <div id="pai">
                 <div id="pai1-2" class="form-group fisica col-sm-3">
-                    <input type="number" name="cpf" placeholder="Cpf válido">
+                    <input type="number" name="cpf" placeholder="Cpf válido" style="padding-left: 10px;">
                 </div>
                 <div id="pai1-2" class="form-group juridica col-sm-3">
-                    <input type="number" name="cnpj" placeholder="Cnpj válido">
+                    <input type="number" name="cnpj" placeholder="Cnpj válido" style="padding-left: 10px;">
                 </div>
-                <div id="pai1-2" class="form-group fisica juridica col-sm-3">
-                    <button type="submit" class="btn" name=gerarBoleto>Gerar Boleto</button>
+                <div id="pai1-2" class="form-group fisica juridica col-sm-5">
+                    <button type="submit" class="btn btn-success" name=gerarBoleto>Gerar Boleto</button>
                 </div>
             </div>
         </form>
