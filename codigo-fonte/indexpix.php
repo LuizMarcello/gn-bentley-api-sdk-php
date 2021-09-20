@@ -76,14 +76,16 @@ echo $image; */
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+           data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="/codigos-documentacao/">
-            <img src="https://gerencianet.com.br/wp-content/themes/Gerencianet/images/marca-gerencianet.svg" onerror="this.onerror=null; this.src='img/marca-gerencianet.png'" alt="Gerencianet - Conceito 
+            <img src="https://gerencianet.com.br/wp-content/themes/Gerencianet/images/marca-gerencianet.svg"
+             onerror="this.onerror=null; this.src='img/marca-gerencianet.png'" alt="Gerencianet - Conceito 
              em Pagamentos" width="218" height="31">
           </a>
         </div>
@@ -136,38 +138,43 @@ echo $image; */
         <input class="form-control" type="text" disabled>
         <div class="col-sm-3">
           <select name="cpfoucnpj" class="form-control" id="cpfoucnpj">
-            <option value="">CPF ou CNPJ</option>
-            <option value="cpf">CPF</option>
-            <option value="cnpj">CNPJ</option>
+            <option value="">Pessoa física ou Jurídica</option>
+            <option value="cpf">Física</option>
+            <option value="cnpj">Jurídica</option>
           </select>
         </div>
       </div>
 
       <div id="pai">
-        <div id="pai1" class="form-group cpf col-sm-3">
-          <label for="cpf" class="control-label">Cpf</label>
-          <input class="documento form-control" name="cpf" type="text" id="cpf" placeholder="Informe o cpf" value="cpf" required>
+        <div class="form-group cpf col-sm-3">
+           <label for="cpf" class="control-label"></label>
+          <input class="documento form-control" rows="3" name="cpf" type="text" id="cpf"
+           placeholder="Informe o CPF" required>
         </div>
 
-        <div id="pai1" class="form-group cnpj col-sm-3">
-          <label for="cnpj" class="control-label">Cnpj</label>
-          <input class="documento form-control" name="cnpj" type="text" id="cnpj" placeholder="Informe o cnpj" value="cnpj" required>
+        <div class="form-group cnpj col-sm-3">
+           <label for="cnpj" class="control-label"></label>
+          <input class="documento form-control" rows="3" name="cnpj" type="text" id="cnpj"
+            placeholder="Informe o CNPJ" required>
         </div>
+        
 
         <br><br>
 
-        <div id="pai2" class="form-group cpf col-sm-3">
-          <label for="nome" class="control-label">Nome pessoa física</label>
-          <input class="documento form-control" rows="3" name="nome" type="text" id="nome" placeholder="Nome" value="<?php echo $dado['nome']; ?>" required>
+        <div class="form-group cpf col-sm-3">
+          <label for="nome" class="control-label">Pessoa física</label>
+          <input class="documento form-control" rows="3" name="nome" type="text" id="nome" 
+          placeholder="Nome" value="<?php echo $dado['nome']; ?>" required>
         </div>
-        <div id="pai2" class="form-group cnpj col-sm-3">
+        <div class="form-group cnpj col-sm-3">
           <label for="razaosocial" class="control-label">Razão Social</label>
-          <input class="documento form-control" rows="3" name="nome" type="text" id="razaosocial" placeholder="Razão Social" value="<?php echo $dado['nome']; ?>" required>
+          <input class="documento form-control" rows="3" name="nome" type="text" id="razaosocial"
+           placeholder="Razão Social" value="<?php echo $dado['nome']; ?>" required>
         </div>
-        <div id="resetar" class="form-group cnpj cpf">
+        <div class="form-group cnpj cpf">
           <input class="btn btn-warning" type="reset" value="Limpar dados">
         </div>
-        <div id="enviar" class="form-group cnpj cpf">
+        <div class="form-group cnpj cpf">
           <input class="btn btn-primary" type="submit" value="Gerar QrCode">
         </div>
       </div>

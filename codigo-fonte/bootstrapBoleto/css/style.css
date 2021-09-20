@@ -1,6 +1,6 @@
 body {
     font-family: calibri;
-       /* display: flex; */
+    /*    display: flex; */
 }
 
 .flex-box {
@@ -9,13 +9,13 @@ body {
     justify-content: center;
 }
 
-/* div input {
+div input {
     width: 90%;
     margin: 5px 10px 10px 40px;
     padding: 5px 5px 8px 2px;
     border: 1px solid #eee;
     border-radius: 10px;
-} */
+}
 
 .bt {
     height: 120px
@@ -157,12 +157,20 @@ em {
     margin: 0 0 0 40px;
 }
 
-#pai1 {
+/* #pai1 {
     margin: 4% 5% 3% 3%;
+} */
+
+/* #pai2 {
+    margin: 4% 5% 3% 3%;
+} */
+
+#pai {
+    margin: 1% 1% 1% 1%;
 }
 
-#pai2 {
-    margin: 2% 50% 1% 3%;
+#pai1 {
+    margin: 6% 6% 26% 6%;
 }
 
 #resetar {
