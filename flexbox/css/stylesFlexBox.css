@@ -3,7 +3,7 @@
   background-color: #ccc;
   height: 500px;
   /* Para definir um container como "flex": */
-  display: flex;
+  display: flex; /* Este já ativa o flex-direction: row; */
 
   /* Após o display flex, para definir a direção dos itens: */
   flex-direction: row;

@@ -47,6 +47,19 @@
     <a href="" class="btn">Saiba mais</a>
   </section>
 
+  <section class="conheca-o-hotel">
+    <h3>Conheça o Hotel Paraíso</h3>
+    <p>Feche os olhos e imagine o paraíso. Um lugar no meio da mata Atlântica e banhado pelo mar,
+      onde você encontra paz, tranquilidade, confôrto e comodidade.</p>
+    <hr>
+    <ul class="grid">
+      <li class="small" style="background-image: url('../imgFlexBox/itacare-01.jpg')"></li>
+      <li class="large" style="background-image: url('../imgFlexBox/itacare-02.jpg')"></li>
+      <li class="large" style="background-image: url('../imgFlexBox/itacare-03.jpg')"></li>
+      <li class="small" style="background-image: url('../imgFlexBox/itacare-04.jpg')"></li>
+    </ul>
+  </section>
+
 </body>
 
 </html>
