@@ -4,7 +4,7 @@
   padding: 0;
   font-size: 100%;
   box-sizing: border-box;
-  font-family: 'Opens Sans', sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
 
 nav,
@@ -83,6 +83,7 @@ header li:last-child {
   background-size: cover;
   min-height: 100vh;
   color: #fff;
+  /* "display: flex" já ativa o flex-direction: row; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -140,6 +141,7 @@ header li:last-child {
   font-size: 2rem;
   margin-bottom: 35px;
   color: #191c03;
+  text-align: center;
 }
 
 .conheca-o-hotel p {
@@ -186,5 +188,139 @@ header li:last-child {
   .conheca-o-hotel .grid li.small,
   .conheca-o-hotel .grid li.large {
     flex-basis: 100%;
+  }
+}
+
+/* Estilizando o section CARACTERISTICAS (classe características) */
+.caracteristicas {
+  background-color: #191c03;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* 100px: topo e base */
+  /* 50px: esquerda e direita */
+  padding: 100px 50px;
+}
+
+.caracteristicas h3 {
+  font-size: 2rem;
+  margin-bottom: 35px;
+  color: #fff;
+  text-align: center;
+}
+
+.caracteristicas p {
+  max-width: 800px;
+  margin-bottom: 35px;
+  color: #fff;
+  text-align: center;
+}
+
+.caracteristicas hr {
+  width: 200px;
+  height: 2px;
+  background-color: #fff;
+  margin-bottom: 70px;
+  border: none;
+}
+
+.caracteristicas .grid {
+  width: 100%;
+  display: flex;
+}
+
+/* 0: topo e base */
+/* 15px: esquerda e direita */
+.caracteristicas .grid li {
+  padding: 0 30px;
+  text-align: center;
+}
+
+.caracteristicas .grid li i {
+  color: #c3c63b;
+  font-size: 40px;
+  margin-bottom: 30px;
+}
+
+.caracteristicas .grid li h4 {
+  font-size: 1.5rem;
+  color: #c3c63b;
+  margin-bottom: 30px;
+}
+
+.caracteristicas .grid li p {
+  color: #fff;
+}
+
+/* Adicionando Responsividade: */
+@media (max-width: 850px) {
+  .caracteristicas .grid {
+    flex-direction: column;
+  }
+}
+
+/* Estilizando o section NEWSLETTER (classe newsletter) */
+.newsletter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* 80: topo e base */
+  /* 40px: esquerda e direita */
+  padding: 80px 40px;
+}
+
+.newsletter h3 {
+  font-size: 2rem;
+  margin-bottom: 35px;
+  color: #c3c63b;
+  text-align: center;
+}
+
+.newsletter p {
+  max-width: 800px;
+  margin-bottom: 35px;
+  color: #c3c63b;
+  text-align: center;
+}
+
+.newsletter hr {
+  width: 200px;
+  height: 2px;
+  background-color: #c3c63b;
+  margin-bottom: 60px;
+  border: none;
+}
+
+.newsletter form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 80%;
+  max-width: 800px;
+}
+
+.newsletter input {
+  padding: 15px;
+  border: 1px solid #c3c63b;
+  border-radius: 4px;
+  margin-right: 15px;
+  flex: 1;
+}
+
+.newsletter button {
+  padding: 15px;
+  background-color: #c3c63b;
+  color: #fff;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+@media (max-width: 700px) {
+  .newsletter input {
+    flex-basis: 100%;
+    margin-bottom: 15px;
   }
 }

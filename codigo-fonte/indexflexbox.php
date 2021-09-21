@@ -60,6 +60,47 @@
     </ul>
   </section>
 
+  <section class="caracteristicas">
+    <h3>Único hotel pé na areia de Itacaré</h3>
+    <p>Alguns sites começaram a abusar de um recurso super interessante do JavaScript para
+      acabar com uma das características mais importantes da Internet: a capacidade de
+      copiar/colar</p>
+    <hr>
+    <ul class="grid">
+      <li>
+        <i class="fas fa-location-arrow"></i>
+        <h4>Localização</h4>
+        <p>A solução anterior nos permite criar um userscript para desabilitar o tratamento
+          dos eventos apenas no site da Folha:</p>
+      </li>
+
+      <li>
+        <i class="fas fa-gift"></i>
+        <h4>Pacote de ofertas</h4>
+        <p>A solução anterior nos permite criar um userscript para desabilitar o tratamento
+          dos eventos apenas no site da Folha:</p>
+      </li>
+
+      <li>
+        <i class="fas fa-home"></i>
+        <h4>Acomodações</h4>
+        <p>A solução anterior nos permite criar um userscript para desabilitar o tratamento
+          dos eventos apenas no site da Folha:</p>
+      </li>
+    </ul>
+  </section>
+
+  <section class="newsletter">
+    <h3>newsletter</h3>
+    <p>Assine nossa newsletter para se manter atualizado com nossos serviços e a programação de nossos culturais</p>
+    <hr>
+    <form action="">
+      <input type="text" placeholder="Email">
+      <button>Cadastrar</button>
+      
+    </form>
+  </section>
+
 </body>
 
 </html>
