@@ -1,0 +1,76 @@
+/* (((Propriedades para trabalhar com o "FLEX-CONTAINER"))) */
+.container {
+  background-color: #ccc;
+  height: 500px;
+  /* Para definir um container como "flex": */
+  display: flex;
+
+  /* Após o display flex, para definir a direção dos itens: */
+  flex-direction: row;
+  /* row | column | row-reverse | column-reverse */
+
+  /* Se os itens vão ter uma quebra de linha ou não */
+  flex-wrap: nowrap;
+  /* wrap | nowrap | wrap-reverse | */
+
+  /* Uma forma resumida de escrever o "flex-direction" e o "flex-wrap" */
+  /* flex-flow: row nowrap; */
+
+  /* Alinhamento horizontal: */
+  justify-content: flex-start;
+  /* flex-start | flex-end | center | space-between | space-around */
+
+  /* Alinhamento vertical: */
+  align-items: stretch;
+  /* stretch | flex-start | flex-end | center | baseline */
+
+  /* Alinhamento vertical, quando os itens estiverem em multiline, em quebra de linha */
+  align-content: flex-start;
+  /* flex-start | flex-end | center | space-between | space-around | stretch */
+}
+
+.item {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  margin: 5px;
+  /*   width: 30px; */
+  height: 30px;
+
+  /* Relacionado com a largura de cada um dos itens: */
+  flex-grow: 1;
+  /* 0 | 1 | 2 | 3 */
+
+  /* Capacidade de redução de cada um dos itens */
+  flex-shrink: 1;
+
+  /* Define a largura inicial de cada um dos itens */
+  flex-basis: 300px;
+
+  /* Forma resumida de escrever as propriedades "flex-grow", "flex-shrink", e "flex-basis" */
+  flex: 1 1 300px;
+
+}
+
+/* .article-01 {
+  padding-top: 40px; background-color: red;
+} */
+
+/* (((Propriedades para trabalhar com os "FLEX-ITENS"))) */
+
+/* Propriedade "order" serve para alterar a ordem dos itens */
+/* Propriedade "align-self" serve para definir o alinhamento individual do item */
+/* auto | flex-start | flex-end | baseline | stretch */
+
+/* .article-01 {order: 3;}
+.article-02 {order: 1; align-self: auto; }
+.article-03 {order: 2;}
+.article-04 {order: 4;} */
+
+.article-01 {flex-shrink: 3;}
+
+.article-02 {}
+
+.article-03 {}
+
+.article-04 {}
