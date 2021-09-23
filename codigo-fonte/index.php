@@ -4,7 +4,6 @@ require_once 'classes/usuarios.php';
 if (!isset($_SESSION)) session_start();
 $u = new Usuario;
 
-
 ?>
 
 <!DOCTYPE html>
@@ -12,94 +11,81 @@ $u = new Usuario;
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Bentley Juruena</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" media="all">
-    <link rel="stylesheet" href="bootstrapBoleto/css/style.css">
-    <link rel="stylesheet" href="css/style.css">
+    <title>Hotel Paraíso</title>
+    <!-- Icones fontawesome: -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <!-- Fontes da google: font-family: 'Open Sans', sans-serif; -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
 
-
+    <link rel="stylesheet" href="css/styleee.css">
 </head>
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-            <div class="container-fluid">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" 
-                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <ul class="navbar-nav me-auto mb-2 mb-md-0">
-                        <span class="brand-text font-weight-light">
-                            <img height="80" src="https://sistema.bentleybrasil.com.br/img/logo-empresa-br.png">
-                        </span>
-                        <div style="margin: 36px 0 0 50px;">
-                            <a class="nav-link" aria-current="page" href="index.php">Home</a>
-                        </div>
-                        <div style="margin: 36px 0 0 50px;">
-                            <a class="nav-link" href="">Detalhes dos Produtos</a>
-                        </div>
-                        <div style="margin: 36px 0 0 50px;">
-                            <?php if (isset($_SESSION['id_usuario'])) { ?>
-                                <a class="nav-link" href="sair.php">Sair</a>
-                            <?php } ?>
-                            <?php if (!isset($_SESSION['id_usuario'])) { ?>
-                                <a class="nav-link" href="logar.php">Entrar</a>
-                            <?php } ?>
-                        </div>
-                        <div style="margin: 36px 0 0 50px;">
-                            <?php
-                            if (isset($_SESSION['id_usuario'])) {
-                                $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
-                              /*   $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234"); */
-                                $user = $_SESSION['id_usuario'];
-                                $sql = "SELECT * FROM usuarios WHERE id_usuario = $user";
-                                global $pdo;
-                                $sql = $pdo->prepare($sql);
-                                $sql->bindValue("id_usuario", $_SESSION['id_usuario']);
-                                $sql->execute();
+        <!-- <img height="80" src="https://sistema.bentleybrasil.com.br/img/logo-empresa-br.png"> -->
+        <img src="https://sistema.bentleybrasil.com.br/img/logo-empresa-br.png" alt="Bentley Brasil">
+        <nav>
+            <li><a href="">Home</a></li>
+            <li><a href="">Sobre</a></li>
+            <li><a href="">Reservas</a></li>
+            <li><a href="">Contato</a></li>
+            <?php
+            if (isset($_SESSION['id_usuario'])) {
+                $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
+                /*   $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234"); */
+                $user = $_SESSION['id_usuario'];
+                $sql = "SELECT * FROM usuarios WHERE id_usuario = $user";
+                global $pdo;
+                $sql = $pdo->prepare($sql);
+                $sql->bindValue("id_usuario", $_SESSION['id_usuario']);
+                $sql->execute();
 
-                                if ($sql->rowCount() > 0) {
-                                    $dado = $sql->fetch(); ?>
-                                    <a class="nav-link"><?php echo $dado['nome']; ?> </a>
-                        </div>
-                        <div style="margin: 36px 0 0 50px;">
-                            <a class="nav-link"><?php echo $dado['email']; ?> </a>
-                        </div>
-                    </ul>
+                if ($sql->rowCount() > 0) {
+                    $dado = $sql->fetch(); ?>
+                    <div>
+                        <a class="nav-link"><?php echo $dado['nome']; ?> </a>
+                    </div>
+                    <div style="margin: 36px 0 0 50px;">
+                        <!--  <a class="nav-link"> --><?php /* echo $dado['email']; */ ?>
+                        <!-- </a> -->
+                    </div>
                 <?php } ?>
             <?php } ?>
-                </div>
-            </div>
         </nav>
-
     </header>
 
-    <main>
-        <div>
-            <!--  <img src="img/cabecalhositebentley.jpg" height="90%" width="90%" style="padding: 110px 110px 70px 110px;"> -->
-            <img height="65%" width="95%" src="img/cabecalhositebentley.jpg" style="margin: 0px 0px 0px 0px">
-        </div>
-        <br>
+    <section class="cabecalho">
+        <!--  <img src="img/cabecalhositebentley.jpg" height="90%" width="90%" style="padding: 110px 110px 70px 110px;"> -->
+        <!-- <img height="65%" width="95%" src="img/cabecalhositebentley.jpg" style="margin: 0px 0px 0px 0px"> -->
+        <img src="img/cabecalhositebentley.jpg" alt="Bentley Brasil">
+    </section>
 
-        <div>
-            <a href="indexcomprar.php"><img src="img/fazerreserva.jpg" width="120px" height="110px" width="120px"></a>
-        </div>
+    <!--  <section class="reserva">
+        <a href="indexcomprar.php"><img src="img/fazerreserva.jpg"></a>
+    </section> -->
 
-        <!-- FOOTER -->
-        <footer class="main-footer">
-            <div class="float-center d-none d-sm-block" style="bottom: 0; position:absolute; margin-left:5%; margin-bottom: 1%">
-                <b>Satellite Broadband Networks</b> 1.0-rc
-                <strong>Copyright &copy; <a href="https://adminlte.io"> Bentley Brasil
-                        - Projeto
-                        Juruena</a>.</strong> Todos os direitos reservados
-            </div>
-        </footer>
-    </main>
+    <section class="imagensjuruena">
+        <ul class="imgjuruena">
+          <!--   <li style="background-image: url('../imgFlexBox/juruena01.jpg')"></li> -->
+         <!--    <li style="background-image: url('../imgFlexBox/juruena02.jpg')"></li> -->
+         <!--    <li style="background-image: url('../imgFlexBox/juruena03.jpg')"></li> -->
+            <img src="../imgFlexBox/juruena01.jpg" alt="Bentley Brasil">
+            <img src="../imgFlexBox/juruena03.jpg" alt="Bentley Brasil">
+            <img src="../imgFlexBox/juruena02.jpg" alt="Bentley Brasil">
+        </ul>
+    </section>
+
+    <footer>
+        <ul>
+            <li><a href=""><i class="fab fa-facebook"></i></a></li>
+            <li><a href=""><i class="fab fa-twitter"></i></a></li>
+            <li><a href=""><i class="fab fa-snapchat"></i></a></li>
+            <li><a href=""><i class="fab fa-pinterest"></i></a></li>
+        </ul>
+        <p>Satellite Broadband Networks - Bentley Brasil - Projeto Juruena</p>
+    </footer>
 
 </body>
 
