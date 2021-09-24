@@ -67,7 +67,8 @@ header li:last-child {
 
 @media (max-width: 850px) {
   header nav li a {
-
+    color: red;
+    /* provisorio */
     font-size: 13px;
   }
 }
@@ -81,7 +82,8 @@ header li:last-child {
 
 @media (max-width: 700px) {
   header nav li a {
-
+    color: blue;
+    /* provisorio */
     font-size: 11px;
 
   }
@@ -135,7 +137,7 @@ header li:last-child {
   width: 70%;
   margin-top: 10%;
   margin-left: 15%;
-  
+
 }
 
 @media (max-width: 850px) {
@@ -181,9 +183,9 @@ header li:last-child {
   align-items: center;
   /* 100px: topo e base */
   /* 50px: esquerda e direita */
- /*  padding: 100px 50px; */
- margin: 3% 15%;
- justify-content: space-between;
+  /*  padding: 100px 50px; */
+  margin: 3% 15%;
+  justify-content: space-between;
 }
 
 .imagensjuruena .imgjuruena img {
@@ -193,6 +195,23 @@ header li:last-child {
   width: 20%;
   display: flex;
   flex-wrap: wrap;
+}
+
+@media (max-width: 850px) {
+
+  .imagensjuruena .imgjuruena,
+  .imagensjuruena .imgjuruena img {
+    margin: 7% 15%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 700px) {
+
+  .imagensjuruena .imgjuruena,
+  .imagensjuruena .imgjuruena img {
+    margin: 11% 15%;
+  }
 }
 
 footer ul li a {
