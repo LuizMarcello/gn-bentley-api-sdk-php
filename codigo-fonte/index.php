@@ -18,7 +18,6 @@ $u = new Usuario;
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <!-- Fontes da google: font-family: 'Open Sans', sans-serif; -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
-
     <link rel="stylesheet" href="css/styleee.css">
 </head>
 
@@ -29,7 +28,6 @@ $u = new Usuario;
         <nav>
             <li><a href="">Home</a></li>
             <li><a href="">Sobre</a></li>
-            <li><a href="">Reservas</a></li>
             <li><a href="">Contato</a></li>
             <?php
             if (isset($_SESSION['id_usuario'])) {
@@ -57,24 +55,19 @@ $u = new Usuario;
     </header>
 
     <section class="cabecalho">
-        <!--  <img src="img/cabecalhositebentley.jpg" height="90%" width="90%" style="padding: 110px 110px 70px 110px;"> -->
-        <!-- <img height="65%" width="95%" src="img/cabecalhositebentley.jpg" style="margin: 0px 0px 0px 0px"> -->
         <img src="img/cabecalhositebentley.jpg" alt="Bentley Brasil">
     </section>
 
-    <!--  <section class="reserva">
-        <a href="indexcomprar.php"><img src="img/fazerreserva.jpg"></a>
-    </section> -->
-
     <section class="imagensjuruena">
         <ul class="imgjuruena">
-          <!--   <li style="background-image: url('../imgFlexBox/juruena01.jpg')"></li> -->
-         <!--    <li style="background-image: url('../imgFlexBox/juruena02.jpg')"></li> -->
-         <!--    <li style="background-image: url('../imgFlexBox/juruena03.jpg')"></li> -->
             <img src="../imgFlexBox/juruena01.jpg" alt="Bentley Brasil">
             <img src="../imgFlexBox/juruena03.jpg" alt="Bentley Brasil">
             <img src="../imgFlexBox/juruena02.jpg" alt="Bentley Brasil">
         </ul>
+    </section>
+
+    <section class="reserva">
+        <a href="indexcomprar.php"><img src="img/fazerreserva.jpg"></a>
     </section>
 
     <footer>

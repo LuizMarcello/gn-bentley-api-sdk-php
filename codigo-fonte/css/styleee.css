@@ -5,6 +5,7 @@
   font-size: 100%;
   box-sizing: border-box;
   font-family: 'Open Sans', sans-serif;
+
 }
 
 nav,
@@ -26,11 +27,11 @@ header {
   top: 0;
   left: 0;
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
   align-items: center;
-  /* 20px: topo e base */
-  /* 40px: esquerda e direita */
-  /*  padding: 20px 40px; */
+  /*  20px: topo e base */
+  /*   40px: esquerda e direita */
+  /*    padding: 20px 40px; */
   background-color: black;
   margin-bottom: 20px;
 }
@@ -44,25 +45,26 @@ header img {
 header nav {
   display: flex;
   flex-direction: row;
-}
-
-header li a {
-  color: white;
-  align-items: center;
+ /*  */ flex-basis: auto;
+  /* flex-grow: 0; */
 }
 
 header nav li a {
+  display: flex;
   color: #c3c63b;
+  margin-left: 30%;
   font-size: 17px;
+  align-self: flex-end;
 }
 
 header nav div a {
+  display: flex;
   color: #c3c63b;
   font-size: 17px;
 }
 
 header li:last-child {
-  margin-left: 0;
+  margin-left: 0%;
 }
 
 @media (max-width: 850px) {
@@ -77,6 +79,7 @@ header li:last-child {
   header nav div a {
     font-size: 13px;
     margin-right: 0;
+   
   }
 }
 
@@ -85,7 +88,6 @@ header li:last-child {
     color: blue;
     /* provisorio */
     font-size: 11px;
-
   }
 }
 
@@ -135,9 +137,9 @@ header li:last-child {
 .cabecalho img {
   background-image: url(../img/cabecalhositebentley.jpg);
   width: 70%;
+  /* width: 100%; */
   margin-top: 10%;
   margin-left: 15%;
-
 }
 
 @media (max-width: 850px) {
@@ -155,12 +157,22 @@ header li:last-child {
   }
 }
 
+.reserva {
+  display: flex;
+  margin-left: 0%;
+  justify-content: center;
+}
+
 .reserva a img {
-  flex-basis: 100%;
-  width: 120px;
-  height: 110px;
-  margin: 10%;
-  /* font-size: 1rem; */
+  display: flex;
+  /*  flex-basis: 100%; */
+  width: 60%;
+  /* height: 140px; */
+
+
+  align-content: center;
+  justify-content: center;
+  margin-bottom: 20%;
 }
 
 @media (max-width: 850px) {
@@ -186,6 +198,7 @@ header li:last-child {
   /*  padding: 100px 50px; */
   margin: 3% 15%;
   justify-content: space-between;
+  position: relative;
 }
 
 .imagensjuruena .imgjuruena img {
@@ -214,6 +227,38 @@ header li:last-child {
   }
 }
 
+@media (max-width: 460px) {
+  .cabecalho img {
+    width: 70%;
+    margin-top: 30%;
+    margin-left: 15%;
+  }
+}
+
+
+/* @media (max-height: 890px) {
+  .cabecalho img {
+    margin-top: 16%;
+  }
+
+  footer {
+    height: 70px;
+  }
+
+  .imagensjuruena .imgjuruena,
+  .imagensjuruena .imgjuruena img {
+    margin: 5% 20%;
+    justify-content: space-around;
+
+  }
+} */
+
+/* @media (max-height: 770px) {
+  .cabecalho img {
+    margin-top: 8%;
+  }
+  } */
+
 footer ul li a {
   font-size: 1rem;
 }
@@ -228,15 +273,16 @@ footer {
   padding: 5px 0;
   align-items: center;
   bottom: 0;
-  position: fixed;
+  /*  position: fixed; */
   width: 100%;
-  height: 90px;
+  height: 80px;
   justify-content: space-between;
 }
 
 footer ul {
   display: flex;
   margin-bottom: 25px;
+  align-items: center;
 }
 
 footer ul li {
@@ -259,22 +305,23 @@ footer p {
   margin-bottom: 35px;
 }
 
-@media (max-width: 850px) {
+/* @media (max-width: 850px) {
   footer {
     height: 100px;
   }
+ } */
 
-  footer ul li a {
-    font-size: 1.5rem;
-  }
+footer ul li a {
+  font-size: 1.5rem;
 }
 
-@media (max-width: 700px) {
+
+/* @media (max-width: 700px) {
   footer {
     height: 80px;
-  }
+  } 
+}*/
 
-  footer ul li a {
-    font-size: 1rem;
-  }
+footer ul li a {
+  font-size: 1rem;
 }
