@@ -23,12 +23,23 @@ $u = new Usuario;
 
 <body>
     <header>
-        <!-- <img height="80" src="https://sistema.bentleybrasil.com.br/img/logo-empresa-br.png"> -->
+
         <img src="https://sistema.bentleybrasil.com.br/img/logo-empresa-br.png" alt="Bentley Brasil">
         <nav>
-            <li><a href="">Home</a></li>
-            <li><a href="">Sobre</a></li>
-            <li><a href="">Contato</a></li>
+            <div class="navmenu">
+                <li><a href="index.php">Home</a></li>
+                <li><a href="">Sobre</a></li>
+                <li><a href="">Contato</a></li>
+                <li>
+                    <?php if (isset($_SESSION['id_usuario'])) { ?>
+                        <a class="nav-link" href="sair.php">Sair</a>
+                    <?php } ?>
+                    <?php if (!isset($_SESSION['id_usuario'])) { ?>
+                        <a class="nav-link" href="logar.php">Entrar</a>
+                    <?php } ?>
+                </li>
+            </div>
+
             <?php
             if (isset($_SESSION['id_usuario'])) {
                 $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
@@ -42,12 +53,8 @@ $u = new Usuario;
 
                 if ($sql->rowCount() > 0) {
                     $dado = $sql->fetch(); ?>
-                    <div>
+                    <div class="navuser">
                         <a class="nav-link"><?php echo $dado['nome']; ?> </a>
-                    </div>
-                    <div style="margin: 36px 0 0 50px;">
-                        <!--  <a class="nav-link"> --><?php /* echo $dado['email']; */ ?>
-                        <!-- </a> -->
                     </div>
                 <?php } ?>
             <?php } ?>
