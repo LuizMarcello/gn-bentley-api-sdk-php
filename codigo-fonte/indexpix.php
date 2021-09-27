@@ -43,14 +43,18 @@ echo $image; */
 
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="bootstrapBoleto/css/bootstrap.css">
-  <link rel="stylesheet" href="bootstrapBoleto/css/style.css">
-  <link rel="stylesheet" href="css/estilos.css">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hotel Paraíso</title>
+  <!-- Icones fontawesome: -->
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <!-- Fontes da google: font-family: 'Open Sans', sans-serif; -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+  <link rel="stylesheet" href="css/styleee.css">
   <script type="text/javascript" src="bootstrapBoleto/js/jquery-2.2.4.min.js"></script>
   <script type="text/javascript" src="bootstrapBoleto/js/bootstrap.js"></script>
   <script type="text/javascript" src="bootstrapBoleto/js/jquery.mask.js"></script>
   <script type="text/javascript" src="bootstrapBoleto/js/scripts.js"></script>
-  <title>Gerencianet</title>
   <style>
     #pai div {
       display: none;
@@ -72,59 +76,31 @@ echo $image; */
 
 <body>
   <header>
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-           data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="/codigos-documentacao/">
-            <img src="https://gerencianet.com.br/wp-content/themes/Gerencianet/images/marca-gerencianet.svg"
-             onerror="this.onerror=null; this.src='img/marca-gerencianet.png'" alt="Gerencianet - Conceito 
-             em Pagamentos" width="218" height="31">
-          </a>
-        </div>
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav">
-            <li class=""><a href="index.php">Retornar a Home</a></li>
-          </ul>
-          <ul class="nav navbar-nav">
-            <li class=""><a href="indexcomprar.php">Retornar as opções de pagamento</a></li>
-          </ul>
-          <ul class="nav navbar-nav pull-right">
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-              <div style="margin: 36px 0 0 50px;">
-                <?php
-                if (isset($_SESSION['id_usuario'])) {
-                  $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
-                  /*   $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234"); */
-                  $user = $_SESSION['id_usuario'];
-                  $sql = "SELECT * FROM usuarios WHERE id_usuario = $user";
-                  global $pdo;
-                  $sql = $pdo->prepare($sql);
-                  $sql->bindValue("id_usuario", $_SESSION['id_usuario']);
-                  $sql->execute();
+    <img src="https://sistema.bentleybrasil.com.br/img/logo-empresa-br.png" alt="Bentley Brasil">
+    <nav>
+      <div class="navmenu">
+        <li><a href="index.php">Home</a></li>
+        <li><a href="">Sobre</a></li>
+        <li><a href="">Contato</a></li>
+      </div>
+      <?php
+      if (isset($_SESSION['id_usuario'])) {
+        $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
+        /*   $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234"); */
+        $user = $_SESSION['id_usuario'];
+        $sql = "SELECT * FROM usuarios WHERE id_usuario = $user";
+        global $pdo;
+        $sql = $pdo->prepare($sql);
+        $sql->bindValue("id_usuario", $_SESSION['id_usuario']);
+        $sql->execute();
 
-                  if ($sql->rowCount() > 0) {
-                    $dado = $sql->fetch();
-                ?>
-                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1;">
-                      <p><?php echo $dado['nome']; ?> </p>
-                    </div>
-                  <?php } ?>
-                <?php } ?>
-              </div>
-            </div>
-
-          </ul>
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
+        if ($sql->rowCount() > 0) {
+          $dado = $sql->fetch(); ?>
+          <div class="navuser">
+            <a class="nav-link"><?php echo $dado['nome']; ?> </a>
+          </div>
+        <?php } ?>
+      <?php } ?>
     </nav>
   </header>
 
@@ -132,64 +108,78 @@ echo $image; */
 
     <h5>Bentley Brasil - Gerador de QrCode Pix</h5>
 
+
+
     <form action="gerar-qrcode-dinamico.php" method="POST">
-      <div id="acima" class="form-group">
-        <label for="cpfoucnpj" class="control-label"></label>
-        <input class="form-control" type="text" disabled>
-        <div class="col-sm-3">
-          <select name="cpfoucnpj" class="form-control" id="cpfoucnpj">
-            <option value="">Pessoa física ou Jurídica</option>
-            <option value="cpf">Física</option>
-            <option value="cnpj">Jurídica</option>
-          </select>
+      <section class="fisicaoujuridica">
+        <div id="acima" class="form-group">
+          <label for="cpfoucnpj" class="control-label"></label>
+          <!--  <input class="form-control" type="text" disabled> -->
+          <div class="col-sm-3">
+            <select name="cpfoucnpj" class="form-control" id="cpfoucnpj">
+              <option value="">
+                <p> Pessoa física ou Jurídica</p>
+              </option>
+              <option value="cpf">Física</option>
+              <option value="cnpj">Jurídica</option>
+            </select>
+          </div>
         </div>
-      </div>
+      </section>
 
       <div id="pai">
-        <div class="form-group cpf col-sm-3">
-           <label for="cpf" class="control-label"></label>
-          <input class="documento form-control" rows="3" name="cpf" type="text" id="cpf"
-           placeholder="Informe o CPF" required>
-        </div>
+        <section class="cpfoucnpj">
+          <!--  <div id="pai"> -->
+          <div class="form-group cpf col-sm-3">
+            <label for="cpf" class="control-label"></label>
+            <input class="documento form-control" rows="3" name="cpf" type="text" id="cpf"
+             placeholder="Informe o CPF" required>
+          </div>
 
-        <div class="form-group cnpj col-sm-3">
-           <label for="cnpj" class="control-label"></label>
-          <input class="documento form-control" rows="3" name="cnpj" type="text" id="cnpj"
+          <div class="form-group cnpj col-sm-3">
+            <label for="cnpj" class="control-label"></label>
+            <input class="documento form-control" rows="3" name="cnpj" type="text" id="cnpj" 
             placeholder="Informe o CNPJ" required>
-        </div>
-        
+          </div>
+        </section>
 
-        <br><br>
 
-        <div class="form-group cpf col-sm-3">
-          <label for="nome" class="control-label">Pessoa física</label>
-          <input class="documento form-control" rows="3" name="nome" type="text" id="nome" 
-          placeholder="Nome" value="<?php echo $dado['nome']; ?>" required>
-        </div>
-        <div class="form-group cnpj col-sm-3">
-          <label for="razaosocial" class="control-label">Razão Social</label>
-          <input class="documento form-control" rows="3" name="nome" type="text" id="razaosocial"
-           placeholder="Razão Social" value="<?php echo $dado['nome']; ?>" required>
-        </div>
-        <div class="form-group cnpj cpf">
-          <input class="btn btn-warning" type="reset" value="Limpar dados">
-        </div>
-        <div class="form-group cnpj cpf">
-          <input class="btn btn-primary" type="submit" value="Gerar QrCode">
-        </div>
+        <section class="form">
+          <div class="form-group cpf col-sm-3">
+            <label for="nome" class="control-label">Pessoa física</label>
+            <input class="documento form-control" rows="3" name="nome" type="text" id="nome"
+             placeholder="Nome" value="<?php echo $dado['nome']; ?>" required>
+          </div>
+          <div class="form-group cnpj col-sm-3">
+            <label for="razaosocial" class="control-label">Razão Social</label>
+            <input class="documento form-control" rows="3" name="nome" type="text" id="razaosocial"
+             placeholder="Razão Social" value="<?php echo $dado['nome']; ?>" required>
+          </div>
+        </section>
+
+        <section class="botoes">
+          <div class="form-group cnpj cpf">
+            <input class="btn btn-warning" type="reset" value="Limpar dados">
+          </div>
+          <br>
+          <div class="form-group cnpj cpf">
+            <input class="btn btn-primary" type="submit" value="Gerar QrCode">
+          </div>
+        </section>
       </div>
+
     </form>
 
+
     <!-- FOOTER -->
-    <footer class="main-footer" style="text-align: center; margin-top: 25%;">
-      <div>
-        <div class="float-rightd-none d-sm-block">
-          <b>Satellite Broadband Networks</b> 1.0-rc
-        </div>
-        <strong>Copyright &copy; <a href="https://adminlte.io"> Bentley Brasil
-            - Projeto
-            Juruena</a>.</strong> Todos os direitos reservados
-      </div>
+    <footer>
+      <ul>
+        <li><a href=""><i class="fab fa-facebook"></i></a></li>
+        <li><a href=""><i class="fab fa-twitter"></i></a></li>
+        <li><a href=""><i class="fab fa-snapchat"></i></a></li>
+        <li><a href=""><i class="fab fa-pinterest"></i></a></li>
+      </ul>
+      <p>Satellite Broadband Networks - Bentley Brasil - Projeto Juruena</p>
     </footer>
   </main>
 
