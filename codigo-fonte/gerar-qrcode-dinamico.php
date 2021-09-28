@@ -1,7 +1,5 @@
 <?php
 
-
-
 require_once 'classes/usuarios.php';
 require_once '../vendor/autoload.php';
 
@@ -20,8 +18,8 @@ use Mpdf\QrCode\QrCode;
 use Mpdf\QrCode\Output;
 
 if (isset($_SESSION['id_usuario'])) {
-  $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
-  /* $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234"); */
+ /*  $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd"); */
+  $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
   $user = $_SESSION['id_usuario'];
   $sql = "SELECT * FROM usuarios WHERE id_usuario = $user";
   global $pdo;
@@ -41,8 +39,19 @@ if (isset($_SESSION['id_usuario'])) {
 
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hotel Paraíso</title>
+  <!-- Icones fontawesome: -->
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <!-- Fontes da google: font-family: 'Open Sans', sans-serif; -->
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+  
   <link rel="stylesheet" href="bootstrapBoleto/css/bootstrap.css">
   <link rel="stylesheet" href="bootstrapBoleto/css/style.css">
+  <link rel="stylesheet" href="css/styleee.css">
   <script type="text/javascript" src="bootstrapBoleto/js/jquery-2.2.4.min.js"></script>
   <script type="text/javascript" src="bootstrapBoleto/js/bootstrap.js"></script>
   <script type="text/javascript" src="bootstrapBoleto/js/jquery.mask.js"></script>
@@ -52,43 +61,31 @@ if (isset($_SESSION['id_usuario'])) {
 
 <body>
   <header>
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="/codigos-documentacao/">
-            <img src="https://gerencianet.com.br/wp-content/themes/Gerencianet/images/marca-gerencianet.svg" onerror="this.onerror=null; this.src='img/marca-gerencianet.png'" alt="Gerencianet - Conceito em Pagamentos" width="218" height="31">
-          </a>
-        </div>
+  <img src="https://sistema.bentleybrasil.com.br/img/logo-empresa-br.png" alt="Bentley Brasil">
+    <nav>
+      <div class="navmenu">
+        <li><a href="index.php">Voltar a Home</a></li>
+         <li><a href="indexcomprar.php">Voltar a página de compras</a></li>
+        <!--  <li><a href="">Contato</a></li> -->
+      </div>
+      <?php
+      if (isset($_SESSION['id_usuario'])) {
+        /* $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd"); */
+          $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
+        $user = $_SESSION['id_usuario'];
+        $sql = "SELECT * FROM usuarios WHERE id_usuario = $user";
+        global $pdo;
+        $sql = $pdo->prepare($sql);
+        $sql->bindValue("id_usuario", $_SESSION['id_usuario']);
+        $sql->execute();
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav">
-
-            <!--   <li class=""><a href="https://dev.gerencianet.com.br/docs">Documentação</a></li> -->
-            <!--  <li class=""><a href="https://dev.gerencianet.com.br/docs/fale-conosco">Contatos</a></li> -->
-            <li class=""><a href="index.php">Voltar a Bentley Brasil</a></li>
-            <!-- <li class=""><a href="sair.php">Logoff Bentley</a></li> -->
-          </ul>
-          <ul class="nav navbar-nav">
-            <li class=""><a href="indexcomprar.php">Retornar as opções de pagamento</a></li>
-          </ul>
-
-          <ul class="nav navbar-nav pull-right">
-            <!--  <li><a target="blank" href="https://gerencianet.com.br/#login">Entrar na gerencianet</a> -->
-            </li>
-            <!-- <li><a target="blank" href="https://gerencianet.com.br/#abrirconta">Abra sua conta</a> -->
-            </li>
-          </ul>
-
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
+        if ($sql->rowCount() > 0) {
+          $dado = $sql->fetch(); ?>
+      <div class="navuser">
+        <a class="nav-link"><?php echo $dado['nome']; ?> </a>
+      </div>
+      <?php } ?>
+      <?php } ?>
     </nav>
   </header>
 
@@ -163,6 +160,11 @@ if (isset($_SESSION['id_usuario'])) {
     /*  $response = $obApiPix->createCob('renjifkq334tigrtwimacellol', $request); */
     $response = $obApiPix->createCob(getToken(35), $request);
 
+    //Para saber o TxId gerado aleatóriamente e outras informações do QrCode gerado
+    /* echo "<pre>";
+      print_r($response);
+      echo "</pre>"; */
+
     if (!isset($response['location'])) {
       echo 'Problemas ao gerar pix dinâmico';
       echo "<pre>";
@@ -194,16 +196,16 @@ if (isset($_SESSION['id_usuario'])) {
     <div style="margin-left: 3%;">
       <h5>QR CODE DINÂMICO DO PIX</h5>
       <p>
-      <h5><strong>Escaneie este código para pagar</strong></h5>
+        <h5><strong>Escaneie este código para pagar</strong></h5>
       </p>
       <p>
-      <h6>1. Acesse seu Internet Banking ou app de pagamentos.</h6>
+        <h6>1. Acesse seu Internet Banking ou app de pagamentos.</h6>
       </p>
       <p>
-      <h6>2. Escolha pagar via Pix</h6>
+        <h6>2. Escolha pagar via Pix</h6>
       </p>
       <p>
-      <h6>3. Escaneie o seguinte código:</h6>
+        <h6>3. Escaneie o seguinte código:</h6>
       </p>
     </div>
 
@@ -224,15 +226,14 @@ if (isset($_SESSION['id_usuario'])) {
 
     <br><br>
     <!-- FOOTER -->
-    <footer class="main-footer" style="text-align: center;">
-      <div>
-        <div class="float-right d-none d-sm-block">
-          <b>Satellite Broadband Networks</b> 1.0-rc
-        </div>
-        <strong>Copyright &copy; <a href="https://adminlte.io"> Bentley Brasil
-            - Projeto
-            Juruena</a>.</strong> Todos os direitos reservados
-      </div>
+    <footer>
+      <ul>
+        <li><a href=""><i class="fab fa-facebook"></i></a></li>
+        <li><a href=""><i class="fab fa-twitter"></i></a></li>
+        <li><a href=""><i class="fab fa-snapchat"></i></a></li>
+        <li><a href=""><i class="fab fa-pinterest"></i></a></li>
+      </ul>
+      <p>Satellite Broadband Networks - Bentley Brasil - Projeto Juruena</p>
     </footer>
   </main>
 

@@ -42,10 +42,10 @@ use Mpdf\QrCode\Output;
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hotel Paraíso</title>
   <!-- Icones fontawesome: -->
-  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" 
-  integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" 
-  crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
   <!-- Fontes da google: font-family: 'Open Sans', sans-serif; -->
+
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
   <link rel="stylesheet" href="css/styleee.css">
 </head>
@@ -55,14 +55,14 @@ use Mpdf\QrCode\Output;
     <img src="https://sistema.bentleybrasil.com.br/img/logo-empresa-br.png" alt="Bentley Brasil">
     <nav>
       <div class="navmenu">
-        <li><a href="index.php">Home</a></li>
-        <li><a href="">Sobre</a></li>
-        <li><a href="">Contato</a></li>
+        <li><a href="index.php">Voltar a Home</a></li>
+        <!--  <li><a href="">Sobre</a></li> -->
+        <!--  <li><a href="">Contato</a></li> -->
       </div>
       <?php
       if (isset($_SESSION['id_usuario'])) {
-        $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
-        /*   $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234"); */
+        /* $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd"); */
+          $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
         $user = $_SESSION['id_usuario'];
         $sql = "SELECT * FROM usuarios WHERE id_usuario = $user";
         global $pdo;
@@ -72,10 +72,10 @@ use Mpdf\QrCode\Output;
 
         if ($sql->rowCount() > 0) {
           $dado = $sql->fetch(); ?>
-          <div class="navuser">
-            <a class="nav-link"><?php echo $dado['nome']; ?> </a>
-          </div>
-        <?php } ?>
+      <div class="navuser">
+        <a class="nav-link"><?php echo $dado['nome']; ?> </a>
+      </div>
+      <?php } ?>
       <?php } ?>
     </nav>
 
@@ -106,23 +106,27 @@ use Mpdf\QrCode\Output;
     <div class="div-chat-z">
       <div class="comoprefere">
         <!--  <div class="btn btn-outline-primary"> -->
-        <p style="font-family:Arial, Helvetica, sans-serif; font-size: large; font-weight: bold; margin-left: 1%; margin-top: 3%;">
+        <p
+          style="font-family:Arial, Helvetica, sans-serif; font-size: large; font-weight: bold; margin-left: 1%; margin-top: 3%;">
           Como você prefere pagar?</p><br>
       </div>
 
       <section class="opcoespgto">
         <div class="boleto">
-          <a href="indexboleto.php"><button type="button" class="btn btn-outline-primary btn-sm"><img src="img/boleto-logo.svg" width="130px" height="90px"></button></a>
+          <a href="indexboleto.php"><button type="button" class="btn btn-outline-primary btn-sm"><img
+                src="img/boleto-logo.svg" width="130px" height="90px"></button></a>
           <p><strong>Mediante compensação</strong></p>
         </div>
 
         <div class="cartao">
-          <a href="indexcartao.php"><button type="button" class="btn btn-outline-primary btn-sm"><img src="img/credit-cards.png" width="130px" height="90px"></button></a>
+          <a href="indexcartao.php"><button type="button" class="btn btn-outline-primary btn-sm"><img
+                src="img/credit-cards.png" width="130px" height="90px"></button></a>
           <p><strong>Cartão de crédito</strong></p>
         </div>
 
         <div class="pix">
-          <a href="indexpix.php"><button type="button" class="btn btn-outline-primary btn-sm"><img src="img/logo-pix.png" width="130px" height="90px"></button></a>
+          <a href="indexpix.php"><button type="button" class="btn btn-outline-primary btn-sm"><img
+                src="img/logo-pix.png" width="130px" height="90px"></button></a>
           <p><strong> Aprovação imediata</strong></p>
         </div>
       </section>

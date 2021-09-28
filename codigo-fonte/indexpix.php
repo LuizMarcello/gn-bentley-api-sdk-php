@@ -79,14 +79,14 @@ echo $image; */
     <img src="https://sistema.bentleybrasil.com.br/img/logo-empresa-br.png" alt="Bentley Brasil">
     <nav>
       <div class="navmenu">
-        <li><a href="index.php">Home</a></li>
-        <li><a href="">Sobre</a></li>
-        <li><a href="">Contato</a></li>
+        <li><a href="index.php">Voltar a Home</a></li>
+        <li><a href="indexcomprar.php">Voltar a página de compras</a></li>
+        <!-- <li><a href="">Contato</a></li> -->
       </div>
       <?php
       if (isset($_SESSION['id_usuario'])) {
-        $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
-        /*   $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234"); */
+        /* $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd"); */
+          $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
         $user = $_SESSION['id_usuario'];
         $sql = "SELECT * FROM usuarios WHERE id_usuario = $user";
         global $pdo;
