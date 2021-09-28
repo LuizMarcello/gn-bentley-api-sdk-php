@@ -108,8 +108,6 @@ echo $image; */
 
     <h5>Bentley Brasil - Gerador de QrCode Pix</h5>
 
-
-
     <form action="gerar-qrcode-dinamico.php" method="POST">
       <section class="fisicaoujuridica">
         <div id="acima" class="form-group">
@@ -132,28 +130,29 @@ echo $image; */
           <!--  <div id="pai"> -->
           <div class="form-group cpf col-sm-3">
             <label for="cpf" class="control-label"></label>
-            <input class="documento form-control" rows="3" name="cpf" type="text" id="cpf"
+            <input class="documento form-control" rows="3" name="cpf" value="cpf" type="text" id="cpf"
              placeholder="Informe o CPF" required>
           </div>
 
           <div class="form-group cnpj col-sm-3">
             <label for="cnpj" class="control-label"></label>
-            <input class="documento form-control" rows="3" name="cnpj" type="text" id="cnpj" 
+            <input class="documento form-control" rows="3" name="cnpj" value="cnpj" type="text" id="cnpj" 
             placeholder="Informe o CNPJ" required>
           </div>
         </section>
 
-
         <section class="form">
           <div class="form-group cpf col-sm-3">
             <label for="nome" class="control-label">Pessoa física</label>
-            <input class="documento form-control" rows="3" name="nome" type="text" id="nome"
-             placeholder="Nome" value="<?php echo $dado['nome']; ?>" required>
+            <input class="documento form-control" rows="3" name="nome" value="<?php echo $dado['nome']; ?>"
+             type="text" id="nome"
+             placeholder="Nome" required>
           </div>
           <div class="form-group cnpj col-sm-3">
             <label for="razaosocial" class="control-label">Razão Social</label>
-            <input class="documento form-control" rows="3" name="nome" type="text" id="razaosocial"
-             placeholder="Razão Social" value="<?php echo $dado['nome']; ?>" required>
+            <input class="documento form-control" rows="3" name="nome"  value="<?php echo $dado['nome']; ?>" 
+            type="text" id="razaosocial"
+             placeholder="Razão Social" required>
           </div>
         </section>
 
