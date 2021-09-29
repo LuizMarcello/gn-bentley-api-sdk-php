@@ -73,8 +73,8 @@ and open the template in the editor.
             </div>
             <?php
             if (isset($_SESSION['id_usuario'])) {
-                /* $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd"); */
-                  $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
+                $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
+                 /*  $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234"); */
                 $user = $_SESSION['id_usuario'];
                 $sql = "SELECT * FROM usuarios WHERE id_usuario = $user";
                 global $pdo;
