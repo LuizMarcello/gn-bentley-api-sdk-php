@@ -16,11 +16,16 @@ ob_start();
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bentley-Recuperar senha</title>
   <!-- Icones fontawesome: -->
-  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+   integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+    crossorigin="anonymous" />
   <!-- Fontes da google: font-family: 'Open Sans', sans-serif; -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
   <link rel="stylesheet" href="css/styleee.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+   rel="stylesheet"
+   integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+    crossorigin="anonymous">
   <!--  <link rel="stylesheet" href="css/style.css"> -->
   <link rel="stylesheet" href="css/estilo.css">
   <link rel="stylesheet" href="css/styleee.css">
@@ -40,7 +45,7 @@ ob_start();
 
   if (!empty($dados['SendRecupSenha'])) {
     /*  var_dump($dados); */
-    $query_usuario = "SELECT id_usuario, nome, email
+    $query_usuario = "SELECT id, nome, email
                     FROM  usuarios
                     WHERE email =:email
                     LIMIT 1";
@@ -56,8 +61,21 @@ ob_start();
     if (($result_usuario) and ($result_usuario->rowCount() != 0)) {
       /*  echo "Enviar e-mail"; */
       $row_usuario = $result_usuario->fetch(PDO::FETCH_ASSOC);
-      $chave_recuperar_senha = password_hash($row_usuario['id_usuario'], PASSWORD_DEFAULT);
-      echo "Chave $chave_recuperar_senha <br>";
+      $chave_recuperar_senha = password_hash($row_usuario['id'], PASSWORD_DEFAULT);
+      /* echo "Chave $chave_recuperar_senha <br>"; */
+      $query_up_usuario = "UPDATE usuarios
+                  SET recuperar_senha =:recuperar_senha
+                  WHERE id =:id
+                  LIMIT 1";
+      $result_up_usuario = $pdo->prepare($query_up_usuario);
+      $result_up_usuario->bindParam(':recuperar_senha', $chave_recuperar_senha, PDO::PARAM_STR);
+      $result_up_usuario->bindParam(':id', $row_usuario['id'], PDO::PARAM_INT);
+
+      if ($result_up_usuario->execute()) {
+          echo "http://localhost/gn-bentley-api-sdk-php/codigo-fonte/atualizar_senha.php?chave=$chave_recuperar_senha";
+      }else{
+        $_SESSION['msg'] = "<p style='color: black'>Êrro: Tente novamente!</p>";
+      }
     } else {
       $_SESSION['msg'] = "<p style='color: black'>Êrro: E-mail não cadastrado!</p>";
     }
@@ -73,12 +91,21 @@ ob_start();
     <div class="flex-box container-box">
       <div class="content-box">
         <form method="POST" action="">
+          <?php
+          $usuario = "";
+          if(isset($dados['usuario'])) {
+            $usuario = $dados['usuario'];
+          } ?>
+
           <label>
             <h3>E-mail</h3>
           </label>
-          <input type="text" name="usuario" placeholder="Digite o email" value="">
+          <input type="text" name="usuario" placeholder="Digite o email" value="<?php echo $usuario; ?>">
+          <br><br>
           <input type="submit" value="Recuperar" name="SendRecupSenha">
         </form>
+        <br>
+        Lembrou? <a href="logar.php">Clique aqui</a> para logar.
       </div>
     </div>
   </main>
