@@ -32,60 +32,58 @@ ob_start();
   <h3>Atualizar senha</h3>
 
   <?php
-  $chave = filter_input(INPUT_GET, 'chave', FILTER_DEFAULT);
+    $chave = filter_input(INPUT_GET, 'chave', FILTER_DEFAULT);
 
-  if (!empty($chave)) {
-    /* var_dump($chave); */
+    if (!empty($chave)) {
+        //var_dump($chave);
 
-    $query_usuario = "SELECT id
-    FROM  usuarios
-    WHERE recuperar_senha =:recuperar_senha
-        LIMIT 1";
-    $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
-    /* $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd"); */
-    $result_usuario =  $pdo->prepare($query_usuario);
-    $result_usuario->bindParam(':recuperar_senha',$chave,PDO::PARAM_STR);
-    $result_usuario->execute();
+        $query_usuario = "SELECT id 
+                            FROM usuarios 
+                            WHERE recuperar_senha =:recuperar_senha
+                            LIMIT 1";
+        $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
+        /* $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd"); */
+        $result_usuario =  $pdo->prepare($query_usuario);
+        $result_usuario->bindParam(':recuperar_senha',$chave,PDO::PARAM_STR);
+        $result_usuario->execute();
 
-    if (($result_usuario) and ($result_usuario->rowCount() != 0)) {
-      $row_usuario = $result_usuario->fetch(PDO::FETCH_ASSOC);
-      $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
-      /*  var_dump($dados); */
-      if (!empty($dados['SendNovaSenha'])) {
-        $senha_usuario = password_hash($dados['senha_usuario'], PASSWORD_DEFAULT);
-        $recuperar_senha = 'NULL';
+        if (($result_usuario) and ($result_usuario->rowCount() != 0)) {
+            $row_usuario = $result_usuario->fetch(PDO::FETCH_ASSOC);
+            $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
+            //var_dump($dados);
+            if (!empty($dados['SendNovaSenha'])) {
+                $senha_usuario = password_hash($dados['senha_usuario'], PASSWORD_DEFAULT);
+                $recuperar_senha = 'NULL';
 
-        $query_up_usuario = "UPDATE usuarios
-                  SET senha_usuario =:senha_usuario,
-                  recuperar_senha =:recuperar_senha
-                  WHERE id =:id
-                  LIMIT 1";
-        $result_up_usuario = $pdo->prepare($query_up_usuario);
-        $result_up_usuario->bindParam(':senha_usuario', $senha_usuario, PDO::PARAM_STR);
-        $result_up_usuario->bindParam(':recuperar_senha', $recuperar_senha);
-        $result_up_usuario->bindParam(':id', $row_usuario['id'], PDO::PARAM_INT);
+                $query_up_usuario = "UPDATE usuarios 
+                        SET senha_usuario =:senha_usuario
+                        /* recuperar_senha =:recuperar_senha */
+                        WHERE id =:id 
+                        LIMIT 1";
+                $result_up_usuario = $pdo->prepare($query_up_usuario);
+                $result_up_usuario->bindParam(':senha_usuario', $senha_usuario, PDO::PARAM_STR);
+                /* $result_up_usuario->bindParam(':recuperar_senha', $recuperar_senha); */
+                $result_up_usuario->bindParam(':id', $row_usuario['id'], PDO::PARAM_INT);
 
-        /* $result_up_usuario->execute(); */
-        if ($result_up_usuario->execute()) {
-          $_SESSION['msg'] = "<p style='color: green'>Senha atualizada com sucesso!</p>";
-          /*  echo "<p style='color: green'>Senha atualizada com sucesso!</p>"; */
-          header("Location: logar.php");
-          /* header("Location: index.php"); */
+                if ($result_up_usuario->execute()) {
+                    $_SESSION['msg'] = "<p style='color: green'>Senha atualizada com sucesso!</p>";
+                    header("Location: index.php");
+                } else {
+                    echo "<p style='color: #ff0000'>Erro: Tentedd novamente!</p>";
+                }
+            }
         } else {
-          echo "<p style='color: black'>Êrro: Tenteee novamente!</p>";
+           /*  $_SESSION['msg_rec'] = "<p style='color: #ff0000'>Erro: Link inválido, solicite novo link para atualizar a senha!</p>"; */
+            echo "<p style='color: #ff0000'>Erro: Link inválido, solicite novo link para atualizar a senha!</p>";
+            header("Location: recuperar_senha.php");
         }
-      }
     } else {
-      echo "<p style='color: black'>Êrro: Link inválido, solicite novo link 
-    para atualizar a senha!</p>";
-      header("Location: recuperar_senha.php");
+        /* $_SESSION['msg_rec'] = "<p style='color: #ff0000'>Erro: Link inválido, solicite novo link para atualizar a senha!</p>"; */
+        echo "<p style='color: #ff0000'>Erro: Link inválido, solicite novo link para atualizar a senha!</p>";
+        header("Location: recuperar_senha.php");
     }
-  } else {
-    echo "<p style='color: black'>Êrro: Link inválido, solicite novo link 
-    para atualizar a senha!</p>";
-    header("Location: recuperar_senha.php");
-  }
-  ?>
+
+    ?>
 
   <form method="POST">
     <?php
@@ -94,11 +92,14 @@ ob_start();
       $usuario = $dados['senha_usuario'];
     } ?>
     <label>Senha</label>
-    <input type="password" name="senha_usuario" placeholder="Digite a nova senha" value="<? echo $usuario; ?>"><br><br>
+    <input type="password" name="senha_usuario" placeholder="Digite a nova senha"
+      value="<?php echo $usuario; ?>"><br><br>
     <input type="submit" value="Atualizar" name="SendNovaSenha">
   </form>
   <br>
-  Lembrou da senha?  Então <a href="index.php">clique aqui</a> para logar.
+  Lembrou da senha? Então <a href="index.php">clique aqui</a> para logar.
+
+
 </body>
 
 </html>

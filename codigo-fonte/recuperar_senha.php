@@ -1,10 +1,12 @@
 <?php
 global $pdo;
 require_once 'classes/usuarios.php';
-$u = new Usuario;
+
 if (!isset($_SESSION)) session_start();
 ob_start();
-/* $u = new Usuario; */
+$u = new Usuario;
+
+
 ?>
 
 <!DOCTYPE html>
@@ -41,40 +43,38 @@ ob_start();
   $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
   if (!empty($dados['SendRecupSenha'])) {
-    /*  var_dump($dados); */
-    $query_usuario = "SELECT id, nome, email
-                    FROM  usuarios
-                    WHERE email =:usuario
-                    LIMIT 1";
-    $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
-    /* $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd"); */
-    $result_usuario =  $pdo->prepare($query_usuario);
-    $result_usuario->bindParam(':usuario',$dados['usuario'],PDO::PARAM_STR);
-    $result_usuario->execute();
-
-    if (($result_usuario) and ($result_usuario->rowCount() != 0)) {
-      /*  echo "Enviar e-mail"; */
-      $row_usuario = $result_usuario->fetch(PDO::FETCH_ASSOC);
-      $chave_recuperar_senha = password_hash($row_usuario['id'], PASSWORD_DEFAULT);
-      /* echo "Chave $chave_recuperar_senha <br>"; */
-      $query_up_usuario = "UPDATE usuarios
-                  SET recuperar_senha =:recuperar_senha
-                  WHERE id =:id
+      //var_dump($dados);
+      $query_usuario = "SELECT id, nome, email 
+                  FROM usuarios 
+                  WHERE email =:usuario  
                   LIMIT 1";
-      $result_up_usuario = $pdo->prepare($query_up_usuario);
-      $result_up_usuario->bindParam(':recuperar_senha', $chave_recuperar_senha, PDO::PARAM_STR);
-      $result_up_usuario->bindParam(':id', $row_usuario['id'], PDO::PARAM_INT);
+      $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
+             
+      $result_usuario =  $pdo->prepare($query_usuario);
+      $result_usuario->bindParam(':usuario',$dados['usuario'], PDO::PARAM_STR);
+      $result_usuario->execute();
+  
+      if (($result_usuario) and ($result_usuario->rowCount() != 0)) {
+          $row_usuario = $result_usuario->fetch(PDO::FETCH_ASSOC);
+          $chave_recuperar_senha = password_hash($row_usuario['id'], PASSWORD_DEFAULT);
+          //echo "Chave $chave_recuperar_senha <br>";
 
-      if ($result_up_usuario->execute()) {
-          $link = "http://localhost/gn-bentley-api-sdk-php/codigo-fonte/atualizar_senha.php?chave=$chave_recuperar_senha";
+          $query_up_usuario = "UPDATE usuarios 
+                      SET recuperar_senha =:recuperar_senha 
+                      WHERE id =:id 
+                      LIMIT 1";
+          $result_up_usuario = $pdo->prepare($query_up_usuario);
+          $result_up_usuario->bindParam(':recuperar_senha', $chave_recuperar_senha, PDO::PARAM_STR);
+          $result_up_usuario->bindParam(':id', $row_usuario['id'], PDO::PARAM_INT);
+    
+          if ($result_up_usuario->execute()) {
+            $link = "http://localhost/gn-bentley-api-sdk-php/codigo-fonte/atualizar_senha.php?chave=$chave_recuperar_senha";
          var_dump($link);
-      }else{
-        echo "<p style='color: black'>Êrro: Tente novamente!</p>";
-       /*  echo "<p style='color: black'>Êrro: Tente novamente!</p>"; */
+        } else {
+          echo  "<p style='color: #ff0000'>Erro: Tente novamente!</p>";
       }
-    } else {
-      echo"<p style='color: black'>Êrro: E-mail não cadastrado!</p>";
-     /*  echo "<p style='color: black'>Êrro: E-mail não cadastrado!</p>"; */
+  } else {
+      echo "<p style='color: #ff0000'>Erro: Usuário não encontrado!</p>";
     }
   }
 
@@ -90,8 +90,8 @@ ob_start();
         <form method="POST" action="">
           <?php
           $usuario = "";
-          if(isset($dados['usuario'])) {
-            $usuario = $dados['usuario'];
+          if(isset($dados['email'])) {
+            $usuario = $dados['email'];
           } ?>
 
           <label>
@@ -102,7 +102,7 @@ ob_start();
           <input type="submit" value="Recuperar" name="SendRecupSenha">
         </form>
         <br>
-        Lembrou? <a href="logar.php">Clique aqui</a> para logar.
+        Lembrou da senha? Então <a href="index.php">clique aqui</a> para logar.
       </div>
     </div>
   </main>
