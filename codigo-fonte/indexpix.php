@@ -6,7 +6,7 @@ $u = new Usuario;
 
 if (!isset($_SESSION)) session_start();
 
-if (!isset($_SESSION['id_usuario'])) {
+if (!isset($_SESSION['id'])) {
   header("location: logar.php");
   exit;
 }
@@ -84,14 +84,14 @@ echo $image; */
         <!-- <li><a href="">Contato</a></li> -->
       </div>
       <?php
-      if (isset($_SESSION['id_usuario'])) {
-        $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
-         /*  $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234"); */
-        $user = $_SESSION['id_usuario'];
-        $sql = "SELECT * FROM usuarios WHERE id_usuario = $user";
+      if (isset($_SESSION['id'])) {
+        /* $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd"); */
+          $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
+        $user = $_SESSION['id'];
+        $sql = "SELECT * FROM usuarios WHERE id = $user";
         global $pdo;
         $sql = $pdo->prepare($sql);
-        $sql->bindValue("id_usuario", $_SESSION['id_usuario']);
+        $sql->bindValue("id", $_SESSION['id']);
         $sql->execute();
 
         if ($sql->rowCount() > 0) {

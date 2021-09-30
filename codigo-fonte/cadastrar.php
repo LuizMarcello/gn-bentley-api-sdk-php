@@ -80,12 +80,12 @@ if (!isset($_SESSION)) session_start();
     $nome = addslashes($_POST['nome']);
     $telefone = addslashes($_POST['telefone']);
     $email = addslashes($_POST['email']);
-    $senha = addslashes($_POST['senha']);
+    $senha = addslashes($_POST['senha_usuario']);
     $confsenha = addslashes($_POST['confsenha']);
     //Verificando se está preenchido, se tem algum campo em branco
     if (!empty($nome) && !empty($telefone) && !empty($email) && !empty($senha) && !empty($confsenha)) {
-      $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
-      /* $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234"); */
+   /*    $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd"); */
+      $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
       if ($u->msgErro == "") //Vazia está tudo OK.
       {
         if ($senha == $confsenha) {

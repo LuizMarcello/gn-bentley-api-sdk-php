@@ -16,15 +16,16 @@ ob_start();
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bentley-Autalizar senha</title>
   <!-- Icones fontawesome: -->
-  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
   <!-- Fontes da google: font-family: 'Open Sans', sans-serif; -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
   <link rel="stylesheet" href="css/styleee.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <!--  <link rel="stylesheet" href="css/style.css"> -->
   <link rel="stylesheet" href="css/estilo.css">
   <link rel="stylesheet" href="css/styleee.css">
-
 </head>
 
 <body>
@@ -32,20 +33,18 @@ ob_start();
 
   <?php
   $chave = filter_input(INPUT_GET, 'chave', FILTER_DEFAULT);
+
   if (!empty($chave)) {
     /* var_dump($chave); */
 
     $query_usuario = "SELECT id
     FROM  usuarios
     WHERE recuperar_senha =:recuperar_senha
-    LIMIT 1";
-    $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
+        LIMIT 1";
+    $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
+    /* $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd"); */
     $result_usuario =  $pdo->prepare($query_usuario);
-    $result_usuario->bindParam(
-      ':recuperar_senha',
-      $chave,
-      PDO::PARAM_STR
-    );
+    $result_usuario->bindParam(':recuperar_senha',$chave,PDO::PARAM_STR);
     $result_usuario->execute();
 
     if (($result_usuario) and ($result_usuario->rowCount() != 0)) {
@@ -54,14 +53,18 @@ ob_start();
       /*  var_dump($dados); */
       if (!empty($dados['SendNovaSenha'])) {
         $senha_usuario = password_hash($dados['senha_usuario'], PASSWORD_DEFAULT);
+        $recuperar_senha = 'NULL';
 
         $query_up_usuario = "UPDATE usuarios
-                  SET senha_usuario =:senha_usuario
+                  SET senha_usuario =:senha_usuario,
+                  recuperar_senha =:recuperar_senha
                   WHERE id =:id
                   LIMIT 1";
         $result_up_usuario = $pdo->prepare($query_up_usuario);
         $result_up_usuario->bindParam(':senha_usuario', $senha_usuario, PDO::PARAM_STR);
+        $result_up_usuario->bindParam(':recuperar_senha', $recuperar_senha);
         $result_up_usuario->bindParam(':id', $row_usuario['id'], PDO::PARAM_INT);
+
         /* $result_up_usuario->execute(); */
         if ($result_up_usuario->execute()) {
           $_SESSION['msg'] = "<p style='color: green'>Senha atualizada com sucesso!</p>";
@@ -69,16 +72,16 @@ ob_start();
           header("Location: logar.php");
           /* header("Location: index.php"); */
         } else {
-          echo "<p style='color: black'>Êrro: Tente novamente!</p>";
+          echo "<p style='color: black'>Êrro: Tenteee novamente!</p>";
         }
       }
     } else {
-      $_SESSION['msg'] = "<p style='color: black'>Êrro: Link inválido, solicite novo link 
+      echo "<p style='color: black'>Êrro: Link inválido, solicite novo link 
     para atualizar a senha!</p>";
       header("Location: recuperar_senha.php");
     }
   } else {
-    $_SESSION['msg'] = "<p style='color: black'>Êrro: Link inválido, solicite novo link 
+    echo "<p style='color: black'>Êrro: Link inválido, solicite novo link 
     para atualizar a senha!</p>";
     header("Location: recuperar_senha.php");
   }
@@ -95,7 +98,7 @@ ob_start();
     <input type="submit" value="Atualizar" name="SendNovaSenha">
   </form>
   <br>
-  Lembrou? <a href="index.php">Clique aqui</a> para logar.
+  Lembrou da senha?  Então <a href="index.php">clique aqui</a> para logar.
 </body>
 
 </html>

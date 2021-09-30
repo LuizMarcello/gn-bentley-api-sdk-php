@@ -37,24 +37,24 @@ $u = new Usuario;
                 <li><a href="">Sobre</a></li>
                 <li><a href="">Contato</a></li>
                 <li>
-                    <?php if (isset($_SESSION['id_usuario'])) { ?>
+                    <?php if (isset($_SESSION['id'])) { ?>
                         <a class="nav-link" href="sair.php">Sair</a>
                     <?php } ?>
-                    <?php if (!isset($_SESSION['id_usuario'])) { ?>
+                    <?php if (!isset($_SESSION['id'])) { ?>
                         <a class="nav-link" href="logar.php">Entrar</a>
                     <?php } ?>
                 </li>
             </div>
 
             <?php
-            if (isset($_SESSION['id_usuario'])) {
-                $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
-                  /* $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234"); */
-                $user = $_SESSION['id_usuario'];
-                $sql = "SELECT * FROM usuarios WHERE id_usuario = $user";
+            if (isset($_SESSION['id'])) {
+                /* $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd"); */
+                  $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
+                $user = $_SESSION['id'];
+                $sql = "SELECT * FROM usuarios WHERE id = $user";
                 global $pdo;
                 $sql = $pdo->prepare($sql);
-                $sql->bindValue("id_usuario", $_SESSION['id_usuario']);
+                $sql->bindValue("id", $_SESSION['id']);
                 $sql->execute();
 
                 if ($sql->rowCount() > 0) {
@@ -104,8 +104,8 @@ $u = new Usuario;
 
     //Verificando se está preenchido, se tem algum campo em branco
     if (!empty($email) && !empty($senha)) {
-      $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
-      /* $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234"); */
+      /* $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd"); */
+      $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
       if ($u->msgErro == "") //Se continuar vazia, está tudo OK.
       {
         if ($u->logar($email, $senha)) {

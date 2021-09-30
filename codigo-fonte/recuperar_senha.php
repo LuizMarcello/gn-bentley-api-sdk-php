@@ -17,15 +17,12 @@ ob_start();
   <title>Bentley-Recuperar senha</title>
   <!-- Icones fontawesome: -->
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-   integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
-    crossorigin="anonymous" />
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
   <!-- Fontes da google: font-family: 'Open Sans', sans-serif; -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
   <link rel="stylesheet" href="css/styleee.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-   rel="stylesheet"
-   integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-    crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <!--  <link rel="stylesheet" href="css/style.css"> -->
   <link rel="stylesheet" href="css/estilo.css">
   <link rel="stylesheet" href="css/styleee.css">
@@ -47,15 +44,12 @@ ob_start();
     /*  var_dump($dados); */
     $query_usuario = "SELECT id, nome, email
                     FROM  usuarios
-                    WHERE email =:email
+                    WHERE email =:usuario
                     LIMIT 1";
-    $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
+    $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
+    /* $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd"); */
     $result_usuario =  $pdo->prepare($query_usuario);
-    $result_usuario->bindParam(
-      ':email',
-      $dados['usuario'],
-      PDO::PARAM_STR
-    );
+    $result_usuario->bindParam(':usuario',$dados['usuario'],PDO::PARAM_STR);
     $result_usuario->execute();
 
     if (($result_usuario) and ($result_usuario->rowCount() != 0)) {
@@ -72,12 +66,15 @@ ob_start();
       $result_up_usuario->bindParam(':id', $row_usuario['id'], PDO::PARAM_INT);
 
       if ($result_up_usuario->execute()) {
-          echo "http://localhost/gn-bentley-api-sdk-php/codigo-fonte/atualizar_senha.php?chave=$chave_recuperar_senha";
+          $link = "http://localhost/gn-bentley-api-sdk-php/codigo-fonte/atualizar_senha.php?chave=$chave_recuperar_senha";
+         var_dump($link);
       }else{
-        $_SESSION['msg'] = "<p style='color: black'>Êrro: Tente novamente!</p>";
+        echo "<p style='color: black'>Êrro: Tente novamente!</p>";
+       /*  echo "<p style='color: black'>Êrro: Tente novamente!</p>"; */
       }
     } else {
-      $_SESSION['msg'] = "<p style='color: black'>Êrro: E-mail não cadastrado!</p>";
+      echo"<p style='color: black'>Êrro: E-mail não cadastrado!</p>";
+     /*  echo "<p style='color: black'>Êrro: E-mail não cadastrado!</p>"; */
     }
   }
 
@@ -98,7 +95,7 @@ ob_start();
           } ?>
 
           <label>
-            <h3>E-mail</h3>
+            <h4>Digite o e-mail cadastrado</h4>
           </label>
           <input type="text" name="usuario" placeholder="Digite o email" value="<?php echo $usuario; ?>">
           <br><br>

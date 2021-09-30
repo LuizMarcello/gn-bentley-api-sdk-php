@@ -20,7 +20,7 @@ class Usuario
   {
     global $pdo;
     //Verificar se já existe o email cadastrado
-    $sql = $pdo->prepare("SELECT id_usuario FROM usuarios WHERE email = :e");
+    $sql = $pdo->prepare("SELECT id FROM usuarios WHERE email = :e");
     $sql->bindValue(":e", $email);
     $sql->execute();
     //Condicional: Se retornar um id, usuário digitado(email) já existe.
@@ -28,7 +28,7 @@ class Usuario
       return false; //Já está cadastrado.
     } else {
       //Caso não, então cadastrar no banco de dados
-      $sql = $pdo->prepare("INSERT INTO usuarios (nome, telefone, email, senha)
+      $sql = $pdo->prepare("INSERT INTO usuarios (nome, telefone, email, senha_usuario)
       VALUES (:n, :t, :e, :s)");
       $sql->bindValue(":n", $nome);
       $sql->bindValue(":t", $telefone);
@@ -43,7 +43,7 @@ class Usuario
   {
     global $pdo;
     //Verificar se o email e senha já estão cadastrados
-    $sql = $pdo->prepare("SELECT id_usuario FROM  usuarios WHERE email = :e AND senha = :s");
+    $sql = $pdo->prepare("SELECT id FROM usuarios WHERE email = :e AND senha_usuario = :s");
     $sql->bindValue(":e", $email);
     $sql->bindValue(":s", md5($senha));
     $sql->execute();
@@ -55,7 +55,7 @@ class Usuario
       //Criando uma sessão
       session_start();
       //Agora o id do usuário que acabou de logar, está armazenado numa sessão.
-      $_SESSION['id_usuario'] = $dado['id_usuario'];
+      $_SESSION['id'] = $dado['id'];
       return true; //Está cadastrado, então foi logado com sucesso.
     } else {
       return false; //Não foi possível logar.
