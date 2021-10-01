@@ -19,12 +19,14 @@ $u = new Usuario;
   <title>Bentley-Recuperar senha</title>
   <!-- Icones fontawesome: -->
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+     crossorigin="anonymous" />
   <!-- Fontes da google: font-family: 'Open Sans', sans-serif; -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
   <link rel="stylesheet" href="css/styleee.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+     crossorigin="anonymous">
   <!--  <link rel="stylesheet" href="css/style.css"> -->
   <link rel="stylesheet" href="css/estilo.css">
   <link rel="stylesheet" href="css/styleee.css">
@@ -48,7 +50,8 @@ $u = new Usuario;
                   FROM usuarios 
                   WHERE email =:usuario  
                   LIMIT 1";
-      $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
+      /* $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234"); */
+      $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
              
       $result_usuario =  $pdo->prepare($query_usuario);
       $result_usuario->bindParam(':usuario',$dados['usuario'], PDO::PARAM_STR);
@@ -90,8 +93,8 @@ $u = new Usuario;
         <form method="POST" action="">
           <?php
           $usuario = "";
-          if(isset($dados['email'])) {
-            $usuario = $dados['email'];
+          if(isset($dados['usuario'])) {
+            $usuario = $dados['usuario'];
           } ?>
 
           <label>
@@ -102,7 +105,7 @@ $u = new Usuario;
           <input type="submit" value="Recuperar" name="SendRecupSenha">
         </form>
         <br>
-        Lembrou da senha? Então <a href="index.php">clique aqui</a> para logar.
+        Lembrou a senha? Então <a href="logar.php">clique aqui</a> para logar.
       </div>
     </div>
   </main>
