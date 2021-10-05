@@ -29,22 +29,22 @@ $u = new Usuario;
 <body>
   <header>
     <img src="https://sistema.bentleybrasil.com.br/img/logo-empresa-br.png" alt="Bentley Brasil">
-    <!-- <nav> -->
+    <nav>
   </header>
 
   <h3>Recuperar senha</h3>
 
   <?php
   $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
-  /* var_dump($dados); */
+   /* var_dump($dados); */
 
   if (!empty($dados['SendRecupSenha'])) {
-    /* var_dump($dados); */
+     var_dump($dados);
 
     $query_usuario = "SELECT id, nome, email 
-     FROM usuarios 
-     WHERE email =:email 
-     LIMIT 1";
+                  FROM usuarios 
+                  WHERE email =:email 
+                  LIMIT 1";
     /* $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234"); */
     $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
 
@@ -52,39 +52,38 @@ $u = new Usuario;
     $result_usuario->bindParam(':email', $dados['email'], PDO::PARAM_STR);
     $result_usuario->execute();
 
-    //Se o e-mail do usuário for encontrado
     if (($result_usuario) and ($result_usuario->rowCount() != 0)) {
+      /* echo "Enviar e-mail"; */
+      //xxx
       $row_usuario = $result_usuario->fetch(PDO::FETCH_ASSOC);
       $chave_recuperar_senha = password_hash($row_usuario['id'], PASSWORD_DEFAULT);
-      //echo "Chave $chave_recuperar_senha <br>";
+      /* echo "Chave $chave_recuperar_senha <br>"; */
+
       $query_up_usuario = "UPDATE usuarios 
                       SET recuperar_senha =:recuperar_senha 
                       WHERE id =:id 
-                       LIMIT 1";
-
-      /* $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234"); */
-      $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
+                      LIMIT 1";
       $result_up_usuario = $pdo->prepare($query_up_usuario);
       $result_up_usuario->bindParam(':recuperar_senha', $chave_recuperar_senha, PDO::PARAM_STR);
       $result_up_usuario->bindParam(':id', $row_usuario['id'], PDO::PARAM_INT);
 
       if ($result_up_usuario->execute()) {
-        echo "http://localhost/gn-bentley-api-sdk-php/codigo-fonte/atualizar_senha.php?chave=$chave_recuperar_senha";
+        $link = "http://localhost/gn-bentley-api-sdk-php/codigo-fonte/atualizar_senha.php?chave=$chave_recuperar_senha";
+       /*  var_dump($link); */
       } else {
-        $_SESSION['msg'] = "<p style='color: #ff0000'>Erro: Tente novamente!</p>";
+        echo  "<p style='color: #ff0000'>Erro: Tente novamente!</p>";
       }
     } else {
+      /* echo "<p style='color: #ff0000'>Erro: Usuário não encontrado!</p>"; */
       $_SESSION['msg'] = "<p style='color: #ff0000'>Erro: Usuário não encontrado!</p>";
     }
   }
+ 
 
   if (isset($_SESSION['msg'])) {
     echo $_SESSION['msg'];
     unset($_SESSION['msg']);
   }
-
-
-
   ?>
 
   <main>
@@ -92,11 +91,16 @@ $u = new Usuario;
       <div class="content-box">
 
         <form method="POST" action="">
+          <?php
+          $usuario = "";
+          if (isset($dados['email'])) {
+            $usuario = $dados['email'];
+          } ?>
           <label>
             <h4>Digite o e-mail cadastrado</h4>
           </label>
 
-          <input type="text" name="email" placeholder="Digite o email" value="<?php if (isset($dados['email']))  echo $dados['email']; ?>">
+          <input type="text" name="email" placeholder="Digite o email" value="<?php echo $usuario; ?>">
           <br><br>
           <input type="submit" value="Recuperar" name="SendRecupSenha">
         </form>
