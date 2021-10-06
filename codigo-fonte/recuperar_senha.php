@@ -50,8 +50,8 @@ $mail = new PHPMailer(true);
                  FROM usuarios 
                  WHERE email =:email  
                  LIMIT 1";
-    /* $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234"); */
-    $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
+    $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
+   /*  $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd"); */
 
     $result_usuario =  $pdo->prepare($query_usuario);
     $result_usuario->bindParam(':email', $dados['email'], PDO::PARAM_STR);
