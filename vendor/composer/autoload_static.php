@@ -17,6 +17,7 @@ class ComposerStaticInit00e9157ecf50ca756b9f47f8f07bfcea
         array (
             'Psr\\Http\\Message\\' => 17,
             'Psr\\Http\\Client\\' => 16,
+            'PHPMailer\\PHPMailer\\' => 20,
         ),
         'M' => 
         array (
@@ -43,6 +44,10 @@ class ComposerStaticInit00e9157ecf50ca756b9f47f8f07bfcea
         'Psr\\Http\\Client\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/http-client/src',
+        ),
+        'PHPMailer\\PHPMailer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
         ),
         'Mpdf\\QrCode\\' => 
         array (
