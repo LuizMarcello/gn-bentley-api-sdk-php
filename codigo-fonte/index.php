@@ -44,8 +44,8 @@ $u = new Usuario;
 
             <?php
             if (isset($_SESSION['id'])) {
-                /* $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd"); */
-                  $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
+                $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
+                  /* $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234"); */
                 $user = $_SESSION['id'];
                 $sql = "SELECT * FROM usuarios WHERE id = $user";
                 global $pdo;
