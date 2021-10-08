@@ -50,7 +50,7 @@ $u = new Usuario;
                 $sql = "SELECT * FROM usuarios WHERE id = $user";
                 global $pdo;
                 $sql = $pdo->prepare($sql);
-                $sql->bindValue("id", $_SESSION['id_usuario']);
+                $sql->bindValue("id", $_SESSION['id']);
                 $sql->execute();
 
                 if ($sql->rowCount() > 0) {

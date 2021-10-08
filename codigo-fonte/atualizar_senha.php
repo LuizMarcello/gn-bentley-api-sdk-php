@@ -53,6 +53,7 @@ ob_start(); //Limpa o buffer de saída no redirecionamento
       if (!empty($dados['SendNovaSenha'])) {
         $senha_usuario = password_hash($dados['senha_usuario'], PASSWORD_DEFAULT);
         $recuperar_senha = 'NULL';
+       
 
         $query_up_usuario = "UPDATE usuarios 
                       SET senha_usuario =:senha_usuario,
@@ -75,7 +76,7 @@ ob_start(); //Limpa o buffer de saída no redirecionamento
           header("Location: logar.php");
         } else {
           /*  echo "<p style='color: #ff0000'>Erro: Tenteeer novamente!</p>"; */
-          echo "<p style='color: #ff0000'>naum deuu</p>";
+          echo "<p style='color: #ff0000'>esta bosta não deu de novo</p>";
         }
       }
     } else {
@@ -96,7 +97,7 @@ ob_start(); //Limpa o buffer de saída no redirecionamento
       $usuario = $dados['senha_usuario'];
     } ?>
     <label>Senha</label>
-    <input type="password" name="senha_usuario" placeholder="Digite a novahh senha" value="<?php echo $usuario; ?>"><br><br>
+    <input type="password" name="senha_usuario" placeholder="Digite aaa novahh senha" value="<?php echo $usuario; ?>"><br><br>
     <input type="submit" value="Atualizar" name="SendNovaSenha">
   </form>
 
