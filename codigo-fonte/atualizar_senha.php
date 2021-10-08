@@ -39,7 +39,7 @@ ob_start(); //Limpa o buffer de saída no redirecionamento
                           WHERE recuperar_senha =:recuperar_senha
                          /*  WHERE recuperar_senha =:senha_usuario   */
                           LIMIT 1";
-    /* $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234"); */
+   /*  $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234"); */
     $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
     global $pdo;
     $result_usuario =  $pdo->prepare($query_usuario);

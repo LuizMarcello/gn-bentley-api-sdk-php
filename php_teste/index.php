@@ -1,7 +1,9 @@
 <?php
 require_once 'classes/usuarios.php';
+
 if (!isset($_SESSION)) session_start();
 $u = new Usuario;
+
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +16,8 @@ $u = new Usuario;
     <title>Bentley Brasil</title>
     <!-- Icones fontawesome: -->
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+     integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" 
+     crossorigin="anonymous" />
     <!-- Fontes da google: font-family: 'Open Sans', sans-serif; -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
     <link rel="stylesheet" href="css/styleee.css">
@@ -31,10 +34,10 @@ $u = new Usuario;
                 <li><a href="">Contato</a></li>
                 <li>
                     <?php if (isset($_SESSION['id'])) { ?>
-                    <a class="nav-link" href="sair.php">Sair</a>
+                        <a class="nav-link" href="sair.php">Sair</a>
                     <?php } ?>
                     <?php if (!isset($_SESSION['id'])) { ?>
-                    <a class="nav-link" href="logar.php">Entrar</a>
+                        <a class="nav-link" href="logar.php">Entrar</a>
                     <?php } ?>
                 </li>
             </div>
@@ -47,15 +50,15 @@ $u = new Usuario;
                 $sql = "SELECT * FROM usuarios WHERE id = $user";
                 global $pdo;
                 $sql = $pdo->prepare($sql);
-                $sql->bindValue("id", $_SESSION['id']);
+                $sql->bindValue("id", $_SESSION['id_usuario']);
                 $sql->execute();
 
                 if ($sql->rowCount() > 0) {
                     $dado = $sql->fetch(); ?>
-            <div class="navuser">
-                <a class="nav-link"><?php echo $dado['nome']; ?> </a>
-            </div>
-            <?php } ?>
+                    <div class="navuser">
+                        <a class="nav-link"><?php echo $dado['nome']; ?> </a>
+                    </div>
+                <?php } ?>
             <?php } ?>
         </nav>
     </header>
