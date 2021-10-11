@@ -4,6 +4,8 @@ require_once 'classes/usuarios.php';
 if (!isset($_SESSION)) session_start();
 ob_start(); //Limpa o buffer de saída no redirecionamento
 $u = new Usuario;
+ /*  $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234"); */
+ $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
@@ -48,13 +50,13 @@ $mail = new PHPMailer(true);
     //var_dump($dados);
     $query_usuario = "SELECT id, nome, email
                  FROM usuarios 
+                 /* WHERE email =:email */  
                  WHERE email =:email  
                  LIMIT 1";
-    $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
-   /*  $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd"); */
-
+  
     $result_usuario =  $pdo->prepare($query_usuario);
-    $result_usuario->bindParam(':email', $dados['email'], PDO::PARAM_STR);
+    /* $result_usuario->bindParam(':email', $dados['email'], PDO::PARAM_STR); */
+     $result_usuario->bindParam(':email', $dados['email'], PDO::PARAM_STR); 
     $result_usuario->execute();
 
     if (($result_usuario) and ($result_usuario->rowCount() != 0)) {
@@ -66,10 +68,7 @@ $mail = new PHPMailer(true);
                      SET recuperar_senha =:recuperar_senha 
                      WHERE id =:id 
                      LIMIT 1";
-
-      /* $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234"); */
-      $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
-
+    
       $result_up_usuario =  $pdo->prepare($query_up_usuario);
       $result_up_usuario->bindParam(':recuperar_senha', $chave_recuperar_senha, PDO::PARAM_STR);
       $result_up_usuario->bindParam(':id', $row_usuario['id'], PDO::PARAM_INT);
@@ -80,7 +79,7 @@ $mail = new PHPMailer(true);
        
 
         try {
-          /* $mail->SMTPDebug = SMTP::DEBUG_SERVER; */
+          $mail->SMTPDebug = SMTP::DEBUG_SERVER;
           $mail->CharSet = 'UTF-8';
           $mail->isSMTP();
           $mail->Host       = 'smtp.mailtrap.io';
@@ -103,7 +102,7 @@ $mail = new PHPMailer(true);
           $_SESSION['msg'] = "<p style='color: green'>Enviado e-mail com instruções para recuperar a senha. Acesse a sua caixa de e-mail para recuperar a senha!</p>";
           header("Location: logar.php");
         } catch (Exception $e) {
-          echo "Erro: E-mail não enviado sucesso. Mailer Error: {$mail->ErrorInfo}";
+          echo "Erro: E-mail não enviado com sucesso. Mailer Error: {$mail->ErrorInfo}";
         }
       } else {
         echo  "<p style='color: #ff0000'>Erro: Tente novamente!</p>";
@@ -134,7 +133,7 @@ $mail = new PHPMailer(true);
             <h4>Digite o e-mail cadastrado</h4>
           </label>
 
-          <input type="text" name="email" placeholder="Digite o email" value="<?php echo $usuario; ?>">
+          <input type="text" name="email" placeholder="Digite o usuario" value="<?php echo $usuario; ?>">
           <br><br>
           <input type="submit" value="Recuperar" name="SendRecupSenha">
         </form>

@@ -36,10 +36,10 @@ $u = new Usuario;
 
   <?php
   $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
-   /* var_dump($dados); */
+  /* var_dump($dados); */
 
   if (!empty($dados['SendRecupSenha'])) {
-     var_dump($dados);
+    var_dump($dados);
 
     $query_usuario = "SELECT id, nome, email 
                   FROM usuarios 
@@ -69,7 +69,34 @@ $u = new Usuario;
 
       if ($result_up_usuario->execute()) {
         $link = "http://localhost/gn-bentley-api-sdk-php/codigo-fonte/atualizar_senha.php?chave=$chave_recuperar_senha";
-       /*  var_dump($link); */
+        /*  var_dump($link); */
+
+        try {
+          /*$mail->SMTPDebug = SMTP::DEBUG_SERVER;*/
+          $mail->CharSet = 'UTF-8';
+          $mail->isSMTP();
+          $mail->Host       = 'smtp.mailtrap.io';
+          $mail->SMTPAuth   = true;
+          $mail->Username   = 'e3efb8755943d1';
+          $mail->Password   = 'fe84283081bb96';
+          $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+          $mail->Port       = 2525;
+
+          $mail->setFrom('atendimento@celke.com', 'Atendimento');
+          $mail->addAddress($row_usuario['usuario'], $row_usuario['nome']);
+
+          $mail->isHTML(true);                                  //Set email format to HTML
+          $mail->Subject = 'Recuperar senha';
+          $mail->Body    = 'Prezado(a) ' . $row_usuario['nome'] . ".<br><br>Você solicitou alteração de senha.<br><br>Para continuar o processo de recuperação de sua senha, clique no link abaixo ou cole o endereço no seu navegador: <br><br><a href='" . $link . "'>" . $link . "</a><br><br>Se você não solicitou essa alteração, nenhuma ação é necessária. Sua senha permanecerá a mesma até que você ative este código.<br><br>";
+          $mail->AltBody = 'Prezado(a) ' . $row_usuario['nome'] . "\n\nVocê solicitou alteração de senha.\n\nPara continuar o processo de recuperação de sua senha, clique no link abaixo ou cole o endereço no seu navegador: \n\n" . $link . "\n\nSe você não solicitou essa alteração, nenhuma ação é necessária. Sua senha permanecerá a mesma até que você ative este código.\n\n";
+
+          $mail->send();
+
+          $_SESSION['msg'] = "<p style='color: green'>Enviado e-mail com instruções para recuperar a senha. Acesse a sua caixa de e-mail para recuperar a senha!</p>";
+          header("Location: index.php");
+        } catch (Exception $e) {
+          echo "Erro: E-mail não enviado sucesso. Mailer Error: {$mail->ErrorInfo}";
+        }
       } else {
         echo  "<p style='color: #ff0000'>Erro: Tente novamente!</p>";
       }
@@ -78,7 +105,7 @@ $u = new Usuario;
       $_SESSION['msg'] = "<p style='color: #ff0000'>Erro: Usuário não encontrado!</p>";
     }
   }
- 
+
 
   if (isset($_SESSION['msg'])) {
     echo $_SESSION['msg'];
