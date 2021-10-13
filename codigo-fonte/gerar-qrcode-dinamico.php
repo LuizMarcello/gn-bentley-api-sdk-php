@@ -20,7 +20,7 @@ use Mpdf\QrCode\QrCode;
 use Mpdf\QrCode\Output;
 
 if (isset($_SESSION['id_usuario'])) {
-  
+
   $user = $_SESSION['id_usuario'];
   $sql = "SELECT * FROM usuarios WHERE id_usuario = $user";
   global $pdo;
@@ -42,7 +42,7 @@ if (isset($_SESSION['id_usuario'])) {
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hotel Paraíso</title>
+  <title>Bentley Brasil</title>
   <!-- Icones fontawesome: -->
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
   <!-- Fontes da google: font-family: 'Open Sans', sans-serif; -->
@@ -218,8 +218,30 @@ if (isset($_SESSION['id_usuario'])) {
       <br>
       <div>Escolha pagar via Pix pelo seu Internet Banking ou app de pagamentos.</div>
       <div> Depois, cole o seguinte código:</div>
-      <strong><?= $payloadQrCode ?></strong>
-      <button type="button" class="btn btn-primary">Copiar código</button>
+      <strong><?= $payloadQrCode ?></strong><br> <br>
+      <button type="button" class="btn btn-primary" onclick="copiarTexto()" ,>
+        Copiar linha do QrCode
+      </button>
+
+      <script>
+        let copiarTexto = () => {
+          //O texto que será copiado
+          const texto = "<?= $payloadQrCode ?>";
+          //Cria um elemento input (pode ser um textarea)
+          let inputTest = document.createElement("input");
+          inputTest.value = texto;
+          //Anexa o elemento ao body
+          document.body.appendChild(inputTest);
+          //seleciona todo o texto do elemento
+          inputTest.select();
+          //executa o comando copy
+          //aqui é feito o ato de copiar para a area de trabalho com base na seleção
+          document.execCommand('copy');
+          //remove o elemento
+          document.body.removeChild(inputTest);
+          //write("Código copiado");
+        };
+      </script>
     </div>
 
     <br><br>

@@ -1,6 +1,6 @@
 <?php
 global $pdo;
-
+if (!isset($_SESSION)) session_start();
 class Usuario
 {
   /* Utilizando o PDO para conectar */

@@ -1,7 +1,10 @@
 <?php
 require_once 'classes/usuarios.php';
-$u = new Usuario;
 if (!isset($_SESSION)) session_start();
+$u = new Usuario;
+$u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
+/* $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234"); */
+
 ?>
 
 <!DOCTYPE html>
@@ -84,8 +87,7 @@ if (!isset($_SESSION)) session_start();
     $confsenha = addslashes($_POST['confsenha']);
     //Verificando se está preenchido, se tem algum campo em branco
     if (!empty($nome) && !empty($telefone) && !empty($email) && !empty($senha) && !empty($confsenha)) {
-      $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
-      /* $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234"); */
+     
       if ($u->msgErro == "") //Vazia está tudo OK.
       {
         if ($senha == $confsenha) {

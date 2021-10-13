@@ -448,6 +448,10 @@
             justify-content: center;
         }
 
+        .boleto2 #pai h5{
+           font-size: 15px;
+        }
+
         .boleto2 #pai #pai1-2 button{
             margin-top: 3%;
             margin-left: 43%;

@@ -110,10 +110,13 @@ and open the template in the editor.
 
                 <section class="boleto2">
                     <div id="pai">
+                        
                         <div id="pai1-2" class="form-group col-sm-3 fisica">
+                        <h5>Não coloque ponto nem traços</h5>
                             <input type="number" name="cpf" placeholder="Cpf válido">
                         </div>
                         <div id="pai1-2" class="form-group col-sm-3 juridica">
+                        <h5>Não coloque ponto nem traços</h5>
                             <input type="number" name="cnpj" placeholder="Cnpj válido">
                         </div>
                         <div id="pai1-2" class="form-group col-sm-8 fisica juridica">
