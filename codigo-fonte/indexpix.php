@@ -2,9 +2,6 @@
 
 require_once 'classes/usuarios.php';
 require '../vendor/autoload.php';
-$u = new Usuario;
-/* $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd"); */
-$u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
 
 if (!isset($_SESSION)) session_start();
 
@@ -12,6 +9,9 @@ if (!isset($_SESSION['id'])) {
   header("location: logar.php");
   exit;
 }
+$u = new Usuario;
+$u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
+/* $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234"); */
 
 use App\Pix\Payload;
 use Mpdf\QrCode\QrCode;

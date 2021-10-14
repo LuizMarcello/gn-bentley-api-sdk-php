@@ -4,13 +4,15 @@ require_once 'classes/usuarios.php';
 require_once '../vendor/autoload.php';
 
 $u = new Usuario;
+$u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
+/* $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234"); */
 
 if (!isset($_SESSION)) session_start();
 
-if (!isset($_SESSION['id_usuario'])) {
+/* if (!isset($_SESSION['id_usuario'])) {
   header("location: logar.php");
   exit;
-}
+} */
 
 use \App\Pix\Api;
 use \App\Pix\Payload;
@@ -18,8 +20,7 @@ use Mpdf\QrCode\QrCode;
 use Mpdf\QrCode\Output;
 
 if (isset($_SESSION['id_usuario'])) {
- /*  $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd"); */
-  $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
+
   $user = $_SESSION['id_usuario'];
   $sql = "SELECT * FROM usuarios WHERE id_usuario = $user";
   global $pdo;
@@ -41,14 +42,13 @@ if (isset($_SESSION['id_usuario'])) {
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hotel Paraíso</title>
+  <title>Bentley Brasil</title>
   <!-- Icones fontawesome: -->
-  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
   <!-- Fontes da google: font-family: 'Open Sans', sans-serif; -->
 
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
-  
+
   <link rel="stylesheet" href="bootstrapBoleto/css/bootstrap.css">
   <link rel="stylesheet" href="bootstrapBoleto/css/style.css">
   <link rel="stylesheet" href="css/styleee.css">
@@ -61,17 +61,15 @@ if (isset($_SESSION['id_usuario'])) {
 
 <body>
   <header>
-  <img src="https://sistema.bentleybrasil.com.br/img/logo-empresa-br.png" alt="Bentley Brasil">
+    <img src="https://sistema.bentleybrasil.com.br/img/logo-empresa-br.png" alt="Bentley Brasil">
     <nav>
       <div class="navmenu">
         <li><a href="index.php">Voltar a Home</a></li>
-         <li><a href="indexcomprar.php">Voltar a página de compras</a></li>
+        <li><a href="indexcomprar.php">Voltar a página de compras</a></li>
         <!--  <li><a href="">Contato</a></li> -->
       </div>
       <?php
       if (isset($_SESSION['id_usuario'])) {
-       /*  $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd"); */
-          $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
         $user = $_SESSION['id_usuario'];
         $sql = "SELECT * FROM usuarios WHERE id_usuario = $user";
         global $pdo;
@@ -81,10 +79,10 @@ if (isset($_SESSION['id_usuario'])) {
 
         if ($sql->rowCount() > 0) {
           $dado = $sql->fetch(); ?>
-      <div class="navuser">
-        <a class="nav-link"><?php echo $dado['nome']; ?> </a>
-      </div>
-      <?php } ?>
+          <div class="navuser">
+            <a class="nav-link"><?php echo $dado['nome']; ?> </a>
+          </div>
+        <?php } ?>
       <?php } ?>
     </nav>
   </header>
@@ -119,7 +117,7 @@ if (isset($_SESSION['id_usuario'])) {
       return $valor;
     }
 
-    $nomecomprador = $dado['nome'];
+    $nomecomprador = $dados['nome'];
 
     //Corpo da requisição
     //Requisição (request) que será enviada ao PSP gerencianet:
@@ -196,16 +194,16 @@ if (isset($_SESSION['id_usuario'])) {
     <div style="margin-left: 3%;">
       <h5>QR CODE DINÂMICO DO PIX</h5>
       <p>
-        <h5><strong>Escaneie este código para pagar</strong></h5>
+      <h5><strong>Escaneie este código para pagar</strong></h5>
       </p>
       <p>
-        <h6>1. Acesse seu Internet Banking ou app de pagamentos.</h6>
+      <h6>1. Acesse seu Internet Banking ou app de pagamentos.</h6>
       </p>
       <p>
-        <h6>2. Escolha pagar via Pix</h6>
+      <h6>2. Escolha pagar via Pix</h6>
       </p>
       <p>
-        <h6>3. Escaneie o seguinte código:</h6>
+      <h6>3. Escaneie o seguinte código:</h6>
       </p>
     </div>
 
@@ -220,8 +218,30 @@ if (isset($_SESSION['id_usuario'])) {
       <br>
       <div>Escolha pagar via Pix pelo seu Internet Banking ou app de pagamentos.</div>
       <div> Depois, cole o seguinte código:</div>
-      <strong><?= $payloadQrCode ?></strong>
-      <button type="button" class="btn btn-primary">Copiar código</button>
+      <strong><?= $payloadQrCode ?></strong><br> <br>
+      <button type="button" class="btn btn-primary" onclick="copiarTexto()" ,>
+        Copiar linha do QrCode
+      </button>
+
+      <script>
+        let copiarTexto = () => {
+          //O texto que será copiado
+          const texto = "<?= $payloadQrCode ?>";
+          //Cria um elemento input (pode ser um textarea)
+          let inputTest = document.createElement("input");
+          inputTest.value = texto;
+          //Anexa o elemento ao body
+          document.body.appendChild(inputTest);
+          //seleciona todo o texto do elemento
+          inputTest.select();
+          //executa o comando copy
+          //aqui é feito o ato de copiar para a area de trabalho com base na seleção
+          document.execCommand('copy');
+          //remove o elemento
+          document.body.removeChild(inputTest);
+          //write("Código copiado");
+        };
+      </script>
     </div>
 
     <br><br>

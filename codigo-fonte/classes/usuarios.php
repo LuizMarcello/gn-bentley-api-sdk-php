@@ -1,7 +1,6 @@
 <?php
-
 global $pdo;
-
+if (!isset($_SESSION)) session_start();
 class Usuario
 {
   /* Utilizando o PDO para conectar */
@@ -55,7 +54,7 @@ class Usuario
       //num array, com os nomes das colunas.
       $dado = $sql->fetch();
       //Criando uma sessão
-      session_start();
+      /* session_start(); */
       //Agora o id do usuário que acabou de logar, está armazenado numa sessão.
       $_SESSION['id'] = $dado['id'];
       return true; //Está cadastrado, então foi logado com sucesso.
