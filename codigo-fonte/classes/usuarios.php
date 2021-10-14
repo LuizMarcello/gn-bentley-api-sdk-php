@@ -1,7 +1,5 @@
 <?php
 
-
-
 global $pdo;
 
 class Usuario

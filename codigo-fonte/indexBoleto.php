@@ -3,6 +3,8 @@
 require_once 'classes/usuarios.php';
 require '../vendor/autoload.php';
 $u = new Usuario;
+/* $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd"); */
+ $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
 
 if (!isset($_SESSION)) session_start();
 
@@ -73,8 +75,7 @@ and open the template in the editor.
             </div>
             <?php
             if (isset($_SESSION['id'])) {
-                $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
-                 /*  $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234"); */
+               
                 $user = $_SESSION['id'];
                 $sql = "SELECT * FROM usuarios WHERE id = $user";
                 global $pdo;
