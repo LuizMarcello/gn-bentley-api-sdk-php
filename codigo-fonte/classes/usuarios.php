@@ -22,7 +22,7 @@ class Usuario
     global $pdo;
     //Verificar se já existe o email cadastrado
     $sql = $pdo->prepare("SELECT id FROM usuarios WHERE email = :e");
-    $sql->bindValue(":e", $email);
+    $sql->bindValue(":e", $email);cd .vscode
     $sql->execute();
     //Condicional: Se retornar um id, usuário digitado(email) já existe.
     if ($sql->rowCount() > 0) {
