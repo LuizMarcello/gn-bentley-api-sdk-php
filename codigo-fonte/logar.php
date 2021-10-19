@@ -43,7 +43,7 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
           <?php } ?>
           <?php if (!isset($_SESSION['id'])) { ?>
             <a class="nav-link" href="logar.php">Entrar</a>
-          <?php } ?>
+          <?php } ?>:
         </li>
       </div>
 
