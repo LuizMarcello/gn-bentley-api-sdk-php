@@ -16,32 +16,32 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
     <title>Bentley Brasil</title>
     <!-- Icones fontawesome: -->
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-     integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <!-- Fontes da google: font-family: 'Open Sans', sans-serif; -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
-    <link rel="stylesheet" href="css/styleee.css">
+    <link rel="stylesheet" href="css/styleindex.css">
 </head>
 
 <body>
     <header>
-
         <img src="https://sistema.bentleybrasil.com.br/img/logo-empresa-br.png" alt="Bentley Brasil">
         <nav>
             <div class="navmenu">
                 <li><a href="index.php">Home</a></li>
                 <li><a href="">Sobre</a></li>
-                <li><a href="">Contato</a></li>
+                <!-- <li><a href="">Contato</a></li> -->
+                
+                <li><a href="dados.php">Perfil</a></li>
                 <li>
                     <?php if (isset($_SESSION['id'])) { ?>
-                        <a class="nav-link" href="sair.php">Sair</a>
+                    <a class="nav-link" href="sair.php">Sair</a>
                     <?php } ?>
                     <?php if (!isset($_SESSION['id'])) { ?>
-                        <a class="nav-link" href="logar.php">Entrar</a>
+                    <a class="nav-link" href="logar.php">Entrar</a>
                     <?php } ?>
                 </li>
-            </div>
 
-            <?php
+                <?php
             if (isset($_SESSION['id'])) {
                 $user = $_SESSION['id'];
                 $sql = "SELECT * FROM usuarios WHERE id = $user";
@@ -52,13 +52,12 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
 
                 if ($sql->rowCount() > 0) {
                     $dado = $sql->fetch(); ?>
-                    <div class="navuser">
-                        <a class="nav-link"><?php echo $dado['nome']; ?> </a>
-                    </div>
+               <!--  <div class="navuser"> -->
+                    <a class="nav-link"><?php echo $dado['nome']; ?> </a>
+               <!--  </div> -->
                 <?php } ?>
-            <?php } ?>
-            <div class="navmenu">
-                <li><a href="dados.php">Meus dados</a></li>
+                <?php } ?>
+                
             </div>
         </nav>
     </header>
