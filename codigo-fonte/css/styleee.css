@@ -25,7 +25,7 @@
             height: 50px;
             /* Set same as footer's height */
         }
-
+      
         nav,
         ul {
             list-style: none;
@@ -106,7 +106,7 @@
 
         @media (max-width: 850px) {
             header nav li a {
-                color: red;
+               /*  color: red; */
                 /* provisorio */
                 font-size: 13px;
             }

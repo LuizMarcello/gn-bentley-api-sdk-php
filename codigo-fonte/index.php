@@ -2,8 +2,8 @@
 require_once 'classes/usuarios.php';
 if (!isset($_SESSION)) session_start();
 $u = new Usuario;
-/* $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd"); */
-$u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
+$u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
+/* $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234"); */
 ?>
 
 <!DOCTYPE html>
@@ -69,9 +69,9 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
 
     <section class="imagensjuruena">
         <ul class="imgjuruena">
-            <img src="../imgFlexBox/juruena01.jpg" alt="Bentley Brasil">
-            <img src="../imgFlexBox/juruena03.jpg" alt="Bentley Brasil">
-            <img src="../imgFlexBox/juruena02.jpg" alt="Bentley Brasil">
+            <img src="img/juruena01.jpg" alt="Bentley Brasil">
+            <img src="img/juruena03.jpg" alt="Bentley Brasil">
+            <img src="img/juruena02.jpg" alt="Bentley Brasil">
         </ul>
     </section>
 

@@ -22,11 +22,11 @@
 
   /* Alinhamento vertical: */
   align-items: stretch;
-  /* stretch | flex-start | flex-end | center | baseline */
+  /* stretch | flex-start | flex-end | center | baseline(Alinhamento baseado no conteúdo) */
 
   /* Alinhamento vertical, quando os itens estiverem em multiline, em quebra de linha */
   align-content: flex-start;
-  /* flex-start | flex-end | center | space-between | space-around | stretch */
+  /* flex-start | flex-end | center | space-between | space-around | stretch(cresçam igualmente) */
 }
 
 .item {
