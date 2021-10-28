@@ -10,8 +10,8 @@ if (!isset($_SESSION['id'])) {
     exit;
 }
 $u = new Usuario;
-/* $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd"); */
-$u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
+$u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
+/* $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234"); */
 
 ?>
 
@@ -29,14 +29,13 @@ and open the template in the editor.
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bentley Brasil</title>
     <!-- Icones fontawesome: -->
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" 
-    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <!-- Fontes da google: font-family: 'Open Sans', sans-serif; -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
     <link rel="stylesheet" href="bootstrapBoleto/css/bootstrap.css">
     <link rel="stylesheet" href="bootstrapBoleto/css/style.css">
-    <link rel="stylesheet" href="css/styleee.css">
-    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/styleindexboleto.css">
+    <!-- <link rel="stylesheet" href="css/estilos.css"> -->
     <script type="text/javascript" src="bootstrapBoleto/js/jquery-2.2.4.min.js"></script>
     <script type="text/javascript" src="bootstrapBoleto/js/bootstrap.js"></script>
     <script type="text/javascript" src="bootstrapBoleto/js/jquery.mask.js"></script>
@@ -66,8 +65,8 @@ and open the template in the editor.
         <img src="https://sistema.bentleybrasil.com.br/img/logo-empresa-br.png" alt="Bentley Brasil">
         <nav>
             <div class="navmenu">
-                <li><a href="index.php">Voltar a Home</a></li>
-                <li><a href="indexcomprar.php">Voltar a página de compras</a></li>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="indexcomprar.php">Página de compras</a></li>
                 <!-- <li><a href="">Contato</a></li> -->
             </div>
             <?php
@@ -82,7 +81,9 @@ and open the template in the editor.
                 if ($sql->rowCount() > 0) {
                     $dado = $sql->fetch(); ?>
                     <div class="navuser">
-                        <a class="nav-link"><?php echo $dado['nome']; ?> </a>
+                        <li>
+                            <a class="nav-link"><?php echo $dado['nome']; ?> </a>
+                        </li>
                     </div>
                 <?php } ?>
             <?php } ?>
@@ -111,13 +112,13 @@ and open the template in the editor.
 
                 <section class="boleto2">
                     <div id="pai">
-                        
+
                         <div id="pai1-2" class="form-group col-sm-3 fisica">
-                        <h5>Não coloque ponto nem traços</h5>
+                            <h5>Não coloque ponto nem traços</h5>
                             <input type="number" name="cpf" placeholder="Cpf válido">
                         </div>
                         <div id="pai1-2" class="form-group col-sm-3 juridica">
-                        <h5>Não coloque ponto nem traços</h5>
+                            <h5>Não coloque ponto nem traços</h5>
                             <input type="number" name="cnpj" placeholder="Cnpj válido">
                         </div>
                         <div id="pai1-2" class="form-group col-sm-8 fisica juridica">

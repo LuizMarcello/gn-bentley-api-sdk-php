@@ -2,8 +2,8 @@
 require_once 'classes/usuarios.php';
 require '../vendor/autoload.php';
 $u = new Usuario;
-/* $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd"); */
-$u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
+$u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
+/* $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234"); */
 
 if (!isset($_SESSION)) session_start();
 
@@ -16,23 +16,6 @@ use App\Pix\Payload;
 use Mpdf\QrCode\QrCode;
 use Mpdf\QrCode\Output;
 
-//Instancia principal do PAYLOAD PIX
-/* $obPayload = (new Payload)->setPixKey('48274402987')
-  ->setDescription('Pagamento do pedido 123456')
-  ->setMerchantName('Marcelo da Silva')
-  ->setMerchantCity('Londrina')
-  ->setAmount(100.00)
-  ->setTxid('IMCL1234'); */
-
-//Código de pagamento PIX
-/* $payloadQrCode = $obPayload->getPayload(); */
-
-//Instância do QR CODE
-/* $obQrCode = new QrCode($payloadQrCode); */
-
-//Imagem do QRCODE
-/* $image = (new Output\Png)->output($obQrCode, 400);
- */
 ?>
 
 <!DOCTYPE html>
@@ -78,9 +61,7 @@ use Mpdf\QrCode\Output;
       <?php } ?>
       <?php } ?>
     </nav>
-
   </header>
-
 
   <main>
     <section class="cabecalho">
@@ -101,7 +82,6 @@ use Mpdf\QrCode\Output;
         <p style="margin-left: 1%; margin-top: 1%; font-size: 22px;">Adesão de equipamentos - Valor R$ 1.900,00</p>
       </div>
     </section>
-
 
     <div class="div-chat-z">
       <div class="comoprefere">

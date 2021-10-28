@@ -3,9 +3,9 @@ require_once 'classes/usuarios.php';
 
 if (!isset($_SESSION)) session_start();
 $u = new Usuario;
-/* $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd"); */
-$u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
-?> 
+$u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
+/* $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234"); */
+?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -14,19 +14,17 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bentley Brasil</title>
+  <title>Bentley Juruena Login</title>
   <!-- Icones fontawesome: -->
-  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+   integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+    crossorigin="anonymous" />
   <!-- Fontes da google: font-family: 'Open Sans', sans-serif; -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
-  <link rel="stylesheet" href="css/styleee.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  <!--  <link rel="stylesheet" href="css/style.css"> -->
-  <link rel="stylesheet" href="css/estilo.css">
-
-  <link rel="stylesheet" href="css/styleee.css">
-
-  <title>Login</title>
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
+   rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" 
+   crossorigin="anonymous">
+  <link rel="stylesheet" href="css/stylelogar.css">
 </head>
 
 <body>
@@ -42,29 +40,34 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
             <a class="nav-link" href="sair.php">Sair</a>
           <?php } ?>
           <?php if (!isset($_SESSION['id'])) { ?>
-            <a class="nav-link" href="logar.php">Entrar</a>
-          <?php } ?>:
+        <li>
+          <a href="logar.php">Entrar</a>
         </li>
-      </div>
+        <?php } ?>:
+        </li>
 
-      <?php
-      if (isset($_SESSION['id'])) {
 
-        $user = $_SESSION['id'];
-        $sql = "SELECT * FROM usuarios WHERE id = $user";
-        global $pdo;
+        <?php
+        if (isset($_SESSION['id'])) {
 
-        $sql = $pdo->prepare($sql);
-        $sql->bindValue("id", $_SESSION['id']);
-        $sql->execute();
+          $user = $_SESSION['id'];
+          $sql = "SELECT * FROM usuarios WHERE id = $user";
+          global $pdo;
 
-        if ($sql->rowCount() > 0) {
-          $dado = $sql->fetch(); ?>
-          <div class="navuser">
-            <a class="nav-link"><?php echo $dado['nome']; ?> </a>
-          </div>
+          $sql = $pdo->prepare($sql);
+          $sql->bindValue("id", $_SESSION['id']);
+          $sql->execute();
+
+          if ($sql->rowCount() > 0) {
+            $dado = $sql->fetch(); ?>
+            <div class="navuser">
+              <li>
+                <a class="nav-link"><?php echo $dado['nome']; ?> </a>
+              </li>
+            </div>
+          <?php } ?>
         <?php } ?>
-      <?php } ?>
+      </div>
     </nav>
   </header>
 
@@ -87,7 +90,7 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
 
   <!-- FOOTER -->
   <footer>
-    <ul>
+    <ul class="simbolos">
       <li><a href=""><i class="fab fa-facebook"></i></a></li>
       <li><a href=""><i class="fab fa-twitter"></i></a></li>
       <li><a href=""><i class="fab fa-snapchat"></i></a></li>
@@ -105,7 +108,7 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
 
     //Verificando se está preenchido, se tem algum campo em branco
     if (!empty($email) && !empty($senha)) {
-     
+
       if ($u->msgErro == "") //Se continuar vazia, está tudo OK.
       {
         if ($u->logar($email, $senha)) {
