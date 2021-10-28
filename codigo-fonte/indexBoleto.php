@@ -63,30 +63,31 @@ and open the template in the editor.
 <body>
     <header>
         <img src="https://sistema.bentleybrasil.com.br/img/logo-empresa-br.png" alt="Bentley Brasil">
-        <nav>
+        <nav class="navegacao">
             <div class="navmenu">
                 <li><a href="index.php">Home</a></li>
                 <li><a href="indexcomprar.php">Página de compras</a></li>
                 <!-- <li><a href="">Contato</a></li> -->
-            </div>
-            <?php
-            if (isset($_SESSION['id'])) {
-                $user = $_SESSION['id'];
-                $sql = "SELECT * FROM usuarios WHERE id = $user";
-                global $pdo;
-                $sql = $pdo->prepare($sql);
-                $sql->bindValue("id", $_SESSION['id']);
-                $sql->execute();
 
-                if ($sql->rowCount() > 0) {
-                    $dado = $sql->fetch(); ?>
-                    <div class="navuser">
-                        <li>
-                            <a class="nav-link"><?php echo $dado['nome']; ?> </a>
-                        </li>
-                    </div>
+                <?php
+                if (isset($_SESSION['id'])) {
+                    $user = $_SESSION['id'];
+                    $sql = "SELECT * FROM usuarios WHERE id = $user";
+                    global $pdo;
+                    $sql = $pdo->prepare($sql);
+                    $sql->bindValue("id", $_SESSION['id']);
+                    $sql->execute();
+
+                    if ($sql->rowCount() > 0) {
+                        $dado = $sql->fetch(); ?>
+                        <div class="navuser">
+                            <li>
+                                <a class="nav-link"><?php echo $dado['nome']; ?> </a>
+                            </li>
+                        </div>
+                    <?php } ?>
                 <?php } ?>
-            <?php } ?>
+            </div>
         </nav>
     </header>
 
