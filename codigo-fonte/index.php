@@ -2,8 +2,8 @@
 require_once 'classes/usuarios.php';
 if (!isset($_SESSION)) session_start();
 $u = new Usuario;
-$u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
-/* $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234"); */
+/* $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd"); */
+$u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
 ?>
 
 <!DOCTYPE html>
@@ -16,8 +16,7 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
     <title>Bentley Brasil</title>
     <!-- Icones fontawesome: -->
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
-         crossorigin="anonymous" />
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <!-- Fontes da google: font-family: 'Open Sans', sans-serif; -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
     <link rel="stylesheet" href="css/styleindex.css">
@@ -25,14 +24,13 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
 
 <body>
     <header>
-        <img src="https://sistema.bentleybrasil.com.br/img/logo-empresa-br.png"
-         alt="Bentley Brasil">
+        <img src="https://sistema.bentleybrasil.com.br/img/logo-empresa-br.png" alt="Bentley Brasil">
         <nav>
             <div class="navmenu">
                 <li><a href="index.php">Home</a></li>
                 <li><a href="">Sobre</a></li>
                 <!-- <li><a href="">Contato</a></li> -->
-                
+
                 <li><a href="dados.php">Perfil</a></li>
                 <li>
                     <?php if (isset($_SESSION['id'])) { ?>
@@ -54,12 +52,12 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
 
                 if ($sql->rowCount() > 0) {
                     $dado = $sql->fetch(); ?>
-               <!--  <div class="navuser"> -->
-                    <a class="nav-link"><?php echo $dado['nome']; ?> </a>
-               <!--  </div> -->
+                <li>
+                    <a style="white-space: nowrap;" class="nav-link"><?php echo $dado['nome']; ?> </a>
+                </li>
                 <?php } ?>
                 <?php } ?>
-                
+
             </div>
         </nav>
     </header>

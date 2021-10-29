@@ -2,8 +2,8 @@
 require_once 'classes/usuarios.php';
 if (!isset($_SESSION)) session_start();
 $u = new Usuario;
-$u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
-/* $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234"); */
+/* $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd"); */
+$u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
 
 ?>
 
@@ -16,8 +16,11 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
   <link rel="stylesheet" href="css/style.css">
+ 
   <link rel="stylesheet" href="css/estilo.css">
+ 
   <title>Cadastrar</title>
 </head>
 
@@ -50,29 +53,18 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
         <form method="POST">
           <input type="text" name="nome" placeholder="Nome Completo" maxlength="45">
           <input type="text" name="telefone" placeholder="Telefone" maxlength="45">
-          <input type="email" name="email" placeholder="Usuário" maxlength="45">
-          <input type="password" name="senha" placeholder="Senha" maxlength="45">
+          <input type="email" name="email" placeholder="Email" maxlength="45">
+          <input type="password" name="senha_usuario" placeholder="Senha" maxlength="45">
           <input type="password" name="confsenha" placeholder="Confirmar Senha" maxlength="45">
           <input type="submit" value="Cadastrar" maxlength="45">
-          <a href="logar.php">Já sou cadastrado<strong> Logar</strong></a>
+          <a style="margin-top: 50px;" href="logar.php">Já sou cadastrado<strong> Logar</strong></a>
         </form>
       </div>
     </div>
   </main>
 
   <!-- FOOTER -->
-  <footer class="main-footer">
-    <div class="float-center d-none d-sm-block" style="bottom: 0; position:absolute; margin-left: 21%;">
-      <img src="https://gerencianet.com.br/wp-content/themes/Gerencianet/images/marca-gerencianet.svg"
-        onerror="this.onerror=null; this.src='images/marca-gerencianet.png'" alt="Gerencianet - Conceito em Pagamentos"
-        width="218" height="27">
-      <div class="content-footer">
-        © 2007-2016 Gerencianet. Todos os direitos reservados.<br />
-        Gerencianet Pagamentos do Brasil Ltda.<br />
-        <br />
-      </div>
-    </div>
-  </footer>
+ 
 
   <!-- //Pegando todas as informações que o usuário digitou e clicou "Cadastrar" -->
   <?php
@@ -93,7 +85,7 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
         if ($senha == $confsenha) {
           if ($u->cadastrar($nome, $telefone, $email, $senha)) {
   ?>
-  <div id="msg-sucesso">
+  <div id="msg-sucesso" style="margin-top: 13px;">
     Cadastrado com sucesso! Acesse para entrar!
   </div>
   <?php

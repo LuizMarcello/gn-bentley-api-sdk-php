@@ -10,8 +10,8 @@ if (!isset($_SESSION['id'])) {
     exit;
 }
 $u = new Usuario;
-$u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
-/* $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234"); */
+/* $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd"); */
+$u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
 
 ?>
 
@@ -29,11 +29,14 @@ and open the template in the editor.
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bentley Brasil</title>
     <!-- Icones fontawesome: -->
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <!-- Fontes da google: font-family: 'Open Sans', sans-serif; -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
     <link rel="stylesheet" href="bootstrapBoleto/css/bootstrap.css">
     <link rel="stylesheet" href="bootstrapBoleto/css/style.css">
+    <link rel="stylesheet" href="css/styleindexboleto.css">
+    <link rel="stylesheet" href="css/styleindexboleto.css">
     <link rel="stylesheet" href="css/styleindexboleto.css">
     <!-- <link rel="stylesheet" href="css/estilos.css"> -->
     <script type="text/javascript" src="bootstrapBoleto/js/jquery-2.2.4.min.js"></script>
@@ -49,9 +52,9 @@ and open the template in the editor.
 
     <script>
         //Funções após a leitura do documento
-        $(document).ready(function() {
+        $(document).ready(function () {
             //Select para mostrar e esconder divs
-            $('#fisicaoujuridica').on('change', function() {
+            $('#fisicaoujuridica').on('change', function () {
                 var SelectValue = '.' + $(this).val();
                 $('#pai div').hide();
                 $(SelectValue).toggle();
@@ -80,12 +83,12 @@ and open the template in the editor.
 
                     if ($sql->rowCount() > 0) {
                         $dado = $sql->fetch(); ?>
-                        <div class="navuser">
-                            <li>
-                                <a class="nav-link"><?php echo $dado['nome']; ?> </a>
-                            </li>
-                        </div>
-                    <?php } ?>
+                <div class="navuser">
+                    <li>
+                        <a class="nav-link"><?php echo $dado['nome']; ?> </a>
+                    </li>
+                </div>
+                <?php } ?>
                 <?php } ?>
             </div>
         </nav>
@@ -93,11 +96,13 @@ and open the template in the editor.
 
     <main>
 
-        <h5>Bentley Brasil - Gerador de Boletos</h5>
+        <div class="gerador">
+            <h5>Bentley Brasil - Gerador de Boletos</h5>
+        </div>
 
         <form action="emitir_boleto.php" method="POST">
-            <section class="123">
-                <section class="boleto1">
+            <section class="fouj">
+                <div class="boleto1">
                     <div id="acima" class="form-group">
                         <label for="fisicaoujuridica" class="control-label"></label>
                         <input class="form-control" type="text" disabled>
@@ -109,27 +114,26 @@ and open the template in the editor.
                             </select>
                         </div>
                     </div>
-                </section>
+                </div>
 
-                <section class="boleto2">
+                <div class="boleto2">
                     <div id="pai">
-
-                        <div id="pai1-2" class="form-group col-sm-3 fisica">
+                        <div id="pai1-2" class="form-group col-sm-8 fisica">
                             <h5>Não coloque ponto nem traços</h5>
                             <input type="number" name="cpf" placeholder="Cpf válido">
                         </div>
-                        <div id="pai1-2" class="form-group col-sm-3 juridica">
+                        <div id="pai1-2" class="form-group col-sm-4 juridica">
                             <h5>Não coloque ponto nem traços</h5>
                             <input type="number" name="cnpj" placeholder="Cnpj válido">
                         </div>
                         <div id="pai1-2" class="form-group col-sm-8 fisica juridica">
-                            <button type="submit" class="btn btn-success" name=gerarBoleto>Gerar Boleto</button>
+                            <button type="submit" name=gerarBoleto>Gerar Boleto</button>
                         </div>
                     </div>
-                </section>
+                </div>
 
-                <section class="boleto3">
-                    <div id="pai1-2boleto" class="form-group col-sm-4">
+                <div class="boleto3">
+                    <div id="pai1-2boleto" class="form-group col-sm-6">
                         <label for="nome" class="control-label">Nome</label>
                         <input type="text" name="nome" placeholder="Nome completo" value="<?php echo $dado['nome']; ?>">
 
@@ -137,22 +141,25 @@ and open the template in the editor.
                         <input type="mail" name="email" placeholder="E-mail" value="<?php echo $dado['email']; ?>">
 
                         <label for="telefone" class="control-label">Telefone</label>
-                        <input type="number" name="fone" placeholder="Telefone" value="<?php echo $dado['telefone']; ?>">
+                        <input type="number" name="fone" placeholder="Telefone"
+                            value="<?php echo $dado['telefone']; ?>">
 
                         <label for="produto" class="control-label">Produto</label>
-                        <input type="text" name="produto" placeholder="Produto" value="Adesão de equipamentos - Projeto Juruena" readonly="readonly">
+                       <!--  <textarea name="produto" id="produto" rows="3"> Bentley Brasil&#10; Adesão de equipamentos&#10; Projeto Juruena</textarea> -->
+                        <textarea name="produto" id="produto" rows="3"> Bentley Brasil - Adesão de equipamentos - Projeto Juruena</textarea>
+                        
 
                         <label for="valor" class="control-label">Valor</label>
-                        <input type="number" name="valor" placeholder="Valor do produto" value="190000" readonly="readonly">
-
-
+                        <input type="number" name="valor" placeholder="Valor do produto" value="190000"
+                            readonly="readonly">
 
                         <!--  <p>Data do vencimento</p> -->
                         <!-- Data de vencimento atual e acrescentando mais 3 dias -->
-                        <input type="hidden" name="vencimento" value='<?php echo date("Y-m-d", strtotime("+3 days")); ?>'>
+                        <input type="hidden" name="vencimento"
+                            value='<?php echo date("Y-m-d", strtotime("+3 days")); ?>'>
                         <!-- <input type="date" name="vencimento"> -->
                     </div>
-                </section>
+                </div>
             </section>
         </form>
 

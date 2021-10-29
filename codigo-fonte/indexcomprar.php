@@ -2,8 +2,8 @@
 require_once 'classes/usuarios.php';
 require '../vendor/autoload.php';
 $u = new Usuario;
-$u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
-/* $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234"); */
+/* $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd"); */
+$u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
 
 if (!isset($_SESSION)) session_start();
 
@@ -38,7 +38,7 @@ use Mpdf\QrCode\Output;
 <body>
   <header>
     <img src="https://sistema.bentleybrasil.com.br/img/logo-empresa-br.png" alt="Bentley Brasil">
-    <nav>
+    <nav class="navegacao">
       <div class="navmenu">
         <li><a href="index.php">Home</a></li>
         <?php
@@ -79,7 +79,7 @@ use Mpdf\QrCode\Output;
       </div>
       <div class="juruena3">
         <img src="img/next.png" width="35px" height="25px" style="margin-top: 1.5%;">
-        <p style="margin-left: 1%; margin-top: 1%; font-size: 22px;">Adesão de equipamentos - Valor R$ 1.900,00</p>
+        <p style="margin-left: 1%; margin-top: 1%; font-size: 17px;">Adesão de equipamentos - Valor R$ 1.900,00</p>
       </div>
     </section>
 
@@ -87,7 +87,7 @@ use Mpdf\QrCode\Output;
       <div class="comoprefere">
         <!--  <div class="btn btn-outline-primary"> -->
         <p
-          style="font-family:Arial, Helvetica, sans-serif; font-size: large; font-weight: bold; margin-left: 1%; margin-top: 3%;">
+          style="font-family:Arial, Helvetica, sans-serif; font-size: large; font-weight: bold; margin-left: 10%; margin-top: 3%;">
           Como você prefere pagar?</p><br>
       </div>
 
