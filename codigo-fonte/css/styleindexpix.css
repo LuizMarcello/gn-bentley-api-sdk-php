@@ -202,15 +202,15 @@ h5 {
 }
 
 #pai .cpf {
-    display: flex;
-    flex-direction: column;
-    text-align: start;
+    /* display: flex; */
+   /*  flex-direction: column ; */
+    /* text-align: start; */
 }
 
 #pai .cnpj {
-    display: flex;
-    flex-direction: column;
-    text-align: start;
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* text-align: start; */
 }
 
 #pai .razaoounome {
@@ -219,6 +219,8 @@ h5 {
     text-align: center;
     margin-left: 7%;
 }
+
+
 
 footer {
     display: flex;

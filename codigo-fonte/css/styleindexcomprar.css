@@ -149,30 +149,16 @@
      }
  }
  
- @media (max-width: 850px) {
-     .cabecalho {
-         margin-top: 15%;
-     }
- }
  
  @media (max-width: 700px) {
-     .cabecalho {
+     .cabecalho img {
          flex-basis: 100%;
          flex-direction: column;
-         margin-top: 20%;
+         margin-top: 1%;
          align-self: center;
      }
  }
- 
- @media (max-width: 700px) {
-     .cabecalho {
-         flex-basis: 100%;
-         flex-direction: column;
-         margin-top: 20%;
-         align-self: center;
-     }
- }
- 
+  
  .imagensjuruena .imgjuruena {
      display: flex;
      flex-direction: row;

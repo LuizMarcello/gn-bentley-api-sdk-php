@@ -4,8 +4,8 @@ require_once 'classes/usuarios.php';
 require_once '../vendor/autoload.php';
 
 $u = new Usuario;
-/* $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd"); */
-$u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
+$u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
+/* $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234"); */
 if (!isset($_SESSION)) session_start();
 
 /* if (!isset($_SESSION['id_usuario'])) {
@@ -50,7 +50,7 @@ if (isset($_SESSION['id_usuario'])) {
 
   <link rel="stylesheet" href="bootstrapBoleto/css/bootstrap.css">
   <link rel="stylesheet" href="bootstrapBoleto/css/style.css">
-  <link rel="stylesheet" href="css/styleee.css">
+  <link rel="stylesheet" href="css/stylegerarqrcodedinamico.css">
   <script type="text/javascript" src="bootstrapBoleto/js/jquery-2.2.4.min.js"></script>
   <script type="text/javascript" src="bootstrapBoleto/js/bootstrap.js"></script>
   <script type="text/javascript" src="bootstrapBoleto/js/jquery.mask.js"></script>
@@ -63,26 +63,28 @@ if (isset($_SESSION['id_usuario'])) {
     <img src="https://sistema.bentleybrasil.com.br/img/logo-empresa-br.png" alt="Bentley Brasil">
     <nav>
       <div class="navmenu">
-        <li><a href="index.php">Voltar a Home</a></li>
-        <li><a href="indexcomprar.php">Voltar a página de compras</a></li>
+        <li><a href="index.php">Home</a></li>
+        <li><a href="indexcomprar.php">Página de compras</a></li>
         <!--  <li><a href="">Contato</a></li> -->
-      </div>
-      <?php
-      if (isset($_SESSION['id_usuario'])) {
-        $user = $_SESSION['id_usuario'];
-        $sql = "SELECT * FROM usuarios WHERE id_usuario = $user";
-        global $pdo;
-        $sql = $pdo->prepare($sql);
-        $sql->bindValue("id_usuario", $_SESSION['id_usuario']);
-        $sql->execute();
+        <?php
+        if (isset($_SESSION['id_usuario'])) {
+          $user = $_SESSION['id_usuario'];
+          $sql = "SELECT * FROM usuarios WHERE id_usuario = $user";
+          global $pdo;
+          $sql = $pdo->prepare($sql);
+          $sql->bindValue("id_usuario", $_SESSION['id_usuario']);
+          $sql->execute();
 
-        if ($sql->rowCount() > 0) {
-          $dado = $sql->fetch(); ?>
-          <div class="navuser">
-            <a class="nav-link"><?php echo $dado['nome']; ?> </a>
-          </div>
+          if ($sql->rowCount() > 0) {
+            $dado = $sql->fetch(); ?>
+          <!--   <div class="navuser"> -->
+              <li>
+                <a class="nav-link"><?php echo $dado['nome']; ?> </a>
+              </li>
+           <!--  </div> -->
+          <?php } ?>
         <?php } ?>
-      <?php } ?>
+      </div>
     </nav>
   </header>
 
