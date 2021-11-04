@@ -139,7 +139,7 @@ header li:first-child {
     }
 
     header nav .navmenu li a {
-      
+
         flex: 1;
     }
 }
@@ -147,29 +147,23 @@ header li:first-child {
 main {
     display: flex;
     flex-direction: column;
-   
     min-height: 50vh;
 }
-
-
 
 h5 {
     display: flex;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 18px;
     color: #333;
-  
     margin-left: 10px;
     margin-top: 15%;
     justify-content: center;
-  
     text-align: center;
     align-items: center;
 }
 
 .fisicaoujuridica {
     display: flex;
-
     justify-content: center;
     margin-top: 5%;
 }
@@ -186,7 +180,7 @@ h5 {
     display: flex;
     align-self: center;
     margin-top: 3%;
-   
+
 }
 
 #pai .cpfoucnpj input {
@@ -194,7 +188,7 @@ h5 {
     height: 30px;
     margin-top: 7%;
     margin-bottom: 7%;
-}  
+}
 
 #pai .cpfoucnpj ::placeholder {
     font-size: 15px;
@@ -247,7 +241,6 @@ footer ul {
 
 footer ul li {
     margin-right: 10px;
-
 }
 
 footer ul li:last-child {

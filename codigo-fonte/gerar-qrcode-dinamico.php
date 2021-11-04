@@ -43,9 +43,7 @@ if (isset($_SESSION['id_usuario'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bentley Brasil</title>
   <!-- Icones fontawesome: -->
-  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-   integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
-    crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
   <!-- Fontes da google: font-family: 'Open Sans', sans-serif; -->
 
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
@@ -79,11 +77,11 @@ if (isset($_SESSION['id_usuario'])) {
 
           if ($sql->rowCount() > 0) {
             $dado = $sql->fetch(); ?>
-          <!--   <div class="navuser"> -->
-              <li>
-                <a class="nav-link"><?php echo $dado['nome']; ?> </a>
-              </li>
-           <!--  </div> -->
+            <!--   <div class="navuser"> -->
+            <li>
+              <a class="nav-link"><?php echo $dado['nome']; ?> </a>
+            </li>
+            <!--  </div> -->
           <?php } ?>
         <?php } ?>
       </div>
@@ -194,71 +192,82 @@ if (isset($_SESSION['id_usuario'])) {
     <!-- Imagem do QRCODE -->
     <p style="margin-left: 3%;"><?php $image = (new Output\Png)->output($obQrCode, 220); ?></p>
 
-    <div style="margin-left: 3%;">
-      <h5>QR CODE DINÂMICO DO PIX</h5>
-      <p>
-      <h5><strong>Escaneie este código para pagar</strong></h5>
-      </p>
-      <p>
-      <h6>1. Acesse seu Internet Banking ou app de pagamentos.</h6>
-      </p>
-      <p>
-      <h6>2. Escolha pagar via Pix</h6>
-      </p>
-      <p>
-      <h6>3. Escaneie o seguinte código:</h6>
-      </p>
-    </div>
+    <section class="textos">
+      <div style="margin-left: 3%;">
+        <h5>QR CODE DINÂMICO DO PIX</h5>
+        <p>
+        <h5><strong>Escaneie este código para pagar</strong></h5>
+        </p>
+        <p>
+        <h6>1. Acesse seu Internet Banking ou app de pagamentos.</h6>
+        </p>
+        <p>
+        <h6>2. Escolha pagar via Pix</h6>
+        </p>
+        <p>
+        <h6>3. Escaneie o seguinte código:</h6>
+        </p>
+      </div>
 
-    <!-- Convertendo para "base64" e imprimir dentro do html -->
-    <img src="data:image/png;base64, <?= base64_encode($image) ?>">
+      <!-- Convertendo para "base64" e imprimir dentro do html -->
+      <img src="data:image/png;base64, <?= base64_encode($image) ?>">
 
-    <br>
-
-    <!-- Código pix: <br> -->
-    <div style="margin-left: 3%;">
-      <div>Pague e será creditado na hora, ou copie este código QR para fazer o pagamento</div>
       <br>
-      <div>Escolha pagar via Pix pelo seu Internet Banking ou app de pagamentos.</div>
-      <div> Depois, cole o seguinte código:</div>
-      <strong><?= $payloadQrCode ?></strong><br> <br>
-      <button type="button" class="btn btn-primary" onclick="copiarTexto()" ,>
-        Copiar linha do QrCode
-      </button>
 
-      <script>
-        let copiarTexto = () => {
-          //O texto que será copiado
-          const texto = "<?= $payloadQrCode ?>";
-          //Cria um elemento input (pode ser um textarea)
-          let inputTest = document.createElement("input");
-          inputTest.value = texto;
-          //Anexa o elemento ao body
-          document.body.appendChild(inputTest);
-          //seleciona todo o texto do elemento
-          inputTest.select();
-          //executa o comando copy
-          //aqui é feito o ato de copiar para a area de trabalho com base na seleção
-          document.execCommand('copy');
-          //remove o elemento
-          document.body.removeChild(inputTest);
-          //write("Código copiado");
-        };
-      </script>
+      <!-- Código pix: <br> -->
+      <div style="margin-left: 3%;">
+        <div>
+          <h6>Pague e será creditado na hora, ou copie este código QR para fazer o pagamento</h6>
+        </div>
+        <br>
+        <div>
+          <h6>Escolha pagar via Pix pelo seu Internet Banking ou app de pagamentos.</h6>
+        </div>
+        <div>
+          <h6>Depois, cole o seguinte código:</h6>
+        </div>
+        <strong>
+          <h6><?= $payloadQrCode ?></h6>
+        </strong><br> <br>
+        <button type="button" class="btn btn-primary" onclick="copiarTexto()" ,>
+          Copiar linha do QrCode
+        </button>
+    </section>
+
+    <script>
+      let copiarTexto = () => {
+        //O texto que será copiado
+        const texto = "<?= $payloadQrCode ?>";
+        //Cria um elemento input (pode ser um textarea)
+        let inputTest = document.createElement("input");
+        inputTest.value = texto;
+        //Anexa o elemento ao body
+        document.body.appendChild(inputTest);
+        //seleciona todo o texto do elemento
+        inputTest.select();
+        //executa o comando copy
+        //aqui é feito o ato de copiar para a area de trabalho com base na seleção
+        document.execCommand('copy');
+        //remove o elemento
+        document.body.removeChild(inputTest);
+        //write("Código copiado");
+      };
+    </script>
     </div>
-
-    <br><br>
-    <!-- FOOTER -->
-    <footer>
-      <ul>
-        <li><a href=""><i class="fab fa-facebook"></i></a></li>
-        <li><a href=""><i class="fab fa-twitter"></i></a></li>
-        <li><a href=""><i class="fab fa-snapchat"></i></a></li>
-        <li><a href=""><i class="fab fa-pinterest"></i></a></li>
-      </ul>
-      <p>Satellite Broadband Networks - Bentley Brasil - Projeto Juruena</p>
-    </footer>
   </main>
+  
+  <br><br>
+  <!-- FOOTER -->
+  <footer>
+    <ul>
+      <li><a href=""><i class="fab fa-facebook"></i></a></li>
+      <li><a href=""><i class="fab fa-twitter"></i></a></li>
+      <li><a href=""><i class="fab fa-snapchat"></i></a></li>
+      <li><a href=""><i class="fab fa-pinterest"></i></a></li>
+    </ul>
+    <p>Satellite Broadband Networks - Bentley Brasil - Projeto Juruena</p>
+  </footer>
+
 
 </body>
 
