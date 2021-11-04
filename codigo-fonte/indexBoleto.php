@@ -29,16 +29,12 @@ and open the template in the editor.
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bentley Brasil</title>
     <!-- Icones fontawesome: -->
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <!-- Fontes da google: font-family: 'Open Sans', sans-serif; -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
     <link rel="stylesheet" href="bootstrapBoleto/css/bootstrap.css">
     <link rel="stylesheet" href="bootstrapBoleto/css/style.css">
     <link rel="stylesheet" href="css/styleindexboleto.css">
-    <link rel="stylesheet" href="css/styleindexboleto.css">
-    <link rel="stylesheet" href="css/styleindexboleto.css">
-    <!-- <link rel="stylesheet" href="css/estilos.css"> -->
     <script type="text/javascript" src="bootstrapBoleto/js/jquery-2.2.4.min.js"></script>
     <script type="text/javascript" src="bootstrapBoleto/js/bootstrap.js"></script>
     <script type="text/javascript" src="bootstrapBoleto/js/jquery.mask.js"></script>
@@ -52,9 +48,9 @@ and open the template in the editor.
 
     <script>
         //Funções após a leitura do documento
-        $(document).ready(function () {
+        $(document).ready(function() {
             //Select para mostrar e esconder divs
-            $('#fisicaoujuridica').on('change', function () {
+            $('#fisicaoujuridica').on('change', function() {
                 var SelectValue = '.' + $(this).val();
                 $('#pai div').hide();
                 $(SelectValue).toggle();
@@ -83,19 +79,18 @@ and open the template in the editor.
 
                     if ($sql->rowCount() > 0) {
                         $dado = $sql->fetch(); ?>
-                <div class="navuser">
-                    <li>
-                        <a class="nav-link"><?php echo $dado['nome']; ?> </a>
-                    </li>
-                </div>
-                <?php } ?>
+                        <div class="navuser">
+                            <li>
+                                <a class="nav-link"><?php echo $dado['nome']; ?> </a>
+                            </li>
+                        </div>
+                    <?php } ?>
                 <?php } ?>
             </div>
         </nav>
     </header>
 
     <main>
-
         <div class="gerador">
             <h5>Bentley Brasil - Gerador de Boletos</h5>
         </div>
@@ -133,7 +128,7 @@ and open the template in the editor.
                 </div>
 
                 <div class="boleto3">
-                    <div id="pai1-2boleto" class="form-group col-sm-6">
+                    <div id="pai1-2boleto" class="form-group col-sm-12">
                         <label for="nome" class="control-label">Nome</label>
                         <input type="text" name="nome" placeholder="Nome completo" value="<?php echo $dado['nome']; ?>">
 
@@ -141,39 +136,37 @@ and open the template in the editor.
                         <input type="mail" name="email" placeholder="E-mail" value="<?php echo $dado['email']; ?>">
 
                         <label for="telefone" class="control-label">Telefone</label>
-                        <input type="number" name="fone" placeholder="Telefone"
-                            value="<?php echo $dado['telefone']; ?>">
+                        <input type="number" name="fone" placeholder="Telefone" value="<?php echo $dado['telefone']; ?>">
 
                         <label for="produto" class="control-label">Produto</label>
-                       <!--  <textarea name="produto" id="produto" rows="3"> Bentley Brasil&#10; Adesão de equipamentos&#10; Projeto Juruena</textarea> -->
+                        <!--  <textarea name="produto" id="produto" rows="3"> Bentley Brasil&#10; Adesão de equipamentos&#10; Projeto Juruena</textarea> -->
                         <textarea name="produto" id="produto" rows="3"> Bentley Brasil - Adesão de equipamentos - Projeto Juruena</textarea>
-                        
+
 
                         <label for="valor" class="control-label">Valor</label>
-                        <input type="number" name="valor" placeholder="Valor do produto" value="190000"
-                            readonly="readonly">
+                        <input type="number" name="valor" placeholder="Valor do produto" value="190000" readonly="readonly">
 
                         <!--  <p>Data do vencimento</p> -->
                         <!-- Data de vencimento atual e acrescentando mais 3 dias -->
-                        <input type="hidden" name="vencimento"
-                            value='<?php echo date("Y-m-d", strtotime("+3 days")); ?>'>
+                        <input type="hidden" name="vencimento" value='<?php echo date("Y-m-d", strtotime("+3 days")); ?>'>
                         <!-- <input type="date" name="vencimento"> -->
                     </div>
                 </div>
             </section>
         </form>
-
-        <!-- FOOTER -->
-        <footer>
-            <ul>
-                <li><a href=""><i class="fab fa-facebook"></i></a></li>
-                <li><a href=""><i class="fab fa-twitter"></i></a></li>
-                <li><a href=""><i class="fab fa-snapchat"></i></a></li>
-                <li><a href=""><i class="fab fa-pinterest"></i></a></li>
-            </ul>
-            <p>Satellite Broadband Networks - Bentley Brasil - Projeto Juruena</p>
-        </footer>
     </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <ul>
+            <li><a href=""><i class="fab fa-facebook"></i></a></li>
+            <li><a href=""><i class="fab fa-twitter"></i></a></li>
+            <li><a href=""><i class="fab fa-snapchat"></i></a></li>
+            <li><a href=""><i class="fab fa-pinterest"></i></a></li>
+        </ul>
+        <p>Satellite Broadband Networks - Bentley Brasil - Projeto Juruena</p>
+    </footer>
+
 </body>
 
 </html>

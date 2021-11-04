@@ -28,9 +28,7 @@ use Mpdf\QrCode\Output;
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hotel Paraíso</title>
   <!-- Icones fontawesome: -->
-  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-   integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
-    crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
   <!-- Fontes da google: font-family: 'Open Sans', sans-serif; -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
   <link rel="stylesheet" href="css/styleindexpix.css">
@@ -90,14 +88,11 @@ use Mpdf\QrCode\Output;
   </header>
 
   <main>
-
     <h5>Bentley Brasil - Gerador de QrCode Pix</h5>
-
     <form action="gerar-qrcode-dinamico.php" method="POST">
       <section class="fisicaoujuridica">
         <div id="acima" class="form-group">
           <label for="cpfoucnpj" class="control-label"></label>
-          <!--  <input class="form-control" type="text" disabled> -->
           <div class="col-sm-3">
             <select name="cpfoucnpj" class="form-control" id="cpfoucnpj">
               <option value="">
@@ -112,7 +107,6 @@ use Mpdf\QrCode\Output;
 
       <div id="pai">
         <section class="cpfoucnpj">
-          <!--  <div id="pai"> -->
           <div class="form-group cpf col-sm-3">
             <label for="cpf" class="control-label"></label>
             <input class="documento form-control" rows="3" name="cpf" value="cpf" type="text" id="cpf" placeholder="Informe o CPF" required>
@@ -145,21 +139,20 @@ use Mpdf\QrCode\Output;
           </div>
         </section>
       </div>
-
     </form>
-
-
-    <!-- FOOTER -->
-    <footer>
-      <ul>
-        <li><a href=""><i class="fab fa-facebook"></i></a></li>
-        <li><a href=""><i class="fab fa-twitter"></i></a></li>
-        <li><a href=""><i class="fab fa-snapchat"></i></a></li>
-        <li><a href=""><i class="fab fa-pinterest"></i></a></li>
-      </ul>
-      <p>Satellite Broadband Networks - Bentley Brasil - Projeto Juruena</p>
-    </footer>
   </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <ul>
+      <li><a href=""><i class="fab fa-facebook"></i></a></li>
+      <li><a href=""><i class="fab fa-twitter"></i></a></li>
+      <li><a href=""><i class="fab fa-snapchat"></i></a></li>
+      <li><a href=""><i class="fab fa-pinterest"></i></a></li>
+    </ul>
+    <p>Satellite Broadband Networks - Bentley Brasil - Projeto Juruena</p>
+  </footer>
+
 
 </body>
 

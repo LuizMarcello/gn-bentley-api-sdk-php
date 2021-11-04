@@ -87,18 +87,7 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
   </main>
 
   <br>
-
-  <!-- FOOTER -->
-  <footer>
-    <ul class="simbolos">
-      <li><a href=""><i class="fab fa-facebook"></i></a></li>
-      <li><a href=""><i class="fab fa-twitter"></i></a></li>
-      <li><a href=""><i class="fab fa-snapchat"></i></a></li>
-      <li><a href=""><i class="fab fa-pinterest"></i></a></li>
-    </ul>
-    <p>Satellite Broadband Networks - Bentley Brasil - Projeto Juruena</p>
-  </footer>
-
+ 
   <?php
   if (isset($_POST['email'])) {
     //Usando a variável global "POST"
@@ -137,6 +126,17 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
     }
   }
   ?>
+
+   <!-- FOOTER -->
+   <footer>
+    <ul class="simbolos">
+      <li><a href=""><i class="fab fa-facebook"></i></a></li>
+      <li><a href=""><i class="fab fa-twitter"></i></a></li>
+      <li><a href=""><i class="fab fa-snapchat"></i></a></li>
+      <li><a href=""><i class="fab fa-pinterest"></i></a></li>
+    </ul>
+    <p>Satellite Broadband Networks - Bentley Brasil - Projeto Juruena</p>
+  </footer>
 
 </body>
 

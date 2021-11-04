@@ -106,6 +106,7 @@ header li:first-child {
         flex-direction: column;
         align-items: center;
     }
+
     header img {
         margin-bottom: 15px;
     }
@@ -128,34 +129,47 @@ header li:first-child {
     header .navmenu li {
         margin: 13%;
     }
+
     header li:first-child {
         margin-left: 0;
     }
+
     header li:last-child {
         margin-right: 0;
     }
+
     header nav .navmenu li a {
-        /* color: blue; */
+      
         flex: 1;
     }
 }
+
+main {
+    display: flex;
+    flex-direction: column;
+   
+    min-height: 50vh;
+}
+
+
 
 h5 {
     display: flex;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 18px;
     color: #333;
-    /*  padding: 1px; */
-    /*  margin-left: 63px; */
+  
     margin-left: 10px;
+    margin-top: 15%;
     justify-content: center;
-    /* align-self: center; */
+  
     text-align: center;
+    align-items: center;
 }
 
 .fisicaoujuridica {
     display: flex;
-    /* flex-direction: column; */
+
     justify-content: center;
     margin-top: 5%;
 }
@@ -165,20 +179,27 @@ h5 {
     flex-direction: column;
     justify-content: center;
     align-self: center;
+    flex: 1;
 }
 
 #pai .cpfoucnpj {
     display: flex;
     align-self: center;
     margin-top: 3%;
+   
 }
 
 #pai .cpfoucnpj input {
-    display: flex;
-    flex-direction: column;
-    align-self: center;
-    margin-top: 3%;
+    width: 290px;
+    height: 30px;
+    margin-top: 7%;
+    margin-bottom: 7%;
+}  
+
+#pai .cpfoucnpj ::placeholder {
+    font-size: 15px;
 }
+
 
 #pai .form {
     display: flex;
@@ -201,18 +222,6 @@ h5 {
     padding: 3px;
 }
 
-#pai .cpf {
-    /* display: flex; */
-   /*  flex-direction: column ; */
-    /* text-align: start; */
-}
-
-#pai .cnpj {
-    /* display: flex; */
-    /* flex-direction: column; */
-    /* text-align: start; */
-}
-
 #pai .razaoounome {
     display: flex;
     justify-content: center;
@@ -220,29 +229,25 @@ h5 {
     margin-left: 7%;
 }
 
-
-
 footer {
     display: flex;
     flex-direction: column;
     background-color: #191c03;
-    padding: 3%;
-    justify-content: center;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 50px;
     align-items: center;
+    margin-bottom: 0;
+    margin-top: 20%;
 }
 
 footer ul {
     display: flex;
     margin-bottom: 25px;
+    padding-top: 10px;
+    align-items: center;
 }
 
 footer ul li {
     margin-right: 10px;
-    /*  margin-bottom: 1px; */
+
 }
 
 footer ul li:last-child {
@@ -257,24 +262,4 @@ footer ul li a {
 footer p {
     color: #c3c63b;
     text-align: center;
-    /* margin-bottom: 35px; */
-}
-
-@media (max-width: 850px) {
-    footer {
-        height: 100px;
-    }
-}
-
-@media (max-width: 650px) {
-    footer {
-        height: 100px;
-    }
-}
-
-@media (max-width: 500px) {
-    footer {
-        /* width: 60%;
-                        height: 30px; */
-    }
 }
