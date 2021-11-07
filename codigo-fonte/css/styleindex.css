@@ -1,5 +1,5 @@
 /* Fazendo o "RESET": */
- 
+
 * {
     margin: 0;
     padding: 0;
@@ -10,11 +10,8 @@
 
 html {
     height: 100%;
-}
-
-nav,
-ul {
-    list-style: none;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 a {
@@ -22,53 +19,38 @@ a {
     cursor: pointer;
     opacity: 0.9;
 }
-/* ESTILIZANDO O "HEADER": */
 
+/* ESTILIZANDO O "HEADER": */
 header {
     display: flex;
-    flex-direction: row;
     width: 100%;
     top: 0;
     left: 0;
     align-items: center;
     background-color: black;
     margin-bottom: 20px;
-    justify-content: start;
+    /*   justify-content: flex-start; */
+    /*  margin-left: 2%; */
 }
 
-header nav .navmenu {
+.navmenu {
     display: flex;
-    flex-direction: row;
-    justify-content: start;
-    margin: 10%;
-    align-items: center;
-    text-align: center;
-}
-
-header .navmenu li a {
-    margin-right: 40%;
 }
 
 header img {
     width: 110px;
     margin-left: 15px;
-    margin-top: 5px;
+
 }
 
-header nav div a {
+.navmenu a {
     color: #c3c63b;
-    font-size: 17px;
-}
+    font-size: 19px;
 
-header img {
-    margin-bottom: 15px;
 }
-/* Tirando a margem direita de "Contato" */
 
 header li {
     margin: 0 35% 0 0;
-    text-align: center;
-    align-items: center;
 }
 
 header li:last-child {
@@ -79,128 +61,84 @@ header li:first-child {
     margin-left: 12%;
 }
 
-@media (max-width: 850px) {
-    header nav li a {
-        font-size: 13px;
-    }
+nav,
+li {
+    list-style: none;
+
 }
 
-@media (max-width: 850px) {
-    header nav div a {
-        font-size: 13px;
-        margin-right: 0;
-    }
+.navmenu {
+    display: flex;
+    margin: 13%;
+    /*  justify-content: center; */
 }
 
-@media (max-width: 700px) {
-    header {
-        flex-direction: column;
-        align-items: center;
-    }
-    header img {
-        margin-bottom: 15px;
-    }
+header img {
+    margin-bottom: 15px;
 }
 
-@media (max-width: 700px) {
-    header nav li a {
-        font-size: 11px;
-        margin-bottom: 3%;
-    }
-}
 
-@media (max-width: 700px) {
-    header nav .navmenu {
-        justify-content: center;
-    }
-}
 
-@media (max-width: 470px) {
-    header .navmenu li {
-        margin: 13%;
-    }
-    header li:first-child {
-        margin-left: 0;
-    }
-    header li:last-child {
-        margin-right: 0;
-    }
-    header nav .navmenu li a {
-        /* color: blue; */
-        flex: 1;
-    }
-}
 /* ESTILIZANDO O "CABEÇALHO": */
+
+.cabecalho {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+
+}
 
 .cabecalho img {
     background-image: url(../img/cabecalhositebentley.jpg);
-    width: 80%;
-    width: 90%;
-    margin-left: 5%;
+    display: block;
+    max-width: 95%;
+    align-items: center;
 }
 
-@media (max-width: 850px) {
-    .cabecalho {
-        margin-top: 15%;
-    }
+
+.imagensjuruena {
+    display: flex;
 }
 
-@media (max-width: 850px) {
-    .cabecalho {
-        margin-top: 15%;
-    }
-}
-
-@media (max-width: 700px) {
-    .cabecalho {
-        flex-basis: 100%;
-        flex-direction: column;
-        margin-top: 20%;
-        align-self: center;
-    }
-}
-
-@media (max-width: 700px) {
-    .cabecalho {
-        flex-basis: 100%;
-        flex-direction: column;
-        margin-top: 20%;
-        align-self: center;
-    }
-}
-
-.imagensjuruena .imgjuruena {
+.imgjuruena {
     display: flex;
     flex-direction: row;
-    align-items: center;
-    margin: 2% 11%;
-    justify-content: space-between;
-    position: relative;
+   /*  align-items: center; */
+   margin-top: 3%;
+    
+    justify-content: space-evenly;
 }
 
-.imagensjuruena .imgjuruena img {
+.imgjuruena img {
     background-image: url(../imgFlexBox/juruena01.jpg);
     background-image: url(../imgFlexBox/juruena02.jpg);
     background-image: url(../imgFlexBox/juruena03.jpg);
-    width: 20%;
-    display: flex;
-    flex-wrap: wrap;
+   
+    width: 50%;
+    height: 50%;
+    margin: 15px;
 }
 
-@media (max-width: 850px) {
-    .imagensjuruena .imgjuruena,
-    .imagensjuruena .imgjuruena img {
-        margin: 7% 15%;
-        justify-content: center;
-    }
+.img01 img {
+    /*  width: 100%; */
+    /* margin-top: 6%;
+    margin-right: 5%; */
 }
 
-@media (max-width: 700px) {
-    .imagensjuruena .imgjuruena,
-    .imagensjuruena .imgjuruena img {
-        margin: 11% 15%;
-    }
+.img02 img {
+    /*   width: 100%; */
+    /* margin-top: 6%;
+    margin-right: 5%; */
 }
+
+.img03 img {
+    /*   width: 100%; */
+   /*  margin-top: 6%;
+    margin-right: 5%; */
+
+}
+
 /* ESTILIZANDO RESERVA */
 
 .reserva {
@@ -212,24 +150,13 @@ header li:first-child {
 
 .reserva a img {
     width: 60%;
+    /*  height: 60%; */
     align-self: center;
     margin-bottom: 20%;
     margin-left: 20%;
 }
 
-@media (max-width: 850px) {
-    .reserva a img {
-        width: 40%;
-        margin-left: 25%;
-    }
-}
 
-@media (max-width: 700px) {
-    .reserva a img {
-        width: 40%;
-        margin-left: 30%;
-    }
-}
 
 h5 {
     display: flex;
@@ -248,7 +175,7 @@ footer {
     background-color: #191c03;
     padding: 3%;
     justify-content: center;
-    /*  position: absolute; */
+    position: absolute;
     bottom: 0;
     width: 100%;
     height: 75px;
@@ -280,21 +207,181 @@ footer p {
     /* margin-bottom: 35px; */
 }
 
+
+/* ++++++ MEDIA QUERIES ++++++ */
+
+@media (max-width: 900px) {
+    .navmenu a {
+        font-size: 17px;
+        margin-right: 0;
+    }
+}
+
+
 @media (max-width: 850px) {
     footer {
         height: 100px;
     }
+
+    .cabecalho {
+        margin-top: 15px;
+    }
 }
 
+
+@media (max-width: 800px) {
+    .navmenu a {
+        font-size: 15px;
+    }
+}
+
+
+@media (max-width: 720px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navmenu a {
+        font-size: 13px;
+        margin-bottom: 3%;
+    }
+
+    header nav .navmenu {
+        justify-content: center;
+    }
+}
+
+
+@media (max-width: 700px) {
+    .cabecalho {
+        /*  margin-top: 15px;
+        align-self: center; */
+    }
+
+    /* .imagensjuruena .imgjuruena,
+    .imagensjuruena .imgjuruena img {
+        margin: 11% 15%;
+    } */
+
+    /*  .reserva a img {
+        width: 40%;
+        margin-left: 30%;
+    } */
+}
+
+
 @media (max-width: 650px) {
+    .imgjuruena img:first-child {
+        margin-top: 20%;
+        margin-left: 5%;
+        margin-right: 1%;
+    }
+
+    .imgjuruena img:last-child {
+        margin-top: 20%;
+        margin-right: 5%;
+        margin-left: 1%;
+    }
+
+    .reserva img {
+        margin-top: 20%;
+    }
+
     footer {
         height: 100px;
     }
 }
 
+
+@media (max-width: 570px) {
+    .imgjuruena img:first-child {
+        margin-top: 30%;
+        /*  width: 30%; */
+        height: 40%;
+        /*  margin-left: 5%;
+        margin-right: 1%; */
+    }
+
+    .imgjuruena img:last-child {
+        margin-top: 30%;
+        /*  width: 30%; */
+        height: 40%;
+        /*   margin-right: 5%; */
+        margin-left: 1%;
+    }
+
+    .reserva img {
+        margin-top: 30%;
+    }
+}
+
+
+@media (max-width: 520px) {
+    header .navmenu li {
+        margin: 7%;
+    }
+
+    header li:first-child {
+        margin-left: 3%;
+    }
+
+    header li:last-child {
+        margin-right: 0;
+    }
+
+    .imgjuruena {
+        /* flex-direction: column; */
+    }
+}
+
+
 @media (max-width: 500px) {
-    footer {
-        /* width: 60%;
-       height: 30px; */
+    .cabecalho {
+        flex-basis: 100%;
+        margin-top: 15px;
+        align-self: center;
+    }
+
+    .imgjuruena img:first-child {
+        margin-top: 55%;
+        /*  width: 30%; */
+        height: 30%;
+        /*  margin-left: 5%;
+        margin-right: 1%; */
+    }
+
+    .imgjuruena img:last-child {
+        margin-top: 55%;
+        /*  width: 30%; */
+        height: 30%;
+        /*   margin-right: 5%;
+        margin-left: 1%; */
+    }
+
+    .img03 img {
+        width: 100%;
+        margin-top: 2%;
+        align-items: flex-start;
+    }
+
+    .reserva img {
+        margin-top: 30%;
+    }
+}
+
+
+@media (max-width: 410px) {
+    .navmenu a {
+        font-size: 11px;
+
+    }
+
+    .navmenu li {
+        margin: 8px;
+    }
+
+    header li:first-child {
+        margin-left: 3%;
     }
 }
