@@ -89,22 +89,28 @@ use Mpdf\QrCode\Output;
           Como você prefere pagar?</p><br>
       </div>
 
+
       <section class="opcoespgto">
         <div class="boleto">
-          <a href="indexboleto.php"><button type="button" class="btn btn-outline-primary btn-sm"><img src="img/boleto-logo.svg" width="130px" height="90px"></button></a>
+          <a href="indexboleto.php"><button type="button" class="btn btn-outline-primary btn-sm"><img src="img/boleto-logo.svg" 
+          width="130px" height="90px"></button></a>
           <p><strong>Mediante compensação</strong></p>
         </div>
 
         <div class="cartao">
-          <a href="indexcartao.php"><button type="button" class="btn btn-outline-primary btn-sm"><img src="img/credit-cards.png" width="130px" height="90px"></button></a>
+          <a href="indexcartao.php"><button type="button" class="btn btn-outline-primary btn-sm"><img src="img/credit-cards.png" 
+          width="130px" height="90px"></button></a>
           <p><strong>Cartão de crédito</strong></p>
         </div>
 
         <div class="pix">
-          <a href="indexpix.php"><button type="button" class="btn btn-outline-primary btn-sm"><img src="img/logo-pix.png" width="130px" height="90px"></button></a>
+          <a href="indexpix.php"><button type="button" class="btn btn-outline-primary btn-sm"><img src="img/logo-pix.png" 
+          width="130px" height="90px"></button></a>
           <p><strong> Aprovação imediata</strong></p>
         </div>
       </section>
+
+      
     </div>
   </main>
 

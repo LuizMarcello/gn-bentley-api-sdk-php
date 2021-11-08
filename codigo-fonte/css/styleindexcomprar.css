@@ -46,10 +46,6 @@ header .navmenu {
     text-align: center;
 }
 
-header .navmenu li {
-    /* margin-right: 40%; */
-}
-
 header img {
     width: 110px;
     margin-left: 15px;
