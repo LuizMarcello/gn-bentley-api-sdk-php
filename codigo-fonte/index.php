@@ -15,16 +15,13 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bentley Brasil</title>
     <!-- Icones fontawesome: -->
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-     integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <!-- Fontes da google: font-family: 'Open Sans', sans-serif; -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
     <link rel="stylesheet" href="css/styleindex.css">
 </head>
 
 <body>
-
-
     <header>
         <img src="https://sistema.bentleybrasil.com.br/img/logo-empresa-br.png" alt="Bentley Brasil">
         <nav>
@@ -69,15 +66,20 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
     </section>
 
     <section class="imagensjuruena">
-        <ul class="imgjuruena">
+        <ul class="imgjuruena1">
             <div class="img01">
                 <img src="img/juruena01.jpg" alt="Bentley Brasil">
             </div>
-            <div class="img02">
+            <div class="img03">
                 <img src="img/juruena03.jpg" alt="Bentley Brasil">
             </div>
-            <div class="img03">
-                <img src="img/juruena02.jpg" alt="Bentley Brasil">
+        </ul>
+        <ul class="imgjuruena2">
+            <div class="img04">
+                <img src="img/juruena04.jpg" alt="Bentley Brasil">
+            </div>
+            <div class="img05">
+                <img src="img/juruena05.jpg" alt="Bentley Brasil">
             </div>
         </ul>
     </section>

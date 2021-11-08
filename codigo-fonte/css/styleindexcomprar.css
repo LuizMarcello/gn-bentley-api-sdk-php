@@ -298,7 +298,7 @@ main {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    /* justify-content: center; */
+ /* justify-content: center;  */
     margin-bottom: 5%;
     margin-left: 6%;
     margin-right: 5%;
@@ -376,7 +376,7 @@ footer {
     background-color: #191c03;
     align-items: center;
     margin-bottom: 0;
-    margin-top: 20%;
+    margin-top: 5%;
 }
 
 footer ul {
