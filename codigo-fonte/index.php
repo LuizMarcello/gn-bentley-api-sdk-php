@@ -2,8 +2,8 @@
 require_once 'classes/usuarios.php';
 if (!isset($_SESSION)) session_start();
 $u = new Usuario;
-$u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
-/* $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234"); */
+/* $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd"); */
+$u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
 ?>
 
 <!DOCTYPE html>
@@ -28,10 +28,10 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
         <nav>
             <div class="navmenu">
                 <li><a href="index.php">Home</a></li>
-                <li><a href="">Sobre</a></li>
+              <!--   <li><a href="">Sobre</a></li> -->
                 <!-- <li><a href="">Contato</a></li> -->
 
-                <li><a href="dados.php">Perfil</a></li>
+                <li><a style="white-space: nowrap;" href="usuarioLogado.php">Meu Perfil</a></li>
                 <li>
                     <?php if (isset($_SESSION['id'])) { ?>
                         <a class="nav-link" href="sair.php">Sair</a>
