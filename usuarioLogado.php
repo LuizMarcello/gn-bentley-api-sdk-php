@@ -2,8 +2,8 @@
 require_once 'classes/usuarios.php';
 if (!isset($_SESSION)) session_start();
 $u = new Usuario;
-$u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
-/* $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234"); */
+/* $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd"); */
+$u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
 ?>
 
 <!DOCTYPE html>
@@ -13,12 +13,15 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>Bentley Brasil</title>
     <!-- Icones fontawesome: -->
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <!-- Fontes da google: font-family: 'Open Sans', sans-serif; -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+
 
     <!--  <link rel="stylesheet" href="css/style.css"> -->
     <!--  <link rel="stylesheet" href="css/estilo.css"> -->
@@ -36,7 +39,7 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
             if (telefone.value.length == 10)
                 telefone.value = telefone.value +
                 '-';
-        }
+        };
     </script>
 </head>
 
@@ -78,28 +81,39 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
                     <label for="nome">
                         <h5>Nome</h5>
                     </label>
-                    <input type="text" name="nome" value="<?php if(isset($sql)) { echo $dado['nome'];}?>"
-                        maxlength="45" required>
+                    <input type="text" name="nome" value="<?php if(isset($sql)) { echo $dado['nome'];}?>" maxlength="45"
+                        required>
                     <label for="telefone">
                         <h5>Telefone</h5>
                     </label>
                     <input type="text" name="telefone" value="<?php if(isset($sql)) { echo $dado['telefone'];}?>"
-                        size="20" maxlength="15" maxlength="45" onkeypress="mascara(this)" required>
+                        size="20" maxlength="15" onkeypress="mascara(this)" required>
                     <label for="email">
                         <h5>Email</h5>
                     </label>
                     <input type="email" name="email" value="<?php if(isset($sql)) { echo $dado['email'];}?>"
                         maxlength="45" required>
+
+
+
                     <label for="senha_usuario">
                         <h5>Senha</h5>
                     </label>
-                    <input type="password" name="senha_usuario" value="<?php if(isset($sql)) { echo $dado['senha_usuario'];}?>"
-                        maxlength="45" required>
-                    <label for="confsenha">
-                        <h5>Repita a senha</h5>
-                    </label>
-                    <input type="password" name="confsenha" value="<?php if(isset($sql)) { echo $dado['senha_usuario'];}?>"
-                        maxlength="45" required>
+                    <input type="password" name="senha_usuario" id="senha_usuario"
+                        value="<?php if(isset($sql)) { echo $dado['senha_usuario'];}?>" maxlength="45" required>
+                    <button onclick="mostrarASenha()" type="button" id="mostrarrSenha"
+                        class="btn btn-primary botao btn-sm">Mostrar Senha</button>
+
+                    <div>
+                        <label for="confsenha" style="white-space: nowrap;">
+                            <h5>Repita a senha</h5>
+                        </label>
+                        <input type="password" name="confsenha" id="confsenha"
+                            value="<?php if(isset($sql)) { echo $dado['senha_usuario'];}?>" maxlength="45" required>
+                        <button onclick="mostrarASenhaRepete()" type="button" id="mostrarrSenhaRepete"
+                            class="btn btn-primary botao btn-sm">Mostrar Senha</button>
+                    </div>
+
 
                     <input type="submit" value="Salvar" maxlength="45">
                     <a href="index.php"><strong>Voltar a home</strong></a>
@@ -107,6 +121,30 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
             </div>
         </div>
     </main>
+
+    <script>
+        function mostrarASenha() {
+            var text = document.getElementById("mostrarrSenha").firstChild;
+            var tipo = document.getElementById("senha_usuario");
+            if (tipo.type == "password") {
+                tipo.type = "text";
+            } else {
+                tipo.type = "password";
+            }
+            text.data = text.data == "Esconder senha" ? "Mostrar senha" : "Esconder senha";
+        }
+
+        function mostrarASenhaRepete() {
+            var text = document.getElementById("mostrarrSenhaRepete").firstChild;
+            var tipo = document.getElementById("confsenha");
+            if (tipo.type == "password") {
+                tipo.type = "text";
+            } else {
+                tipo.type = "password";
+            }
+            text.data = text.data == "Esconder senha" ? "Mostrar senha" : "Esconder senha";
+        }
+    </script>
 
     <footer>
         <ul>

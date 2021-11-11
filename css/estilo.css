@@ -2,13 +2,11 @@
     margin: 0px;
     padding: 0px;
 }
-
 .flex-box {
     display: flex;
     align-items: center;
     justify-content: center;
 }
-
 body {
     /* background-image: url("../img/imagesSateliteCobertura.jpg"); */
     /*  background-image: url("../img/.jpg"); */
@@ -16,7 +14,6 @@ body {
     background-color: rgb(166, 166, 202);
     font-family: Arial;
 }
-
 input {
     display: block;
     height: 55px;
@@ -30,44 +27,41 @@ input {
     background-color: rgba(237, 231, 225, 0.4);
     outline: none;
 }
-
 div#corpo-form {
     /* background-color: red; */
     width: 420px;
     margin: 130px auto 0px auto;
 }
-
 div#corpo-form-cad {
     /* background-color: red; */
     width: 420px;
     margin: 100px auto 0px auto;
 }
-
-div#corpo-form h1,
-div#corpo-form-cad h1 {
+div#corpo-form h1, div#corpo-form-cad h1 {
     text-align: center;
     padding: 20px 0 0 0;
     color: black;
 }
-
 a {
     color: black;
     text-decoration: none;
     text-align: center;
     display: block;
 }
-
 a:hover {
     text-decoration: underline;
 }
-
 input[type=submit] {
     /*  background-color: #b3a3b5; */
     background-color: rgba(150, 34, 165, 0.3);
     border: none;
     cursor: pointer;
 }
-
+.content-box .botao {
+    margin-right: 60%;
+    border-radius: 30px;
+    /*  border: 2px solid black; */
+}
 div#msg-sucesso {
     width: 400px;
     margin: 10px auto;
@@ -75,7 +69,6 @@ div#msg-sucesso {
     background-color: rgba(50, 205, 50, .3);
     border: 1px solid rgb(34, 139, 34);
 }
-
 div.msg-erro {
     width: 400px;
     margin: 10px auto;
@@ -83,10 +76,8 @@ div.msg-erro {
     background-color: rgba(250, 128, 114, .3);
     border: 1px solid rgb(165, 42, 42);
 }
-
 .content-box input {
     max-width: 350px;
     min-width: 150px;
     margin-right: 22%;
-
 }

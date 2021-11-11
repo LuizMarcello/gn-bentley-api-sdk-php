@@ -2,8 +2,8 @@
 require_once 'classes/usuarios.php';
 if (!isset($_SESSION)) session_start();
 $u = new Usuario;
-$u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
-/* $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234"); */
+/* $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd"); */
+$u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
 ?>
 
 <!DOCTYPE html>
@@ -28,11 +28,13 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
         .value; //quando começamos a digitar, o script irá inserir um parênteses no começo do campo.
       if (telefone.value.length == 3)
         telefone.value = telefone.value +
-        ') '; //quando o campo já tiver 3 caracteres (um parênteses e 2 números) o script irá inserir mais um parênteses, fechando assim o código de área.
+        ') '; //quando o campo já tiver 3 caracteres (um parênteses e 2 números) o script irá inserir
+      //mais um parênteses, fechando assim o código de área.
 
       if (telefone.value.length == 10)
         telefone.value = telefone.value +
-        '-'; //quando o campo já tiver 8 caracteres, o script irá inserir um tracinho, para melhor visualização do telefone.
+        '-'; //quando o campo já tiver 8 caracteres, o script irá inserir um tracinho, para melhor
+      //visualização do telefone.
     }
   </script>
 </head>
@@ -65,11 +67,22 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
         <h1>Cadastrar</h1>
         <form method="POST">
           <input type="text" name="nome" placeholder="Nome Completo" maxlength="45">
-          <input type="text" name="telefone" size="20" maxlength="15" placeholder="Telefone" maxlength="45" onkeypress="mascara(this)">
+          <input type="text" name="telefone" size="20" maxlength="15" placeholder="Telefone" maxlength="45"
+            onkeypress="mascara(this)">
           <input type="email" name="email" placeholder="Email" maxlength="45">
-          <input type="password" name="senha_usuario" placeholder="Senha" maxlength="45">
-          <input type="password" name="confsenha" placeholder="Confirmar Senha" maxlength="45">
+
+
+          <input type="password" name="senha_usuario" id="senha_usuario" placeholder="Senha" maxlength="45">
+          <button onclick="mostrarASenha()" type="button" id="mostrarrSenha"
+            class="btn btn-primary botao btn-sm">Mostrar Senha</button>
+
+          <input type="password" name="confsenha" id="confsenha" placeholder="Confirmar Senha" maxlength="45">
+          <button onclick="mostrarASenhaRepete()" type="button" id="mostrarrSenhaRepete"
+            class="btn btn-primary botao btn-sm">Mostrar Senha</button>
+
+
           <input type="submit" value="Cadastrar" maxlength="45">
+
           <a style="margin-top: 50px;" href="logar.php">Já sou cadastrado<strong> Logar</strong></a>
         </form>
       </div>
@@ -77,8 +90,6 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
   </main>
 
   <!-- FOOTER -->
-
-
   <!-- //Pegando todas as informações que o usuário digitou e clicou "Cadastrar" -->
   <?php
   /* Verificando se clicou no botão */
@@ -129,11 +140,32 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
     Por favor, preencha todos os campos!
   </div>
   <?php
-
     }
   }
-
   ?>
+  <script>
+    function mostrarASenha() {
+      var text = document.getElementById("mostrarrSenha").firstChild;
+      var tipo = document.getElementById("senha_usuario");
+      if (tipo.type == "password") {
+        tipo.type = "text";
+      } else {
+        tipo.type = "password";
+      }
+      text.data = text.data == "Esconder senha" ? "Mostrar senha" : "Esconder senha";
+    }
+
+    function mostrarASenhaRepete() {
+      var text = document.getElementById("mostrarrSenhaRepete").firstChild;
+      var tipo = document.getElementById("confsenha");
+      if (tipo.type == "password") {
+        tipo.type = "text";
+      } else {
+        tipo.type = "password";
+      }
+      text.data = text.data == "Esconder senha" ? "Mostrar senha" : "Esconder senha";
+    }
+  </script>
 </body>
 
 </html>

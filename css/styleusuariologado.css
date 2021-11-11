@@ -102,6 +102,13 @@
                         height: 30px;
                         margin-top: 0;
                     }
+                    .content-box .botao {
+                        margin-top: 1px;
+                        margin-bottom: 9%;
+                        margin-left: 2%;
+                        border-radius: 30px;
+                        /*  border: 2px solid black; */
+                    }
                     a {
                         color: black;
                         text-decoration: none;
@@ -192,6 +199,15 @@
                     @media (max-width: 450px) {
                         .navmenu {
                             margin: 0 17% 0 17%;
+                        }
+                        .content-box h5 {
+                            margin-left: 20px;
+                            font-size: 13px;
+                        }
+                        .content-box input {
+                            /* font-size: 15px;
+                            min-width: 170px; */
+                            margin-right: 0;
                         }
                     }
                     @media (max-width: 400px) {
