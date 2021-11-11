@@ -1,7 +1,7 @@
 <?php
 
 require_once 'classes/usuarios.php';
-require '../vendor/autoload.php';
+require 'vendor/autoload.php';
 
 if (!isset($_SESSION)) session_start();
 
@@ -136,7 +136,7 @@ and open the template in the editor.
                         <input type="mail" name="email" placeholder="E-mail" value="<?php echo $dado['email']; ?>">
 
                         <label for="telefone" class="control-label">Telefone</label>
-                        <input type="number" name="fone" placeholder="Telefone" value="<?php echo $dado['telefone']; ?>">
+                        <input type="number" name="telefone" placeholder="Telefone" value="<?php echo $dado['telefone']; ?>">
 
                         <label for="produto" class="control-label">Produto</label>
                         <!--  <textarea name="produto" id="produto" rows="3"> Bentley Brasil&#10; Adesão de equipamentos&#10; Projeto Juruena</textarea> -->

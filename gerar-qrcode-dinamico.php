@@ -1,11 +1,11 @@
 <?php
 
 require_once 'classes/usuarios.php';
-require_once '../vendor/autoload.php';
+require_once 'vendor/autoload.php';
 
 $u = new Usuario;
-/* $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd"); */
-$u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
+$u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
+/* $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234"); */
 if (!isset($_SESSION)) session_start();
 
 /* if (!isset($_SESSION['id_usuario'])) {

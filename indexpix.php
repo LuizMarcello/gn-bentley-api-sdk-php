@@ -1,7 +1,7 @@
 <?php
 
 require_once 'classes/usuarios.php';
-require '../vendor/autoload.php';
+require 'vendor/autoload.php';
 
 if (!isset($_SESSION)) session_start();
 
