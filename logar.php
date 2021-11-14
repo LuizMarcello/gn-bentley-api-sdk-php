@@ -17,14 +17,13 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
   <title>Bentley Juruena Login</title>
   <!-- Icones fontawesome: -->
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-   integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
-    crossorigin="anonymous" />
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
   <!-- Fontes da google: font-family: 'Open Sans', sans-serif; -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
-   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
-   rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" 
-   crossorigin="anonymous">
+  <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700"> -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="css/stylelogar.css">
+  <!-- <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css"> -->
 </head>
 
 <body>
@@ -34,10 +33,10 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
       <div class="navmenu">
         <li><a href="index.php">Home</a></li>
         <li><a href="">Sobre</a></li>
-       <!--  <li><a href="">Contato</a></li> -->
+        <!--  <li><a href="">Contato</a></li> -->
         <li>
           <?php if (isset($_SESSION['id'])) { ?>
-            <a class="nav-link" href="sair.php">Sair</a>
+          <a class="nav-link" href="sair.php">Sair</a>
           <?php } ?>
           <?php if (!isset($_SESSION['id'])) { ?>
         <li>
@@ -45,7 +44,6 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
         </li>
         <?php } ?>:
         </li>
-
 
         <?php
         if (isset($_SESSION['id'])) {
@@ -60,12 +58,12 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
 
           if ($sql->rowCount() > 0) {
             $dado = $sql->fetch(); ?>
-            <div class="navuser">
-              <li>
-                <a style="white-space: nowrap;" class="nav-link"><?php echo $dado['nome']; ?> </a>
-              </li>
-            </div>
-          <?php } ?>
+        <div class="navuser">
+          <li>
+            <a style="white-space: nowrap;" class="nav-link"><?php echo $dado['nome']; ?> </a>
+          </li>
+        </div>
+        <?php } ?>
         <?php } ?>
       </div>
     </nav>
@@ -77,23 +75,25 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
         <h1>Entrar</h1>
         <form method="POST">
           <input type="email" name="email" placeholder="Usuário">
-          <input type="password" name="senha" placeholder="Senha">
+          <input type="password" name="senha_usuario" id="senha_usuario" placeholder="Senha">
+          <button onclick="mostrarASenha()" type="button" id="mostrarrSenha" class="btn btn-primary botao btn-sm">Mostrar Senha</button>
           <input type="submit" value="Acessar">
           <a href="cadastrar.php">Ainda não é inscrito?<strong> Cadastre-se</strong></a><br>
         </form>
+
         <p align="right"><a href="recuperarsenha/esqueci-a-senha.php">Esqueceu a senha? Recupere já!</a></p>
       </div>
     </div>
   </main>
 
   <br>
- 
+
   <?php
   if (isset($_POST['email'])) {
     //Usando a variável global "POST"
     //addslashes():Para impedir que comandos maliciosos sejam inseridos no formulário.
     $email = addslashes($_POST['email']);
-    $senha = addslashes($_POST['senha']);
+    $senha = addslashes($_POST['senha_usuario']);
 
     //Verificando se está preenchido, se tem algum campo em branco
     if (!empty($email) && !empty($senha)) {
@@ -105,30 +105,43 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
         } else {
   ?>
 
-          <div class="msg-erro">
-            Email e/ou senha incorretos!
-          </div>
-        <?php
+  <div class="msg-erro">
+    Email e/ou senha incorretos!
+  </div>
+  <?php
         }
       } else {
         ?>
-        <div class="msg-erro">
-          <?php echo "Erro: " . $u->msgErro; ?>
-        </div>
-      <?php
+  <div class="msg-erro">
+    <?php echo "Erro: " . $u->msgErro; ?>
+  </div>
+  <?php
       }
     } else {
       ?>
-      <div class="msg-erro">
-        Preencha todos os campos!
-      </div>
+  <div class="msg-erro">
+    Preencha todos os campos!
+  </div>
   <?php
     }
   }
   ?>
 
-   <!-- FOOTER -->
-   <footer>
+  <script>
+    function mostrarASenha() {
+      var text = document.getElementById("mostrarrSenha").firstChild;
+      var tipo = document.getElementById("senha_usuario");
+      if (tipo.type == "password") {
+        tipo.type = "text";
+      } else {
+        tipo.type = "password";
+      }
+      text.data = text.data == "Esconder senha" ? "Mostrar senha" : "Esconder senha";
+    }
+  </script>
+
+  <!-- FOOTER -->
+  <footer>
     <ul class="simbolos">
       <li><a href=""><i class="fab fa-facebook"></i></a></li>
       <li><a href=""><i class="fab fa-twitter"></i></a></li>

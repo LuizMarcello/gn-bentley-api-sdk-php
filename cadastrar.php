@@ -13,8 +13,7 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
   <link rel="stylesheet" href="css/style.css">
 
@@ -41,8 +40,7 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
   <header>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
       <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
-          aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -60,16 +58,27 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
   </header>
 
   <main>
-    <div class="flex-box container-box">
+  <div class="flex-box container-box">
       <div class="content-box">
         <h1>Cadastrar</h1>
         <form method="POST">
           <input type="text" name="nome" placeholder="Nome Completo" maxlength="45">
-          <input type="text" name="telefone" size="20" maxlength="15" placeholder="Telefone" maxlength="45" onkeypress="mascara(this)">
+          <input type="text" name="telefone" size="20" maxlength="15" placeholder="Telefone" maxlength="45"
+            onkeypress="mascara(this)">
           <input type="email" name="email" placeholder="Email" maxlength="45">
-          <input type="password" name="senha_usuario" placeholder="Senha" maxlength="45">
-          <input type="password" name="confsenha" placeholder="Confirmar Senha" maxlength="45">
+
+
+          <input type="password" name="senha_usuario" id="senha_usuario" placeholder="Senha" maxlength="45">
+          <button onclick="mostrarASenha()" type="button" id="mostrarrSenha"
+            class="btn btn-primary botao btn-sm">Mostrar Senha</button>
+
+          <input type="password" name="confsenha" id="confsenha" placeholder="Confirmar Senha" maxlength="45">
+          <button onclick="mostrarASenhaRepete()" type="button" id="mostrarrSenhaRepete"
+            class="btn btn-primary botao btn-sm">Mostrar Senha</button>
+
+
           <input type="submit" value="Cadastrar" maxlength="45">
+
           <a style="margin-top: 50px;" href="logar.php">Já sou cadastrado<strong> Logar</strong></a>
         </form>
       </div>
@@ -92,48 +101,70 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
     $confsenha = addslashes($_POST['confsenha']);
     //Verificando se está preenchido, se tem algum campo em branco
     if (!empty($nome) && !empty($telefone) && !empty($email) && !empty($senha) && !empty($confsenha)) {
-     
+
       if ($u->msgErro == "") //Vazia está tudo OK.
       {
         if ($senha == $confsenha) {
           if ($u->cadastrar($nome, $telefone, $email, $senha)) {
   ?>
-  <div id="msg-sucesso" style="margin-top: 13px;">
-    Cadastrado com sucesso! Acesse para entrar!
-  </div>
-  <?php
+            <div id="msg-sucesso" style="margin-top: 13px;">
+              Cadastrado com sucesso! Acesse para entrar!
+            </div>
+          <?php
           } else {
           ?>
-  <div class="msg-erro">
-    Email já cadastrado!
-  </div>
-  <?php
+            <div class="msg-erro">
+              Email já cadastrado!
+            </div>
+          <?php
           }
         } else {
           ?>
-  <div class="msg-erro">
-    Atenção: As senhas não conferem"
-  </div>
-  <?php
+          <div class="msg-erro">
+            Atenção: As senhas não conferem"
+          </div>
+        <?php
         }
       } else {
         ?>
-  <div class="msg-erro">
-    <?php echo "Erro: " . $u->msgErro; ?>
-  </div>
-  <?php
+        <div class="msg-erro">
+          <?php echo "Erro: " . $u->msgErro; ?>
+        </div>
+      <?php
       }
     } else {
       ?>
-  <div class="msg-erro">
-    Por favor, preencha todos os campos!
-  </div>
+      <div class="msg-erro">
+        Por favor, preencha todos os campos!
+      </div>
   <?php
 
     }
   }
-
   ?>
+  <script>
+    function mostrarASenha() {
+      var text = document.getElementById("mostrarrSenha").firstChild;
+      var tipo = document.getElementById("senha_usuario");
+      if (tipo.type == "password") {
+        tipo.type = "text";
+      } else {
+        tipo.type = "password";
+      }
+      text.data = text.data == "Esconder senha" ? "Mostrar senha" : "Esconder senha";
+    }
+
+    function mostrarASenhaRepete() {
+      var text = document.getElementById("mostrarrSenhaRepete").firstChild;
+      var tipo = document.getElementById("confsenha");
+      if (tipo.type == "password") {
+        tipo.type = "text";
+      } else {
+        tipo.type = "password";
+      }
+      text.data = text.data == "Esconder senha" ? "Mostrar senha" : "Esconder senha";
+    }
+  </script>
 </body>
 
 </html>

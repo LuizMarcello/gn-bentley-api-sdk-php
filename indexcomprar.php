@@ -1,6 +1,6 @@
 <?php
 require_once 'classes/usuarios.php';
-require '../vendor/autoload.php';
+require 'vendor/autoload.php';
 $u = new Usuario;
 $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
 /* $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234"); */
