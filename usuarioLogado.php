@@ -2,8 +2,8 @@
 require_once 'classes/usuarios.php';
 if (!isset($_SESSION)) session_start();
 $u = new Usuario;
-$u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
-/* $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234"); */
+/* $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd"); */
+$u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
 ?>
 
 <!DOCTYPE html>
@@ -13,6 +13,8 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>Bentley Brasil</title>
     <!-- Icones fontawesome: -->
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
@@ -20,6 +22,7 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
       crossorigin="anonymous" />
     <!-- Fontes da google: font-family: 'Open Sans', sans-serif; -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+
 
     <!--  <link rel="stylesheet" href="css/style.css"> -->
     <!--  <link rel="stylesheet" href="css/estilo.css"> -->
@@ -37,7 +40,7 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
             if (telefone.value.length == 10)
                 telefone.value = telefone.value +
                 '-';
-        }
+        };
     </script>
 </head>
 
