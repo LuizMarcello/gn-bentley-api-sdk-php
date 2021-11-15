@@ -1,5 +1,4 @@
 /* Fazendo o "RESET": */
- 
 * {
   margin: 0;
   padding: 0;
@@ -7,12 +6,16 @@
   box-sizing: border-box;
   font-family: 'Open Sans', sans-serif;
 }
+
 html {
   height: 100%;
 }
-nav, ul {
+
+nav,
+ul {
   list-style: none;
 }
+
 body {
   /* background-image: url("../img/imagesSateliteCobertura.jpg"); */
   /*  background-image: url("../img/.jpg"); */
@@ -20,17 +23,15 @@ body {
   background-color: rgb(166, 166, 202);
   font-family: Arial;
 }
-.content-box {
-  margin-right: 13%;
-  /* flex: 1; */
-}
+
 a {
   text-decoration: none;
   cursor: pointer;
   opacity: 0.9;
 }
-/* ESTILIZANDO O "HEADER": */
 
+
+/* ESTILIZANDO O "HEADER": */
 header {
   display: flex;
   flex-direction: row;
@@ -42,6 +43,7 @@ header {
   margin-bottom: 20px;
   justify-content: flex-start;
 }
+
 header nav .navmenu {
   display: flex;
   flex-direction: row;
@@ -50,124 +52,79 @@ header nav .navmenu {
   align-items: center;
   text-align: center;
 }
+
 header .navmenu li {
   margin-right: 40%;
 }
+
 header .navmenu li:first-child {
   margin-left: 25%;
 }
+
 header .navmenu li:last-child {
   margin-right: 50%;
 }
+
 header img {
   width: 110px;
   margin-left: 15px;
   margin-top: 5px;
 }
+
 header nav div a {
   color: #c3c63b;
   font-size: 17px;
 }
+
 header img {
   margin-bottom: 15px;
 }
+
 header .navmenu {
   display: flex;
   justify-content: center;
   text-align: center;
   align-items: center;
 }
+
 header li {
   margin: 0 35% 0 0;
   text-align: center;
   align-items: center;
 }
+
 header li:last-child {
   margin-right: 12%;
 }
+
 header li:first-child {
   margin-left: 12%;
 }
-.lnr-eye {
-  /* position: absolute; */
-  /*   top: 5px; */
-  /*   right: 10px; */
-  cursor: pointer;
-}
-@media (max-width: 850px) {
-  header nav li a {
-      font-size: 13px;
-  }
-}
-@media (max-width: 850px) {
-  header nav div a {
-      font-size: 13px;
-      margin-right: 0;
-  }
-}
-@media (max-width: 700px) {
-  header {
-      flex-direction: column;
-      align-items: center;
-  }
-  header img {
-      margin-bottom: 15px;
-  }
-}
-@media (max-width: 700px) {
-  header nav li a {
-      font-size: 11px;
-      margin-bottom: 3%;
-  }
-}
-@media (max-width: 700px) {
-  header nav .navmenu {
-      justify-content: center;
-      align-items: center;
-  }
-}
-@media (max-width: 470px) {
-  header .navmenu li {
-      margin: 13%;
-  }
-  header li:first-child {
-      margin-left: 0;
-  }
-  header li:last-child {
-      margin-right: 0;
-  }
-  header nav .navmenu li a {
-      /* color: blue; */
-      flex: 1;
-  }
-}
+
+/* ESTILIZANDO O "MAIN" */
 main {
   display: flex;
   justify-content: center;
   min-height: 60vh;
 }
+
 .flex-box {
   display: flex;
-  flex: 1;
-  align-items: center;
-  justify-content: center;
-  margin: 7% 7%;
 }
-/*  .flex-box .content-box a {
-display: flex;
-text-align: center;
-align-items: center;
-justify-content: center;
-margin-left: 5%;
 
-} */
+.content-box {
+  /*  display: flex; */
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  text-align: center;
+}
 
 input {
-  height: 120%;
-  width: 120%;
+  height: 15%;
+  width: 90%;
   margin-top: 6%;
-  margin-right: 20%;
-  border-radius: 30px;
+  border-radius: 20px;
   border: 2px solid black;
   font-size: 19pt;
   padding: 10px 20px;
@@ -175,27 +132,43 @@ input {
   background-color: rgba(237, 231, 225, 0.4);
   outline: none;
 }
+
+.olho {
+  cursor: pointer;
+  /* bottom: 4%; */
+  margin-top: 6%;
+  /*  right: 15%; */
+  /* left: 36%; */
+  /* top:5px;  */
+  right: 7%;
+  width: 50px;
+  position: absolute;
+
+}
+
 input[type=submit] {
-  margin-left: 28%;
   margin-bottom: 5%;
   justify-content: center;
   height: 50%;
   width: 50%;
+  background-color: rgba(150, 34, 165, 0.3);
+  border: none;
+  cursor: pointer;
 }
+
+
+
 a {
   color: black;
   text-decoration: none;
   text-align: center;
   display: block;
 }
+
 a:hover {
   text-decoration: underline;
 }
-input[type=submit] {
-  background-color: rgba(150, 34, 165, 0.3);
-  border: none;
-  cursor: pointer;
-}
+
 div.msg-erro {
   width: 400px;
   margin: 10px auto;
@@ -203,18 +176,23 @@ div.msg-erro {
   background-color: rgba(250, 128, 114, .3);
   border: 1px solid rgb(165, 42, 42);
 }
+
 .content-box label {
   margin-top: 5%;
   margin-left: 12%;
 }
-.content-box .botao {
-  margin-top: 10px;
-  border-radius: 30px;
-  /*  border: 2px solid black; */
-}
+
 .content-box h1 {
   margin-left: 10%;
 }
+
+/* #pass {
+  width: 400px;
+  padding-right: 20px;
+} */
+
+
+/* ESTILIZANDO O "FOOTER" */
 footer {
   display: flex;
   flex-direction: column;
@@ -223,23 +201,76 @@ footer {
   margin-bottom: 0;
   margin-top: 20%;
 }
+
 footer ul {
   display: flex;
   margin-bottom: 25px;
   padding-top: 10px;
   align-items: center;
 }
+
 footer ul li {
   margin-right: 10px;
 }
+
 footer ul li:last-child {
   margin-right: 0;
 }
+
 footer ul li a {
   color: #c3c63b;
   font-size: 1.5rem;
 }
+
 footer p {
   color: #c3c63b;
   text-align: center;
+}
+
+
+/* MEDIA QUERIES */
+@media (max-width: 850px) {
+  header nav li a {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 700px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  header img {
+    margin-bottom: 15px;
+  }
+
+  header nav li a {
+    font-size: 11px;
+    margin-bottom: 3%;
+  }
+
+  header nav .navmenu {
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media (max-width: 470px) {
+  header .navmenu li {
+    margin: 13%;
+  }
+
+  header li:first-child {
+    margin-left: 0;
+  }
+
+  header li:last-child {
+    margin-right: 0;
+  }
+
+  header nav .navmenu li a {
+    /* color: blue; */
+    flex: 1;
+  }
 }
