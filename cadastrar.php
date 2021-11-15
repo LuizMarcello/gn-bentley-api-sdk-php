@@ -2,8 +2,8 @@
 require_once 'classes/usuarios.php';
 if (!isset($_SESSION)) session_start();
 $u = new Usuario;
-$u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
-/* $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234"); */
+/* $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd"); */
+$u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
 ?>
 
 <!DOCTYPE html>
@@ -27,11 +27,13 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
         .value; //quando começamos a digitar, o script irá inserir um parênteses no começo do campo.
       if (telefone.value.length == 3)
         telefone.value = telefone.value +
-        ') '; //quando o campo já tiver 3 caracteres (um parênteses e 2 números) o script irá inserir mais um parênteses, fechando assim o código de área.
+        ') '; //quando o campo já tiver 3 caracteres (um parênteses e 2 números) o script irá inserir
+      //mais um parênteses, fechando assim o código de área.
 
       if (telefone.value.length == 10)
         telefone.value = telefone.value +
-        '-'; //quando o campo já tiver 8 caracteres, o script irá inserir um tracinho, para melhor visualização do telefone.
+        '-'; //quando o campo já tiver 8 caracteres, o script irá inserir um tracinho, para melhor
+      //visualização do telefone.
     }
   </script>
 </head>
@@ -86,8 +88,6 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
   </main>
 
   <!-- FOOTER -->
-
-
   <!-- //Pegando todas as informações que o usuário digitou e clicou "Cadastrar" -->
   <?php
   /* Verificando se clicou no botão */
@@ -138,7 +138,6 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
         Por favor, preencha todos os campos!
       </div>
   <?php
-
     }
   }
   ?>

@@ -2,8 +2,8 @@
 require_once 'classes/usuarios.php';
 require 'vendor/autoload.php';
 $u = new Usuario;
-$u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
-/* $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234"); */
+/* $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd"); */
+$u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
 
 if (!isset($_SESSION)) session_start();
 
@@ -92,7 +92,7 @@ use Mpdf\QrCode\Output;
 
       <section class="opcoespgto">
         <div class="boleto">
-          <a href="indexboleto.php"><button type="button" class="btn btn-outline-primary btn-sm"><img src="img/boleto-logo.svg" 
+          <a href="indexBoleto.php"><button type="button" class="btn btn-outline-primary btn-sm"><img src="img/boleto-logo.svg" 
           width="130px" height="90px"></button></a>
           <p><strong>Mediante compensação</strong></p>
         </div>
