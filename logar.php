@@ -16,30 +16,34 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bentley Juruena Login</title>
   <!-- Icones fontawesome: -->
-  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+   integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
   <!-- Fontes da google: font-family: 'Open Sans', sans-serif; -->
   <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700"> -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+  integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="css/stylelogar.css">
   <!-- <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css"> -->
 </head>
 
 <body>
+
+
   <header>
     <img src="https://sistema.bentleybrasil.com.br/img/logo-empresa-br.png" alt="Bentley Brasil">
     <nav>
       <div class="navmenu">
         <li><a href="index.php">Home</a></li>
-        <li><a href="">Sobre</a></li>
+       <!--  <li><a href="">Sobre</a></li> -->
         <!--  <li><a href="">Contato</a></li> -->
         <li>
           <?php if (isset($_SESSION['id'])) { ?>
             <a class="nav-link" href="sair.php">Sair</a>
           <?php } ?>
           <?php if (!isset($_SESSION['id'])) { ?>
-        <li>
+        <!-- <li>
           <a href="logar.php">Entrar</a>
-        </li>
+        </li> -->
         <?php } ?>:
         </li>
 
@@ -67,14 +71,16 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
     </nav>
   </header>
 
+
   <main>
     <div class="content-box">
-      <h1>Entrar</h1>
+      <h1>Logar</h1>
       <form method="POST">
         <input type="email" name="email" placeholder="Usuário">
         <div style="position: relative;">
           <input type="password" name="senha_usuario" id="pass" placeholder="Senha">
-          <img style="position: absolute;" src="https://cdn0.iconfinder.com/data/icons/ui-icons-pack/100/ui-icon-pack-14-512.png" id="olho" class="olho">
+          <img style="position: absolute;" src="https://cdn0.iconfinder.com/data/icons/ui-icons-pack/100/ui-icon-pack-14-512.png"
+           id="olho" class="olho">
         </div>
         <input type="submit" value="Acessar">
         <a href="cadastrar.php">Ainda não é inscrito?<strong> Cadastre-se</strong></a><br>
@@ -82,6 +88,7 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
       <p align="right"><a href="recuperarsenha/esqueci-a-senha.php">Esqueceu a senha? Recupere já!</a></p>
     </div>
   </main>
+
 
   <br>
 

@@ -37,7 +37,7 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
                         <a class="nav-link" href="sair.php">Sair</a>
                     <?php } ?>
                     <?php if (!isset($_SESSION['id'])) { ?>
-                        <a class="nav-link" href="logar.php">Entrar</a>
+                        <a class="nav-link" href="logar.php">Logar</a>
                     <?php } ?>
                 </li>
 
