@@ -68,25 +68,19 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
   </header>
 
   <main>
-    <div class="flex-box container-box">
-      <div class="content-box">
-        <h1>Entrar</h1>
-
-        <form method="POST">
-          <input type="email" name="email" placeholder="Usuário">
+    <div class="content-box">
+      <h1>Entrar</h1>
+      <form method="POST">
+        <input type="email" name="email" placeholder="Usuário">
+        <div style="position: relative;">
           <input type="password" name="senha_usuario" id="pass" placeholder="Senha">
-
-          <img src="https://cdn0.iconfinder.com/data/icons/ui-icons-pack/100/ui-icon-pack-14-512.png" id="olho" class="olho">
-
-          <input type="submit" value="Acessar">
-          <a href="cadastrar.php">Ainda não é inscrito?<strong> Cadastre-se</strong></a><br>
-        </form>
-
-        <p align="right"><a href="recuperarsenha/esqueci-a-senha.php">Esqueceu a senha? Recupere já!</a></p>
-      </div>
+          <img style="position: absolute;" src="https://cdn0.iconfinder.com/data/icons/ui-icons-pack/100/ui-icon-pack-14-512.png" id="olho" class="olho">
+        </div>
+        <input type="submit" value="Acessar">
+        <a href="cadastrar.php">Ainda não é inscrito?<strong> Cadastre-se</strong></a><br>
+      </form>
+      <p align="right"><a href="recuperarsenha/esqueci-a-senha.php">Esqueceu a senha? Recupere já!</a></p>
     </div>
-
-
   </main>
 
   <br>
