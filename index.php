@@ -2,8 +2,8 @@
 require_once 'classes/usuarios.php';
 if (!isset($_SESSION)) session_start();
 $u = new Usuario;
-/* $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd"); */
-$u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
+$u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
+/* $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234"); */
 ?>
 
 <!DOCTYPE html>
@@ -62,9 +62,15 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
         </nav>
     </header>
 
+
+
+
     <section class="cabecalho">
         <img src="img/cabecalhositebentley.jpg" alt="Bentley Brasil">
     </section>
+
+
+
 
     <section class="imagensjuruena">
         <ul class="imgjuruena1">
@@ -85,10 +91,17 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
         </ul>
     </section>
 
+
+
+
     <section class="reserva">
         <a href="indexcomprar.php"><img src="img/fazerreserva.jpg"></a>
     </section>
 
+
+
+
+    
     <footer>
         <ul>
             <li><a href=""><i class="fab fa-facebook"></i></a></li>

@@ -17,37 +17,25 @@ ul {
 }
 
 body {
+  display: flex;
+  flex-direction: column;
   background-position: 50% 50%;
   background-color: rgb(166, 166, 202);
   font-family: Arial;
+
+
+
 }
 
 /* ESTILIZANDO O "HEADER": */
 header {
   display: flex;
   flex-direction: row;
-  width: 100%;
   align-items: center;
   background-color: black;
- /*  margin-bottom: 20px; */
-  justify-content: start;
+  justify-content: space-between;
+
 }
-
-a {
-  text-decoration: none;
-  cursor: pointer;
-  opacity: 0.9;
-}
-
-.navmenu {}
-
-header .navmenu li {}
-
-.navmenu li a {}
-
-header .navmenu li:first-child { }
-
-header .navmenu li:last-child {}
 
 header img {
   width: 110px;
@@ -56,18 +44,18 @@ header img {
   margin-bottom: 15px;
 }
 
-header nav div a {
+
+header nav li a {
+  text-decoration: none;
+  cursor: pointer;
+  opacity: 0.9;
   color: #c3c63b;
-  font-size: 17px;
-  margin-left: 4%;
-  left: 5%;
+  margin: 25px;
+  font-size: 25px;
+  justify-content: center;
 }
 
-header li {
-  margin: 0 35% 0 0;
-  text-align: center;
-  align-items: center;
-}
+
 
 /* ESTILIZANDO O MAIN */
 
@@ -76,13 +64,12 @@ header li {
   display: flex;
   flex-direction: column;
   position: relative;
-  /* background: green; */
   width: 100%;
   align-items: center;
+  margin-top: 30px;
 }
 
 input {
-  /* height: 120%; */
   width: 100%;
   min-width: 100%;
   margin-top: 6%;
@@ -106,9 +93,7 @@ input {
   cursor: pointer;
   width: 50px;
   position: absolute;
-  /*  top: 14%; */
   bottom: 5%;
-  /* left: 75%; */
   right: 5%;
 }
 
@@ -141,7 +126,6 @@ div.msg-erro {
 .content-box .botao {
   margin-top: 10px;
   border-radius: 30px;
-  /*  border: 2px solid black; */
 }
 
 /* ESTILIZANDO O "FOOTER" */
@@ -151,8 +135,9 @@ footer {
   flex-direction: column;
   background-color: #191c03;
   align-items: center;
-  margin-bottom: 0;
-  margin-top: 20%;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
 }
 
 footer ul {
@@ -160,9 +145,6 @@ footer ul {
   margin-bottom: 25px;
   padding-top: 10px;
   align-items: center;
-}
-
-footer ul li {
   margin-right: 10px;
 }
 
@@ -180,57 +162,12 @@ footer p {
   text-align: center;
 }
 
-footer ul {
-  display: flex;
-  margin-bottom: 25px;
-  padding-top: 10px;
-  align-items: center;
-}
-
 /* MEDIA QUERIES */
-@media (max-width: 850px) {
-  header nav li a {
-    font-size: 13px;
-  }
-}
 
 @media (max-width: 700px) {
   header {
     flex-direction: column;
-    align-items: center;
   }
 
-  header img {
-    margin-bottom: 15px;
-  }
 
-  header nav li a {
-    font-size: 11px;
-    margin-bottom: 3%;
-  }
-
-  header nav .navmenu {
-    justify-content: center;
-    align-items: center;
-  }
-}
-
-
-@media (max-width: 470px) {
-  header .navmenu li {
-    margin: 13%;
-  }
-
-  header li:first-child {
-    margin-left: 0;
-  }
-
-  header li:last-child {
-    margin-right: 0;
-  }
-
-  header nav .navmenu li a {
-
-    flex: 1;
-  }
 }

@@ -2,11 +2,8 @@
 
 require_once 'classes/usuarios.php';
 require_once 'vendor/autoload.php';
-<<<<<<< HEAD
 require_once 'app/Pix/Api.php';
 require_once 'app/Pix/Payload.php';
-=======
->>>>>>> 6de619a4aaa3b56c2b4a932bdf410b4d0550caec
 
 $u = new Usuario;
 $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
