@@ -22,9 +22,6 @@ body {
   background-position: 50% 50%;
   background-color: rgb(166, 166, 202);
   font-family: Arial;
-
-
-
 }
 
 /* ESTILIZANDO O "HEADER": */
@@ -34,7 +31,6 @@ header {
   align-items: center;
   background-color: black;
   justify-content: space-between;
-
 }
 
 header img {
@@ -43,7 +39,6 @@ header img {
   margin-top: 5px;
   margin-bottom: 15px;
 }
-
 
 header nav li a {
   text-decoration: none;
@@ -55,10 +50,7 @@ header nav li a {
   justify-content: center;
 }
 
-
-
 /* ESTILIZANDO O MAIN */
-
 /* Filho Verde*/
 .content-box {
   display: flex;
@@ -168,6 +160,4 @@ footer p {
   header {
     flex-direction: column;
   }
-
-
 }

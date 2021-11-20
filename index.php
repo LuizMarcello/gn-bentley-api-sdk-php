@@ -62,15 +62,9 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
         </nav>
     </header>
 
-
-
-
     <section class="cabecalho">
         <img src="img/cabecalhositebentley.jpg" alt="Bentley Brasil">
     </section>
-
-
-
 
     <section class="imagensjuruena">
         <ul class="imgjuruena1">
@@ -91,16 +85,9 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
         </ul>
     </section>
 
-
-
-
     <section class="reserva">
         <a href="indexcomprar.php"><img src="img/fazerreserva.jpg"></a>
     </section>
-
-
-
-
     
     <footer>
         <ul>

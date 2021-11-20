@@ -30,7 +30,6 @@ header {
     align-items: center;
     background-color: black;
     margin-bottom: 20px;
-
 }
 
 header img {
@@ -65,12 +64,14 @@ main {
 .cabecalho {
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .cabecalho img {
     background-image: url(../img/cabecalhositebentley.jpg);
-    width: 90%;
+    width: 80%;
     margin-left: 5%;
+    margin-right: 5%;
 }
 
 .juruena {
@@ -167,9 +168,9 @@ footer {
     flex-direction: column;
     background-color: #191c03;
     align-items: center;
-
     width: 100%;
-    position: absolute;
+
+     position: absolute;
     bottom: 0;
 }
 

@@ -34,7 +34,6 @@ header {
     align-items: center;
     background-color: black;
     margin-bottom: 20px;
-
 }
 
 header img {
@@ -44,24 +43,22 @@ header img {
     margin-bottom: 15px;
 }
 
+header li {
+    margin: 0 35% 0 0;
+}
+
 .navmenu {
     display: flex;
     flex-direction: row;
-   margin-left: 40%;
-    /* margin: 3% */ */
-}
-
-header li {
-    margin: 0 35% 0 0;
+    margin: 0 3% 0 30%;
 }
 
 .navmenu li a {
     color: #c3c63b;
     font-size: 17px;
     white-space: nowrap;
-}
 
-/* ESTILIZANDO O "CABEÇALHO": */
+}
 
 /* ESTILIZANDO O "CABEÇALHO": */
 main {
@@ -80,22 +77,12 @@ main {
     margin-left: 5%;
 }
 
-
-
-
-
-.imagensjuruena {
-    /*  display: flex; */
-}
-
 .imgjuruena1 {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    /*  justify-content: center; */
-    /*  margin-top: 3%; */
+    margin-top: 9%;
     align-items: center;
-    /*  margin-right: 3%; */
 }
 
 .imgjuruena2 {
@@ -103,56 +90,29 @@ main {
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    /*  justify-content: center; */
-    /* margin-bottom: 7%; */
+    margin-top: 9%;
     margin-left: 13%;
 }
 
-/* .imgjuruena img {
-    background-image: url(../img/juruena01.jpg);
-    background-image: url(../img/juruena03.jpg);
-    background-image: url(../img/juruena04.jpg);
-    background-image: url(../img/juruena05.jpg);
-    align-items: center;
-} */
-
 .imgjuruena1 .img01 img {
-    /*  height: auto; */
     width: 70%;
     margin: 3%;
-    /* max-width: 280px;
-    max-height: 280px; */
 }
 
 .imgjuruena1 .img03 img {
-    /*  height: auto; */
     width: 70%;
-    /*   max-width: 280px; */
-    /*   max-height: 280px; */
     margin: 3%;
-
 }
 
 .imgjuruena2 .img04 img {
-    /*   height: auto; */
     width: 70%;
-    /*  max-width: 280px;
-    max-height: 280px; */
     margin: 3%;
-    /* margin-top: 8%; */
 }
 
 .imgjuruena2 .img05 img {
-    /* height: auto; */
     width: 70%;
-    /*  max-width: 280px;
-    max-height: 280px;
-    margin-bottom: 7%; */
     margin: 3%;
 }
-
-
-
 
 
 /* ESTILIZANDO RESERVA */
@@ -160,51 +120,28 @@ main {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    /*  align-items: center; */
-    /* margin: 0 9% 0 9%; */
-    /*  flex-direction: row; */
-    /*    justify-content: center; */
-    /*  padding-bottom: 50px; */
-    padding-bottom: 40%;
-    
+    align-items: center;
+    margin: 0 9% 0 9%;
+    margin-bottom: 18%;
 }
 
 .reserva img {
-    width: 60%;
-    /*   align-self: center; */
-    /* margin-top: 1%;
-    margin-bottom: 5%;
-    margin-left: 20%; */
-    margin: 7%;
-    
-}
-
-
-
-
-
-
-
-/* h5 {
-    display: flex;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 25px;
-    color: #333;
+    width: 80%;
+    align-self: center;
     justify-content: center;
-} */
-
-
-
-
+    margin: 45% 0 0 25%;
+}
 
 footer {
     display: flex;
     flex-direction: column;
     background-color: #191c03;
     align-items: center;
+    height: 15%;
     width: 100%;
-    position: absolute;
+    /* position: absolute; */
     bottom: 0;
+    padding-top: 50px;
 }
 
 footer ul {
@@ -233,270 +170,43 @@ footer p {
     text-align: center;
 }
 
-
-
-
-
 /* ++++++ MEDIA QUERIES ++++++ */
-
-@media (max-width: 450px) {
-   .imgjuruena1 {
-    margin-top: 10%;
-   }
-
-   .imgjuruena2 {
-    margin-top: 10%;
-   }
-}
-
-/*
-@media (max-width: 850px) {
-    footer {
-        height: 100px;
-    }
-
-    .cabecalho {
-        margin-top: 15px;
-    }
-}
-
-@media (max-width: 800px) {
-    .navmenu a {
-        font-size: 15px;
-    }
-}
-*/
-
 @media (max-width: 720px) {
     header {
         flex-direction: column;
         align-items: center;
-        /* justify-content: center; */
     }
 
     .navmenu {
-        justify-content: center;
+        justify-content: space-around;
         margin-bottom: 7%;
     }
 
-    /*
-    header nav .navmenu {
-        justify-content: center; */
-
+    .reserva img {
+        width: 70%;
+    }
 }
 
-/*
-
-@media (max-width: 650px) {
-    .imgjuruena1 .img01 img {
-        height: auto;
-        width: auto;
-        max-width: 260px;
-        max-height: 260px;
-    }
-
-    .imgjuruena1 .img03 img {
-        height: auto;
-        width: auto;
-        max-width: 260px;
-        max-height: 260px;
-    }
-
-    .imgjuruena2 .img04 img {
-        height: auto;
-        width: auto;
-        max-width: 260px;
-        max-height: 260px;
-    }
-
-    .imgjuruena2 .img05 img {
-        height: auto;
-        width: auto;
-        max-width: 260px;
-        max-height: 260px;
+@media (max-width: 550px) {
+    .navmenu li a {
+        font-size: 12px;
     }
 
     .reserva img {
-        margin-top: 20%;
-    }
-
-    footer {
-        height: 100px;
-    }
-}
-
-@media (max-width: 570px) {
-    .imgjuruena1 .img01 img {
-        height: auto;
-        width: auto;
-        max-width: 240px;
-        max-height: 240px;
-    }
-
-    .imgjuruena1 .img03 img {
-        height: auto;
-        width: auto;
-        max-width: 240px;
-        max-height: 240px;
-    }
-
-    .imgjuruena2 .img04 img {
-        height: auto;
-        width: auto;
-        max-width: 240px;
-        max-height: 240px;
-    }
-
-    .imgjuruena2 .img05 img {
-        height: auto;
-        width: auto;
-        max-width: 240px;
-        max-height: 240px;
-    }
-
-    .reserva img {
-        margin-top: 30%;
-    }
-}
-
-@media (max-width: 520px) {
-    .imgjuruena1 .img01 img {
-        height: auto;
-        width: auto;
-        max-width: 220px;
-        max-height: 220px;
-    }
-
-    .imgjuruena1 .img03 img {
-        height: auto;
-        width: auto;
-        max-width: 220px;
-        max-height: 220px;
-    }
-
-    .imgjuruena2 .img04 img {
-        height: auto;
-        width: auto;
-        max-width: 220px;
-        max-height: 220px;
-    }
-
-    .imgjuruena2 .img05 img {
-        height: auto;
-        width: auto;
-        max-width: 220px;
-        max-height: 220px;
-    }
-
-    header li:first-child {
-        margin-left: 3%;
-    }
-
-    header li:last-child {
-        margin-right: 0;
-    }
-}
-
-@media (max-width: 500px) {
-    .cabecalho {
-        flex-basis: 100%;
-        margin-top: 15px;
-        align-self: center;
-    }
-
-    .imgjuruena img:first-child {
-        margin-top: 55%;
-        height: 30%;
-    }
-
-    .imgjuruena img:last-child {
-        margin-top: 55%;
-        height: 30%;
-    }
-
-    .img03 img {
-        width: 100%;
-        margin-top: 2%;
-        align-items: flex-start;
-    }
-
-    .reserva img {
-        margin-top: 30%;
+        width: 60%;
     }
 }
 
 @media (max-width: 450px) {
-    .imgjuruena1 .img01 img {
-        height: auto;
-        width: auto;
-        max-width: 190px;
-        max-height: 190px;
+    .imgjuruena1 {
+        margin-top: 10%;
     }
 
-    .imgjuruena1 .img03 img {
-        height: auto;
-        width: auto;
-        max-width: 190px;
-        max-height: 190px;
+    .imgjuruena2 {
+        margin-top: 10%;
     }
 
-    .imgjuruena2 .img04 img {
-        height: auto;
-        width: auto;
-        max-width: 190px;
-        max-height: 190px;
-    }
-
-    .imgjuruena2 .img05 img {
-        height: auto;
-        width: auto;
-        max-width: 190px;
-        max-height: 190px;
-    }
-
-    .navmenu {
-        margin: 0 17% 0 17%;
+    .reserva img {
+        width: 50%;
     }
 }
-
-@media (max-width: 400px) {
-    .navmenu a {
-        font-size: 11px;
-    }
-
-    .navmenu li {
-        margin: 8px;
-    }
-
-    header li:first-child {
-        margin-left: 3%;
-    }
-
-    .imgjuruena1 .img01 img {
-        height: auto;
-        width: auto;
-        max-width: 160px;
-        max-height: 160px;
-    }
-
-    .imgjuruena1 .img03 img {
-        height: auto;
-        width: auto;
-        max-width: 160px;
-        max-height: 160px;
-    }
-
-    .imgjuruena2 .img04 img {
-        height: auto;
-        width: auto;
-        max-width: 160px;
-        max-height: 160px;
-    }
-
-    .imgjuruena2 .img05 img {
-        height: auto;
-        width: auto;
-        max-width: 160px;
-        max-height: 160px;
-    }
-} */
