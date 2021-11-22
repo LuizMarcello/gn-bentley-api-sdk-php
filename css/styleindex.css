@@ -61,10 +61,7 @@ header li {
 }
 
 /* ESTILIZANDO O "CABEÇALHO": */
-main {
-    display: flex;
-    flex-direction: column;
-}
+
 
 .cabecalho {
     display: flex;
@@ -77,59 +74,47 @@ main {
     margin-left: 5%;
 }
 
-.imgjuruena1 {
+#imagensjuruena {
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    margin-top: 9%;
-    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    margin: 30px 30px;
+    justify-content: center;
+
 }
 
-.imgjuruena2 {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    margin-top: 9%;
-    margin-left: 13%;
+#imagensjuruena .img01 img {
+    width: 120px;
+    margin: 5px 20px;
 }
 
-.imgjuruena1 .img01 img {
-    width: 70%;
-    margin: 3%;
+#imagensjuruena .img02 img {
+    height: 90px;
+    width: 160px;
+    margin: 20px;
 }
 
-.imgjuruena1 .img03 img {
-    width: 70%;
-    margin: 3%;
+#imagensjuruena .img03 img {
+    width: 120px;
+    margin: 5px 20px;
 }
 
-.imgjuruena2 .img04 img {
-    width: 70%;
-    margin: 3%;
+#imagensjuruena .img04 img {
+    height: 95px;
+    width: 160px;
+    margin: 20px;
 }
-
-.imgjuruena2 .img05 img {
-    width: 70%;
-    margin: 3%;
-}
-
 
 /* ESTILIZANDO RESERVA */
 .reserva {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: center;
-    margin: 0 9% 0 9%;
-    margin-bottom: 18%;
 }
 
 .reserva img {
     width: 80%;
-    align-self: center;
-    justify-content: center;
-    margin: 45% 0 0 25%;
+    margin: 15% 25% 25% 15%;
 }
 
 footer {
@@ -139,7 +124,6 @@ footer {
     align-items: center;
     height: 15%;
     width: 100%;
-    /* position: absolute; */
     bottom: 0;
     padding-top: 50px;
 }
@@ -194,19 +178,5 @@ footer p {
 
     .reserva img {
         width: 60%;
-    }
-}
-
-@media (max-width: 450px) {
-    .imgjuruena1 {
-        margin-top: 10%;
-    }
-
-    .imgjuruena2 {
-        margin-top: 10%;
-    }
-
-    .reserva img {
-        width: 50%;
     }
 }

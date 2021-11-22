@@ -1,4 +1,5 @@
 /* Fazendo o "RESET": */
+
 * {
   margin: 0;
   padding: 0;
@@ -16,6 +17,8 @@ ul {
   list-style: none;
 }
 
+
+
 p {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
@@ -25,60 +28,50 @@ p {
 }
 
 body {
-  display: flex;
-  flex-direction: column;
-  background-position: 50% 50%;
   background-color: rgb(166, 166, 202);
-  font-family: Arial;
 }
-body {
-  max-width: 1024px;
-  background: #ddd;
-  margin: 0 auto;
-  padding: 0;
-}
-body {
-  /* background-image: url("../img/imagesSateliteCobertura.jpg"); */
-  /*  background-image: url("../img/.jpg"); */
-  background-position: 50% 50%;
-  background-color: rgb(166, 166, 202);
-  font-family: Arial;
-}
+
 
 /* ESTILIZANDO O "HEADER": */
-header {
+
+#barra {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  background-color: black;
-  justify-content: space-between;
-}
-header {
-  padding: 80px;
-  display: block;
+  flex-direction: column;
+  /* align-items: center; */
+  background-color: black; 
+  margin-bottom: 25%;
+  /* align-items: center; */
+  /* text-align: center; */
+  /* justify-content: space-between; */
 }
 
-header img {
+#barra img {
   width: 110px;
   margin-left: 15px;
   margin-top: 5px;
   margin-bottom: 15px;
 }
 
-
-header nav li a {
+#barra ul li  a{
   text-decoration: none;
-  cursor: pointer;
+  /* cursor: pointer; */
   opacity: 0.9;
   color: #c3c63b;
-  margin: 25px;
-  font-size: 25px;
-  justify-content: center;
+ /*  margin: 25px; */
+  font-size: 15px;
+ }
+
+ /* a {
+  color: black;
+  text-decoration: none;
+  text-align: center;
+  display: block;
+} */
+
+a:hover {
+  text-decoration: underline;
 }
 
-.nav {
-  background-color: black;
-}
 
 .flex-box {
   display: flex;
@@ -90,16 +83,7 @@ header nav li a {
   height: 360px;
 }
 
-a {
-  color: black;
-  text-decoration: none;
-  text-align: center;
-  display: block;
-}
 
-a:hover {
-  text-decoration: underline;
-}
 
 .content-box {
   text-align: center;
@@ -125,6 +109,7 @@ input {
   border-radius: 5px;
   display: block;
 }
+
 input {
   display: block;
   height: 55px;

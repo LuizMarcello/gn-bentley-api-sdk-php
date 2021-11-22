@@ -13,12 +13,10 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-   rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-    crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
   <link rel="stylesheet" href="css/stylecadastrar.css">
-  
+
   <title>Cadastrar</title>
 
   <script type="text/javascript">
@@ -40,46 +38,50 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
 </head>
 
 <body>
+
+
   <header>
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-      <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-         data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
-          aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-          <ul class="navbar-nav me-auto mb-2 mb-md-0">
-            <span class="brand-text font-weight-light">
-              <img height="80" src="https://sistema.bentleybrasil.com.br/img/logo-empresa-br.png">
-            </span>
-            <div style="margin: 36px 0 0 50px;">
-              <a class="nav-link" href="index.php">Voltar a Bentley Brasil</a>
-            </div>
-          </ul>
+
+    <section id="barra">
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+              <span class="brand-text font-weight-light">
+                <img height="80" src="https://sistema.bentleybrasil.com.br/img/logo-empresa-br.png">
+              </span>
+              <div style="margin: 36px 0 0 50px;">
+                <li>
+                  <a class="nav-link" href="index.php">Voltar a Bentley Brasil</a>
+                </li>
+              </div>
+            </ul>
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </section>
+
   </header>
 
+
   <main>
-  <div class="flex-box container-box">
+    <div class="flex-box container-box">
       <div class="content-box">
         <h1>Cadastrar</h1>
         <form method="POST">
           <input type="text" name="nome" placeholder="Nome Completo" maxlength="45">
-          <input type="text" name="telefone" size="20" maxlength="15" placeholder="Telefone" maxlength="45"
-            onkeypress="mascara(this)">
+          <input type="text" name="telefone" size="20" maxlength="15" placeholder="Telefone" maxlength="45" onkeypress="mascara(this)">
           <input type="email" name="email" placeholder="Email" maxlength="45">
 
 
           <input type="password" name="senha_usuario" id="senha_usuario" placeholder="Senha" maxlength="45">
-          <button onclick="mostrarASenha()" type="button" id="mostrarrSenha"
-            class="btn btn-primary botao btn-sm">Mostrar Senha</button>
+          <button onclick="mostrarASenha()" type="button" id="mostrarrSenha" class="btn btn-primary botao btn-sm">Mostrar Senha</button>
 
           <input type="password" name="confsenha" id="confsenha" placeholder="Confirmar Senha" maxlength="45">
-          <button onclick="mostrarASenhaRepete()" type="button" id="mostrarrSenhaRepete"
-            class="btn btn-primary botao btn-sm">Mostrar Senha</button>
+          <button onclick="mostrarASenhaRepete()" type="button" id="mostrarrSenhaRepete" class="btn btn-primary botao btn-sm">Mostrar Senha</button>
 
 
           <input type="submit" value="Cadastrar" maxlength="45">

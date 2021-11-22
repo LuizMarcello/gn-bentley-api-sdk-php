@@ -15,8 +15,7 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bentley Brasil</title>
     <!-- Icones fontawesome: -->
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" 
-    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <!-- Fontes da google: font-family: 'Open Sans', sans-serif; -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
     <link rel="stylesheet" href="css/styleindex.css">
@@ -28,7 +27,7 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
         <nav>
             <div class="navmenu">
                 <li><a href="index.php">Home</a></li>
-              <!--   <li><a href="">Sobre</a></li> -->
+                <!--   <li><a href="">Sobre</a></li> -->
                 <!-- <li><a href="">Contato</a></li> -->
 
                 <li><a style="white-space: nowrap;" href="usuarioLogado.php">Meu Perfil</a></li>
@@ -66,8 +65,22 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
         <img src="img/cabecalhositebentley.jpg" alt="Bentley Brasil">
     </section>
 
-    <section class="imagensjuruena">
-        <ul class="imgjuruena1">
+    <section id="imagensjuruena">
+        <section class="img01">
+            <img src="img/juruena05.jpg" alt="Bentley Brasil">
+        </section>
+        <section class="img02">
+            <img src="img/juruena03.jpg" alt="Bentley Brasil">
+        </section>
+        <section class="img03">
+            <img src="img/juruena04.jpg" alt="Bentley Brasil">
+        </section>
+        <section class="img04">
+            <img src="img/juruena01.jpg" alt="Bentley Brasil">
+        </section>
+
+
+       <!--  <ul class="imgjuruena1">
             <div class="img01">
                 <img src="img/juruena05.jpg" alt="Bentley Brasil">
             </div>
@@ -82,13 +95,13 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
             <div class="img05">
                 <img src="img/juruena01.jpg" alt="Bentley Brasil">
             </div>
-        </ul>
+        </ul> -->
     </section>
 
     <section class="reserva">
         <a href="indexcomprar.php"><img src="img/fazerreserva.jpg"></a>
     </section>
-    
+
     <footer>
         <ul>
             <li><a href=""><i class="fab fa-facebook"></i></a></li>
