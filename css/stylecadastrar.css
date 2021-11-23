@@ -1,159 +1,149 @@
-/* Fazendo o "RESET": */
-
-* {
-  margin: 0;
-  padding: 0;
-  font-size: 100%;
-  box-sizing: border-box;
-  font-family: 'Open Sans', sans-serif;
-}
-
-html {
-  height: 100%;
-}
-
-nav,
-ul {
-  list-style: none;
-}
-
-p {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 16px;
-  color: #333;
-  margin: 5px;
-  display: block;
-}
-
-body {
-  background-color: rgb(166, 166, 202);
-}
-
-/* ESTILIZANDO O "HEADER": */
-header {
-  display: flex;
-  flex-direction: row;
-  /* text-align: center; */
-  align-items: center;
-  justify-content: space-between;
-  background-color: black;
-  /* margin-bottom: 35%; */
-
-}
-
-@media (max-width: 550px) {
-  header {
-    flex-direction: column;
-  }
-}
-
-header img {
-  width: 110px;
-  margin-left: 15px;
-  margin-top: 5px;
-  margin-bottom: 15px;
-}
-
-.navmenu ul li a {
-  text-decoration: none;
-  /* cursor: pointer; */
-  margin-right: 30px;
-  opacity: 0.9;
-  color: #c3c63b;
-  /*  margin: 25px; */
-  font-size: 17px;
-  white-space: nowrap;
-
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-.flex-box {
-  /* display: flex;
-  flex-direction: column; */
-  align-items: center;
-  /*  justify-content: center; */
-  margin-top: 7%;
-}
-
-
-
-.content-box {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-}
-
-/* .content-box input {
-  max-width: 400px;
-  min-width: 150px;
-  margin-right: 22%;
-} */
-
-.content-box .botao {
-  margin-right: 60%;
-  border-radius: 30px;
-  /*  border: 2px solid black; */
-}
-
-.content-box input {
-  /* display: block; */
-  /* max-width: 400px;
-  min-width: 150px; */
-  height: 55px;
-  width: 400px;
-  margin: 10px;
-  border-radius: 15px;
-  border: 2px solid black;
-  font-size: 16pt;
-  padding: 10PX 20px;
-  border: none;
-  background-color: rgba(237, 231, 225, 0.4);
-  outline: none;
-  /*   text-align: center; */
-  /*   align-items: center; */
-  /* justify-content: center; */
-
-}
-
-input[type=submit] {
-  /*  background-color: #b3a3b5; */
-  background-color: rgba(150, 34, 165, 0.3);
-  border: none;
-  cursor: pointer;
-}
-
-/* .btn {
-  width: 15%;
-  border: solid 1px;
-  background-color: #5ed67e;
-  padding: 7px;
-  color: #fff;
-  margin: 5px 0 0 5px;
-} */
-
-/* span a {
-  text-decoration: none;
-  margin-top: 30px;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 17px;
-} */
-
-div#msg-sucesso {
-  width: 400px;
-  margin: 10px auto;
-  padding: 10px;
-  background-color: rgba(50, 205, 50, .3);
-  border: 1px solid rgb(34, 139, 34);
-}
-
-div.msg-erro {
-  width: 400px;
-  margin: 10px auto;
-  padding: 10px;
-  background-color: rgba(250, 128, 114, .3);
-  border: 1px solid rgb(165, 42, 42);
-}
+        /* Fazendo o "RESET": */
+        
+        * {
+            margin: 0;
+            padding: 0;
+            font-size: 100%;
+            box-sizing: border-box;
+            font-family: 'Open Sans', sans-serif;
+        }
+        html {
+            height: 100%;
+        }
+        nav, ul {
+            list-style: none;
+        }
+        p {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            color: #333;
+            margin: 5px;
+            display: block;
+        }
+        body {
+            background-color: rgb(166, 166, 202);
+        }
+        /* ESTILIZANDO O "HEADER": */
+        
+        header {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            background-color: black;
+        }
+        @media (max-width: 550px) {
+            header {
+                flex-direction: column;
+            }
+        }
+        header img {
+            width: 110px;
+            margin-left: 15px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+        }
+        .navmenu ul li a {
+            text-decoration: none;
+            margin-right: 30px;
+            opacity: 0.9;
+            color: #c3c63b;
+            font-size: 17px;
+            white-space: nowrap;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .flex-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 7%;
+        }
+        .content-box {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        }
+        .content-box .botao {
+            margin-right: 60%;
+            border-radius: 30px;
+        }
+        .content-box input {
+            height: 55px;
+            min-width: 400px;
+            margin: 10px;
+            border-radius: 15px;
+            border: 2px solid black;
+            font-size: 16pt;
+            padding: 10PX 20px;
+            border: none;
+            background-color: rgba(237, 231, 225, 0.4);
+            outline: none;
+        }
+        @media (max-width: 450px) {
+            .content-box input {
+                min-width: 250px;
+            }
+        }
+        input[type=submit] {
+            background-color: rgba(150, 34, 165, 0.3);
+            border: none;
+            cursor: pointer;
+        }
+        .olho {
+            cursor: pointer;
+            width: 70px;
+        }
+        a {
+            color: black;
+            text-decoration: none;
+            text-align: center;
+            display: block;
+            cursor: pointer;
+            opacity: 0.9;
+        }
+        div#msg-sucesso {
+            width: 400px;
+            margin: 10px auto;
+            padding: 10px;
+            background-color: rgba(50, 205, 50, .3);
+            border: 1px solid rgb(34, 139, 34);
+        }
+        div.msg-erro {
+            width: 400px;
+            margin: 10px auto;
+            padding: 10px;
+            background-color: rgba(250, 128, 114, .3);
+            border: 1px solid rgb(165, 42, 42);
+        }
+        footer {
+            display: flex;
+            flex-direction: column;
+            background-color: #191c03;
+            height: 15%;
+            width: 100%;
+            bottom: 0;
+        }
+        footer ul {
+            display: flex;
+            margin-bottom: 25px;
+            padding-top: 10px;
+            justify-content: center;
+        }
+        footer ul li {
+            text-align: center;
+            margin: 10px;
+        }
+        footer ul li:last-child {
+            margin-right: 0;
+        }
+        footer ul li a {
+            color: #c3c63b;
+            font-size: 1.5rem;
+        }
+        footer p {
+            color: #c3c63b;
+            text-align: center;
+        }

@@ -2,8 +2,8 @@
 require_once 'classes/usuarios.php';
 if (!isset($_SESSION)) session_start();
 $u = new Usuario;
-$u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
-/* $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234"); */
+/* $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd"); */
+$u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
 ?>
 
 <!DOCTYPE html>
@@ -13,11 +13,15 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
   <link rel="stylesheet" href="css/stylecadastrar.css">
 
   <title>Cadastrar</title>
+  <!-- Icones fontawesome: -->
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 
   <script type="text/javascript">
     function mascara(telefone) {
@@ -52,22 +56,26 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
 
   <main>
     <div class="flex-box container-box">
-     
-        <h1>Cadastrar</h1>
-        <form method="POST">
-          <div class="content-box">
-            <input type="text" name="nome" placeholder="Nome Completo" maxlength="45">
-            <input type="text" name="telefone" size="20" maxlength="15" placeholder="Telefone" maxlength="45" onkeypress="mascara(this)">
-            <input type="email" name="email" placeholder="Email" maxlength="45">
-            <input type="password" name="senha_usuario" id="senha_usuario" placeholder="Senha" maxlength="45">
-            <!-- <button onclick="mostrarASenha()" type="button" id="mostrarrSenha" class="btn btn-primary botao btn-sm">Mostrar Senha</button> -->
-            <input type="password" name="confsenha" id="confsenha" placeholder="Confirmar Senha" maxlength="45">
-            <!-- <button onclick="mostrarASenhaRepete()" type="button" id="mostrarrSenhaRepete" class="btn btn-primary botao btn-sm">Mostrar Senha</button> -->
-            <input type="submit" value="Cadastrar" maxlength="45">
-            <a href="logar.php">Já sou cadastrado<strong> Logar</strong></a>
-          </div>
-        </form>
-      
+
+      <h1>Cadastrar</h1>
+      <form method="POST">
+        <div class="content-box">
+          <input type="text" name="nome" placeholder="Nome Completo" maxlength="45">
+          <input type="text" name="telefone" size="20" maxlength="15" placeholder="Telefone" maxlength="45"
+            onkeypress="mascara(this)">
+          <input type="email" name="email" placeholder="Email" maxlength="45">
+          <img src="https://cdn0.iconfinder.com/data/icons/ui-icons-pack/100/ui-icon-pack-14-512.png" id="olho"
+            class="olho">
+          <input type="password" name="senha_usuario" id="senha_usuario" placeholder="Senha" maxlength="45">
+
+          <input type="password" name="confsenha" id="confsenha" placeholder="Confirmar Senha" maxlength="45">
+          <!-- <img src="https://cdn0.iconfinder.com/data/icons/ui-icons-pack/100/ui-icon-pack-14-512.png" id="olho"
+            class="olho"> -->
+          <input type="submit" value="Cadastrar" maxlength="45">
+          <a href="logar.php">Já sou cadastrado<strong> Logar</strong></a>
+        </div>
+      </form>
+
     </div>
   </main>
 
@@ -91,42 +99,42 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
         if ($senha == $confsenha) {
           if ($u->cadastrar($nome, $telefone, $email, $senha)) {
   ?>
-            <div id="msg-sucesso" style="margin-top: 13px;">
-              Cadastrado com sucesso! Acesse para entrar!
-            </div>
-          <?php
+  <div id="msg-sucesso" style="margin-top: 13px;">
+    Cadastrado com sucesso! Acesse para entrar!
+  </div>
+  <?php
           } else {
           ?>
-            <div class="msg-erro">
-              Email já cadastrado!
-            </div>
-          <?php
+  <div class="msg-erro">
+    Email já cadastrado!
+  </div>
+  <?php
           }
         } else {
           ?>
-          <div class="msg-erro">
-            Atenção: As senhas não conferem"
-          </div>
-        <?php
+  <div class="msg-erro">
+    Atenção: As senhas não conferem"
+  </div>
+  <?php
         }
       } else {
         ?>
-        <div class="msg-erro">
-          <?php echo "Erro: " . $u->msgErro; ?>
-        </div>
-      <?php
+  <div class="msg-erro">
+    <?php echo "Erro: " . $u->msgErro; ?>
+  </div>
+  <?php
       }
     } else {
       ?>
-      <div class="msg-erro">
-        Por favor, preencha todos os campos!
-      </div>
+  <div class="msg-erro">
+    Por favor, preencha todos os campos!
+  </div>
   <?php
     }
   }
   ?>
   <script>
-    function mostrarASenha() {
+    /*   function mostrarASenha() {
       var text = document.getElementById("mostrarrSenha").firstChild;
       var tipo = document.getElementById("senha_usuario");
       if (tipo.type == "password") {
@@ -135,19 +143,58 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
         tipo.type = "password";
       }
       text.data = text.data == "Esconder senha" ? "Mostrar senha" : "Esconder senha";
-    }
+    } */
 
-    function mostrarASenhaRepete() {
-      var text = document.getElementById("mostrarrSenhaRepete").firstChild;
-      var tipo = document.getElementById("confsenha");
-      if (tipo.type == "password") {
-        tipo.type = "text";
-      } else {
-        tipo.type = "password";
-      }
-      text.data = text.data == "Esconder senha" ? "Mostrar senha" : "Esconder senha";
-    }
+    /*    function mostrarASenhaRepete() {
+         var text = document.getElementById("mostrarrSenhaRepete").firstChild;
+         var tipo = document.getElementById("confsenha");
+         if (tipo.type == "password") {
+           tipo.type = "text";
+         } else {
+           tipo.type = "password";
+         }
+         text.data = text.data == "Esconder senha" ? "Mostrar senha" : "Esconder senha";
+       } */
+
+    document.getElementById('olho').addEventListener('mousedown', function () {
+      document.getElementById('senha_usuario').type = 'text';
+    });
+
+    document.getElementById('olho').addEventListener('mouseup', function () {
+      document.getElementById('senha_usuario').type = 'password';
+    });
+
+    // Para que o password não fique exposto apos mover a imagem.
+    document.getElementById('olho').addEventListener('mousemove', function () {
+      document.getElementById('senha_usuario').type = 'password';
+    });
+
+
+
+    document.getElementById('olho').addEventListener('mousedown', function () {
+      document.getElementById('confsenha').type = 'text';
+    });
+
+    document.getElementById('olho').addEventListener('mouseup', function () {
+      document.getElementById('confsenha').type = 'password';
+    });
+
+    // Para que o password não fique exposto apos mover a imagem.
+    document.getElementById('olho').addEventListener('mousemove', function () {
+      document.getElementById('confsenha').type = 'password';
+    });
   </script>
+
+  <footer>
+    <ul>
+      <li><a href=""><i class="fab fa-facebook"></i></a></li>
+      <li><a href=""><i class="fab fa-twitter"></i></a></li>
+      <li><a href=""><i class="fab fa-snapchat"></i></a></li>
+      <li><a href=""><i class="fab fa-pinterest"></i></a></li>
+    </ul>
+    <p>Satellite Broadband Networks - Bentley Brasil - Projeto Juruena</p>
+  </footer>
+
 </body>
 
 </html>
