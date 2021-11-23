@@ -17,8 +17,6 @@ ul {
   list-style: none;
 }
 
-
-
 p {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
@@ -31,69 +29,69 @@ body {
   background-color: rgb(166, 166, 202);
 }
 
-
 /* ESTILIZANDO O "HEADER": */
-
-#barra {
+header {
   display: flex;
-  flex-direction: column;
-  /* align-items: center; */
-  background-color: black; 
-  margin-bottom: 25%;
-  /* align-items: center; */
+  flex-direction: row;
   /* text-align: center; */
-  /* justify-content: space-between; */
+  align-items: center;
+  justify-content: space-between;
+  background-color: black;
+  /* margin-bottom: 35%; */
+
 }
 
-#barra img {
+@media (max-width: 550px) {
+  header {
+    flex-direction: column;
+  }
+}
+
+header img {
   width: 110px;
   margin-left: 15px;
   margin-top: 5px;
   margin-bottom: 15px;
 }
 
-#barra ul li  a{
+.navmenu ul li a {
   text-decoration: none;
   /* cursor: pointer; */
+  margin-right: 30px;
   opacity: 0.9;
   color: #c3c63b;
- /*  margin: 25px; */
-  font-size: 15px;
- }
+  /*  margin: 25px; */
+  font-size: 17px;
+  white-space: nowrap;
 
- /* a {
-  color: black;
-  text-decoration: none;
-  text-align: center;
-  display: block;
-} */
+}
 
 a:hover {
   text-decoration: underline;
 }
 
-
 .flex-box {
-  display: flex;
+  /* display: flex;
+  flex-direction: column; */
   align-items: center;
-  justify-content: center;
-}
-
-.container-box {
-  height: 360px;
+  /*  justify-content: center; */
+  margin-top: 7%;
 }
 
 
 
 .content-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   text-align: center;
 }
 
-.content-box input {
-  max-width: 350px;
+/* .content-box input {
+  max-width: 400px;
   min-width: 150px;
   margin-right: 22%;
-}
+} */
 
 .content-box .botao {
   margin-right: 60%;
@@ -101,27 +99,24 @@ a:hover {
   /*  border: 2px solid black; */
 }
 
-input {
-  width: 100%;
-  margin: 5px;
-  padding: 10px;
-  border: 1px solid #eee;
-  border-radius: 5px;
-  display: block;
-}
-
-input {
-  display: block;
+.content-box input {
+  /* display: block; */
+  /* max-width: 400px;
+  min-width: 150px; */
   height: 55px;
   width: 400px;
   margin: 10px;
-  border-radius: 30px;
+  border-radius: 15px;
   border: 2px solid black;
   font-size: 16pt;
   padding: 10PX 20px;
   border: none;
   background-color: rgba(237, 231, 225, 0.4);
   outline: none;
+  /*   text-align: center; */
+  /*   align-items: center; */
+  /* justify-content: center; */
+
 }
 
 input[type=submit] {
@@ -131,21 +126,21 @@ input[type=submit] {
   cursor: pointer;
 }
 
-.btn {
+/* .btn {
   width: 15%;
   border: solid 1px;
   background-color: #5ed67e;
   padding: 7px;
   color: #fff;
   margin: 5px 0 0 5px;
-}
+} */
 
-span a {
+/* span a {
   text-decoration: none;
   margin-top: 30px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 17px;
-}
+} */
 
 div#msg-sucesso {
   width: 400px;

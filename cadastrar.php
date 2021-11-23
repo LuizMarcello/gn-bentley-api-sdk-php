@@ -39,56 +39,35 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
 
 <body>
 
-
   <header>
-
-    <section id="barra">
-      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <div class="container-fluid">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav me-auto mb-2 mb-md-0">
-              <span class="brand-text font-weight-light">
-                <img height="80" src="https://sistema.bentleybrasil.com.br/img/logo-empresa-br.png">
-              </span>
-              <div style="margin: 36px 0 0 50px;">
-                <li>
-                  <a class="nav-link" href="index.php">Voltar a Bentley Brasil</a>
-                </li>
-              </div>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </section>
-
+    <img src="https://sistema.bentleybrasil.com.br/img/logo-empresa-br.png" alt="Bentley Brasil">
+    <nav>
+      <div class="navmenu">
+        <ul>
+          <li><a href="index.php">Voltar a Home</a></li>
+        </ul>
+      </div>
+    </nav>
   </header>
-
 
   <main>
     <div class="flex-box container-box">
-      <div class="content-box">
+     
         <h1>Cadastrar</h1>
         <form method="POST">
-          <input type="text" name="nome" placeholder="Nome Completo" maxlength="45">
-          <input type="text" name="telefone" size="20" maxlength="15" placeholder="Telefone" maxlength="45" onkeypress="mascara(this)">
-          <input type="email" name="email" placeholder="Email" maxlength="45">
-
-
-          <input type="password" name="senha_usuario" id="senha_usuario" placeholder="Senha" maxlength="45">
-          <button onclick="mostrarASenha()" type="button" id="mostrarrSenha" class="btn btn-primary botao btn-sm">Mostrar Senha</button>
-
-          <input type="password" name="confsenha" id="confsenha" placeholder="Confirmar Senha" maxlength="45">
-          <button onclick="mostrarASenhaRepete()" type="button" id="mostrarrSenhaRepete" class="btn btn-primary botao btn-sm">Mostrar Senha</button>
-
-
-          <input type="submit" value="Cadastrar" maxlength="45">
-
-          <a style="margin-top: 50px;" href="logar.php">Já sou cadastrado<strong> Logar</strong></a>
+          <div class="content-box">
+            <input type="text" name="nome" placeholder="Nome Completo" maxlength="45">
+            <input type="text" name="telefone" size="20" maxlength="15" placeholder="Telefone" maxlength="45" onkeypress="mascara(this)">
+            <input type="email" name="email" placeholder="Email" maxlength="45">
+            <input type="password" name="senha_usuario" id="senha_usuario" placeholder="Senha" maxlength="45">
+            <!-- <button onclick="mostrarASenha()" type="button" id="mostrarrSenha" class="btn btn-primary botao btn-sm">Mostrar Senha</button> -->
+            <input type="password" name="confsenha" id="confsenha" placeholder="Confirmar Senha" maxlength="45">
+            <!-- <button onclick="mostrarASenhaRepete()" type="button" id="mostrarrSenhaRepete" class="btn btn-primary botao btn-sm">Mostrar Senha</button> -->
+            <input type="submit" value="Cadastrar" maxlength="45">
+            <a href="logar.php">Já sou cadastrado<strong> Logar</strong></a>
+          </div>
         </form>
-      </div>
+      
     </div>
   </main>
 
