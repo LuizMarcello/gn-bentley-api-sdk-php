@@ -74,6 +74,9 @@ header li {
     margin-left: 5%;
 }
 
+
+
+
 #imagensjuruena {
     display: flex;
     flex-wrap: wrap;
@@ -104,6 +107,11 @@ header li {
     width: 160px;
     margin: 20px;
 }
+
+
+
+
+
 
 /* ESTILIZANDO RESERVA */
 .reserva {
