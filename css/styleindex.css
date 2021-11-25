@@ -49,6 +49,11 @@
                 font-size: 17px;
                 white-space: nowrap;
             }
+            /* .navmenu li a {
+                color: #c3c63b;
+                font-size: 17px;
+                white-space: nowrap;
+            } */
             /* ESTILIZANDO O "CABEÇALHO": */
             
             .cabecalho {
@@ -92,7 +97,7 @@
             .produtos-item h2 {
                 font-size: 1em;
                 color: #a4a4a4;
-                background: rgb(214, 214, 223);
+                background: rgb(219, 219, 232);
                 padding: 60px 20px;
                 text-align: center;
                 white-space: nowrap;

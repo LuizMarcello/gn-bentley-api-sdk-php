@@ -27,11 +27,12 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
         <img src="https://sistema.bentleybrasil.com.br/img/logo-empresa-br.png" alt="Bentley Brasil">
         <nav>
             <div class="navmenu">
-                <li><a href="index.php">Home</a></li>
-                <!--   <li><a href="">Sobre</a></li> -->
-                <!-- <li><a href="">Contato</a></li> -->
-
-                <li><a style="white-space: nowrap;" href="usuarioLogado.php">Meu Perfil</a></li>
+                <li>
+                    <?php if (isset($_SESSION['id'])) { ?>
+                    <a class="nav-link" href="sair.php"><a style="white-space: nowrap;" href="usuarioLogado.php">Meu
+                            Perfil</a></a>
+                    <?php } ?>
+                </li>
                 <li>
                     <?php if (isset($_SESSION['id'])) { ?>
                     <a class="nav-link" href="sair.php">Sair</a>
@@ -40,7 +41,6 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
                     <a class="nav-link" href="logar.php">Logar</a>
                     <?php } ?>
                 </li>
-
                 <?php
                 if (isset($_SESSION['id'])) {
                     $user = $_SESSION['id'];
@@ -57,7 +57,6 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
                 </li>
                 <?php } ?>
                 <?php } ?>
-
             </div>
         </nav>
     </header>
@@ -66,11 +65,8 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
         <img src="img/cabecalhositebentley.jpg" alt="Bentley Brasil">
     </section>
 
-
-
-
     <section class="imagensjuruena">
-<h1>Equipamentos Bentley</h1>
+        <h1>Equipamentos Bentley</h1>
         <div class=imagensjuruena-container>
             <div class="produtos-item img01">
                 <h2>Powerbean M5</h2>
@@ -90,9 +86,6 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
             </div>
         </div>
     </section>
-
-
-
 
     <section class="reserva">
         <a href="indexcomprar.php"><img src="img/fazerreserva.jpg"></a>
