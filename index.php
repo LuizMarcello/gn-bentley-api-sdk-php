@@ -2,8 +2,8 @@
 require_once 'classes/usuarios.php';
 if (!isset($_SESSION)) session_start();
 $u = new Usuario;
-$u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
-/* $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234"); */
+/* $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd"); */
+$u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
 ?>
 
 <!DOCTYPE html>
@@ -16,8 +16,12 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
     <title>Bentley Brasil</title>
     <!-- Icones fontawesome: -->
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" 
+<<<<<<< HEAD
     integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" 
     crossorigin="anonymous" />
+=======
+integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+>>>>>>> 5ea0e81b21f7f4391c1abb298ce21c947b9c3f3d
     <!-- Fontes da google: font-family: 'Open Sans', sans-serif; -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
     <link rel="stylesheet" href="css/styleindex.css">

@@ -10,8 +10,8 @@ if (!isset($_SESSION['id'])) {
     exit;
 }
 $u = new Usuario;
-$u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
-/* $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234"); */
+/* $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd"); */
+$u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
 
 ?>
 
@@ -29,9 +29,8 @@ and open the template in the editor.
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bentley Brasil</title>
     <!-- Icones fontawesome: -->
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" 
-    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
-     crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <!-- Fontes da google: font-family: 'Open Sans', sans-serif; -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
     <link rel="stylesheet" href="bootstrapBoleto/css/bootstrap.css">
@@ -50,9 +49,9 @@ and open the template in the editor.
 
     <script>
         //Funções após a leitura do documento
-        $(document).ready(function() {
+        $(document).ready(function () {
             //Select para mostrar e esconder divs
-            $('#fisicaoujuridica').on('change', function() {
+            $('#fisicaoujuridica').on('change', function () {
                 var SelectValue = '.' + $(this).val();
                 $('#pai div').hide();
                 $(SelectValue).toggle();
@@ -81,12 +80,12 @@ and open the template in the editor.
 
                     if ($sql->rowCount() > 0) {
                         $dado = $sql->fetch(); ?>
-                        <div class="navuser">
-                            <li>
-                                <a class="nav-link"><?php echo $dado['nome']; ?> </a>
-                            </li>
-                        </div>
-                    <?php } ?>
+                <div class="navuser">
+                    <li>
+                        <a class="nav-link"><?php echo $dado['nome']; ?> </a>
+                    </li>
+                </div>
+                <?php } ?>
                 <?php } ?>
             </div>
         </nav>
@@ -124,7 +123,7 @@ and open the template in the editor.
                             <input type="number" name="cnpj" placeholder="Cnpj válido">
                         </div>
                         <div id="pai1-2" class="form-group col-sm-8 fisica juridica">
-                            <button type="submit" name=gerarBoleto>Gerar Boleto</button>
+                            <button style="background:#c3c63b;" type="submit" name=gerarBoleto>Gerar Boleto</button>
                         </div>
                     </div>
                 </div>
@@ -138,19 +137,26 @@ and open the template in the editor.
                         <input type="mail" name="email" placeholder="E-mail" value="<?php echo $dado['email']; ?>">
 
                         <label for="telefone" class="control-label">Telefone</label>
-                        <input type="number" name="telefone" placeholder="Telefone" value="<?php echo $dado['telefone']; ?>">
-
-                        <label for="produto" class="control-label">Produto</label>
-                        <!--  <textarea name="produto" id="produto" rows="3"> Bentley Brasil&#10; Adesão de equipamentos&#10; Projeto Juruena</textarea> -->
-                        <textarea name="produto" id="produto" rows="3"> Bentley Brasil - Adesão de equipamentos - Projeto Juruena</textarea>
-
+                        <input type="number" name="fone" placeholder="Telefone"
+                            value="<?php echo $dado['telefone']; ?>">
 
                         <label for="valor" class="control-label">Valor</label>
-                        <input type="number" name="valor" placeholder="Valor do produto" value="190000" readonly="readonly">
+                        <input type="number" name="valor" placeholder="Valor do produto" value="190000"
+                            readonly="readonly">
+
+                        <label for="produto" class="control-label">Produto</label>
+                        <!--  <textarea name="produto" id="produto" rows="3"> Bentley Brasil&#10;
+                               Adesão de equipamentos&#10; Projeto Juruena</textarea> -->
+                        <textarea name="produto" id="produto"
+                            rows="3"> Bentley Brasil - Adesão de equipamentos - Projeto Juruena</textarea>
+
+
+
 
                         <!--  <p>Data do vencimento</p> -->
                         <!-- Data de vencimento atual e acrescentando mais 3 dias -->
-                        <input type="hidden" name="vencimento" value='<?php echo date("Y-m-d", strtotime("+3 days")); ?>'>
+                        <input type="hidden" name="vencimento"
+                            value='<?php echo date("Y-m-d", strtotime("+3 days")); ?>'>
                         <!-- <input type="date" name="vencimento"> -->
                     </div>
                 </div>
