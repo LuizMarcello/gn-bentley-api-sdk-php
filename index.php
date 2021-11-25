@@ -77,7 +77,7 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
                 <img src="img/juruena05.jpg" alt="Imagem 1">
             </div>
             <div class="produtos-item img02">
-                <h2>Powerbeam ac</h2>
+                <h2>Powerbeam AC</h2>
                 <img src="img/juruena03.jpg" alt="Imagem 2">
             </div>
             <div class="produtos-item img03">
@@ -85,7 +85,7 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
                 <img src="img/juruena04.jpg" alt="Imagem 3">
             </div>
             <div class="produtos-item img04">
-                <h2>Liteabeam ac</h2>
+                <h2>Liteabeam AC</h2>
                 <img src="img/juruena01.jpg" alt="Imagem 4">
             </div>
         </div>

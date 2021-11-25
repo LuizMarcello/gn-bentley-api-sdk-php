@@ -78,7 +78,7 @@
                 font-size: 2em;
                 /* Cima:0 direita:10 baixo:60 esquerda:10  */
                 margin: 0 10px 60px 10px;
-                text-align: center;
+                text-align: start;
             }
             .imagensjuruena-container {
                 display: flex;
@@ -92,7 +92,7 @@
             .produtos-item h2 {
                 font-size: 1em;
                 color: #a4a4a4;
-                background: rgb(203, 203, 216);
+                background: rgb(214, 214, 223);
                 padding: 60px 20px;
                 text-align: center;
                 white-space: nowrap;
