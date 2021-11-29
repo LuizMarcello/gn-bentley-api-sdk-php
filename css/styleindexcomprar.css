@@ -61,9 +61,9 @@ main {
 }
 .cabecalho img {
     background-image: url(../img/cabecalhositebentley.jpg);
-    width: 80%;
-    margin-left: 5%;
-    margin-right: 5%;
+    width: 95%;
+    margin-left: 3%;
+    margin-right: 3%;
 }
 .juruena {
     display: flex;

@@ -2,8 +2,8 @@
 require_once 'classes/usuarios.php';
 if (!isset($_SESSION)) session_start();
 $u = new Usuario;
-/* $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd"); */
-$u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
+$u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
+/* $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234"); */
 ?>
 
 <!DOCTYPE html>
@@ -13,12 +13,10 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>Bentley Brasil</title>
     <!-- Icones fontawesome: -->
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <!-- Fontes da google: font-family: 'Open Sans', sans-serif; -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
 
@@ -60,10 +58,10 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
                     if ($sql->rowCount() > 0) {
                         $dado = $sql->fetch();
                 ?>
-                <li>
-                    <a style="white-space: nowrap;" class="nav-link"><?php echo $dado['nome']; ?> </a>
-                </li>
-                <?php } ?>
+                        <li>
+                            <a style="white-space: nowrap;" class="nav-link"><?php echo $dado['nome']; ?> </a>
+                        </li>
+                    <?php } ?>
                 <?php } ?>
 
             </div>
@@ -80,34 +78,22 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
                         <label for="nome">
                             <h5>Nome</h5>
                         </label>
-                        <input type="text" name="nome" value="<?php if(isset($sql)) { echo $dado['nome'];}?>"
-                            maxlength="45" required>
+                        <input type="text" name="nome" value="<?php if (isset($sql)) {
+                                                                    echo $dado['nome'];
+                                                                } ?>" maxlength="45" required>
                         <label for="telefone">
                             <h5>Telefone</h5>
                         </label>
-                        <input type="text" name="telefone" value="<?php if(isset($sql)) { echo $dado['telefone'];}?>"
-                            size="20" maxlength="15" onkeypress="mascara(this)" required>
+                        <input type="text" name="telefone" value="<?php if (isset($sql)) {
+                                                                        echo $dado['telefone'];
+                                                                    } ?>" size="20" maxlength="15" onkeypress="mascara(this)" required>
                         <label for="email">
                             <h5>Email</h5>
                         </label>
-                        <input type="email" name="email" value="<?php if(isset($sql)) { echo $dado['email'];}?>"
-                            maxlength="45" required>
-                        <img src="https://cdn0.iconfinder.com/data/icons/ui-icons-pack/100/ui-icon-pack-14-512.png"
-                            id="olho" class="olho">
-                        <label for="senha_usuario">
-                            <h5>Senha</h5>
-                        </label>
-                        <div id="senhaUsuario">
-                            <input type="password" name="senha_usuario" id="senha_usuario"
-                                value="<?php if(isset($sql)) { echo $dado['senha_usuario'];}?>" maxlength="45" required>
-                        </div>
-                        <label for="confsenha" style="white-space: nowrap;">
-                            <h5>Repita a senha</h5>
-                        </label>
-                        <div id="confSenha">
-                            <input type="password" name="confsenha" id="confsenha"
-                                value="<?php if(isset($sql)) { echo $dado['senha_usuario'];}?>" maxlength="45" required>
-                        </div>
+                        <input type="email" name="email" value="<?php if (isset($sql)) {
+                                                                    echo $dado['email'];
+                                                                } ?>" maxlength="45" required>
+
                         <input type="submit" value="Salvar" maxlength="45">
                         <!-- <a href="index.php"><strong>Voltar a home</strong></a> -->
                     </div>
@@ -115,37 +101,6 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
             </div>
         </div>
     </main>
-
-
-    <script>
-        document.getElementById('olho').addEventListener('mousedown', function () {
-            document.getElementById('senha_usuario').type = 'text';
-        });
-
-        document.getElementById('olho').addEventListener('mouseup', function () {
-            document.getElementById('senha_usuario').type = 'password';
-        });
-
-        // Para que o password não fique exposto apos mover a imagem.
-        document.getElementById('olho').addEventListener('mousemove', function () {
-            document.getElementById('senha_usuario').type = 'password';
-        });
-
-
-
-        document.getElementById('olho').addEventListener('mousedown', function () {
-            document.getElementById('confsenha').type = 'text';
-        });
-
-        document.getElementById('olho').addEventListener('mouseup', function () {
-            document.getElementById('confsenha').type = 'password';
-        });
-
-        // Para que o password não fique exposto apos mover a imagem.
-        document.getElementById('olho').addEventListener('mousemove', function () {
-            document.getElementById('confsenha').type = 'password';
-        });
-    </script>
 
     <footer>
         <ul>

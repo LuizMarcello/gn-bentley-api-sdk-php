@@ -81,13 +81,16 @@ input {
   border: none
 }
 
-.olho {
-  cursor: pointer;
-  width: 50px;
-  position: absolute;
-  bottom: 5%;
-  right: 5%;
+.content-box .botao {
+  width: 25%;
+  font-size: 09px;
+ margin-top: 10px;
+ /*  margin-left: 2.5%; */
+  /* margin-bottom: 5px; */
+  border-radius: 10px;
 }
+
+
 
 a {
   color: black;
@@ -115,10 +118,7 @@ div.msg-erro {
   margin-left: 12%;
 }
 
-.content-box .botao {
-  margin-top: 10px;
-  border-radius: 30px;
-}
+
 
 /* ESTILIZANDO O "FOOTER" */
 

@@ -62,8 +62,9 @@
             }
             .cabecalho img {
                 background-image: url(../img/cabecalhositebentley.jpg);
-                width: 90%;
-                margin-left: 5%;
+                width: 95%;
+                margin-left: 3%;
+                margin-right: 3%;
             }
             img {
                 display: block;
