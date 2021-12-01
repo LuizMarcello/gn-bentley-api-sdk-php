@@ -28,8 +28,7 @@ and open the template in the editor.
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bentley Brasil</title>
     <!-- Icones fontawesome: -->
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <!-- Fontes da google: font-family: 'Open Sans', sans-serif; -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
     <link rel="stylesheet" href="bootstrapBoleto/css/bootstrap.css">
@@ -40,23 +39,7 @@ and open the template in the editor.
     <script type="text/javascript" src="bootstrapBoleto/js/jquery.mask.js"></script>
     <script type="text/javascript" src="bootstrapBoleto/js/scripts.js"></script>
     <title>Boletos Gerencianet</title>
-    <style>
-        #pai div {
-            display: none;
-        }
-    </style>
 
-    <script>
-        //Funções após a leitura do documento
-        $(document).ready(function () {
-            //Select para mostrar e esconder divs
-            $('#fisicaoujuridica').on('change', function () {
-                var SelectValue = '.' + $(this).val();
-                $('#pai div').hide();
-                $(SelectValue).toggle();
-            });
-        });
-    </script>
 </head>
 
 <body>
@@ -79,16 +62,18 @@ and open the template in the editor.
 
                     if ($sql->rowCount() > 0) {
                         $dado = $sql->fetch(); ?>
-                <div class="navuser">
-                    <li>
-                        <a class="nav-link"><?php echo $dado['nome']; ?> </a>
-                    </li>
-                </div>
-                <?php } ?>
+                        <div class="navuser">
+                            <li>
+                                <a class="nav-link"><?php echo $dado['nome']; ?> </a>
+                            </li>
+                        </div>
+                    <?php } ?>
                 <?php } ?>
             </div>
         </nav>
     </header>
+
+
 
     <main>
         <div class="gerador">
@@ -96,72 +81,65 @@ and open the template in the editor.
         </div>
 
         <form action="emitir_boleto.php" method="POST">
-            <section class="fouj">
-                <div class="boleto1">
-                    <div id="acima" class="form-group">
-                        <label for="fisicaoujuridica" class="control-label"></label>
-                        <input class="form-control" type="text" disabled>
-                        <div class="col-sm-11">
-                            <select name="fisicaoujuridica" class="form-control" id="fisicaoujuridica">
-                                <option value="">Pessoa física ou jurídica</option>
-                                <option value="fisica">Pessoa Física</option>
-                                <option value="juridica">Pessoa Jurídica</option>
-                            </select>
-                        </div>
+            <section class="boleto">
+                <h5>Não coloque ponto nem traços</h5>
+                <div id="area" class="form-group col-sm-12">
+                    <div>
+                        <input type="number" name="cpf" id="input" placeholder="cpf válido">
                     </div>
-                </div>
-
-                <div class="boleto2">
-                    <div id="pai">
-                        <div id="pai1-2" class="form-group col-sm-8 fisica">
-                            <h5>Não coloque ponto nem traços</h5>
-                            <input type="number" name="cpf" placeholder="Cpf válido">
-                        </div>
-                        <div id="pai1-2" class="form-group col-sm-4 juridica">
-                            <h5>Não coloque ponto nem traços</h5>
-                            <input type="number" name="cnpj" placeholder="Cnpj válido">
-                        </div>
-                        <div id="pai1-2" class="form-group col-sm-8 fisica juridica">
-                            <button style="background:#c3c63b;" type="submit" name=gerarBoleto>Gerar Boleto</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="boleto3">
-                    <div id="pai1-2boleto" class="form-group col-sm-12">
-                        <label for="nome" class="control-label">Nome</label>
-                        <input type="text" name="nome" placeholder="Nome completo" value="<?php echo $dado['nome']; ?>">
-
-                        <label for="email" class="control-label">Email cadastrado</label>
-                        <input type="mail" name="email" placeholder="E-mail" value="<?php echo $dado['email']; ?>">
-
-                        <label for="telefone" class="control-label">Telefone</label>
-                        <input type="number" name="fone" placeholder="Telefone"
-                            value="<?php echo $dado['telefone']; ?>">
-
-                        <label for="valor" class="control-label">Valor</label>
-                        <input type="number" name="valor" placeholder="Valor do produto" value="190000"
-                            readonly="readonly">
-
-                        <label for="produto" class="control-label">Produto</label>
-                        <!--  <textarea name="produto" id="produto" rows="3"> Bentley Brasil&#10;
-                               Adesão de equipamentos&#10; Projeto Juruena</textarea> -->
-                        <textarea name="produto" id="produto"
-                            rows="3"> Bentley Brasil - Adesão de equipamentos - Projeto Juruena</textarea>
+                    <button style="background:#c3c63b;" id="botao" type="submit" name=gerarBoleto>
+                        <h6>Gerar Boleto</h6>
+                    </button>
 
 
+                    <label for="nome" class="control-label">Nome</label>
+                    <input type="text" name="nome" placeholder="Nome completo" value="<?php echo $dado['nome']; ?>">
 
+                    <label for="email" class="control-label">Email cadastrado</label>
+                    <input type="mail" name="email" placeholder="E-mail" value="<?php echo $dado['email']; ?>">
 
-                        <!--  <p>Data do vencimento</p> -->
-                        <!-- Data de vencimento atual e acrescentando mais 3 dias -->
-                        <input type="hidden" name="vencimento"
-                            value='<?php echo date("Y-m-d", strtotime("+3 days")); ?>'>
-                        <!-- <input type="date" name="vencimento"> -->
-                    </div>
+                    <label for="telefone" class="control-label">Telefone</label>
+                    <input type="number" name="fone" placeholder="Telefone" value="<?php echo $dado['telefone']; ?>">
+
+                    <label for="valor" class="control-label">Valor</label>
+                    <input type="number" name="valor" placeholder="Valor do produto" value="190000" readonly="readonly">
+
+                    <label for="produto" class="control-label">Produto</label>
+
+                    <textarea rows="3" name="produto" id="produto" readonly="readonly">Bentley Brasil - Adesão de equipamentos - Projeto Juruena</textarea>
+                    <!--  <p>Data do vencimento</p> -->
+                    <!-- Data de vencimento atual e acrescentando mais 3 dias -->
+                    <input type="hidden" name="vencimento" value='<?php echo date("Y-m-d", strtotime("+3 days")); ?>'>
+                    <!-- <input type="date" name="vencimento"> -->
                 </div>
             </section>
         </form>
     </main>
+
+    <script>
+        //desabilita o botão "gerar boleto" e só habilita com 11 caracteres no input.
+        document.getElementById("botao").disabled = true;
+
+        //cria um event listener que escuta mudanças no input
+        document.getElementById("input").addEventListener("input", function(event) {
+
+            //busca conteúdo do input
+            var conteudo = document.getElementById("input").value;
+
+            //Definindo a quantidade de caracteres no input do cpf
+            var n = conteudo.length;
+
+            //valida conteudo do input 
+            if (conteudo !== null && conteudo !== '' && n == 11) {
+                //habilita o botão
+                document.getElementById("botao").disabled = false;
+            } else {
+                //desabilita o botão se o conteúdo do input ficar em branco
+                document.getElementById("botao").disabled = true;
+            }
+        });
+    </script>
+
 
     <!-- FOOTER -->
     <footer>
