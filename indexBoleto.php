@@ -91,7 +91,6 @@ and open the template in the editor.
                         <h6>Gerar Boleto</h6>
                     </button>
 
-
                     <label for="nome" class="control-label">Nome</label>
                     <input type="text" name="nome" placeholder="Nome completo" value="<?php echo $dado['nome']; ?>">
 
@@ -106,7 +105,7 @@ and open the template in the editor.
 
                     <label for="produto" class="control-label">Produto</label>
 
-                    <textarea rows="3" name="produto" id="produto" readonly="readonly">Bentley Brasil - Adesão de equipamentos - Projeto Juruena</textarea>
+                    <textarea rows="3" name="produto" id="produto" readonly="readonly">Bentley Brasil-Adesão de equipamentos-Projeto Juruena</textarea>
                     <!--  <p>Data do vencimento</p> -->
                     <!-- Data de vencimento atual e acrescentando mais 3 dias -->
                     <input type="hidden" name="vencimento" value='<?php echo date("Y-m-d", strtotime("+3 days")); ?>'>
@@ -116,8 +115,10 @@ and open the template in the editor.
         </form>
     </main>
 
+
+
     <script>
-        //desabilita o botão "gerar boleto" e só habilita com 11 caracteres no input.
+        //desabilita o botão "gerar boleto" e só habilita com 11 caracteres no input do cpf.
         document.getElementById("botao").disabled = true;
 
         //cria um event listener que escuta mudanças no input
