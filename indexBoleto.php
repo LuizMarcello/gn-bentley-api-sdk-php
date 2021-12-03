@@ -28,7 +28,8 @@ and open the template in the editor.
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bentley Brasil</title>
     <!-- Icones fontawesome: -->
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" 
+integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <!-- Fontes da google: font-family: 'Open Sans', sans-serif; -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
     <link rel="stylesheet" href="bootstrapBoleto/css/bootstrap.css">
@@ -64,7 +65,7 @@ and open the template in the editor.
                         $dado = $sql->fetch(); ?>
                         <div class="navuser">
                             <li>
-                                <a class="nav-link"><?php echo $dado['nome']; ?> </a>
+                                <a class="nav-link"><?php /* echo $dado['nome']; */ ?> </a>
                             </li>
                         </div>
                     <?php } ?>
@@ -87,7 +88,7 @@ and open the template in the editor.
                     <div>
                         <input type="number" name="cpf" id="input" placeholder="cpf válido">
                     </div>
-                    <button style="background:#c3c63b;" id="botao" type="submit" name=gerarBoleto>
+                    <button style="background:#c3c63b; padding-bottom: 5px;" id="botao" type="submit" name=gerarBoleto>
                         <h6>Gerar Boleto</h6>
                     </button>
 

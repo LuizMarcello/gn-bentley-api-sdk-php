@@ -23,22 +23,23 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
  integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 
-  <script type="text/javascript">
+  <!-- <script type="text/javascript">
     function mascara(telefone) {
       if (telefone.value.length == 0)
         telefone.value = '(' + telefone
-        .value; //quando começamos a digitar, o script irá inserir um parênteses no começo do campo.
+        .value; quando começamos a digitar, o script irá inserir um parênteses no começo do campo.
       if (telefone.value.length == 3)
         telefone.value = telefone.value +
-        ') '; //quando o campo já tiver 3 caracteres (um parênteses e 2 números) o script irá inserir
-      //mais um parênteses, fechando assim o código de área.
+        ') '; quando o campo já tiver 3 caracteres (um parênteses e 2 números) o script irá inserir
+      mais um parênteses, fechando assim o código de área.
 
       if (telefone.value.length == 10)
         telefone.value = telefone.value +
-        '-'; //quando o campo já tiver 8 caracteres, o script irá inserir um tracinho, para melhor
-      //visualização do telefone.
+        '-'; quando o campo já tiver 8 caracteres, o script irá inserir um tracinho, para melhor
+      visualização do telefone.
     }
-  </script>
+  </script> -->
+
 </head>
 
 <body>

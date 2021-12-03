@@ -71,7 +71,7 @@
 
  header nav div a {
      color: #c3c63b;
-     font-size: 17px;
+     font-size: 20px;
  }
 
  header img {
@@ -81,8 +81,10 @@
  .navmenu {
      display: flex;
      justify-content: center;
-     text-align: center;
+    /*  text-align: center; */
      align-items: center;
+justify-content: space-around;
+
  }
 
  header li {
@@ -92,16 +94,16 @@
  }
 
  header li:last-child {
-     margin-right: 12%;
+     /* margin-right: 17%; */
  }
 
  header li:first-child {
-     margin-left: 12%;
+    /*  margin-left: 12%; */
  }
 
  @media (max-width: 850px) {
      header nav li a {
-         font-size: 13px;
+         font-size: 16px;
      }
  }
 
@@ -125,7 +127,7 @@
 
  @media (max-width: 700px) {
      header nav li a {
-         font-size: 11px;
+         font-size: 14px;
          margin-bottom: 3%;
      }
  }
@@ -170,7 +172,7 @@
  }
 
  .boleto h5 {
-font-size: 14px;
+     font-size: 14px;
      text-align: center;
  }
 
@@ -186,8 +188,13 @@ font-size: 14px;
      border-radius: 10px;
      min-width: 75%;
      max-width: 60%;
-     padding: 5px;
+     /*  padding: 5px; */
      white-space: nowrap;
+ }
+
+ .boleto #area input[type=submit] {
+     font-size: 30px;
+     padding-bottom: 1%;
  }
 
  .boleto #area textarea {

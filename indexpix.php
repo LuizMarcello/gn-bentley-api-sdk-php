@@ -69,7 +69,7 @@ use Mpdf\QrCode\Output;
             $dado = $sql->fetch(); ?>
             <div class="navuser">
               <li>
-                <a class="nav-link"><?php echo $dado['nome']; ?> </a>
+                <a class="nav-link"><?php /*  echo $dado['nome']; */ ?> </a>
               </li>
             </div>
           <?php } ?>
