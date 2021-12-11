@@ -7,12 +7,16 @@
     box-sizing: border-box;
     font-family: 'Open Sans', sans-serif;
 }
+
 html {
     height: 100%;
 }
-nav, ul {
+
+nav,
+ul {
     list-style: none;
 }
+
 a {
     text-decoration: none;
     cursor: pointer;
@@ -28,21 +32,25 @@ header {
     background-color: black;
     margin-bottom: 20px;
 }
+
 header img {
     width: 110px;
     margin-left: 15px;
     margin-top: 5px;
     margin-bottom: 15px;
 }
+
 .navmenu {
     display: flex;
     flex-direction: row;
     /*  margin-left: 40%; */
     margin: 0 12% 0 35%;
 }
+
 header li {
     margin: 0 35% 0 0;
 }
+
 .navmenu li a {
     color: #c3c63b;
     font-size: 15px;
@@ -55,23 +63,27 @@ main {
     display: flex;
     flex-direction: column;
 }
+
 .cabecalho {
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
 .cabecalho img {
     background-image: url(../img/cabecalhositebentley.jpg);
     width: 95%;
     margin-left: 3%;
     margin-right: 3%;
 }
+
 .juruena {
     display: flex;
     flex-direction: column;
     margin-top: 5%;
     margin-bottom: 4%;
 }
+
 .juruena .juruena1 {
     display: flex;
     flex-direction: row;
@@ -79,6 +91,7 @@ main {
     text-align: center;
     margin-right: 0;
 }
+
 .juruena .juruena2 {
     display: flex;
     flex-direction: row;
@@ -86,6 +99,7 @@ main {
     text-align: center;
     margin-top: 2px;
 }
+
 .juruena .juruena3 {
     display: flex;
     flex-direction: row;
@@ -94,6 +108,7 @@ main {
     margin-top: 4px;
     font-weight: bold;
 }
+
 .opcoespgto {
     display: flex;
     flex-direction: row;
@@ -104,40 +119,49 @@ main {
     cursor: pointer;
     padding-bottom: 30px;
 }
+
 .opcoespgto .boleto {
     display: flex;
     flex-direction: column;
     margin-right: 6%;
 }
+
 .opcoespgto .pix {
     display: flex;
     flex-direction: column;
     margin-left: 6%;
 }
+
 .opcoespgto .cartao {
     display: flex;
     flex-direction: column;
 }
+
 .opcoespgto .boleto p {
     text-align: center;
     font-size: 13px;
 }
+
 .opcoespgto .pix p {
     font-size: 12px;
     text-align: center;
 }
+
 .opcoespgto .cartao p {
     font-size: 12px;
     text-align: center;
 }
+
 .opcoespgto .boleto img {
     max-width: 100%;
     cursor: pointer;
 }
+
 .opcoespgto .pix img {
     max-width: 100%;
     cursor: pointer;
 }
+
 .opcoespgto .cartao img {
     max-width: 100%;
     cursor: pointer;
@@ -177,36 +201,44 @@ footer {
     flex-direction: column;
     background-color: #191c03;
     align-items: center;
-    height: 8%;
+    /*  height: 8%; */
     width: 100%;
     padding-top: 20px;
     box-shadow: 0px 0px 5px black;
     z-index: 1;
+    position: absolute;
+    bottom: 0;
 }
+
 footer ul {
     display: flex;
     margin-bottom: 25px;
 }
+
 footer ul li a {
     color: #c3c63b;
     font-size: 1.5rem;
     padding: 6px;
 }
+
 footer p {
     color: #c3c63b;
     text-align: center;
     padding-bottom: 35px;
 }
+
 @media (max-width: 700px) {
     header {
         flex-direction: column;
         align-items: center;
     }
+
     .navmenu {
         justify-content: center;
         margin-bottom: 7%;
     }
 }
+
 @media (max-width: 400px) {
     .opcoespgto {
         display: flex;
@@ -214,12 +246,15 @@ footer p {
         text-align: center;
         margin: 3%;
     }
+
     .opcoespgto .boleto {
         margin: 3%;
     }
+
     .opcoespgto .cartao {
         margin: 3%;
     }
+
     .opcoespgto .pix {
         margin: 3%;
     }

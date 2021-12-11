@@ -40,7 +40,6 @@ integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg
     <script type="text/javascript" src="bootstrapBoleto/js/jquery.mask.js"></script>
     <script type="text/javascript" src="bootstrapBoleto/js/scripts.js"></script>
     <title>Boletos Gerencianet</title>
-
 </head>
 
 <body>
@@ -83,7 +82,7 @@ integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg
 
         <form action="emitir_boleto.php" method="POST">
             <section class="boleto">
-                <h5>Não coloque ponto nem traços</h5>
+                <h5>Não coloque pontos nem traços</h5>
                 <div id="area" class="form-group col-sm-12">
                     <div>
                         <input type="number" name="cpf" id="input" placeholder="cpf válido">
