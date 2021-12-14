@@ -71,8 +71,8 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
               <h5>Telefone</h5>
             </label>
             <input type="text" name="telefone" id="telefone" value="<?php if (isset($sql)) {
-                                                        echo $dado['telefone'];
-                                                      } ?>" size="20" maxlength="15" required>
+                                                                      echo $dado['telefone'];
+                                                                    } ?>" size="20" maxlength="15" required>
             <label for="email">
               <h5>Email</h5>
             </label>
@@ -98,7 +98,38 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
     <p>Satellite Broadband Networks - Bentley Brasil - Projeto Juruena</p>
   </footer>
 
-    </script>
+  <script type="text/javascript" src="jQuery/jquery-3.6.0.min.js"></script>
+  <script type="text/javascript" src="jQuery/jquery.mask.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      /* Criando a máscara jQuery na digitação do telefone */
+      var SPMaskBehavior = function(val) {
+          return val.replace(/\D/g, '').length === 11 ? '(00) 00000-0000' : '(00) 0000-00009';
+        },
+        spOptions = {
+          onKeyPress: function(val, e, field, options) {
+            field.mask(SPMaskBehavior.apply({}, arguments), options);
+          }
+        };
+
+      $('#telefone').mask(SPMaskBehavior, spOptions);
+
+      /* Salvando o telefone no banco de dados MySql sem a máscara */
+      $("#telefone").mask("(00) 00000-0000' : '(00) 0000-00009");
+      $("#telefone").addClass("form-control");
+
+      $("#form").submit(function() {
+        var telefoneValue = $("#telefone").val();
+
+        // Remove os caracteres que não são dígitos:
+        telefoneValue = telefoneValue.replace(/\D/g, '');
+
+        // Atualiza o valor no campo do formulário:
+        $("#telefone").val(telefoneValue);
+      });
+    });
+  </script>
 
 </body>
 
