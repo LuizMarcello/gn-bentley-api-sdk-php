@@ -20,25 +20,7 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
     <title>Cadastrar</title>
     <!-- Icones fontawesome: -->
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-
-    <!-- <script type="text/javascript">
-        function mascara(telefone) {
-            if (telefone.value.length == 0)
-                telefone.value = '(' + telefone
-                .value; //quando começamos a digitar, o script irá inserir um parênteses no começo do campo.
-            if (telefone.value.length == 3)
-                telefone.value = telefone.value +
-                ') '; //quando o campo já tiver 3 caracteres (um parênteses e 2 números) o script irá inserir
-            //mais um parênteses, fechando assim o código de área.
-
-            if (telefone.value.length == 10)
-                telefone.value = telefone.value +
-                '-'; //quando o campo já tiver 8 caracteres, o script irá inserir um tracinho, para melhor
-            //visualização do telefone.
-        }
-    </script> -->
-
-
+  
 </head>
 
 <body>
@@ -57,7 +39,7 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
     <main>
         <div class="flex-box container-box">
             <h1>Cadastrar</h1>
-            <form method="POST">
+            <form method="POST" id="form">
                 <div class="content-box">
                     <input type="text" name="nome" placeholder="Nome Completo" maxlength="45">
                     <!-- <input type="text" name="telefone" size="20" maxlength="15" placeholder="Telefone" maxlength="14" onkeypress="mascara(this)" required> -->
@@ -169,6 +151,7 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
 
     <script type="text/javascript">
         $(document).ready(function() {
+            /* Criando a máscara jQuery na digitação do telefone */
             var SPMaskBehavior = function(val) {
                     return val.replace(/\D/g, '').length === 11 ? '(00) 00000-0000' : '(00) 0000-00009';
                 },
@@ -179,6 +162,20 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
                 };
 
             $('#telefone').mask(SPMaskBehavior, spOptions);
+
+            /* Salvando o telefone no banco de dados MySql sem a máscara */
+            $("#telefone").mask("(00) 00000-0000' : '(00) 0000-00009");
+            $("#telefone").addClass("form-control");
+           
+            $("#form").submit(function() {
+                var telefoneValue = $("#telefone").val();
+
+                // Remove os caracteres que não são dígitos:
+                telefoneValue = telefoneValue.replace(/\D/g, '');
+
+                // Atualiza o valor no campo do formulário:
+                $("#telefone").val(telefoneValue);
+            });
         });
     </script>
 
