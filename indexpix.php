@@ -10,8 +10,8 @@ if (!isset($_SESSION['id'])) {
   exit;
 }
 $u = new Usuario;
-/* $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd"); */
-$u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
+$u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
+/* $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234"); */
 
 use App\Pix\Payload;
 use Mpdf\QrCode\QrCode;
@@ -29,8 +29,8 @@ use Mpdf\QrCode\Output;
   <title>Bentley Brasil</title>
   <!-- Icones fontawesome: -->
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
- 
+ integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
   <!-- Fontes da google: font-family: 'Open Sans', sans-serif; -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
   <link rel="stylesheet" href="css/styleindexpix.css">
@@ -44,17 +44,7 @@ use Mpdf\QrCode\Output;
     }
   </style>
 
-  <script>
-    //Funções após a leitura do documento
-    $(document).ready(function () {
-      //Select para mostrar e esconder divs
-      $('#cpfoucnpj').on('change', function () {
-        var SelectValue = '.' + $(this).val();
-        $('#pai div').hide();
-        $(SelectValue).toggle();
-      });
-    });
-  </script>
+
 </head>
 
 <body>
@@ -78,75 +68,75 @@ use Mpdf\QrCode\Output;
 
           if ($sql->rowCount() > 0) {
             $dado = $sql->fetch(); ?>
-        <div class="navuser">
-          <li>
-            <a class="nav-link"><?php echo $dado['nome']; ?> </a>
-          </li>
-        </div>
-        <?php } ?>
+            <div class="navuser">
+              <li>
+                <a class="nav-link"><?php /*  echo $dado['nome']; */ ?> </a>
+              </li>
+            </div>
+          <?php } ?>
         <?php } ?>
       </div>
     </nav>
   </header>
 
+
+
   <main>
-    <h5>Bentley Brasil - Gerador de QrCode Pix</h5>
+
+    <div class="gerador">
+      <h5>Bentley Brasil - Gerador de QrCode Pix</h5>
+    </div>
+
     <form action="gerar-qrcode-dinamico.php" method="POST">
-      <section class="fisicaoujuridica">
-        <div id="acima" class="form-group">
-          <label for="cpfoucnpj" class="control-label"></label>
-          <div class="col-sm-3">
-            <select name="cpfoucnpj" class="form-control" id="cpfoucnpj">
-              <option value="">
-                <p> Pessoa física ou Jurídica</p>
-              </option>
-              <option value="cpf">Física</option>
-              <option value="cnpj">Jurídica</option>
-            </select>
-          </div>
-        </div>
-      </section>
 
-      <div id="pai">
-        <section class="cpfoucnpj">
-          <div class="form-group cpf col-sm-3">
-            <label for="cpf" class="control-label"></label>
-            <input class="documento form-control" rows="3" name="cpf" value="cpf" type="text" id="cpf"
-              placeholder="Informe o CPF" required>
-          </div>
+      <div id="area" class="form-group col-sm-3">
 
-          <div class="form-group cnpj col-sm-3">
-            <label for="cnpj" class="control-label"></label>
-            <input class="documento form-control" rows="3" name="cnpj" value="cnpj" type="text" id="cnpj"
-              placeholder="Informe o CNPJ" required>
-          </div>
-        </section>
+        <label for="cpf" class="control-label"></label>
+        <input class="documento form-control" rows="3" name="cpf" value="cpf" type="text" id="cpf" placeholder="cpf válido" required>
 
-        <section class="form razaoounome">
-          <div class="form-group cpf col-sm-3">
-            <label for="nome" class="control-label">Pessoa física</label>
-            <input class="documento form-control" rows="3" name="nome" value="<?php echo $dado['nome']; ?>" type="text"
-              id="nome" placeholder="Nome" required>
-          </div>
-          <div class="form-group cnpj col-sm-3">
-            <label for="razaosocial" class="control-label">Razão Social</label>
-            <input class="documento form-control" rows="3" name="nome" value="<?php echo $dado['nome']; ?>" type="text"
-              id="razaosocial" placeholder="Razão Social" required>
-          </div>
-        </section>
+        <label for="nome" style="margin-top: 5%;" class="control-label">Nome</label>
+        <input class="documento form-control" rows="3" name="nome" style="margin-top: 1%;" value="<?php echo $dado['nome']; ?>"
+ type="text" id="nome" placeholder="Nome" required>
 
-        <section class="botoes">
-          <div class="form-group cnpj cpf">
-            <input class="btn btn-warning" type="reset" value="Limpar dados">
+       
+          <div class="btn form-group">
+            <input class="btn-warning" style="background:#c3c63b;" type="reset" value="Limpar dados">
+
+            <input class="btn-primary" style="background:#c3c63b;" id="botao" type="submit" value="Gerar QrCode">
           </div>
-          <br>
-          <div class="form-group cnpj cpf">
-            <input class="btn btn-primary" type="submit" value="Gerar QrCode">
-          </div>
-        </section>
+        
+
       </div>
+
     </form>
   </main>
+
+  <!--  gerador  area  botoes  btn  -->
+
+
+  <script>
+    //desabilita o botão "gerar qrcode" e só habilita com 14 caracteres no input do cpf.
+    document.getElementById("botao").disabled = true;
+
+    //cria um event listener que escuta mudanças no input
+    document.getElementById("cpf").addEventListener("input", function(event) {
+
+      //busca conteúdo do input
+      var conteudo = document.getElementById("cpf").value;
+
+      //Definindo a quantidade de caracteres no input do cpf
+      var n = conteudo.length;
+
+      //valida conteudo do input 
+      if (conteudo !== null && conteudo !== '' && n == 14) {
+        //habilita o botão
+        document.getElementById("botao").disabled = false;
+      } else {
+        //desabilita o botão se o conteúdo do input ficar em branco
+        document.getElementById("botao").disabled = true;
+      }
+    });
+  </script>
 
   <!-- FOOTER -->
   <footer>

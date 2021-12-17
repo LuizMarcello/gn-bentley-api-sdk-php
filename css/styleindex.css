@@ -1,5 +1,5 @@
             /* Fazendo o "RESET": */
-            
+
             * {
                 margin: 0;
                 padding: 0;
@@ -7,64 +7,80 @@
                 box-sizing: border-box;
                 font-family: 'Open Sans', sans-serif;
             }
+
             html {
                 height: 100%;
             }
-            nav, ul {
+
+            nav,
+            ul {
                 list-style: none;
             }
+
             a {
                 text-decoration: none;
                 cursor: pointer;
                 opacity: 0.9;
             }
+
             body {
                 position: relative;
             }
+
             /* ESTILIZANDO O "HEADER": */
-            
+
+
+
             header {
                 display: flex;
                 flex-direction: row;
                 align-items: center;
                 background-color: black;
-                margin-bottom: 20px;
             }
-            header img {
-                width: 110px;
-                margin-left: 15px;
-                margin-top: 5px;
-                margin-bottom: 15px;
-            }
-            header li {
-                margin: 0 35% 0 0;
-            }
+
             .navmenu {
                 display: flex;
                 flex-direction: row;
-                margin: 0 3% 0 30%;
+                /* Importante para responsividade */
+                /* Diminuem conforme o tamanho, mas aumentam no máximo 
+                   100%, mesmo que o display seja maior, não distorcendo */
+                /*  max-width: 100%;
+                padding: 15px;
+                align-content: center; */
             }
+
+            header img {
+                width: 110px;
+                margin-left: 15px;
+                margin-top: 10px;
+                margin-bottom: 15px;
+            }
+
+            .navmenu li {
+                margin: 15%;
+            }
+
             .navmenu li a {
                 color: #c3c63b;
-                font-size: 17px;
                 white-space: nowrap;
+                font-size: 16px;
             }
-            /* .navmenu li a {
-                color: #c3c63b;
-                font-size: 17px;
-                white-space: nowrap;
-            } */
+
             /* ESTILIZANDO O "CABEÇALHO": */
-            
+
             .cabecalho {
                 display: flex;
                 align-items: center;
+                margin-top: 3%;
             }
+
             .cabecalho img {
                 background-image: url(../img/cabecalhositebentley.jpg);
-                width: 90%;
-                margin-left: 5%;
+                width: 95%;
+                margin-left: 3%;
+                margin-right: 3%;
             }
+
             img {
                 display: block;
                 /* Importante para responsividade */
@@ -72,28 +88,34 @@
                    100%, mesmo que o display seja maior, não distorcendo */
                 max-width: 100%;
             }
+
             * {
                 box-sizing: border-box;
             }
+
             .imagensjuruena {
                 max-width: 960px;
                 margin: 60px auto;
             }
+
             .imagensjuruena h1 {
                 font-size: 2em;
                 /* Cima:0 direita:10 baixo:60 esquerda:10  */
                 margin: 0 10px 60px 10px;
                 text-align: start;
             }
+
             .imagensjuruena-container {
                 display: flex;
                 flex-wrap: wrap;
                 align-items: flex-end;
             }
+
             .produtos-item {
                 flex: 1 1 145px;
                 margin: 10px;
             }
+
             .produtos-item h2 {
                 font-size: 1em;
                 color: #a4a4a4;
@@ -102,84 +124,121 @@
                 text-align: center;
                 white-space: nowrap;
             }
+
             .img01 {
                 border-top: 8px solid #6a67fa;
                 border-bottom: 8px solid #6a67fa;
             }
+
             .img02 {
                 border-top: 8px solid #6a67fa;
                 border-bottom: 8px solid #6a67fa;
             }
+
             .img03 {
                 border-top: 8px solid #6a67fa;
                 border-bottom: 8px solid #6a67fa;
             }
+
             .img04 {
                 border-top: 8px solid #6a67fa;
                 border-bottom: 8px solid #6a67fa;
             }
+
             /* ESTILIZANDO RESERVA */
-            
+
             .reserva {
                 display: flex;
                 flex-direction: row;
                 justify-content: center;
             }
+
             .reserva img {
                 width: 80%;
                 margin: 15% 25% 25% 15%;
             }
+
+            header {
+                top: 0px;
+            }
+
             footer {
                 display: flex;
                 flex-direction: column;
                 background-color: #191c03;
                 align-items: center;
-                height: 15%;
+                /*  height: 8%; */
                 width: 100%;
-                bottom: 0;
                 padding-top: 20px;
+                box-shadow: 0px 0px 5px black;
+                z-index: 1;
+                position: relative;
+                bottom: 0;
             }
+
             footer ul {
                 display: flex;
                 margin-bottom: 25px;
-                padding-top: 1px;
-                padding-bottom: 15px;
             }
-            footer ul li {
-                margin-right: 10px;
-            }
-            footer ul li:last-child {
-                margin-right: 0;
-            }
+
             footer ul li a {
                 color: #c3c63b;
                 font-size: 1.5rem;
+                padding: 6px;
             }
+
             footer p {
                 color: #c3c63b;
                 text-align: center;
                 padding-bottom: 35px;
             }
-            /* ++++++ MEDIA QUERIES ++++++ */
-            
-            @media (max-width: 720px) {
+
+            @media (max-width: 750px) {
                 header {
                     flex-direction: column;
                     align-items: center;
                 }
+
                 .navmenu {
                     justify-content: space-around;
                     margin-bottom: 7%;
                 }
+
                 .reserva img {
                     width: 70%;
                 }
+
+                header li {
+                    margin: 12%;
+                }
             }
+
             @media (max-width: 550px) {
                 .navmenu li a {
-                    font-size: 12px;
+                    font-size: 14px;
+
                 }
+
                 .reserva img {
                     width: 60%;
+                }
+
+                header li {
+                    margin: 10%;
+                }
+
+                header li:last-child {
+                    margin-left: 6%;
+                }
+            }
+
+            @media (max-width: 450px) {
+                .navmenu li a {
+                    font-size: 11px;
+
+                }
+
+                header li {
+                    margin: 7%;
                 }
             }
