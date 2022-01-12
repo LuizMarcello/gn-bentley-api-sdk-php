@@ -16,10 +16,12 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bentley Juruena Login</title>
   <!-- Icones fontawesome: -->
-  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
   <!-- Fontes da google: font-family: 'Open Sans', sans-serif; -->
   <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700"> -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="css/stylelogar.css">
   <!-- <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css"> -->
 </head>
@@ -36,13 +38,13 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
         <!--  <li><a href="">Contato</a></li> -->
         <li>
           <?php if (isset($_SESSION['id'])) { ?>
-            <a class="nav-link" href="sair.php">Sair</a>
+          <a class="nav-link" href="sair.php">Sair</a>
           <?php } ?>
-          <?php if (!isset($_SESSION['id'])) { ?>
-            <!-- <li>
+          <?php /* if (!isset($_SESSION['id'])) { */ ?>
+          <!-- <li>
           <a href="logar.php">Entrar</a>
         </li> -->
-            <?php } ?>:
+          <?php /* } */ ?>:
         </li>
 
         <?php
@@ -58,12 +60,12 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
 
           if ($sql->rowCount() > 0) {
             $dado = $sql->fetch(); ?>
-            <div class="navuser">
-              <li>
-                <a style="white-space: nowrap;" class="nav-link"><?php echo $dado['nome']; ?> </a>
-              </li>
-            </div>
-          <?php } ?>
+        <div class="navuser">
+          <li>
+            <a style="white-space: nowrap;" class="nav-link"><?php echo $dado['nome']; ?> </a>
+          </li>
+        </div>
+        <?php } ?>
         <?php } ?>
       </div>
     </nav>
@@ -78,7 +80,8 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
         <div style="position: relative;">
 
           <input type="password" name="senha_usuario" id="pass" placeholder="Senha">
-          <button onclick="mostrarASenha()" type="button" id="mostrarrSenha" class="btn btn-primary botao btn-sm">Mostrar Senha</button>
+          <button onclick="mostrarASenha()" type="button" id="mostrarrSenha"
+            class="btn btn-primary botao btn-sm">Mostrar Senha</button>
           <!-- <img style="position: absolute;" src="https://cdn0.iconfinder.com/data/icons/ui-icons-pack/100/ui-icon-pack-14-512.png"
            id="olho" class="olho"> -->
         </div>
@@ -109,23 +112,23 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
         } else {
   ?>
 
-          <div class="msg-erro">
-            Email e/ou senha incorretos!
-          </div>
-        <?php
+  <div class="msg-erro">
+    Email e/ou senha incorretos!
+  </div>
+  <?php
         }
       } else {
         ?>
-        <div class="msg-erro">
-          <?php echo "Erro: " . $u->msgErro; ?>
-        </div>
-      <?php
+  <div class="msg-erro">
+    <?php echo "Erro: " . $u->msgErro; ?>
+  </div>
+  <?php
       }
     } else {
       ?>
-      <div class="msg-erro">
-        Preencha todos os campos!
-      </div>
+  <div class="msg-erro">
+    Preencha todos os campos!
+  </div>
   <?php
     }
   }

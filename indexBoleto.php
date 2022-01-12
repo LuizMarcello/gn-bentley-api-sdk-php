@@ -73,8 +73,6 @@ integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg
         </nav>
     </header>
 
-
-
     <main>
         <div class="gerador">
             <h5>Bentley Brasil - Gerador de Boletos</h5>
