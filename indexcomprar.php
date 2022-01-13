@@ -53,11 +53,11 @@ use Mpdf\QrCode\Output;
 
           if ($sql->rowCount() > 0) {
             $dado = $sql->fetch(); ?>
-            <!-- <div class="navuser"> -->
-            <li>
-              <a class="nav-link"><?php echo $dado['nome']; ?> </a>
-            </li>
-          <?php } ?>
+        <!-- <div class="navuser"> -->
+        <li>
+          <a class="nav-link"><?php echo $dado['nome']; ?> </a>
+        </li>
+        <?php } ?>
         <?php } ?>
       </div>
     </nav>
@@ -123,12 +123,8 @@ use Mpdf\QrCode\Output;
         </div>
       </section> -->
 
-
     </div>
   </main>
-
-
-
 
   <!-- FOOTER -->
   <footer>
@@ -140,7 +136,6 @@ use Mpdf\QrCode\Output;
     </ul>
     <p>Satellite Broadband Networks - Bentley Brasil - Projeto Juruena</p>
   </footer>
-
 
 </body>
 
