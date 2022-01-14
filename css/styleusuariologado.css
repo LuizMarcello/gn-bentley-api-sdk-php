@@ -7,19 +7,16 @@
     box-sizing: border-box;
     font-family: 'Open Sans', sans-serif;
 }
-
 html {
     height: 100%;
     overflow-y: scroll;
     overflow-x: hidden;
 }
-
 a {
     text-decoration: none;
     cursor: pointer;
     opacity: 0.9;
 }
-
 body {
     background-position: 50% 50%;
     background-color: rgb(166, 166, 202);
@@ -33,76 +30,60 @@ header {
     width: 100%;
     align-items: center;
     background-color: black;
-
 }
-
 .navmenu {
     display: flex;
     flex-direction: row;
 }
-
-
 header img {
     width: 110px;
     margin-left: 15px;
     margin-top: 10px;
     margin-bottom: 15px;
 }
-
 .navmenu a {
     color: #c3c63b;
     font-size: 16px;
-
 }
-
 header li:last-child {
     margin-left: 15%;
 }
-
 header li:first-child {
     margin-left: 17%;
     margin-top: 10px;
 }
-
 .navmenu li {
     list-style: none;
 }
-
 @media (max-width: 500px) {
     header li:last-child {
         margin-left: 8%;
     }
-
     .navmenu a {
         font-size: 12px;
     }
 }
-
 .content-box {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-
 .content-box h1 {
     text-align: center;
     font-size: 22px;
     margin-top: 6%;
 }
-
 .content-box .organiz {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-
 .content-box .organiz h5 {
     font-size: 15px;
     margin-left: 7%;
     margin-top: 4%;
 }
-
 .content-box .organiz input {
     height: 30px;
     width: 450px;
@@ -118,19 +99,16 @@ header li:first-child {
     outline: none;
     margin-top: 0;
 }
-
 @media (max-width: 550px) {
     .content-box .organiz input {
         width: 400px;
     }
 }
-
 @media (max-width: 450px) {
     .content-box .organiz input {
         width: 320px;
     }
 }
-
 .content-box input[type=submit] {
     background-color: rgba(150, 34, 165, 0.3);
     border: none;
@@ -141,24 +119,20 @@ header li:first-child {
     margin-bottom: 4%;
     margin-top: 5%;
 }
-
 .content-box .botao {
     width: 150px;
     height: 30px;
     border-radius: 20px;
 }
-
 a {
     color: black;
     text-decoration: none;
     text-align: center;
     display: block;
 }
-
 a:hover {
     text-decoration: underline;
 }
-
 footer {
     display: flex;
     flex-direction: column;
@@ -172,18 +146,15 @@ footer {
     position: absolute;
     bottom: 0;
 }
-
 footer ul {
     display: flex;
     margin-bottom: 25px;
 }
-
 footer ul li a {
     color: #c3c63b;
     font-size: 1.5rem;
     padding: 6px;
 }
-
 footer p {
     color: #c3c63b;
     text-align: center;
@@ -196,7 +167,6 @@ footer p {
     header {
         flex-direction: column;
     }
-
     header nav .navmenu {
         justify-content: center;
     }

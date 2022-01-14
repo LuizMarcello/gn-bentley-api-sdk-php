@@ -23,7 +23,6 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
 
   <link rel="stylesheet" href="css/styleusuariologado.css">
-
 </head>
 
 <body>
@@ -56,34 +55,12 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
     </nav>
   </header>
 
-
   <main>
     <div class="flex-box container-box">
       <div class="content-box" style="width: 90%; margin-left: auto; margin-right: auto;">
-        <h1>Meus dados cadastrais</h1>
-        <table border="1" width="85%">
-          <thead>
-            <tr>
-              <th>Nome</th>
-              <th>Telefone</th>
-              <th>Email</th>
-              <th></th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><?php if (isset($sql)) { echo $dado['nome']; } ?></td>
-              <td><?php if (isset($sql)) { echo $dado['telefone']; } ?></td>
-              <td><?php if (isset($sql)) { echo $dado['email']; } ?></td>
-              <td><a href="meuPerfilEditar.php"><b>Editar</b></a></td>
-              <td><a href=""><b>Excluir</b></a></td>
-              
-            </tr>
-          </tbody>
-        </table>
+        <h1>Alterar dados cadastrais</h1>
 
-        <!-- <form method="POST">
+        <form method="POST">
           <div class="organiz">
             <label for="nome">
               <h5>Nome</h5>
@@ -102,9 +79,9 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
               required>
             <input type="submit" value="Salvar alteração" maxlength="45">
 
-            <a href="index.php"><strong>Voltar a home</strong></a>
+            <!-- <a href="index.php"><strong>Voltar a home</strong></a> -->
           </div>
-        </form> -->
+        </form>
 
       </div>
     </div>
