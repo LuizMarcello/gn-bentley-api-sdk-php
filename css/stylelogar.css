@@ -32,7 +32,7 @@ header {
     flex-direction: row;
     align-items: center;
     background-color: black;
-    justify-content: space-around;
+    /* justify-content: space-around; */
 }
 
 header img {
@@ -48,7 +48,7 @@ header nav li a {
     opacity: 0.9;
     color: #c3c63b;
     margin: 25px;
-    font-size: 25px;
+    font-size: 20px;
     justify-content: center;
 }
 
