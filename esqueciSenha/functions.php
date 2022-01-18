@@ -1,24 +1,44 @@
 <?php
 global $pdo;
-include_once("/classes/usuarios.php");
+include_once '../classes/usuarios.php';
+require_once '../vendor/autoload.php';
+$u = new Usuario;
+/* $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd"); */
+   $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
+if (!isset($_SESSION)) session_start();
+
+
 function verifica_dados($pdo)
 {
-  if (isset($_POST['env']) && $_POST['env'] == "form") {
-    //Verificar se o email e senha já estão cadastrados
-    $sql = $pdo->prepare("SELECT email FROM usuarios WHERE email = ?");
-    $sql->bind_param("s", $_POST['email']);
-    $sql->execute();
-    $get = $sql->get_result();
-    $total = $get->num_rows;
+    if (isset($_POST['env']) && $_POST['env'] == "form") {  
+        $email = addslashes($_POST['email']);
+        $sql = $pdo->prepare("SELECT * FROM usuarios WHERE email = '$email'");
+        $sql->bindValue("s", $email);
+        $sql->execute();
+        
+        if ($sql->rowCount() > 0) {
 
-    if ($total > 0) {
-      echo "tem";
-    } else {
-      echo "não tem";
+        $dados = $sql->fetch(PDO::FETCH_ASSOC);
+        add_dados_recover($pdo, $email);
+        enviar_email($pdo, $dados['email']);
+          }else {
+
+        }
     }
-  }
 }
-global $pdo;
-function enviar_email($pdo)
-{
-}
+
+      function add_dados_recover($pdo, $email) {
+        $rash = md5(rand());
+        /* $rash = base64_encode(rand()); */
+        $sql = $pdo->prepare("INSERT INTO recover_solicitation (email, rash) VALUES (?, ?)");
+        $sql->bindValue(":ss", $email, $rash);
+        
+        /* $sql->execute(); */
+        //echo $rash;
+      }
+
+      function enviar_email($pdo, $email)
+      {
+        /* echo $email; */
+    }
+?>
