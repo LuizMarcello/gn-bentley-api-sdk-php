@@ -88,7 +88,7 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
         <input type="submit" value="Acessar">
         <a href="cadastrar.php">Ainda não é inscrito?<strong> Cadastre-se</strong></a><br>
       </form>
-      <p align="right"><a href="recuperarsenha/esqueci-a-senha.php">Esqueceu a senha? Recupere já!</a></p>
+      <p align="right"><a href="esqueciSenha/recuperar.php">Esqueceu a senha? Recupere já!</a></p>
     </div>
   </main>
 

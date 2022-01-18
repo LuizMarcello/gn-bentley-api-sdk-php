@@ -3,7 +3,7 @@ require_once 'classes/usuarios.php';
 if (!isset($_SESSION)) session_start();
 $u = new Usuario;
 $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
-/* $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234") */;
+  /* $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234") */;
 ?>
 
 <!DOCTYPE html>
@@ -17,6 +17,7 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
   <!-- Icones fontawesome: -->
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
   <!-- Fontes da google: font-family: 'Open Sans', sans-serif; -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
   <link rel="stylesheet" href="css/styleindex.css">
 </head>
@@ -59,6 +60,22 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
       </div>
     </nav>
   </header>
+
+  <!-- Recuperar a senha -->
+  <div class="row">
+    <div class="col-sm-5 offset-md-3"></div>
+    <?php
+    $url = (isset($_GET['pagina'])) ? $_GET['pagina'] : 'index';
+    $dir = "pags/";
+    $ext = ".php";
+
+    if (file_exists($dir . $url . $ext)) {
+      include($dir . $url . $ext);
+    } else {
+      echo "<div class='alert alert-danger'>Página não encontrada</div>";
+    }
+    ?>
+  </div>
 
   <section class="cabecalho">
     <img src="img/cabecalhositebentley.jpg" alt="Bentley Brasil">
