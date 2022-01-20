@@ -1,7 +1,7 @@
 <?php
 global $pdo;
 include_once '../classes/usuarios.php';
-require_once '../vendor/autoload.php';
+include_once '../vendor/autoload.php';
 $u = new Usuario;
 /* $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd"); */
    $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");

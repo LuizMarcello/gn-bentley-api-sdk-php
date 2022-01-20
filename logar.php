@@ -48,6 +48,9 @@ $u = new Usuario;
         </li>
 
         <?php
+
+        /* include_once '/esqueciSenha/pags/recuperar.php'; */
+
         if (isset($_SESSION['id'])) {
 
           $user = $_SESSION['id'];
@@ -88,7 +91,9 @@ $u = new Usuario;
         <input type="submit" value="Acessar">
         <a href="cadastrar.php">Ainda não é inscrito?<strong> Cadastre-se</strong></a><br>
       </form>
-      <p align="right"><a href="esqueciSenha/recuperar.php">Esqueceu a senha? Recupere já!</a></p>
+     
+      <!-- <p align="right"><a href="?pagina=recuperar">Esqueceu a senha? Recupere já!</a></p> -->
+      <p align="right"><a href="esqueciSenha/pags/recuperar.php">Esqueceu a senha? Recupere já!</a></p>
     </div>
   </main>
 

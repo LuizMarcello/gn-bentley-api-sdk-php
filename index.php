@@ -3,7 +3,7 @@ require_once 'classes/usuarios.php';
 if (!isset($_SESSION)) session_start();
 $u = new Usuario;
 /* $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd"); */
-   $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
+   /* $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234"); */
 ?>
 
 <!DOCTYPE html>
@@ -66,10 +66,12 @@ $u = new Usuario;
     <div class="col-sm-5 offset-md-3"></div>
     <?php
     $url = (isset($_GET['pagina'])) ? $_GET['pagina'] : 'index';
-    $dir = "pags/";
+    $dir1 = "esqueciSenha/";
+    $dir2 = "pags/";
+   /*  $dir = "pags/"; */
     $ext = ".php";
 
-    if (file_exists($dir . $url . $ext)) {
+    if (file_exists($dir1 . $dir2 . $url . $ext)) {
       include($dir . $url . $ext);
     } else {
       echo "<div class='alert alert-danger'>Página não encontrada</div>";
