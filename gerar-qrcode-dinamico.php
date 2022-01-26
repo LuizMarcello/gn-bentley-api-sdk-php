@@ -6,8 +6,8 @@ require_once 'app/Pix/Api.php';
 require_once 'app/Pix/Payload.php';
 
 $u = new Usuario;
-$u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
-   /* $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234"); */
+/* $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd"); */
+   $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
 if (!isset($_SESSION)) session_start();
 
 /* if (!isset($_SESSION['id_usuario'])) {
@@ -64,7 +64,7 @@ if (isset($_SESSION['id_usuario'])) {
 
 <body>
   <header>
-    <img src="https://sistema.bentleybrasil.com.br/img/logo-empresa-br.png" alt="Bentley Brasil">
+    <img src="img/logo-empresa-br.png" alt="Bentley Brasil">
     <nav>
       <div class="navmenu">
         <li><a href="index.php">Home</a></li>

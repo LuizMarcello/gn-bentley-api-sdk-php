@@ -2,8 +2,8 @@
 require_once 'classes/usuarios.php';
 if (!isset($_SESSION)) session_start();
 $u = new Usuario;
-$u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
-   /* $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234"); */
+/* $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd"); */
+   $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +24,8 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
 
 <body>
   <header>
-    <img src="https://sistema.bentleybrasil.com.br/img/logo-empresa-br.png" alt="Bentley Brasil">
+   <!--  <img src="https://sistema.bentleybrasil.com.br/img/logo-empresa-br.png" alt="Bentley Brasil"> -->
+   <img src="img/logo-empresa-br.png" alt="Bentley Brasil">
     <nav>
       <div class="navmenu">
         <li>
@@ -61,25 +62,7 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
     </nav>
   </header>
 
-  <!-- Recuperar a senha -->
-  <div class="row">
-    <div class="col-sm-5 offset-md-3"></div>
-    <?php
-    $url = (isset($_GET['pagina'])) ? $_GET['pagina'] : 'index';
-    $dir1 = "esqueciSenha/";
-    $dir2 = "pags/";
-   /*  $dir = "pags/"; */
-    $ext = ".php";
-
-    if (file_exists($dir1 . $dir2 . $url . $ext)) {
-      include($dir . $url . $ext);
-    } else {
-      echo "<div class='alert alert-danger'>Página não encontrada</div>";
-    }
-    ?>
-  </div>
-
-  <section class="cabecalho">
+   <section class="cabecalho">
     <img src="img/cabecalhositebentley.jpg" alt="Bentley Brasil">
   </section>
 

@@ -2,8 +2,8 @@
 require_once 'classes/usuarios.php';
 if (!isset($_SESSION)) session_start();
 $u = new Usuario;
-$u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
-   /* $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234"); */
+/* $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd"); */
+   $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
 ?>
 
 <!DOCTYPE html>
@@ -14,21 +14,21 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
- integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <link rel="stylesheet" href="css/stylecadastrar.css">
 
     <title>Cadastrar</title>
     <!-- Icones fontawesome: -->
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
- integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-  
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
 </head>
 
 <body>
 
     <header>
-        <img src="https://sistema.bentleybrasil.com.br/img/logo-empresa-br.png" alt="Bentley Brasil">
+        <img src="img/logo-empresa-br.png" alt="Bentley Brasil">
         <nav>
             <div class="navmenu">
                 <ul>
@@ -49,9 +49,11 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
                     <input type="text" name="telefone" id="telefone" placeholder="Telefone" required>
                     <input type="email" name="email" placeholder="Email" maxlength="45">
                     <input type="password" name="senha_usuario" id="senha_usuario" placeholder="Senha" maxlength="45">
-                    <button onclick="mostrarASenha()" type="button" id="mostrarrSenha" class="btn btn-primary botao btn-sm">Mostrar Senha</button>
+                    <button onclick="mostrarASenha()" type="button" id="mostrarrSenha"
+                        class="btn btn-primary botao btn-sm">Mostrar Senha</button>
                     <input type="password" name="confsenha" id="confsenha" placeholder="Confirmar Senha" maxlength="45">
-                    <button onclick="mostrarASenhaRepete()" type="button" id="mostrarrSenhaRepete" class="btn btn-primary botao btn-sm">Mostrar Senha</button>
+                    <button onclick="mostrarASenhaRepete()" type="button" id="mostrarrSenhaRepete"
+                        class="btn btn-primary botao btn-sm">Mostrar Senha</button>
                     <input type="submit" value="Cadastrar" maxlength="45">
                     <a href="logar.php">Já sou cadastrado<strong> Logar</strong></a>
                 </div>
@@ -80,36 +82,36 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
                 if ($senha == $confsenha) {
                     if ($u->cadastrar($nome, $telefone, $email, $senha)) {
     ?>
-                        <div id="msg-sucesso" style="margin-top: 13px;">
-                            Cadastrado com sucesso! Acesse para entrar!
-                        </div>
-                    <?php
+    <div id="msg-sucesso" style="margin-top: 13px;">
+        Cadastrado com sucesso! Acesse para entrar!
+    </div>
+    <?php
                     } else {
                     ?>
-                        <div class="msg-erro">
-                            Email já cadastrado!
-                        </div>
-                    <?php
+    <div class="msg-erro">
+        Email já cadastrado!
+    </div>
+    <?php
                     }
                 } else {
                     ?>
-                    <div class="msg-erro">
-                        Atenção: As senhas não conferem"
-                    </div>
-                <?php
+    <div class="msg-erro">
+        Atenção: As senhas não conferem"
+    </div>
+    <?php
                 }
             } else {
                 ?>
-                <div class="msg-erro">
-                    <?php echo "Erro: " . $u->msgErro; ?>
-                </div>
-            <?php
+    <div class="msg-erro">
+        <?php echo "Erro: " . $u->msgErro; ?>
+    </div>
+    <?php
             }
         } else {
             ?>
-            <div class="msg-erro">
-                Por favor, preencha todos os campos!
-            </div>
+    <div class="msg-erro">
+        Por favor, preencha todos os campos!
+    </div>
     <?php
         }
     }
@@ -153,13 +155,13 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
     <script type="text/javascript" src="jQuery/jquery.mask.js"></script>
 
     <script type="text/javascript">
-        $(document).ready(function() {
+        $(document).ready(function () {
             /* Criando a máscara jQuery na digitação do telefone */
-            var SPMaskBehavior = function(val) {
+            var SPMaskBehavior = function (val) {
                     return val.replace(/\D/g, '').length === 11 ? '(00) 00000-0000' : '(00) 0000-00009';
                 },
                 spOptions = {
-                    onKeyPress: function(val, e, field, options) {
+                    onKeyPress: function (val, e, field, options) {
                         field.mask(SPMaskBehavior.apply({}, arguments), options);
                     }
                 };
@@ -169,8 +171,8 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
             /* Salvando o telefone no banco de dados MySql sem a máscara */
             $("#telefone").mask("(00) 00000-0000' : '(00) 0000-00009");
             $("#telefone").addClass("form-control");
-           
-            $("#form").submit(function() {
+
+            $("#form").submit(function () {
                 var telefoneValue = $("#telefone").val();
 
                 // Remove os caracteres que não são dígitos:

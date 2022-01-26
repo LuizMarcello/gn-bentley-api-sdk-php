@@ -10,8 +10,8 @@ if (!isset($_SESSION['id'])) {
   exit;
 }
 $u = new Usuario;
-$u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
-   /* $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234"); */
+/* $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd"); */
+   $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
 
 use App\Pix\Payload;
 use Mpdf\QrCode\QrCode;
@@ -49,7 +49,7 @@ use Mpdf\QrCode\Output;
 
 <body>
   <header>
-    <img src="https://sistema.bentleybrasil.com.br/img/logo-empresa-br.png" alt="Bentley Brasil">
+    <img src="img/logo-empresa-br.png" alt="Bentley Brasil">
     <nav>
       <div class="navmenu">
         <li><a href="index.php">Home</a></li>

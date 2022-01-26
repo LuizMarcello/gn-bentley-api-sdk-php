@@ -27,7 +27,7 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "root1234");
 
 <body>
   <header>
-    <img src="https://sistema.bentleybrasil.com.br/img/logo-empresa-br.png" alt="Bentley Brasil">
+    <img src="img/logo-empresa-br.png" alt="Bentley Brasil">
     <nav>
       <div class="navmenu">
         <li><a style="white-space: nowrap;" href="index.php">Voltar a Home</a></li>
