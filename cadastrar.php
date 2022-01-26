@@ -48,12 +48,15 @@ $u = new Usuario;
                     <!-- <input type="text" name="telefone" size="20" maxlength="15" placeholder="Telefone" maxlength="14" onkeypress="mascara(this)" required> -->
                     <input type="text" name="telefone" id="telefone" placeholder="Telefone" required>
                     <input type="email" name="email" placeholder="Email" maxlength="45">
+
                     <input type="password" name="senha_usuario" id="senha_usuario" placeholder="Senha" maxlength="45">
                     <button onclick="mostrarASenha()" type="button" id="mostrarrSenha"
                         class="btn btn-primary botao btn-sm">Mostrar Senha</button>
+
                     <input type="password" name="confsenha" id="confsenha" placeholder="Confirmar Senha" maxlength="45">
                     <button onclick="mostrarASenhaRepete()" type="button" id="mostrarrSenhaRepete"
                         class="btn btn-primary botao btn-sm">Mostrar Senha</button>
+
                     <input type="submit" value="Cadastrar" maxlength="45">
                     <a href="logar.php">Já sou cadastrado<strong> Logar</strong></a>
                 </div>

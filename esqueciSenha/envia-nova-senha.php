@@ -55,7 +55,7 @@ Clique aqui para alterar sua senha criptografada</a>';
   }
 }else {
 ?>
-  <h3>Você não informou nenhum e-mail</h3>
+  <!-- <h3>Você não informou nenhum e-mail</h3> -->
   <?php
 }
   ?>

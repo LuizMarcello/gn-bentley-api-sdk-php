@@ -23,14 +23,17 @@
     <nav>
       <div class="navmenu">
         <li>
-           <a class="nav-link" href="envia-nova-senha.php">Voltar</a>
+          <a class="nav-link" href="envia-nova-senha.php">Voltar</a>
         </li>
     </nav>
   </header>
 
   <?php
   $chave = "";
-  if ($_GET["chave"]) {
+
+
+
+  if (isset($_GET["chave"])) {
     $chave = preg_replace('/[^[:alnum:]]/', '', $_GET["chave"]);
   ?>
 
@@ -43,9 +46,14 @@
     <input type="text" name="email" /><br><br>
 
     <label>Nova Senha</label><br>
-    <input type="password" name="senha" id="senha" /><br><br>
+    <input type="password" name="senha" id="senha" /><br>
     <button onclick="mostrarASenha()" type="button" id="mostrarrSenha" class="btn btn-primary botao btn-sm">
-      Mostrar Senha</button>
+      Mostrar Senha</button><br><br>
+
+    <label>Repita a nova senha</label><br>
+    <input type="password" name="repetesenha" id="repetesenha" /><br>
+    <button onclick="mostrarRepeteSenha()" type="button" id="repetirSenha" class="btn btn-primary botao btn-sm">
+      Mostrar Senha</button><br><br>
 
     <!-- <input type="password" name="senha_usuario" id="senha_usuario" placeholder="Senha" maxlength="45"> -->
     <!-- <button onclick="mostrarASenha()" type="button" id="mostrarrSenha" class="btn btn-primary botao btn-sm">Mostrar Senha</button> -->
@@ -55,7 +63,7 @@
 
   <?php
   } else {
-    echo '<h1>Página não encontrada</h1>';
+    /* echo '<h1>Página não encontrada</h1>'; */
   }
   ?>
 
@@ -81,16 +89,16 @@
       text.data = text.data == "Esconder senha" ? "Mostrar senha" : "Esconder senha";
     }
 
-    /* function mostrarASenhaRepete() {
-      var text = document.getElementById("mostrarrSenhaRepete").firstChild;
-      var tipo = document.getElementById("confsenha");
+    function mostrarRepeteSenha() {
+      var text = document.getElementById("repetirSenha").firstChild;
+      var tipo = document.getElementById("repetesenha");
       if (tipo.type == "password") {
         tipo.type = "text";
       } else {
         tipo.type = "password";
       }
       text.data = text.data == "Esconder senha" ? "Mostrar senha" : "Esconder senha";
-    } */
+    }
   </script>
 
   <script type="text/javascript" src="jQuery/jquery-3.6.0.min.js"></script>

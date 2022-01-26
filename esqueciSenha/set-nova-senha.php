@@ -32,6 +32,7 @@
     <nav>
       <div class="navmenu">
         <li>
+          <a class="nav-link" href="alterar-senha.php">Voltar</a><br>
           <a class="nav-link" href="../logar.php">Página de login</a>
         </li>
     </nav>
@@ -40,7 +41,10 @@
   <?php
   $email = $_POST["email"];
   $novasenha = $_POST["senha"];
-  $chave = $_POST["chave"];
+  $repetesenha = $_POST["repetesenha"];
+
+  if($novasenha == $repetesenha){
+$chave = $_POST["chave"];
 
   $email = preg_replace('/[^[:alnum:]_.-@]/', '', $email);
   $chave = preg_replace('/[^[:alnum:]]/', '', $chave);
@@ -56,7 +60,15 @@
   } else {
     echo '<h1>Êrro: Usuário não encontrado</h1>';
   }
-  ?>
+}else{
+?>
+  <h3>senhas não conferem!!!</h3>
+  <?php } ?>
+
+
+
+
+
 
   <footer>
     <ul>
