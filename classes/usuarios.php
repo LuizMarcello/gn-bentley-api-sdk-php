@@ -1,8 +1,10 @@
 <?php
 global $pdo;
 if (!isset($_SESSION)) session_start();
+
 class Usuario
 {
+
   /* Utilizando o PDO para conectar */
   private $pdo;
   public $msgErro = ""; //Esta variável vazia, está tudo OK.
@@ -61,5 +63,48 @@ class Usuario
     } else {
       return false; //Não foi possível logar.
     }
+  }
+
+  /* Método para esqueciSenha */
+  public function geraChaveAcesso($email)
+  {
+    global $pdo;
+    $stmt = $pdo->prepare("SELECT * FROM usuarios WHERE email = :email");
+    $stmt->bindValue(":email", $email);
+    $run = $stmt->execute();
+    $rs = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if ($rs) {
+      $chave = md5($rs["id"] . $rs["senha_usuario"]);
+      return $chave;
+    }
+  }
+
+  /* Método para esqueciSenha */
+  /* Verifica se na tabela "usuarios" existe um usuário com o e-mail informado */
+  public function checkChave($email, $chave)
+  {
+    global $pdo;
+    $stmt = $pdo->prepare("SELECT * FROM usuarios WHERE email = :email");
+    $stmt->bindValue(":email", $email);
+    $run = $stmt->execute();
+    $rs = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if ($rs) {
+      $chaveCorreta = md5($rs["id"] . $rs["senha_usuario"]);
+      if ($chave == $chaveCorreta) {
+        return $rs["id"];
+      }
+    }
+  }
+
+  /* Método para esqueciSenha */
+  public function setNovaSenha($novasenha, $id)
+  {
+    global $pdo;
+    $stmt = $pdo->prepare("UPDATE usuarios SET senha_usuario = :novasenha WHERE id = :id");
+    $stmt->bindValue(":novasenha", md5($novasenha));
+    $stmt->bindValue(":id", $id);
+    $run = $stmt->execute();
   }
 }
