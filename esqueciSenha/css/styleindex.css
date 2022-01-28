@@ -1,5 +1,5 @@
             /* Fazendo o "RESET": */
-            
+
             * {
                 margin: 0;
                 padding: 0;
@@ -7,28 +7,35 @@
                 box-sizing: border-box;
                 font-family: 'Open Sans', sans-serif;
             }
+
             html {
                 height: 100%;
             }
-            nav, ul {
+
+            nav,
+            ul {
                 list-style: none;
             }
+
             a {
                 text-decoration: none;
                 cursor: pointer;
                 opacity: 0.9;
             }
+
             body {
                 position: relative;
             }
+
             /* ESTILIZANDO O "HEADER": */
-            
+
             header {
                 display: flex;
                 flex-direction: row;
                 align-items: center;
                 background-color: black;
             }
+
             .navmenu {
                 display: flex;
                 flex-direction: row;
@@ -39,20 +46,24 @@
                 padding: 15px;
                 align-content: center; */
             }
+
             header img {
                 width: 110px;
                 margin-left: 15px;
                 margin-top: 10px;
                 margin-bottom: 15px;
             }
+
             .navmenu li {
                 margin: 15%;
             }
+
             .navmenu li a {
                 color: #c3c63b;
                 white-space: nowrap;
                 font-size: 16px;
             }
+
             img {
                 display: block;
                 /* Importante para responsividade */
@@ -60,12 +71,24 @@
                    100%, mesmo que o display seja maior, não distorcendo */
                 max-width: 100%;
             }
+
             * {
                 box-sizing: border-box;
             }
+
             header {
                 top: 0px;
             }
+
+            .content-box {
+                display: flex;
+                flex-direction: column;
+                position: relative;
+                width: 100%;
+                align-items: center;
+                margin-top: 30px;
+            }
+
             footer {
                 display: flex;
                 flex-direction: column;
@@ -79,15 +102,18 @@
                 position: fixed;
                 bottom: 0;
             }
+
             footer ul {
                 display: flex;
                 margin-bottom: 25px;
             }
+
             footer ul li a {
                 color: #c3c63b;
                 font-size: 1.5rem;
                 padding: 6px;
             }
+
             footer p {
                 color: #c3c63b;
                 text-align: center;

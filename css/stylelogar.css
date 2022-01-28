@@ -23,6 +23,7 @@ body {
     background-position: 50% 50%;
     background-color: rgb(166, 166, 202);
     font-family: Arial;
+    position: relative;
 }
 
 /* ESTILIZANDO O "HEADER": */
@@ -128,12 +129,12 @@ footer {
     flex-direction: column;
     background-color: #191c03;
     align-items: center;
-    /* height: 8%; */
+    /*  height: 8%; */
     width: 100%;
     padding-top: 20px;
     box-shadow: 0px 0px 5px black;
     z-index: 1;
-    position: relative;
+    position: fixed;
     bottom: 0;
 }
 
