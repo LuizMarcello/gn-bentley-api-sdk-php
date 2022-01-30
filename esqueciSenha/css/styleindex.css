@@ -24,6 +24,11 @@
             }
 
             body {
+                display: flex;
+                flex-direction: column;
+                background-position: 50% 50%;
+                background-color: rgb(166, 166, 202);
+                font-family: Arial;
                 position: relative;
             }
 
@@ -34,6 +39,24 @@
                 flex-direction: row;
                 align-items: center;
                 background-color: black;
+                margin-bottom: 20px;
+            }
+
+            header img {
+                width: 110px;
+                margin-left: 15px;
+                margin-top: 10px;
+                margin-bottom: 15px;
+            }
+
+            header nav li a {
+                text-decoration: none;
+                cursor: pointer;
+                opacity: 0.9;
+                color: #c3c63b;
+                /*  margin: 25px; */
+                font-size: 20px;
+                justify-content: center;
             }
 
             .navmenu {
@@ -45,14 +68,10 @@
                 /*  max-width: 100%;
                 padding: 15px;
                 align-content: center; */
+                margin: 0 12% 0 35%;
             }
 
-            header img {
-                width: 110px;
-                margin-left: 15px;
-                margin-top: 10px;
-                margin-bottom: 15px;
-            }
+
 
             .navmenu li {
                 margin: 15%;

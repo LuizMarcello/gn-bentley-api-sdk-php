@@ -36,17 +36,35 @@
                 flex-direction: row;
                 align-items: center;
                 background-color: black;
+                margin-bottom: 20px;
             }
+
+            /* .navmenu {
+                display: flex;
+                flex-direction: row; */
+            /* Importante para responsividade */
+            /* Diminuem conforme o tamanho, mas aumentam no máximo 
+                   100%, mesmo que o display seja maior, não distorcendo */
+            /* max-width: 100%;
+                padding: 15px;
+                align-content: center;
+            } */
 
             .navmenu {
                 display: flex;
                 flex-direction: row;
-                /* Importante para responsividade */
-                /* Diminuem conforme o tamanho, mas aumentam no máximo 
-                   100%, mesmo que o display seja maior, não distorcendo */
-                /*  max-width: 100%;
-                padding: 15px;
-                align-content: center; */
+                /*  margin-left: 40%; */
+                margin: 0 12% 0 35%;
+            }
+
+            header li {
+                margin: 0 35% 0 0;
+            }
+
+            .navmenu li a {
+                color: #c3c63b;
+                font-size: 15px;
+                white-space: nowrap;
             }
 
             header img {
@@ -56,8 +74,8 @@
                 margin-bottom: 15px;
             }
 
-            .navmenu li {
-                margin: 15%;
+            header li {
+                margin: 0 35% 0 0;
             }
 
             .navmenu li a {

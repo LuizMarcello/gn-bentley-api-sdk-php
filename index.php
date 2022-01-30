@@ -24,14 +24,15 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
 
 <body>
   <header>
-   <!--  <img src="https://sistema.bentleybrasil.com.br/img/logo-empresa-br.png" alt="Bentley Brasil"> -->
-   <img src="img/logo-empresa-br.png" alt="Bentley Brasil">
+    <!--  <img src="https://sistema.bentleybrasil.com.br/img/logo-empresa-br.png" alt="Bentley Brasil"> -->
+    <img src="img/logo-empresa-br.png" alt="Bentley Brasil">
     <nav>
       <div class="navmenu">
         <li>
           <?php if (isset($_SESSION['id'])) { ?>
-            <a class="nav-link" href="sair.php"><a style="white-space: nowrap;" href="usuarioLogado.php">Meu
-                Perfil</a></a>
+            <!-- <a class="nav-link" href="sair.php"><a style="white-space: nowrap;" href="usuarioLogado.php">Meu
+                Perfil</a></a> -->
+            <a class="nav-link" href="sair.php" href="usuarioLogado.php">Meu Perfil</a>
           <?php } ?>
         </li>
         <li>
@@ -62,7 +63,7 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
     </nav>
   </header>
 
-   <section class="cabecalho">
+  <section class="cabecalho">
     <img src="img/cabecalhositebentley.jpg" alt="Bentley Brasil">
   </section>
 
