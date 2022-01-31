@@ -32,7 +32,7 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
           <?php if (isset($_SESSION['id'])) { ?>
             <!-- <a class="nav-link" href="sair.php"><a style="white-space: nowrap;" href="usuarioLogado.php">Meu
                 Perfil</a></a> -->
-            <a class="nav-link" href="sair.php" href="usuarioLogado.php">Meu Perfil</a>
+            <a class="nav-link" href="usuarioLogado.php">Meu Perfil</a>
           <?php } ?>
         </li>
         <li>

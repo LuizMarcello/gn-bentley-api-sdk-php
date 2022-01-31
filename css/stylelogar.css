@@ -143,9 +143,9 @@ footer {
     flex-direction: column;
     background-color: #191c03;
     align-items: center;
-    /*  height: 8%; */
+    height: 12%;
     width: 100%;
-    padding-top: 20px;
+    /* padding-top: 40px; */
     box-shadow: 0px 0px 5px black;
     z-index: 1;
     position: fixed;
@@ -154,7 +154,7 @@ footer {
 
 footer ul {
     display: flex;
-    margin-bottom: 25px;
+   /*  margin-bottom: 45px; */
 }
 
 footer ul li a {
@@ -166,8 +166,7 @@ footer ul li a {
 footer p {
     color: #c3c63b;
     text-align: center;
-    padding-bottom: 35px;
-}
+    }
 
 /* MEDIA QUERIES */
 

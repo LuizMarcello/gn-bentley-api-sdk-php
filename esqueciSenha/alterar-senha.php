@@ -44,11 +44,11 @@
 
           <h1>Alteração da senha</h1>
 
-          <label>Email</label><br>
+          <label>Repita seu e-mail cadastrado</label><br>
           <input type="text" size="37" name="email" /><br><br>
 
           <label>Nova Senha</label><br>
-          <input type="password" size="37" name="senha" id="senha" /><br>
+          <input type="password" size="37" autocomplete="new-password" name="senha" id="senha" /><br>
           <button onclick="mostrarASenha()" type="button" id="mostrarrSenha" class="btn btn-primary botao btn-sm">
             Mostrar Senha</button><br><br>
 
