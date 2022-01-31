@@ -83,7 +83,7 @@ $u->conectar("gerencianet_usuarios", "localhost", "root", "P@ssw0rd");
         <input type="email" name="email" placeholder="Usuário">
         <div style="position: relative;">
 
-          <input type="password" name="senha_usuario" id="pass" placeholder="Senha">
+          <input type="password" name="senha_usuario" id="pass" autocomplete="new-password" placeholder="Senha">
           <button onclick="mostrarASenha()" type="button" id="mostrarrSenha"
             class="btn btn-primary botao btn-sm">Mostrar Senha</button>
           <!-- <img style="position: absolute;" src="https://cdn0.iconfinder.com/data/icons/ui-icons-pack/100/ui-icon-pack-14-512.png"
